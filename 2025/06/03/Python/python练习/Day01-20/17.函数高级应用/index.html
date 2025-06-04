@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>17函数的高级应用 | 一个水瓶的灌装之路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="尝试使用函数的更高级应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="17函数的高级应用">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/17.%E5%87%BD%E6%95%B0%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/">
+<meta property="og:site_name" content="一个水瓶的灌装之路">
+<meta property="og:description" content="尝试使用函数的更高级应用">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-06-03T11:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-03T03:13:17.281Z">
+<meta property="article:author" content="水瓶">
+<meta property="article:tag" content="成长，记录，技术，分享">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/waterbottle/atom.xml" title="一个水瓶的灌装之路" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/waterbottle/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/waterbottle/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/waterbottle/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/waterbottle/" id="logo">一个水瓶的灌装之路</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/waterbottle/">Home</a>
+        
+          <a class="main-nav-link" href="/waterbottle/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/waterbottle/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://LIKEMIKUSAMA.github.io/waterbottle"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Python/python练习/Day01-20/17.函数高级应用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/17.%E5%87%BD%E6%95%B0%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2025-06-03T11:00:00.000Z" itemprop="datePublished">2025-06-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/waterbottle/categories/Python/">Python</a>►<a class="article-category-link" href="/waterbottle/categories/Python/Python%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%83%E4%B9%A0/">Python部署与练习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      17函数的高级应用
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>尝试使用函数的更高级应用</p>
+<span id="more"></span>
+<h2 id="函数高级应用"><a href="#函数高级应用" class="headerlink" title="函数高级应用"></a>函数高级应用</h2><p>在上一个章节中，我们探索了 Python 中的高阶函数，相信大家对函数的定义和应用有了更深刻的认知。本章我们继续为大家讲解函数相关的知识，一个是 Python 中的特色语法装饰器，一个是函数的递归调用。</p>
+<h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><p>Python 语言中，装饰器是“<strong>用一个函数装饰另外一个函数并为其提供额外的能力</strong>”的语法现象。装饰器本身是一个函数，它的参数是被装饰的函数，它的返回值是一个带有装饰功能的函数。通过前面的描述，相信大家已经听出来了，装饰器是一个高阶函数，它的参数和返回值都是函数。但是，装饰器的概念对编程语言的初学者来说，还是让人头疼的，下面我们先通过一个简单的例子来说明装饰器的作用。假设有名为<code>downlaod</code>和<code>upload</code>的两个函数，分别用于文件的上传和下载，如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">download</span>(<span class="params">filename</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;下载文件&quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;开始下载<span class="subst">&#123;filename&#125;</span>.&#x27;</span>)</span><br><span class="line">    time.sleep(random.random() * <span class="number">6</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;filename&#125;</span>下载完成.&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">upload</span>(<span class="params">filename</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;上传文件&quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;开始上传<span class="subst">&#123;filename&#125;</span>.&#x27;</span>)</span><br><span class="line">    time.sleep(random.random() * <span class="number">8</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;filename&#125;</span>上传完成.&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">download(<span class="string">&#x27;MySQL从删库到跑路.avi&#x27;</span>)</span><br><span class="line">upload(<span class="string">&#x27;Python从入门到住院.pdf&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：上面的代码用休眠一段随机时间的方式模拟了下载和上传文件需要花费一定的时间，并没有真正的联网上传下载文件。用 Python 语言实现联网上传下载文件也非常简单，后面我们会讲到相关的知识。</p>
+</blockquote>
+<p>现在有一个新的需求，我们希望知道调用<code>download</code>和<code>upload</code>函数上传下载文件到底用了多少时间，这应该如何实现呢？相信很多小伙伴已经想到了，我们可以在函数开始执行的时候记录一个时间，在函数调用结束后记录一个时间，两个时间相减就可以计算出下载或上传的时间，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">start = time.time()</span><br><span class="line">download(<span class="string">&#x27;MySQL从删库到跑路.avi&#x27;</span>)</span><br><span class="line">end = time.time()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;花费时间: <span class="subst">&#123;end - start:<span class="number">.2</span>f&#125;</span>秒&#x27;</span>)</span><br><span class="line">start = time.time()</span><br><span class="line">upload(<span class="string">&#x27;Python从入门到住院.pdf&#x27;</span>)</span><br><span class="line">end = time.time()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;花费时间: <span class="subst">&#123;end - start:<span class="number">.2</span>f&#125;</span>秒&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>通过上面的代码，我们可以在下载和上传文件时记录下耗费的时间，但不知道大家是否注意到，上面记录时间、计算和显示执行时间的代码都是重复代码。有编程经验的人都知道，<strong>重复的代码是万恶之源</strong>，那么有没有办法在不写重复代码的前提下，用一种简单优雅的方式记录下函数的执行时间呢？在 Python 语言中，装饰器就是解决这类问题的最佳选择。通过装饰器语法，我们可以把跟原来的业务（上传和下载）没有关系计时功能的代码封装到一个函数中，如果<code>upload</code>和<code>download</code>函数需要记录时间，我们直接把装饰器作用到这两个函数上即可。既然上面提到了，装饰器是一个高阶函数，它的参数和返回值都是函数，我们将记录时间的装饰器姑且命名为<code>record_time</code>，那么它的整体结构应该如下面的代码所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">record_time</span>(<span class="params">func</span>):</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        </span><br><span class="line">        result = func(*args, **kwargs)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br></pre></td></tr></table></figure>
+
+<p>相信大家注意到了，<code>record_time</code>函数的参数<code>func</code>代表了一个被装饰的函数，函数里面定义的<code>wrapper</code>函数是带有装饰功能的函数，它会执行被装饰的函数<code>func</code>，它还需要返回在最后产生函数执行的返回值。不知大家是否留意到，上面的代码我在第4行和第6行留下了两个空行，这意味着我们可以这些地方添加代码来实现额外的功能。<code>record_time</code>函数最终会返回这个带有装饰功能的函数<code>wrapper</code>并通过它替代原函数<code>func</code>，当原函数<code>func</code>被<code>record_time</code>函数装饰后，我们调用它时其实调用的是<code>wrapper</code>函数，所以才获得了额外的能力。<code>wrapper</code>函数的参数比较特殊，由于我们要用<code>wrapper</code>替代原函数<code>func</code>，但是我们又不清楚原函数<code>func</code>会接受哪些参数，所以我们就通过可变参数和关键字参数照单全收，然后在调用<code>func</code>的时候，原封不动的全部给它。这里还要强调一下，Python 语言支持函数的嵌套定义，就像上面，我们可以在<code>record_time</code>函数中定义<code>wrapper</code>函数，这个操作在很多编程语言中并不被支持。</p>
+<p>看懂这个结构后，我们就可以把记录时间的功能写到这个装饰器中，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">record_time</span>(<span class="params">func</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        <span class="comment"># 在执行被装饰的函数之前记录开始时间</span></span><br><span class="line">        start = time.time()</span><br><span class="line">        <span class="comment"># 执行被装饰的函数并获取返回值</span></span><br><span class="line">        result = func(*args, **kwargs)</span><br><span class="line">        <span class="comment"># 在执行被装饰的函数之后记录结束时间</span></span><br><span class="line">        end = time.time()</span><br><span class="line">        <span class="comment"># 计算和显示被装饰函数的执行时间</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;func.__name__&#125;</span>执行时间: <span class="subst">&#123;end - start:<span class="number">.2</span>f&#125;</span>秒&#x27;</span>)</span><br><span class="line">        <span class="comment"># 返回被装饰函数的返回值</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br></pre></td></tr></table></figure>
+
+<p>写装饰器虽然颇费周折，但是这是个一劳永逸的骚操作，将来再有记录函数执行时间的需求时，我们只需要添加上面的装饰器即可。使用上面的装饰器函数有两种方式，第一种方式就是直接调用装饰器函数，传入被装饰的函数并获得返回值，我们可以用这个返回值直接替代原来的函数，那么在调用时就已经获得了装饰器提供的额外的能力（记录执行时间），大家试试下面的代码就明白了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">download = record_time(download)</span><br><span class="line">upload = record_time(upload)</span><br><span class="line">download(<span class="string">&#x27;MySQL从删库到跑路.avi&#x27;</span>)</span><br><span class="line">upload(<span class="string">&#x27;Python从入门到住院.pdf&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在 Python 中，使用装饰器很有更为便捷的<strong>语法糖</strong>（编程语言中添加的某种语法，这种语法对语言的功能没有影响，但是使用更加方法，代码的可读性也更强，我们将其称之为“语法糖”或“糖衣语法”），可以用<code>@装饰器函数</code>将装饰器函数直接放在被装饰的函数上，效果跟上面的代码相同。我们把完整的代码为大家罗列出来，大家可以再看看我们是如何定义和使用装饰器的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">record_time</span>(<span class="params">func</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        start = time.time()</span><br><span class="line">        result = func(*args, **kwargs)</span><br><span class="line">        end = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;func.__name__&#125;</span>执行时间: <span class="subst">&#123;end - start:<span class="number">.2</span>f&#125;</span>秒&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@record_time</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">download</span>(<span class="params">filename</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;开始下载<span class="subst">&#123;filename&#125;</span>.&#x27;</span>)</span><br><span class="line">    time.sleep(random.random() * <span class="number">6</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;filename&#125;</span>下载完成.&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@record_time</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">upload</span>(<span class="params">filename</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;开始上传<span class="subst">&#123;filename&#125;</span>.&#x27;</span>)</span><br><span class="line">    time.sleep(random.random() * <span class="number">8</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;filename&#125;</span>上传完成.&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">download(<span class="string">&#x27;MySQL从删库到跑路.avi&#x27;</span>)</span><br><span class="line">upload(<span class="string">&#x27;Python从入门到住院.pdf&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码，我们通过装饰器语法糖为<code>download</code>和<code>upload</code>函数添加了装饰器，被装饰后的<code>download</code>和<code>upload</code>函数其实就是我们在装饰器中返回的<code>wrapper</code>函数，调用它们其实就是在调用<code>wrapper</code>函数，所以才有了记录函数执行时间的功能。</p>
+<p>如果在代码的某些地方，我们想去掉装饰器的作用执行原函数，那么在定义装饰器函数的时候，需要做一点点额外的工作。Python 标准库<code>functools</code>模块的<code>wraps</code>函数也是一个装饰器，我们将它放在<code>wrapper</code>函数上，这个装饰器可以帮我们保留被装饰之前的函数，这样在需要取消装饰器时，可以通过被装饰函数的<code>__wrapped__</code>属性获得被装饰之前的函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">record_time</span>(<span class="params">func</span>):</span><br><span class="line"></span><br><span class="line"><span class="meta">    @wraps(<span class="params">func</span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        start = time.time()</span><br><span class="line">        result = func(*args, **kwargs)</span><br><span class="line">        end = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;func.__name__&#125;</span>执行时间: <span class="subst">&#123;end - start:<span class="number">.2</span>f&#125;</span>秒&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@record_time</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">download</span>(<span class="params">filename</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;开始下载<span class="subst">&#123;filename&#125;</span>.&#x27;</span>)</span><br><span class="line">    time.sleep(random.random() * <span class="number">6</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;filename&#125;</span>下载完成.&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@record_time</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">upload</span>(<span class="params">filename</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;开始上传<span class="subst">&#123;filename&#125;</span>.&#x27;</span>)</span><br><span class="line">    time.sleep(random.random() * <span class="number">8</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;filename&#125;</span>上传完成.&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用装饰后的函数会记录执行时间</span></span><br><span class="line">download(<span class="string">&#x27;MySQL从删库到跑路.avi&#x27;</span>)</span><br><span class="line">upload(<span class="string">&#x27;Python从入门到住院.pdf&#x27;</span>)</span><br><span class="line"><span class="comment"># 取消装饰器的作用不记录执行时间</span></span><br><span class="line">download.__wrapped__(<span class="string">&#x27;MySQL必知必会.pdf&#x27;</span>)</span><br><span class="line">upload.__wrapped__(<span class="string">&#x27;Python从新手到大师.pdf&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>装饰器函数本身也可以参数化</strong>，简单的说就是装饰器也是可以通过调用者传入的参数来进行定制的，这个知识点我们在后面用到的时候再为大家讲解。</p>
+<h3 id="递归调用"><a href="#递归调用" class="headerlink" title="递归调用"></a>递归调用</h3><p>Python 中允许函数嵌套定义，也允许函数之间相互调用，而且一个函数还可以直接或间接的调用自身。函数自己调用自己称为递归调用，那么递归调用有什么用处呢？现实中，有很多问题的定义本身就是一个递归定义，例如我们之前讲到的阶乘，非负整数<code>N</code>的阶乘是<code>N</code>乘以<code>N-1</code>的阶乘，即 $\small{N! &#x3D; N \times (N-1)!}$ ，定义的左边和右边都出现了阶乘的概念，所以这是一个递归定义。既然如此，我们可以使用递归调用的方式来写一个求阶乘的函数，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fac</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="keyword">if</span> num <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> num * fac(num - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码中，<code>fac</code>函数中又调用了<code>fac</code>函数，这就是所谓的递归调用。代码第2行的<code>if</code>条件叫做递归的收敛条件，简单的说就是什么时候要结束函数的递归调用，在计算阶乘时，如果计算到<code>0</code>或<code>1</code>的阶乘，就停止递归调用，直接返回<code>1</code>；代码第4行的<code>num * fac(num - 1)</code>是递归公式，也就是阶乘的递归定义。下面，我们简单的分析下，如果用<code>fac(5)</code>计算<code>5</code>的阶乘，整个过程会是怎样的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 递归调用函数入栈</span></span><br><span class="line"><span class="comment"># 5 * fac(4)</span></span><br><span class="line"><span class="comment"># 5 * (4 * fac(3))</span></span><br><span class="line"><span class="comment"># 5 * (4 * (3 * fac(2)))</span></span><br><span class="line"><span class="comment"># 5 * (4 * (3 * (2 * fac(1))))</span></span><br><span class="line"><span class="comment"># 停止递归函数出栈</span></span><br><span class="line"><span class="comment"># 5 * (4 * (3 * (2 * 1)))</span></span><br><span class="line"><span class="comment"># 5 * (4 * (3 * 2))</span></span><br><span class="line"><span class="comment"># 5 * (4 * 6)</span></span><br><span class="line"><span class="comment"># 5 * 24</span></span><br><span class="line"><span class="comment"># 120</span></span><br><span class="line"><span class="built_in">print</span>(fac(<span class="number">5</span>))    <span class="comment"># 120</span></span><br></pre></td></tr></table></figure>
+
+<p>注意，函数调用会通过内存中称为“栈”（stack）的数据结构来保存当前代码的执行现场，函数调用结束后会通过这个栈结构恢复之前的执行现场。栈是一种先进后出的数据结构，这也就意味着最早入栈的函数最后才会返回，而最后入栈的函数会最先返回。例如调用一个名为<code>a</code>的函数，函数<code>a</code>的执行体中又调用了函数<code>b</code>，函数<code>b</code>的执行体中又调用了函数<code>c</code>，那么最先入栈的函数是<code>a</code>，最先出栈的函数是<code>c</code>。每进入一个函数调用，栈就会增加一层栈帧（stack frame），栈帧就是我们刚才提到的保存当前代码执行现场的结构；每当函数调用结束后，栈就会减少一层栈帧。通常，内存中的栈空间很小，因此递归调用的次数如果太多，会导致栈溢出（stack overflow），所以<strong>递归调用一定要确保能够快速收敛</strong>。我们可以尝试执行<code>fac(5000)</code>，看看是不是会提示<code>RecursionError</code>错误，错误消息为：<code>maximum recursion depth exceeded in comparison</code>（超出最大递归深度），其实就是发生了栈溢出。</p>
+<p>如果我们使用官方的 Python 解释器（CPython），默认将函数调用的栈结构最大深度设置为<code>1000</code>层。如果超出这个深度，就会发生上面说的<code>RecursionError</code>。当然，我们可以使用<code>sys</code>模块的<code>setrecursionlimit</code>函数来改变递归调用的最大深度，但是我们不建议这样做，因为让递归快速收敛才是我们应该做的事情，否则就应该考虑使用循环递推而不是递归。</p>
+<p>再举一个之前讲过的生成斐波那契数列的例子，因为斐波那契数列前两个数都是<code>1</code>，从第三个数开始，每个数是前两个数相加的和，可以记为<code>f(n) = f(n - 1) + f(n - 2)</code>，很显然这又是一个递归的定义，所以我们可以用下面的递归调用函数来计算第​<code>n</code>个斐波那契数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fib1</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> fib1(n - <span class="number">1</span>) + fib1(n - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">21</span>):</span><br><span class="line">    <span class="built_in">print</span>(fib1(i))</span><br></pre></td></tr></table></figure>
+
+<p>需要提醒大家，上面计算斐波那契数的代码虽然看起来非常简单明了，但执行性能是比较糟糕的。大家可以试一试，把上面代码<code>for</code>循环中<code>range</code>函数的第二个参数修改为<code>51</code>，即输出前50个斐波那契数，看看需要多长时间，也欢迎大家在评论区留下你的代码执行时间。至于为什么这么慢，大家可以自己思考一下原因。很显然，直接使用循环递推的方式获得斐波那契数列是更好的选择，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fib2</span>(<span class="params">n</span>):</span><br><span class="line">    a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        a, b = b, a + b</span><br><span class="line">    <span class="keyword">return</span> a</span><br></pre></td></tr></table></figure>
+
+<p>除此以外，我们还可以使用 Python 标准库中<code>functools</code>模块的<code>lru_cache</code>函数来优化上面的递归代码。<code>lru_cache</code>函数是一个装饰器函数，我们将其置于上面的函数<code>fib1</code>之上，它可以缓存该函数的执行结果从而避免在递归调用的过程中产生大量的重复运算，这样代码的执行性能就有“飞一般”的提升。大家可以尝试输出前50个斐波那契数，看看加上装饰器以后代码需要执行多长时间，评论区见！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> lru_cache</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@lru_cache()</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fib1</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> fib1(n - <span class="number">1</span>) + fib1(n - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">51</span>):</span><br><span class="line">    <span class="built_in">print</span>(i, fib1(i))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>提示</strong>：<code>lru_cache</code>函数是一个带参数的装饰器，所以上面第4行代码使用装饰器语法糖时，<code>lru_cache</code>后面要跟上圆括号。<code>lru_cache</code>函数有一个非常重要的参数叫<code>maxsize</code>，它可以用来定义缓存空间的大小，默认值是128。</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>装饰器是 Python 语言中的特色语法，<strong>可以通过装饰器来增强现有的函数</strong>，这是一种非常有用的编程技巧。另一方面，通过函数递归调用，可以在代码层面将一些复杂的问题简单化，但是<strong>递归调用一定要注意收敛条件和递归公式</strong>，找到递归公式才有机会使用递归调用，而收敛条件则确保了递归调用能停下来。函数调用通过内存中的栈空间来保存现场和恢复现场，栈空间通常都很小，所以<strong>递归如果不能迅速收敛，很可能会引发栈溢出错误，从而导致程序的崩溃</strong>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://likemikusama.github.io/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/17.%E5%87%BD%E6%95%B0%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/" data-id="cmbholwnj001mooht1decaa1t" data-title="17函数的高级应用" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/16.%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8%E8%BF%9B%E9%98%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          16函数的进阶使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/18.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">18面向对象编程的介绍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Gitee%E6%8C%87%E5%8D%97/">Gitee指南</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/HarmonyOS/">HarmonyOS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/HarmonyOS/ArkTS/">ArkTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Hexo%E5%B8%AE%E5%8A%A9/">Hexo帮助</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Hexo%E5%B8%AE%E5%8A%A9%E6%89%8B%E5%86%8C/">Hexo帮助手册</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/Linux%E7%BB%83%E4%B9%A0%E9%A2%98/">Linux练习题</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE/">命令配置</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85/">常用工具和软件包</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/MongoDB/">MongoDB</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/MongoDB/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">常用命令</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/Python%E5%B0%8F%E6%8A%80%E5%B7%A7/">Python小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/Python%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%83%E4%B9%A0/">Python部署与练习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/windows%E7%B3%BB%E7%BB%9F/">windows系统</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">从零搭建博客</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/%E5%B7%A5%E4%BD%9C%E5%B8%B8%E7%94%A8/">工作常用</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/waterbottle/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/" rel="tag">工作日常</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/waterbottle/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/" style="font-size: 10px;">工作日常</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2023/12/">December 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/05.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/">05分支结构</a>
+          </li>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/06.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/">06循环结构</a>
+          </li>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/07.%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E5%AE%9E%E6%88%98/">07分支和循环结构练习</a>
+          </li>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/09.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%88%97%E8%A1%A8-2/">09常用数据结构--列表（二）</a>
+          </li>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/10.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%85%83%E7%BB%84/">10常用数据结构--元组</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 水瓶<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/waterbottle/" class="mobile-nav-link">Home</a>
+  
+    <a href="/waterbottle/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/waterbottle/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/waterbottle/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/waterbottle/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

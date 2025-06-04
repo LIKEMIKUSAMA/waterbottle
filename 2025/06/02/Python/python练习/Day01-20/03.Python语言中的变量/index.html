@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>03Python语言中的变量 | 一个水瓶的灌装之路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="认识Python中的变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03Python语言中的变量">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/2025/06/02/Python/python%E7%BB%83%E4%B9%A0/Day01-20/03.Python%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F/">
+<meta property="og:site_name" content="一个水瓶的灌装之路">
+<meta property="og:description" content="认识Python中的变量">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-06-02T11:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-03T02:50:42.670Z">
+<meta property="article:author" content="水瓶">
+<meta property="article:tag" content="成长，记录，技术，分享">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/waterbottle/atom.xml" title="一个水瓶的灌装之路" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/waterbottle/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/waterbottle/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/waterbottle/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/waterbottle/" id="logo">一个水瓶的灌装之路</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/waterbottle/">Home</a>
+        
+          <a class="main-nav-link" href="/waterbottle/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/waterbottle/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://LIKEMIKUSAMA.github.io/waterbottle"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Python/python练习/Day01-20/03.Python语言中的变量" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/waterbottle/2025/06/02/Python/python%E7%BB%83%E4%B9%A0/Day01-20/03.Python%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F/" class="article-date">
+  <time class="dt-published" datetime="2025-06-02T11:00:00.000Z" itemprop="datePublished">2025-06-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/waterbottle/categories/Python/">Python</a>►<a class="article-category-link" href="/waterbottle/categories/Python/Python%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%83%E4%B9%A0/">Python部署与练习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      03Python语言中的变量
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>认识Python中的变量</p>
+<span id="more"></span>
+<h2 id="Python语言中的变量"><a href="#Python语言中的变量" class="headerlink" title="Python语言中的变量"></a>Python语言中的变量</h2><p>对于想学习编程的新手来说，有两个问题可能是他们很想知道的，其一是“什么是（计算机）程序”，其二是“写（计算机）程序能做什么”。先说说我对这两个问题的理解：<strong>程序是数据和指令的有序集合</strong>，<strong>写程序就是用数据和指令控制计算机做我们想让它做的事情</strong>。今时今日，为什么有那么多人选择用 Python 语言来写程序，因为 Python 语言足够简单和强大。相较于 C、C++、Java 这样的编程语言，Python 对初学者和非专业人士更加友好，很多问题在 Python 语言中都能找到简单优雅的解决方案。接下来，我们就从最基础的语言元素开始，带大家认识和使用 Python 语言。</p>
+<h3 id="一些常识"><a href="#一些常识" class="headerlink" title="一些常识"></a>一些常识</h3><p>在开始系统的学习 Python 编程之前，我们先来科普一些计算机的基础知识。计算机的硬件系统通常由五大部件构成，包括：<strong>运算器</strong>、<strong>控制器</strong>、<strong>存储器</strong>、<strong>输入设备</strong>和<strong>输出设备</strong>。其中，运算器和控制器放在一起就是我们常说的<strong>中央处理器</strong>（CPU），它的功能是执行各种运算和控制指令。刚才我们提到过，程序是指令的集合，写程序就是将一系列的指令按照某种方式组织到一起，然后通过这些指令去控制计算机做我们想让它做的事情。存储器可以分为<strong>内部存储器</strong>和<strong>外部存储器</strong>，前者就是我们常说的内存，它是中央处理器可以直接寻址的存储空间，程序在执行的过程中，对应的数据和指令需要加载到内存中。输入设备和输出设备经常被统称为 I&#x2F;O 设备，键盘、鼠标、麦克风、摄像头是典型的输入设备，而显示器、打印机、扬声器等则是典型的输出设备。目前，我们使用的计算机基本大多是遵循“冯·诺依曼体系结构”的计算机，这种计算机有两个关键点：一是<strong>将存储器与中央处理器分开</strong>；二是<strong>将数据以二进制方式编码</strong>。</p>
+<p>二进制是一种“逢二进一”的计数法，跟人类使用的“逢十进一”的计数法本质是一样的。人类因为有十根手指，所以使用了十进制计数法，在计数时十根手指用完之后，就只能用进位的方式来表示更大的数值。当然凡事都有例外，玛雅人可能是因为长年光着脚的原因，把脚趾头也都用上了，于是他们使用了二十进制的计数法。基于这样的计数方式，玛雅人使用的历法跟我们平常使用的历法就产生了差异。按照玛雅人的历法，2012 年是上一个所谓的“太阳纪”的最后一年，而 2013 年则是新的“太阳纪”的开始。后来这件事情还被以讹传讹的方式误传为“2012 年是玛雅人预言的世界末日”的荒诞说法。今天有很多人猜测，玛雅文明之所以发展缓慢跟使用了二十进制是有关系的。对于计算机来说，二进制在物理器件上最容易实现的，因为可以用高电压表示 1，用低电压表示 0。不是所有写程序的人都需要熟悉二进制，熟悉十进制与二进制、八进制、十六进制的转换，大多数时候我们即便不了解这些知识也能写程序。但是，我们必须知道，计算机是使用二进制计数的，不管什么样的数据，到了计算机内存中都是以二进制形态存在的。</p>
+<blockquote>
+<p><strong>说明</strong>：关于二进制计数法以及它与其他进制如何相互转换，大家可以翻翻名为《计算机导论》或《计算机文化》的书，都能找到相应的知识，此处就不再进行赘述了，不清楚的读者可以自行研究。</p>
+</blockquote>
+<h3 id="变量和类型"><a href="#变量和类型" class="headerlink" title="变量和类型"></a>变量和类型</h3><p>要想在计算机的内存中保存数据，首先得说一说变量这个概念。在编程语言中，<strong>变量是数据的载体</strong>，简单的说就是一块用来保存数据的内存空间，<strong>变量的值可以被读取和修改</strong>，这是所有运算和控制的基础。计算机能处理的数据有很多种类型，最常见的就是数值，除了数值之外还有文本、图像、音频、视频等各种各样的数据类型。虽然数据在计算机中都是以二进制形态存在的，但是我们可以用不同类型的变量来表示数据类型的差异。Python 语言中预设了多种数据类型，也允许我们自定义新的数据类型，这一点在后面会讲到。我们首先来了解几种 Python 中最为常用的数据类型。</p>
+<ol>
+<li><p>整型（<code>int</code>）：Python 中可以处理任意大小的整数，而且支持二进制（如<code>0b100</code>，换算成十进制是4）、八进制（如<code>0o100</code>，换算成十进制是64）、十进制（<code>100</code>）和十六进制（<code>0x100</code>，换算成十进制是256）的表示法。运行下面的代码，看看会输出什么。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">0b100</span>)  <span class="comment"># 二进制整数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">0o100</span>)  <span class="comment"># 八进制整数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">100</span>)    <span class="comment"># 十进制整数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">0x100</span>)  <span class="comment"># 十六进制整数</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>浮点型（<code>float</code>）：浮点数也就是小数，之所以称为浮点数，是因为按照科学记数法表示时，一个浮点数的小数点位置是可变的，浮点数除了数学写法（如<code>123.456</code>）之外还支持科学计数法（如<code>1.23456e2</code>，表示$\small{1.23456 \times 10^{2}}$）。运行下面的代码，看看会输出什么。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">123.456</span>)    <span class="comment"># 数学写法</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">1.23456e2</span>)  <span class="comment"># 科学计数法</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串型（<code>str</code>）：字符串是以单引号或双引号包裹起来的任意文本，比如<code>&#39;hello&#39;</code>和<code>&quot;hello&quot;</code>。</p>
+</li>
+<li><p>布尔型（<code>bool</code>）：布尔型只有<code>True</code>、<code>False</code>两种值，要么是<code>True</code>，要么是<code>False</code>，可以用来表示现实世界中的“是”和“否”，命题的“真”和“假”，状况的“好”与“坏”，水平的“高”与“低”等等。如果一个变量的值只有两种状态，我们就可以使用布尔型。</p>
+</li>
+</ol>
+<h3 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h3><p>对于每个变量，我们都需要给它取一个名字，就如同我们每个人都有自己的名字一样。在 Python 中，变量命名需要遵循以下的规则和惯例。</p>
+<ul>
+<li>规则部分：<ul>
+<li>规则1：变量名由<strong>字母</strong>、<strong>数字</strong>和<strong>下划线</strong>构成，数字不能开头。需要说明的是，这里说的字母指的是 Unicode 字符，Unicode 称为万国码，囊括了世界上大部分的文字系统，这也就意味着中文、日文、希腊字母等都可以作为变量名中的字符，但是一些特殊字符（如：<code>！</code>、<code>@</code>、<code>#</code>等）是不能出现在变量名中的。我们强烈建议大家把这里说的字母理解为<strong>尽可能只使用英文字母</strong>。</li>
+<li>规则2：Python 是<strong>大小写敏感</strong>的编程语言，简单的说就是大写的<code>A</code>和小写的<code>a</code>是两个不同的变量，这一条其实并不算规则，而是需要大家注意的地方。</li>
+<li>规则3：变量名<strong>不要跟 Python 的关键字重名</strong>，<strong>尽可能避开 Python 的保留字</strong>。这里的关键字是指在 Python 程序中有特殊含义的单词（如：<code>is</code>、<code>if</code>、<code>else</code>、<code>for</code>、<code>while</code>、<code>True</code>、<code>False</code>等），保留字主要指 Python 语言内置函数、内置模块等的名字（如：<code>int</code>、<code>print</code>、<code>input</code>、<code>str</code>、<code>math</code>、<code>os</code>等）。</li>
+</ul>
+</li>
+<li>惯例部分：<ul>
+<li>惯例1：变量名通常使用<strong>小写英文字母</strong>，<strong>多个单词用下划线进行连接</strong>。</li>
+<li>惯例2：受保护的变量用单个下划线开头。</li>
+<li>惯例3：私有的变量用两个下划线开头。</li>
+</ul>
+</li>
+</ul>
+<p>惯例2和惯例3大家暂时不用管，讲到后面自然会明白的。当然，作为一个专业的程序员，给变量命名时做到<strong>见名知意</strong>也是非常重要，这彰显了一个程序员的专业气质，很多开发岗位的面试也非常看重这一点。</p>
+<h3 id="变量的使用"><a href="#变量的使用" class="headerlink" title="变量的使用"></a>变量的使用</h3><p>下面通过例子来说明变量的类型和变量的使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">使用变量保存数据并进行加减乘除运算</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Version: 1.0</span></span><br><span class="line"><span class="string">Author: 骆昊</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">a = <span class="number">45</span>        <span class="comment"># 定义变量a，赋值45</span></span><br><span class="line">b = <span class="number">12</span>        <span class="comment"># 定义变量b，赋值12</span></span><br><span class="line"><span class="built_in">print</span>(a, b)   <span class="comment"># 45 12</span></span><br><span class="line"><span class="built_in">print</span>(a + b)  <span class="comment"># 57</span></span><br><span class="line"><span class="built_in">print</span>(a - b)  <span class="comment"># 33</span></span><br><span class="line"><span class="built_in">print</span>(a * b)  <span class="comment"># 540</span></span><br><span class="line"><span class="built_in">print</span>(a / b)  <span class="comment"># 3.75</span></span><br></pre></td></tr></table></figure>
+
+<p>在 Python 中可以使用<code>type</code>函数对变量的类型进行检查。程序设计中函数的概念跟数学上函数的概念非常类似，数学上的函数相信大家并不陌生，它包括了函数名、自变量和因变量。如果暂时不理解函数这个概念也不要紧，我们会在后续的内容中专门讲解函数的定义和使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">使用type函数检查变量的类型</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Version: 1.0</span></span><br><span class="line"><span class="string">Author: 骆昊</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">a = <span class="number">100</span></span><br><span class="line">b = <span class="number">123.45</span></span><br><span class="line">c = <span class="string">&#x27;hello, world&#x27;</span></span><br><span class="line">d = <span class="literal">True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))  <span class="comment"># &lt;class &#x27;int&#x27;&gt;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(b))  <span class="comment"># &lt;class &#x27;float&#x27;&gt;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(c))  <span class="comment"># &lt;class &#x27;str&#x27;&gt;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(d))  <span class="comment"># &lt;class &#x27;bool&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以通过 Python 内置的函数来改变变量的类型，下面是一些常用的和变量类型相关的函数。</p>
+<ul>
+<li><code>int()</code>：将一个数值或字符串转换成整数，可以指定进制。</li>
+<li><code>float()</code>：将一个字符串（在可能的情况下）转换成浮点数。</li>
+<li><code>str()</code>：将指定的对象转换成字符串形式，可以指定编码方式。</li>
+<li><code>chr()</code>：将整数（字符编码）转换成对应的（一个字符的）字符串。</li>
+<li><code>ord()</code>：将（一个字符的）字符串转换成对应的整数（字符编码）。</li>
+</ul>
+<p>下面的例子为大家演示了 Python 中类型转换的操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">变量的类型转换操作</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Version: 1.0</span></span><br><span class="line"><span class="string">Author: 骆昊</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">a = <span class="number">100</span></span><br><span class="line">b = <span class="number">123.45</span></span><br><span class="line">c = <span class="string">&#x27;123&#x27;</span></span><br><span class="line">d = <span class="string">&#x27;100&#x27;</span></span><br><span class="line">e = <span class="string">&#x27;123.45&#x27;</span></span><br><span class="line">f = <span class="string">&#x27;hello, world&#x27;</span></span><br><span class="line">g = <span class="literal">True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">float</span>(a))         <span class="comment"># int类型的100转成float，输出100.0</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(b))           <span class="comment"># float类型的123.45转成int，输出123</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(c))           <span class="comment"># str类型的&#x27;123&#x27;转成int，输出123</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(c, base=<span class="number">16</span>))  <span class="comment"># str类型的&#x27;123&#x27;按十六进制转成int，输出291</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(d, base=<span class="number">2</span>))   <span class="comment"># str类型的&#x27;100&#x27;按二进制转成int，输出4</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">float</span>(e))         <span class="comment"># str类型的&#x27;123.45&#x27;转成float，输出123.45</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(f))          <span class="comment"># str类型的&#x27;hello, world&#x27;转成bool，输出True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(g))           <span class="comment"># bool类型的True转成int，输出1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">chr</span>(a))           <span class="comment"># int类型的100转成str，输出&#x27;d&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(<span class="string">&#x27;d&#x27;</span>))         <span class="comment"># str类型的&#x27;d&#x27;转成int，输出100</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：<code>str</code>类型转<code>int</code>类型时可以通过<code>base</code>参数来指定进制，可以将字符串视为对应进制的整数进行转换。<code>str</code>类型转成<code>bool</code>类型时，只要字符串有内容，不是<code>&#39;&#39;</code>或<code>&quot;&quot;</code>，对应的布尔值都是<code>True</code>。<code>bool</code>类型转<code>int</code>类型时，<code>True</code>会变成<code>1</code>，<code>False</code>会变成<code>0</code>。在 ASCII 字符集和 Unicode 字符集中， 字符<code>&#39;d&#39;</code>对应的编码都是<code>100</code>。</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在 Python 程序中，我们可以<strong>使用变量来保存数据</strong>，<strong>变量有不同的类型</strong>，常用的类型有<code>int</code>、<code>float</code>、<code>str</code>和<code>bool</code>。在有需要的情况下，可以通过 Python 内置的函数对变量进行类型转换。变量是可以做运算的，这是解决很多问题的先决条件，我们会在下一课中为大家详细介绍变量的运算。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://likemikusama.github.io/waterbottle/2025/06/02/Python/python%E7%BB%83%E4%B9%A0/Day01-20/03.Python%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F/" data-id="cmbholwnd000oooht9davdugg" data-title="03Python语言中的变量" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/20.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          20面向对象编程的应用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/waterbottle/2025/06/02/Python/python%E7%BB%83%E4%B9%A0/Day01-20/04.Python%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">04Python语言中的运算符</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Gitee%E6%8C%87%E5%8D%97/">Gitee指南</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/HarmonyOS/">HarmonyOS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/HarmonyOS/ArkTS/">ArkTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Hexo%E5%B8%AE%E5%8A%A9/">Hexo帮助</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Hexo%E5%B8%AE%E5%8A%A9%E6%89%8B%E5%86%8C/">Hexo帮助手册</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/Linux%E7%BB%83%E4%B9%A0%E9%A2%98/">Linux练习题</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE/">命令配置</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85/">常用工具和软件包</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/MongoDB/">MongoDB</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/MongoDB/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">常用命令</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/Python%E5%B0%8F%E6%8A%80%E5%B7%A7/">Python小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/Python%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%83%E4%B9%A0/">Python部署与练习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/windows%E7%B3%BB%E7%BB%9F/">windows系统</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">从零搭建博客</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/%E5%B7%A5%E4%BD%9C%E5%B8%B8%E7%94%A8/">工作常用</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/waterbottle/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/" rel="tag">工作日常</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/waterbottle/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/" style="font-size: 10px;">工作日常</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2023/12/">December 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/05.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/">05分支结构</a>
+          </li>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/06.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/">06循环结构</a>
+          </li>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/07.%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E5%AE%9E%E6%88%98/">07分支和循环结构练习</a>
+          </li>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/09.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%88%97%E8%A1%A8-2/">09常用数据结构--列表（二）</a>
+          </li>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/10.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%85%83%E7%BB%84/">10常用数据结构--元组</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 水瓶<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/waterbottle/" class="mobile-nav-link">Home</a>
+  
+    <a href="/waterbottle/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/waterbottle/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/waterbottle/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/waterbottle/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

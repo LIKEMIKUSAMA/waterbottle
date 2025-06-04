@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>18面向对象编程的介绍 | 一个水瓶的灌装之路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="初步认识面向对象编程的要点和注意点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="18面向对象编程的介绍">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/18.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/">
+<meta property="og:site_name" content="一个水瓶的灌装之路">
+<meta property="og:description" content="初步认识面向对象编程的要点和注意点。">
+<meta property="og:locale">
+<meta property="og:image" content="https://likemikusama.github.io/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/18.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/20210731182741.png">
+<meta property="og:image" content="https://likemikusama.github.io/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/18.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/20210731182914.png">
+<meta property="article:published_time" content="2025-06-03T11:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-03T03:14:43.337Z">
+<meta property="article:author" content="水瓶">
+<meta property="article:tag" content="成长，记录，技术，分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://likemikusama.github.io/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/18.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/20210731182741.png">
+  
+    <link rel="alternate" href="/waterbottle/atom.xml" title="一个水瓶的灌装之路" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/waterbottle/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/waterbottle/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/waterbottle/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/waterbottle/" id="logo">一个水瓶的灌装之路</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/waterbottle/">Home</a>
+        
+          <a class="main-nav-link" href="/waterbottle/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/waterbottle/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://LIKEMIKUSAMA.github.io/waterbottle"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Python/python练习/Day01-20/18.面向对象编程入门" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/18.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/" class="article-date">
+  <time class="dt-published" datetime="2025-06-03T11:00:00.000Z" itemprop="datePublished">2025-06-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/waterbottle/categories/Python/">Python</a>►<a class="article-category-link" href="/waterbottle/categories/Python/Python%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%83%E4%B9%A0/">Python部署与练习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      18面向对象编程的介绍
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>初步认识面向对象编程的要点和注意点。</p>
+<span id="more"></span>
+<h2 id="面向对象编程入门"><a href="#面向对象编程入门" class="headerlink" title="面向对象编程入门"></a>面向对象编程入门</h2><p>面向对象编程是一种非常流行的<strong>编程范式</strong>（programming paradigm），所谓编程范式就是<strong>程序设计的方法论</strong>，简单的说就是程序员对程序的认知和理解以及他们编写代码的方式。</p>
+<p>在前面的课程中，我们说过“<strong>程序是指令的集合</strong>”，运行程序时，程序中的语句会变成一条或多条指令，然后由CPU（中央处理器）去执行。为了简化程序的设计，我们又讲到了函数，<strong>把相对独立且经常重复使用的代码放置到函数中</strong>，在需要使用这些代码的时候调用函数即可。如果一个函数的功能过于复杂和臃肿，我们又可以进一步<strong>将函数进一步拆分为多个子函数</strong>来降低系统的复杂性。</p>
+<p>不知大家是否发现，编程其实是写程序的人按照计算机的工作方式通过代码控制机器完成任务。但是，计算机的工作方式与人类正常的思维模式是不同的，如果编程就必须抛弃人类正常的思维方式去迎合计算机，编程的乐趣就少了很多。这里，我想说的并不是我们不能按照计算机的工作方式去编写代码，但是当我们需要开发一个复杂的系统时，这种方式会让代码过于复杂，从而导致开发和维护工作都变得举步维艰。</p>
+<p>随着软件复杂性的增加，编写正确可靠的代码会变成了一项极为艰巨的任务，这也是很多人都坚信“软件开发是人类改造世界所有活动中最为复杂的活动”的原因。如何用程序描述复杂系统和解决复杂问题，就成为了所有程序员必须要思考和直面的问题。诞生于上世纪70年代的 Smalltalk 语言让软件开发者看到了希望，因为它引入了一种新的编程范式叫面向对象编程。在面向对象编程的世界里，程序中的<strong>数据和操作数据的函数是一个逻辑上的整体</strong>，我们称之为<strong>对象</strong>，<strong>对象可以接收消息</strong>，解决问题的方法就是<strong>创建对象并向对象发出各种各样的消息</strong>；通过消息传递，程序中的多个对象可以协同工作，这样就能构造出复杂的系统并解决现实中的问题。当然，面向对象编程的雏形还可以向前追溯到更早期的Simula语言，但这不是我们要讨论的重点。</p>
+<blockquote>
+<p><strong>说明：</strong> 今天我们使用的很多高级程序设计语言都支持面向对象编程，但是面向对象编程也不是解决软件开发中所有问题的“银弹”，或者说在软件开发这个行业目前还没有所谓的“银弹”。关于这个问题，大家可以参考 IBM360 系统之父弗雷德里克·布鲁克斯所发表的论文《没有银弹：软件工程的本质性与附属性工作》或软件工程的经典著作《人月神话》一书。</p>
+</blockquote>
+<h3 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h3><p>如果要用一句话来概括面向对象编程，我认为下面的说法是相当精辟和准确的。</p>
+<blockquote>
+<p><strong>面向对象编程</strong>：把一组数据和处理数据的方法组成<strong>对象</strong>，把行为相同的对象归纳为<strong>类</strong>，通过<strong>封装</strong>隐藏对象的内部细节，通过<strong>继承</strong>实现类的特化和泛化，通过<strong>多态</strong>实现基于对象类型的动态分派。</p>
+</blockquote>
+<p>这句话对初学者来说可能不那么容易理解，但是我可以先为大家圈出几个关键词：<strong>对象</strong>（object）、<strong>类</strong>（class）、<strong>封装</strong>（encapsulation）、<strong>继承</strong>（inheritance）、<strong>多态</strong>（polymorphism）。</p>
+<p>我们先说说类和对象这两个词。在面向对象编程中，<strong>类是一个抽象的概念，对象是一个具体的概念</strong>。我们把同一类对象的共同特征抽取出来就是一个类，比如我们经常说的人类，这是一个抽象概念，而我们每个人就是人类的这个抽象概念下的实实在在的存在，也就是一个对象。简而言之，<strong>类是对象的蓝图和模板，对象是类的实例，是可以接受消息的实体</strong>。</p>
+<p>在面向对象编程的世界中，<strong>一切皆为对象</strong>，<strong>对象都有属性和行为</strong>，<strong>每个对象都是独一无二的</strong>，而且<strong>对象一定属于某个类</strong>。对象的属性是对象的静态特征，对象的行为是对象的动态特征。按照上面的说法，如果我们把拥有共同特征的对象的属性和行为都抽取出来，就可以定义出一个类。</p>
+<p><img src="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/18.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/20210731182741.png" alt="18.1"></p>
+<h3 id="定义类"><a href="#定义类" class="headerlink" title="定义类"></a>定义类</h3><p>在 Python 语言中，我们可以使用<code>class</code>关键字加上类名来定义类，通过缩进我们可以确定类的代码块，就如同定义函数那样。在类的代码块中，我们需要写一些函数，我们说过类是一个抽象概念，那么这些函数就是我们对一类对象共同的动态特征的提取。写在类里面的函数我们通常称之为<strong>方法</strong>，方法就是对象的行为，也就是对象可以接收的消息。方法的第一个参数通常都是<code>self</code>，它代表了接收这个消息的对象本身。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">study</span>(<span class="params">self, course_name</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;学生正在学习<span class="subst">&#123;course_name&#125;</span>.&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">play</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;学生正在玩游戏.&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建和使用对象"><a href="#创建和使用对象" class="headerlink" title="创建和使用对象"></a>创建和使用对象</h3><p>在我们定义好一个类之后，可以使用构造器语法来创建对象，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stu1 = Student()</span><br><span class="line">stu2 = Student()</span><br><span class="line"><span class="built_in">print</span>(stu1)    <span class="comment"># &lt;__main__.Student object at 0x10ad5ac50&gt;</span></span><br><span class="line"><span class="built_in">print</span>(stu2)    <span class="comment"># &lt;__main__.Student object at 0x10ad5acd0&gt; </span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(<span class="built_in">id</span>(stu1)), <span class="built_in">hex</span>(<span class="built_in">id</span>(stu2)))    <span class="comment"># 0x10ad5ac50 0x10ad5acd0</span></span><br></pre></td></tr></table></figure>
+
+<p>在类的名字后跟上圆括号就是所谓的构造器语法，上面的代码创建了两个学生对象，一个赋值给变量<code>stu1</code>，一个赋值给变量<code>stu2</code>。当我们用<code>print</code>函数打印<code>stu1</code>和<code>stu2</code>两个变量时，我们会看到输出了对象在内存中的地址（十六进制形式），跟我们用<code>id</code>函数查看对象标识获得的值是相同的。现在我们可以告诉大家，我们定义的变量其实保存的是一个对象在内存中的逻辑地址（位置），通过这个逻辑地址，我们就可以在内存中找到这个对象。所以<code>stu3 = stu2</code>这样的赋值语句并没有创建新的对象，只是用一个新的变量保存了已有对象的地址。</p>
+<p>接下来，我们尝试给对象发消息，即调用对象的方法。刚才的<code>Student</code>类中我们定义了<code>study</code>和<code>play</code>两个方法，两个方法的第一个参数<code>self</code>代表了接收消息的学生对象，<code>study</code>方法的第二个参数是学习的课程名称。Python中，给对象发消息有两种方式，请看下面的代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过“类.方法”调用方法</span></span><br><span class="line"><span class="comment"># 第一个参数是接收消息的对象</span></span><br><span class="line"><span class="comment"># 第二个参数是学习的课程名称</span></span><br><span class="line">Student.study(stu1, <span class="string">&#x27;Python程序设计&#x27;</span>)    <span class="comment"># 学生正在学习Python程序设计.</span></span><br><span class="line"><span class="comment"># 通过“对象.方法”调用方法</span></span><br><span class="line"><span class="comment"># 点前面的对象就是接收消息的对象</span></span><br><span class="line"><span class="comment"># 只需要传入第二个参数课程名称</span></span><br><span class="line">stu1.study(<span class="string">&#x27;Python程序设计&#x27;</span>)             <span class="comment"># 学生正在学习Python程序设计.</span></span><br><span class="line"></span><br><span class="line">Student.play(stu2)                      <span class="comment"># 学生正在玩游戏.</span></span><br><span class="line">stu2.play()                             <span class="comment"># 学生正在玩游戏. </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化方法"><a href="#初始化方法" class="headerlink" title="初始化方法"></a>初始化方法</h3><p>大家可能已经注意到了，刚才我们创建的学生对象只有行为没有属性，如果要给学生对象定义属性，我们可以修改<code>Student</code>类，为其添加一个名为<code>__init__</code>的方法。在我们调用<code>Student</code>类的构造器创建对象时，首先会在内存中获得保存学生对象所需的内存空间，然后通过自动执行<code>__init__</code>方法，完成对内存的初始化操作，也就是把数据放到内存空间中。所以我们可以通过给<code>Student</code>类添加<code>__init__</code>方法的方式为学生对象指定属性，同时完成对属性赋初始值的操作，正因如此，<code>__init__</code>方法通常也被称为初始化方法。</p>
+<p>我们对上面的<code>Student</code>类稍作修改，给学生对象添加<code>name</code>（姓名）和<code>age</code>（年龄）两个属性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;学生&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, age</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;初始化方法&quot;&quot;&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.name = name</span><br><span class="line">        <span class="variable language_">self</span>.age = age</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">study</span>(<span class="params">self, course_name</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;学习&quot;&quot;&quot;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;self.name&#125;</span>正在学习<span class="subst">&#123;course_name&#125;</span>.&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">play</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;玩耍&quot;&quot;&quot;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;self.name&#125;</span>正在玩游戏.&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>修改刚才创建对象和给对象发消息的代码，重新执行一次，看看程序的执行结果有什么变化。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调用Student类的构造器创建对象并传入初始化参数</span></span><br><span class="line">stu1 = Student(<span class="string">&#x27;骆昊&#x27;</span>, <span class="number">44</span>)</span><br><span class="line">stu2 = Student(<span class="string">&#x27;王大锤&#x27;</span>, <span class="number">25</span>)</span><br><span class="line">stu1.study(<span class="string">&#x27;Python程序设计&#x27;</span>)    <span class="comment"># 骆昊正在学习Python程序设计.</span></span><br><span class="line">stu2.play()                    <span class="comment"># 王大锤正在玩游戏.</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="面向对象的支柱"><a href="#面向对象的支柱" class="headerlink" title="面向对象的支柱"></a>面向对象的支柱</h3><p>面向对象编程有三大支柱，就是我们之前给大家划重点的时候圈出的三个词：<strong>封装</strong>、<strong>继承</strong>和<strong>多态</strong>。后面两个概念在下一节课中会详细说明，这里我们先说一下什么是封装。我自己对封装的理解是：<strong>隐藏一切可以隐藏的实现细节，只向外界暴露简单的调用接口</strong>。我们在类中定义的对象方法其实就是一种封装，这种封装可以让我们在创建对象之后，只需要给对象发送一个消息就可以执行方法中的代码，也就是说我们在只知道方法的名字和参数（方法的外部视图），不知道方法内部实现细节（方法的内部视图）的情况下就完成了对方法的使用。</p>
+<p>举一个例子，假如要控制一个机器人帮我倒杯水，如果不使用面向对象编程，不做任何的封装，那么就需要向这个机器人发出一系列的指令，如站起来、向左转、向前走5步、拿起面前的水杯、向后转、向前走10步、弯腰、放下水杯、按下出水按钮、等待10秒、松开出水按钮、拿起水杯、向右转、向前走5步、放下水杯等，才能完成这个简单的操作，想想都觉得麻烦。按照面向对象编程的思想，我们可以将倒水的操作封装到机器人的一个方法中，当需要机器人帮我们倒水的时候，只需要向机器人对象发出倒水的消息就可以了，这样做不是更好吗？</p>
+<p>在很多场景下，面向对象编程其实就是一个三步走的问题。第一步定义类，第二步创建对象，第三步给对象发消息。当然，有的时候我们是不需要第一步的，因为我们想用的类可能已经存在了。之前我们说过，Python内置的<code>list</code>、<code>set</code>、<code>dict</code>其实都是类，如果要创建列表、集合、字典对象，我们就不用自定义类了。当然，有的类并不是 Python 标准库中直接提供的，它可能来自于第三方的代码，如何安装和使用三方代码在后续课程中会进行讨论。在某些特殊的场景中，我们会用到名为“内置对象”的对象，所谓“内置对象”就是说上面三步走的第一步和第二步都不需要了，因为类已经存在而且对象已然创建过了，直接向对象发消息就可以了，这也就是我们常说的“开箱即用”。</p>
+<h3 id="面向对象案例"><a href="#面向对象案例" class="headerlink" title="面向对象案例"></a>面向对象案例</h3><h4 id="例子1：时钟"><a href="#例子1：时钟" class="headerlink" title="例子1：时钟"></a>例子1：时钟</h4><blockquote>
+<p><strong>要求</strong>：定义一个类描述数字时钟，提供走字和显示时间的功能。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义时钟类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Clock</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;数字时钟&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, hour=<span class="number">0</span>, minute=<span class="number">0</span>, second=<span class="number">0</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;初始化方法</span></span><br><span class="line"><span class="string">        :param hour: 时</span></span><br><span class="line"><span class="string">        :param minute: 分</span></span><br><span class="line"><span class="string">        :param second: 秒</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.hour = hour</span><br><span class="line">        <span class="variable language_">self</span>.<span class="built_in">min</span> = minute</span><br><span class="line">        <span class="variable language_">self</span>.sec = second</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;走字&quot;&quot;&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.sec += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.sec == <span class="number">60</span>:</span><br><span class="line">            <span class="variable language_">self</span>.sec = <span class="number">0</span></span><br><span class="line">            <span class="variable language_">self</span>.<span class="built_in">min</span> += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> <span class="variable language_">self</span>.<span class="built_in">min</span> == <span class="number">60</span>:</span><br><span class="line">                <span class="variable language_">self</span>.<span class="built_in">min</span> = <span class="number">0</span></span><br><span class="line">                <span class="variable language_">self</span>.hour += <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> <span class="variable language_">self</span>.hour == <span class="number">24</span>:</span><br><span class="line">                    <span class="variable language_">self</span>.hour = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">show</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;显示时间&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&#x27;<span class="subst">&#123;self.hour:<span class="number">0</span>&gt;2d&#125;</span>:<span class="subst">&#123;self.<span class="built_in">min</span>:<span class="number">0</span>&gt;2d&#125;</span>:<span class="subst">&#123;self.sec:<span class="number">0</span>&gt;2d&#125;</span>&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建时钟对象</span></span><br><span class="line">clock = Clock(<span class="number">23</span>, <span class="number">59</span>, <span class="number">58</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment"># 给时钟对象发消息读取时间</span></span><br><span class="line">    <span class="built_in">print</span>(clock.show())</span><br><span class="line">    <span class="comment"># 休眠1秒钟</span></span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    <span class="comment"># 给时钟对象发消息使其走字</span></span><br><span class="line">    clock.run()</span><br></pre></td></tr></table></figure>
+
+<h4 id="例子2：平面上的点"><a href="#例子2：平面上的点" class="headerlink" title="例子2：平面上的点"></a>例子2：平面上的点</h4><blockquote>
+<p> <strong>要求</strong>：定义一个类描述平面上的点，提供计算到另一个点距离的方法。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;平面上的点&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, x=<span class="number">0</span>, y=<span class="number">0</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;初始化方法</span></span><br><span class="line"><span class="string">        :param x: 横坐标</span></span><br><span class="line"><span class="string">        :param y: 纵坐标</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.x, <span class="variable language_">self</span>.y = x, y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">distance_to</span>(<span class="params">self, other</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;计算与另一个点的距离</span></span><br><span class="line"><span class="string">        :param other: 另一个点</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        dx = <span class="variable language_">self</span>.x - other.x</span><br><span class="line">        dy = <span class="variable language_">self</span>.y - other.y</span><br><span class="line">        <span class="keyword">return</span> (dx * dx + dy * dy) ** <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&#x27;(<span class="subst">&#123;self.x&#125;</span>, <span class="subst">&#123;self.y&#125;</span>)&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p1 = Point(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">p2 = Point(<span class="number">6</span>, <span class="number">9</span>)</span><br><span class="line"><span class="built_in">print</span>(p1)  <span class="comment"># 调用对象的__str__魔法方法</span></span><br><span class="line"><span class="built_in">print</span>(p2)</span><br><span class="line"><span class="built_in">print</span>(p1.distance_to(p2))</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>面向对象编程是一种非常流行的编程范式，除此之外还有<strong>指令式编程</strong>、<strong>函数式编程</strong>等编程范式。由于现实世界是由对象构成的，而对象是可以接收消息的实体，所以<strong>面向对象编程更符合人类正常的思维习惯</strong>。类是抽象的，对象是具体的，有了类就能创建对象，有了对象就可以接收消息，这就是面向对象编程的基础。定义类的过程是一个抽象的过程，找到对象公共的属性属于数据抽象，找到对象公共的方法属于行为抽象。抽象的过程是一个仁者见仁智者见智的过程，对同一类对象进行抽象可能会得到不同的结果，如下图所示。</p>
+<p><img src="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/18.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/20210731182914.png" alt="18.2"></p>
+<blockquote>
+<p><strong>说明：</strong> 本节课的插图来自于 Grady Booc 等撰写的《面向对象分析与设计》一书，该书是讲解面向对象编程的经典著作，有兴趣的读者可以购买和阅读这本书来了解更多的面向对象的相关知识。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://likemikusama.github.io/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/18.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/" data-id="cmbholwnq003yoohtdggwdqdh" data-title="18面向对象编程的介绍" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/17.%E5%87%BD%E6%95%B0%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          17函数的高级应用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/19.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E8%BF%9B%E9%98%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">19面向对象编程的进阶</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Gitee%E6%8C%87%E5%8D%97/">Gitee指南</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/HarmonyOS/">HarmonyOS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/HarmonyOS/ArkTS/">ArkTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Hexo%E5%B8%AE%E5%8A%A9/">Hexo帮助</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Hexo%E5%B8%AE%E5%8A%A9%E6%89%8B%E5%86%8C/">Hexo帮助手册</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/Linux%E7%BB%83%E4%B9%A0%E9%A2%98/">Linux练习题</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE/">命令配置</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85/">常用工具和软件包</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/MongoDB/">MongoDB</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/MongoDB/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">常用命令</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/Python%E5%B0%8F%E6%8A%80%E5%B7%A7/">Python小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/Python%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%83%E4%B9%A0/">Python部署与练习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/windows%E7%B3%BB%E7%BB%9F/">windows系统</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">从零搭建博客</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/%E5%B7%A5%E4%BD%9C%E5%B8%B8%E7%94%A8/">工作常用</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/waterbottle/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/" rel="tag">工作日常</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/waterbottle/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/" style="font-size: 10px;">工作日常</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2023/12/">December 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/05.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/">05分支结构</a>
+          </li>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/06.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/">06循环结构</a>
+          </li>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/07.%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E5%AE%9E%E6%88%98/">07分支和循环结构练习</a>
+          </li>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/09.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%88%97%E8%A1%A8-2/">09常用数据结构--列表（二）</a>
+          </li>
+        
+          <li>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/10.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%85%83%E7%BB%84/">10常用数据结构--元组</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 水瓶<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/waterbottle/" class="mobile-nav-link">Home</a>
+  
+    <a href="/waterbottle/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/waterbottle/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/waterbottle/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/waterbottle/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
