@@ -104,7 +104,7 @@
 <span id="more"></span>
 
 <h2 id="仓库设置SSH，生成-添加SSH公钥"><a href="#仓库设置SSH，生成-添加SSH公钥" class="headerlink" title="仓库设置SSH，生成&#x2F;添加SSH公钥"></a>仓库设置SSH，生成&#x2F;添加SSH公钥</h2><p>按如下命令来生成 sshkey<br><code>ssh-keygen -t ed25519 -C &quot;xxxxx@xxxxx.com&quot;</code><br>这里的-t 指定密钥类型，默认是 rsa ，可以省略。</p>
-<p><strong>注意：这里的 <a href="mailto:&#x78;&#x78;&#120;&#120;&#120;&#x40;&#x78;&#x78;&#x78;&#120;&#x78;&#46;&#99;&#x6f;&#x6d;">xxxxx@xxxxx.com</a> 只是生成的 sshkey 的名称，并不约束或要求具体命名为某个邮箱。</strong><br><strong>现网的大部分教程均讲解的使用邮箱生成，其一开始的初衷仅仅是为了便于辨识所以使用了邮箱。</strong></p>
+<p><strong>注意：这里的 <a href="mailto:&#120;&#120;&#x78;&#x78;&#x78;&#64;&#x78;&#x78;&#120;&#x78;&#120;&#x2e;&#99;&#111;&#109;">xxxxx@xxxxx.com</a> 只是生成的 sshkey 的名称，并不约束或要求具体命名为某个邮箱。</strong><br><strong>现网的大部分教程均讲解的使用邮箱生成，其一开始的初衷仅仅是为了便于辨识所以使用了邮箱。</strong></p>
 <p>按照提示完成三次回车，即可生成 ssh key。通过查看 ~&#x2F;.ssh&#x2F;id_ed25519.pub 文件内容，获取到你的 public key<br><code>cat ~/.ssh/id_ed25519.pub</code></p>
 <p>复制生成后的 ssh key，通过仓库主页 「管理」-&gt;「部署公钥管理」-&gt;「添加部署公钥」 ，添加生成的 public key 添加到仓库中。</p>
 <p><code>ssh -T git@gitee.com</code><br>首次使用需要确认并添加主机到本机SSH可信列表。若返回 Hi XXX! You’ve successfully authenticated, but Gitee.com does not provide shell access. 内容，则证明添加成功。</p>
@@ -112,7 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://likemikusama.github.io/waterbottle/2024/04/16/Gitee%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/Gitee%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" data-id="cmbholwn60002ooht21tccl2c" data-title="Gitee仓库操作指南" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://likemikusama.github.io/waterbottle/2024/04/16/Gitee%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/Gitee%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" data-id="cmbhpvu2s0001lghte1wlfu0e" data-title="Gitee仓库操作指南" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -205,11 +205,11 @@
           </li>
         
           <li>
-            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/09.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%88%97%E8%A1%A8-2/">09常用数据结构--列表（二）</a>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/08.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%88%97%E8%A1%A8-1/">08常用数据结构--列表（一）</a>
           </li>
         
           <li>
-            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/10.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%85%83%E7%BB%84/">10常用数据结构--元组</a>
+            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/09.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%88%97%E8%A1%A8-2/">09常用数据结构--列表（二）</a>
           </li>
         
       </ul>
