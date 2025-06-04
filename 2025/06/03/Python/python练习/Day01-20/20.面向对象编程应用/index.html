@@ -1,106 +1,306 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/waterbottle/img/fluid.png">
+  <link rel="icon" href="/waterbottle/img/fluid.png">
   
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>20面向对象编程的应用 | 一个水瓶的灌装之路</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="使用面向对象编程的方式进行编程">
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="XUANWEN DING">
+  <meta name="keywords" content="成长，记录，技术，分享">
+  
+    <meta name="description" content="使用面向对象编程的方式进行编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20面向对象编程的应用">
 <meta property="og:url" content="https://likemikusama.github.io/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/20.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8/">
 <meta property="og:site_name" content="一个水瓶的灌装之路">
 <meta property="og:description" content="使用面向对象编程的方式进行编程">
-<meta property="og:locale">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-03T11:00:00.000Z">
 <meta property="article:modified_time" content="2025-06-03T03:15:57.823Z">
 <meta property="article:author" content="水瓶">
 <meta property="article:tag" content="成长，记录，技术，分享">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/waterbottle/atom.xml" title="一个水瓶的灌装之路" type="application/atom+xml">
+<meta name="twitter:card" content="summary_large_image">
   
   
-    <link rel="shortcut icon" href="/waterbottle/favicon.png">
+    <meta name="referrer" content="no-referrer-when-downgrade">
   
   
+  <title>20面向对象编程的应用 - 一个水瓶的灌装之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/waterbottle/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/waterbottle/css/highlight.css" />
   
-<link rel="stylesheet" href="/waterbottle/css/style.css">
+    <link id="highlight-css-dark" rel="stylesheet" href="/waterbottle/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"likemikusama.github.io","root":"/waterbottle/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/waterbottle/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/waterbottle/js/utils.js" ></script>
+  <script  src="/waterbottle/js/color-schema.js" ></script>
+  
+
 
   
-    
-<link rel="stylesheet" href="/waterbottle/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
-
 <meta name="generator" content="Hexo 7.3.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/waterbottle/" id="logo">一个水瓶的灌装之路</a>
-      </h1>
-      
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/waterbottle/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/waterbottle/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="20面向对象编程的应用"></span>
+          
+        </div>
+
         
-          <a class="main-nav-link" href="/waterbottle/">Home</a>
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        XUANWEN DING
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-03 19:00" pubdate>
+          2025年6月3日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
         
-          <a class="main-nav-link" href="/waterbottle/archives">Archives</a>
+          2.8k 字
         
-      </nav>
-      <nav id="sub-nav">
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
         
         
-          <a class="nav-icon" href="/waterbottle/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://LIKEMIKUSAMA.github.io/waterbottle"></form>
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
   </div>
-</header>
+</div>
 
-      <div class="outer">
-        <section id="main"><article id="post-Python/python练习/Day01-20/20.面向对象编程应用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/20.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8/" class="article-date">
-  <time class="dt-published" datetime="2025-06-03T11:00:00.000Z" itemprop="datePublished">2025-06-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/waterbottle/categories/Python/">Python</a>►<a class="article-category-link" href="/waterbottle/categories/Python/Python%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%83%E4%B9%A0/">Python部署与练习</a>
-  </div>
+</div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      20面向对象编程的应用
-    </h1>
-  
+  </header>
 
-      </header>
+  <main>
     
-    <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>使用面向对象编程的方式进行编程</p>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">20面向对象编程的应用</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年6月3日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>使用面向对象编程的方式进行编程</p>
 <span id="more"></span>
 <h2 id="面向对象编程应用"><a href="#面向对象编程应用" class="headerlink" title="面向对象编程应用"></a>面向对象编程应用</h2><p>面向对象编程对初学者来说不难理解但很难应用，虽然我们为大家总结过面向对象的三步走方法（定义类、创建对象、给对象发消息），但是说起来容易做起来难。<strong>大量的编程练习</strong>和<strong>阅读优质的代码</strong>可能是这个阶段最能够帮助到大家的两件事情。接下来我们还是通过经典的案例来剖析面向对象编程的知识，同时也通过这些案例把我们之前学过的 Python 知识都串联起来。</p>
 <h3 id="例子1：扑克游戏。"><a href="#例子1：扑克游戏。" class="headerlink" title="例子1：扑克游戏。"></a>例子1：扑克游戏。</h3><blockquote>
@@ -108,33 +308,33 @@
 </blockquote>
 <p>使用面向对象编程方法，首先需要从问题的需求中找到对象并抽象出对应的类，此外还要找到对象的属性和行为。当然，这件事情并不是特别困难，我们可以从需求的描述中找出名词和动词，名词通常就是对象或者是对象的属性，而动词通常是对象的行为。扑克游戏中至少应该有三类对象，分别是牌、扑克和玩家，牌、扑克、玩家三个类也并不是孤立的。类和类之间的关系可以粗略的分为 <strong>is-a关系（继承）</strong>、**has-a关系（关联）**和 <strong>use-a关系（依赖）</strong>。很显然扑克和牌是 has-a 关系，因为一副扑克有（has-a）52 张牌；玩家和牌之间不仅有关联关系还有依赖关系，因为玩家手上有（has-a）牌而且玩家使用了（use-a）牌。</p>
 <p>牌的属性显而易见，有花色和点数。我们可以用 0 到 3 的四个数字来代表四种不同的花色，但是这样的代码可读性会非常糟糕，因为我们并不知道黑桃、红心、草花、方块跟 0 到 3 的数字的对应关系。如果一个变量的取值只有有限多个选项，我们可以使用枚举。与 C、Java 等语言不同的是，Python 中没有声明枚举类型的关键字，但是可以通过继承<code>enum</code>模块的<code>Enum</code>类来创建枚举类型，代码如下所示。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> enum <span class="keyword">import</span> Enum</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Suite</span>(<span class="title class_ inherited__">Enum</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;花色(枚举)&quot;&quot;&quot;</span></span><br><span class="line">    SPADE, HEART, CLUB, DIAMOND = <span class="built_in">range</span>(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> enum <span class="hljs-keyword">import</span> Enum<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Suite</span>(<span class="hljs-title class_ inherited__">Enum</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;花色(枚举)&quot;&quot;&quot;</span><br>    SPADE, HEART, CLUB, DIAMOND = <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>)<br></code></pre></td></tr></table></figure>
 
 <p>通过上面的代码可以看出，定义枚举类型其实就是定义符号常量，如<code>SPADE</code>、<code>HEART</code>等。每个符号常量都有与之对应的值，这样表示黑桃就可以不用数字 0，而是用<code>Suite.SPADE</code>；同理，表示方块可以不用数字 3， 而是用<code>Suite.DIAMOND</code>。注意，使用符号常量肯定是优于使用字面常量的，因为能够读懂英文就能理解符号常量的含义，代码的可读性会提升很多。Python 中的枚举类型是可迭代类型，简单的说就是可以将枚举类型放到<code>for-in</code>循环中，依次取出每一个符号常量及其对应的值，如下所示。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> suite <span class="keyword">in</span> Suite:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;suite&#125;</span>: <span class="subst">&#123;suite.value&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> suite <span class="hljs-keyword">in</span> Suite:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;suite&#125;</span>: <span class="hljs-subst">&#123;suite.value&#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>接下来我们可以定义牌类。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Card</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;牌&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, suite, face</span>):</span><br><span class="line">        <span class="variable language_">self</span>.suite = suite</span><br><span class="line">        <span class="variable language_">self</span>.face = face</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        suites = <span class="string">&#x27;♠♥♣♦&#x27;</span></span><br><span class="line">        faces = [<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;7&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;9&#x27;</span>, <span class="string">&#x27;10&#x27;</span>, <span class="string">&#x27;J&#x27;</span>, <span class="string">&#x27;Q&#x27;</span>, <span class="string">&#x27;K&#x27;</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&#x27;<span class="subst">&#123;suites[self.suite.value]&#125;</span><span class="subst">&#123;faces[self.face]&#125;</span>&#x27;</span>  <span class="comment"># 返回牌的花色和点数</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Card</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;牌&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, suite, face</span>):<br>        <span class="hljs-variable language_">self</span>.suite = suite<br>        <span class="hljs-variable language_">self</span>.face = face<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__repr__</span>(<span class="hljs-params">self</span>):<br>        suites = <span class="hljs-string">&#x27;♠♥♣♦&#x27;</span><br>        faces = [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;5&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>, <span class="hljs-string">&#x27;7&#x27;</span>, <span class="hljs-string">&#x27;8&#x27;</span>, <span class="hljs-string">&#x27;9&#x27;</span>, <span class="hljs-string">&#x27;10&#x27;</span>, <span class="hljs-string">&#x27;J&#x27;</span>, <span class="hljs-string">&#x27;Q&#x27;</span>, <span class="hljs-string">&#x27;K&#x27;</span>]<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;suites[self.suite.value]&#125;</span><span class="hljs-subst">&#123;faces[self.face]&#125;</span>&#x27;</span>  <span class="hljs-comment"># 返回牌的花色和点数</span><br></code></pre></td></tr></table></figure>
 
 <p>可以通过下面的代码来测试下<code>Card</code>类。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">card1 = Card(Suite.SPADE, <span class="number">5</span>)</span><br><span class="line">card2 = Card(Suite.HEART, <span class="number">13</span>)</span><br><span class="line"><span class="built_in">print</span>(card1)  <span class="comment"># ♠5 </span></span><br><span class="line"><span class="built_in">print</span>(card2)  <span class="comment"># ♥K</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">card1 = Card(Suite.SPADE, <span class="hljs-number">5</span>)<br>card2 = Card(Suite.HEART, <span class="hljs-number">13</span>)<br><span class="hljs-built_in">print</span>(card1)  <span class="hljs-comment"># ♠5 </span><br><span class="hljs-built_in">print</span>(card2)  <span class="hljs-comment"># ♥K</span><br></code></pre></td></tr></table></figure>
 
 <p>接下来我们定义扑克类。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Poker</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;扑克&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.cards = [Card(suite, face) </span><br><span class="line">                      <span class="keyword">for</span> suite <span class="keyword">in</span> Suite</span><br><span class="line">                      <span class="keyword">for</span> face <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">14</span>)]  <span class="comment"># 52张牌构成的列表</span></span><br><span class="line">        <span class="variable language_">self</span>.current = <span class="number">0</span>  <span class="comment"># 记录发牌位置的属性</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">shuffle</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;洗牌&quot;&quot;&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.current = <span class="number">0</span></span><br><span class="line">        random.shuffle(<span class="variable language_">self</span>.cards)  <span class="comment"># 通过random模块的shuffle函数实现随机乱序</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">deal</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;发牌&quot;&quot;&quot;</span></span><br><span class="line">        card = <span class="variable language_">self</span>.cards[<span class="variable language_">self</span>.current]</span><br><span class="line">        <span class="variable language_">self</span>.current += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> card</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">has_next</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;还有没有牌可以发&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.current &lt; <span class="built_in">len</span>(<span class="variable language_">self</span>.cards)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> random<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Poker</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;扑克&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.cards = [Card(suite, face) <br>                      <span class="hljs-keyword">for</span> suite <span class="hljs-keyword">in</span> Suite<br>                      <span class="hljs-keyword">for</span> face <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">14</span>)]  <span class="hljs-comment"># 52张牌构成的列表</span><br>        <span class="hljs-variable language_">self</span>.current = <span class="hljs-number">0</span>  <span class="hljs-comment"># 记录发牌位置的属性</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">shuffle</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;洗牌&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.current = <span class="hljs-number">0</span><br>        random.shuffle(<span class="hljs-variable language_">self</span>.cards)  <span class="hljs-comment"># 通过random模块的shuffle函数实现随机乱序</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">deal</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;发牌&quot;&quot;&quot;</span><br>        card = <span class="hljs-variable language_">self</span>.cards[<span class="hljs-variable language_">self</span>.current]<br>        <span class="hljs-variable language_">self</span>.current += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> card<br><br><span class="hljs-meta">    @property</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">has_next</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;还有没有牌可以发&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.current &lt; <span class="hljs-built_in">len</span>(<span class="hljs-variable language_">self</span>.cards)<br></code></pre></td></tr></table></figure>
 
 <p>可以通过下面的代码来测试下<code>Poker</code>类。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">poker = Poker()</span><br><span class="line"><span class="built_in">print</span>(poker.cards)  <span class="comment"># 洗牌前的牌</span></span><br><span class="line">poker.shuffle()</span><br><span class="line"><span class="built_in">print</span>(poker.cards)  <span class="comment"># 洗牌后的牌</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">poker = Poker()<br><span class="hljs-built_in">print</span>(poker.cards)  <span class="hljs-comment"># 洗牌前的牌</span><br>poker.shuffle()<br><span class="hljs-built_in">print</span>(poker.cards)  <span class="hljs-comment"># 洗牌后的牌</span><br></code></pre></td></tr></table></figure>
 
 <p>定义玩家类。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Player</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;玩家&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name</span>):</span><br><span class="line">        <span class="variable language_">self</span>.name = name</span><br><span class="line">        <span class="variable language_">self</span>.cards = []  <span class="comment"># 玩家手上的牌</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_one</span>(<span class="params">self, card</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;摸牌&quot;&quot;&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.cards.append(card)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">arrange</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;整理手上的牌&quot;&quot;&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.cards.sort()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Player</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;玩家&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name</span>):<br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.cards = []  <span class="hljs-comment"># 玩家手上的牌</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">get_one</span>(<span class="hljs-params">self, card</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;摸牌&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.cards.append(card)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">arrange</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;整理手上的牌&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.cards.sort()<br></code></pre></td></tr></table></figure>
 
 <p>创建四个玩家并将牌发到玩家的手上。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">poker = Poker()</span><br><span class="line">poker.shuffle()</span><br><span class="line">players = [Player(<span class="string">&#x27;东邪&#x27;</span>), Player(<span class="string">&#x27;西毒&#x27;</span>), Player(<span class="string">&#x27;南帝&#x27;</span>), Player(<span class="string">&#x27;北丐&#x27;</span>)]</span><br><span class="line"><span class="comment"># 将牌轮流发到每个玩家手上每人13张牌</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">13</span>):</span><br><span class="line">    <span class="keyword">for</span> player <span class="keyword">in</span> players:</span><br><span class="line">        player.get_one(poker.deal())</span><br><span class="line"><span class="comment"># 玩家整理手上的牌输出名字和手牌</span></span><br><span class="line"><span class="keyword">for</span> player <span class="keyword">in</span> players:</span><br><span class="line">    player.arrange()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;player.name&#125;</span>: &#x27;</span>, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(player.cards)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">poker = Poker()<br>poker.shuffle()<br>players = [Player(<span class="hljs-string">&#x27;东邪&#x27;</span>), Player(<span class="hljs-string">&#x27;西毒&#x27;</span>), Player(<span class="hljs-string">&#x27;南帝&#x27;</span>), Player(<span class="hljs-string">&#x27;北丐&#x27;</span>)]<br><span class="hljs-comment"># 将牌轮流发到每个玩家手上每人13张牌</span><br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">13</span>):<br>    <span class="hljs-keyword">for</span> player <span class="hljs-keyword">in</span> players:<br>        player.get_one(poker.deal())<br><span class="hljs-comment"># 玩家整理手上的牌输出名字和手牌</span><br><span class="hljs-keyword">for</span> player <span class="hljs-keyword">in</span> players:<br>    player.arrange()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;player.name&#125;</span>: &#x27;</span>, end=<span class="hljs-string">&#x27;&#x27;</span>)<br>    <span class="hljs-built_in">print</span>(player.cards)<br></code></pre></td></tr></table></figure>
 
 <p>执行上面的代码会在<code>player.arrange()</code>那里出现异常，因为<code>Player</code>的<code>arrange</code>方法使用了列表的<code>sort</code>对玩家手上的牌进行排序，排序需要比较两个<code>Card</code>对象的大小，而<code>&lt;</code>运算符又不能直接作用于<code>Card</code>类型，所以就出现了<code>TypeError</code>异常，异常消息为：<code>&#39;&lt;&#39; not supported between instances of &#39;Card&#39; and &#39;Card&#39;</code>。</p>
 <p>为了解决这个问题，我们可以对<code>Card</code>类的代码稍作修改，使得两个<code>Card</code>对象可以直接用<code>&lt;</code>进行大小的比较。这里用到技术叫<strong>运算符重载</strong>，Python 中要实现对<code>&lt;</code>运算符的重载，需要在类中添加一个名为<code>__lt__</code>的魔术方法。很显然，魔术方法<code>__lt__</code>中的<code>lt</code>是英文单词“less than”的缩写，以此类推，魔术方法<code>__gt__</code>对应<code>&gt;</code>运算符，魔术方法<code>__le__</code>对应<code>&lt;=</code>运算符，<code>__ge__</code>对应<code>&gt;=</code>运算符，<code>__eq__</code>对应<code>==</code>运算符，<code>__ne__</code>对应<code>!=</code>运算符。</p>
 <p>修改后的<code>Card</code>类代码如下所示。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Card</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;牌&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, suite, face</span>):</span><br><span class="line">        <span class="variable language_">self</span>.suite = suite</span><br><span class="line">        <span class="variable language_">self</span>.face = face</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        suites = <span class="string">&#x27;♠♥♣♦&#x27;</span></span><br><span class="line">        faces = [<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;7&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;9&#x27;</span>, <span class="string">&#x27;10&#x27;</span>, <span class="string">&#x27;J&#x27;</span>, <span class="string">&#x27;Q&#x27;</span>, <span class="string">&#x27;K&#x27;</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&#x27;<span class="subst">&#123;suites[self.suite.value]&#125;</span><span class="subst">&#123;faces[self.face]&#125;</span>&#x27;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__lt__</span>(<span class="params">self, other</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.suite == other.suite:</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">self</span>.face &lt; other.face   <span class="comment"># 花色相同比较点数的大小</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.suite.value &lt; other.suite.value   <span class="comment"># 花色不同比较花色对应的值</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Card</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;牌&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, suite, face</span>):<br>        <span class="hljs-variable language_">self</span>.suite = suite<br>        <span class="hljs-variable language_">self</span>.face = face<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__repr__</span>(<span class="hljs-params">self</span>):<br>        suites = <span class="hljs-string">&#x27;♠♥♣♦&#x27;</span><br>        faces = [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;5&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>, <span class="hljs-string">&#x27;7&#x27;</span>, <span class="hljs-string">&#x27;8&#x27;</span>, <span class="hljs-string">&#x27;9&#x27;</span>, <span class="hljs-string">&#x27;10&#x27;</span>, <span class="hljs-string">&#x27;J&#x27;</span>, <span class="hljs-string">&#x27;Q&#x27;</span>, <span class="hljs-string">&#x27;K&#x27;</span>]<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;suites[self.suite.value]&#125;</span><span class="hljs-subst">&#123;faces[self.face]&#125;</span>&#x27;</span><br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__lt__</span>(<span class="hljs-params">self, other</span>):<br>        <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.suite == other.suite:<br>            <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.face &lt; other.face   <span class="hljs-comment"># 花色相同比较点数的大小</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.suite.value &lt; other.suite.value   <span class="hljs-comment"># 花色不同比较花色对应的值</span><br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>说明：</strong> 大家可以尝试在上面代码的基础上写一个简单的扑克游戏，如 21 点游戏（Black Jack），游戏的规则可以自己在网上找一找。</p>
@@ -143,166 +343,415 @@
 <p><strong>要求</strong>：某公司有三种类型的员工，分别是部门经理、程序员和销售员。需要设计一个工资结算系统，根据提供的员工信息来计算员工的月薪。其中，部门经理的月薪是固定 15000 元；程序员按工作时间（以小时为单位）支付月薪，每小时 200 元；销售员的月薪由 1800 元底薪加上销售额 5% 的提成两部分构成。</p>
 </blockquote>
 <p>通过对上述需求的分析，可以看出部门经理、程序员、销售员都是员工，有相同的属性和行为，那么我们可以先设计一个名为<code>Employee</code>的父类，再通过继承的方式从这个父类派生出部门经理、程序员和销售员三个子类。很显然，后续的代码不会创建<code>Employee</code> 类的对象，因为我们需要的是具体的员工对象，所以这个类可以设计成专门用于继承的抽象类。Python 语言中没有定义抽象类的关键字，但是可以通过<code>abc</code>模块中名为<code>ABCMeta</code> 的元类来定义抽象类。关于元类的概念此处不展开讲解，当然大家不用纠结，照做即可。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABCMeta, abstractmethod</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Employee</span>(metaclass=ABCMeta):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;员工&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name</span>):</span><br><span class="line">        <span class="variable language_">self</span>.name = name</span><br><span class="line"></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_salary</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;结算月薪&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> abc <span class="hljs-keyword">import</span> ABCMeta, abstractmethod<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Employee</span>(metaclass=ABCMeta):<br>    <span class="hljs-string">&quot;&quot;&quot;员工&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name</span>):<br>        <span class="hljs-variable language_">self</span>.name = name<br><br><span class="hljs-meta">    @abstractmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">get_salary</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;结算月薪&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">pass</span><br></code></pre></td></tr></table></figure>
 
 <p>在上面的员工类中，有一个名为<code>get_salary</code>的方法用于结算月薪，但是由于还没有确定是哪一类员工，所以结算月薪虽然是员工的公共行为但这里却没有办法实现。对于暂时无法实现的方法，我们可以使用<code>abstractmethod</code>装饰器将其声明为抽象方法，所谓<strong>抽象方法就是只有声明没有实现的方法</strong>，<strong>声明这个方法是为了让子类去重写这个方法</strong>。接下来的代码展示了如何从员工类派生出部门经理、程序员、销售员这三个子类以及子类如何重写父类的抽象方法。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Manager</span>(<span class="title class_ inherited__">Employee</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;部门经理&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_salary</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">15000.0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Programmer</span>(<span class="title class_ inherited__">Employee</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;程序员&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, working_hour=<span class="number">0</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__(name)</span><br><span class="line">        <span class="variable language_">self</span>.working_hour = working_hour</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_salary</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">200</span> * <span class="variable language_">self</span>.working_hour</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Salesman</span>(<span class="title class_ inherited__">Employee</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;销售员&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, sales=<span class="number">0</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__(name)</span><br><span class="line">        <span class="variable language_">self</span>.sales = sales</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_salary</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1800</span> + <span class="variable language_">self</span>.sales * <span class="number">0.05</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Manager</span>(<span class="hljs-title class_ inherited__">Employee</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;部门经理&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">get_salary</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">15000.0</span><br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Programmer</span>(<span class="hljs-title class_ inherited__">Employee</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;程序员&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, working_hour=<span class="hljs-number">0</span></span>):<br>        <span class="hljs-built_in">super</span>().__init__(name)<br>        <span class="hljs-variable language_">self</span>.working_hour = working_hour<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">get_salary</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">200</span> * <span class="hljs-variable language_">self</span>.working_hour<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Salesman</span>(<span class="hljs-title class_ inherited__">Employee</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;销售员&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, sales=<span class="hljs-number">0</span></span>):<br>        <span class="hljs-built_in">super</span>().__init__(name)<br>        <span class="hljs-variable language_">self</span>.sales = sales<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">get_salary</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1800</span> + <span class="hljs-variable language_">self</span>.sales * <span class="hljs-number">0.05</span><br></code></pre></td></tr></table></figure>
 
 <p>上面的<code>Manager</code>、<code>Programmer</code>、<code>Salesman</code>三个类都继承自<code>Employee</code>，三个类都分别重写了<code>get_salary</code>方法。<strong>重写就是子类对父类已有的方法重新做出实现</strong>。相信大家已经注意到了，三个子类中的<code>get_salary</code>各不相同，所以这个方法在程序运行时会产生<strong>多态行为</strong>，多态简单的说就是<strong>调用相同的方法</strong>，<strong>不同的子类对象做不同的事情</strong>。</p>
 <p>我们通过下面的代码来完成这个工资结算系统，由于程序员和销售员需要分别录入本月的工作时间和销售额，所以在下面的代码中我们使用了 Python 内置的<code>isinstance</code>函数来判断员工对象的类型。我们之前讲过的<code>type</code>函数也能识别对象的类型，但是<code>isinstance</code>函数更加强大，因为它可以判断出一个对象是不是某个继承结构下的子类型，你可以简单的理解为<code>type</code>函数是对对象类型的精准匹配，而<code>isinstance</code>函数是对对象类型的模糊匹配。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">emps = [Manager(<span class="string">&#x27;刘备&#x27;</span>), Programmer(<span class="string">&#x27;诸葛亮&#x27;</span>), Manager(<span class="string">&#x27;曹操&#x27;</span>), Programmer(<span class="string">&#x27;荀彧&#x27;</span>), Salesman(<span class="string">&#x27;张辽&#x27;</span>)]</span><br><span class="line"><span class="keyword">for</span> emp <span class="keyword">in</span> emps:</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(emp, Programmer):</span><br><span class="line">        emp.working_hour = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">f&#x27;请输入<span class="subst">&#123;emp.name&#125;</span>本月工作时间: &#x27;</span>))</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(emp, Salesman):</span><br><span class="line">        emp.sales = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">f&#x27;请输入<span class="subst">&#123;emp.name&#125;</span>本月销售额: &#x27;</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;emp.name&#125;</span>本月工资为: ￥<span class="subst">&#123;emp.get_salary():<span class="number">.2</span>f&#125;</span>元&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">emps = [Manager(<span class="hljs-string">&#x27;刘备&#x27;</span>), Programmer(<span class="hljs-string">&#x27;诸葛亮&#x27;</span>), Manager(<span class="hljs-string">&#x27;曹操&#x27;</span>), Programmer(<span class="hljs-string">&#x27;荀彧&#x27;</span>), Salesman(<span class="hljs-string">&#x27;张辽&#x27;</span>)]<br><span class="hljs-keyword">for</span> emp <span class="hljs-keyword">in</span> emps:<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">isinstance</span>(emp, Programmer):<br>        emp.working_hour = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">f&#x27;请输入<span class="hljs-subst">&#123;emp.name&#125;</span>本月工作时间: &#x27;</span>))<br>    <span class="hljs-keyword">elif</span> <span class="hljs-built_in">isinstance</span>(emp, Salesman):<br>        emp.sales = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">f&#x27;请输入<span class="hljs-subst">&#123;emp.name&#125;</span>本月销售额: &#x27;</span>))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;emp.name&#125;</span>本月工资为: ￥<span class="hljs-subst">&#123;emp.get_salary():<span class="hljs-number">.2</span>f&#125;</span>元&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>面向对象的编程思想非常的好，也符合人类的正常思维习惯，但是要想灵活运用面向对象编程中的抽象、封装、继承、多态需要长时间的积累和沉淀，这件事情无法一蹴而就，因为知识的积累本就是涓滴成河的过程。</p>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://likemikusama.github.io/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/20.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8/" data-id="cmbhpvu3h003nlght574j86pg" data-title="20面向对象编程的应用" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
+
+<span class="category-chains">
+  
   
     
-<nav id="article-nav">
+      <span class="category-chain">
+        
+  <a href="/waterbottle/categories/Python/" class="category-chain-item">Python</a>
   
-    <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/19.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E8%BF%9B%E9%98%B6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          19面向对象编程的进阶
-        
+  
+    <span>></span>
+    
+  <a href="/waterbottle/categories/Python/Python%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%83%E4%B9%A0/" class="category-chain-item">Python部署与练习</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>20面向对象编程的应用</div>
+      <div>https://likemikusama.github.io/waterbottle/2025/06/03/Python/python练习/Day01-20/20.面向对象编程应用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>XUANWEN DING</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月3日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年6月3日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/19.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E8%BF%9B%E9%98%B6/" title="19面向对象编程的进阶">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">19面向对象编程的进阶</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/waterbottle/2025/06/02/Python/python%E7%BB%83%E4%B9%A0/Day01-20/03.Python%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F/" title="03Python语言中的变量">
+                        <span class="hidden-mobile">03Python语言中的变量</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
-    </a>
-  
-  
-    <a href="/waterbottle/2025/06/02/Python/python%E7%BB%83%E4%B9%A0/Day01-20/03.Python%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">03Python语言中的变量</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Gitee%E6%8C%87%E5%8D%97/">Gitee指南</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/HarmonyOS/">HarmonyOS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/HarmonyOS/ArkTS/">ArkTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Hexo%E5%B8%AE%E5%8A%A9/">Hexo帮助</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Hexo%E5%B8%AE%E5%8A%A9%E6%89%8B%E5%86%8C/">Hexo帮助手册</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/Linux%E7%BB%83%E4%B9%A0%E9%A2%98/">Linux练习题</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE/">命令配置</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85/">常用工具和软件包</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/MongoDB/">MongoDB</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/MongoDB/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">常用命令</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/Python%E5%B0%8F%E6%8A%80%E5%B7%A7/">Python小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/Python%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%83%E4%B9%A0/">Python部署与练习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/windows%E7%B3%BB%E7%BB%9F/">windows系统</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">从零搭建博客</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/%E5%B7%A5%E4%BD%9C%E5%B8%B8%E7%94%A8/">工作常用</a></li></ul>
     </div>
-  </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/waterbottle/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/" rel="tag">工作日常</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/waterbottle/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/" style="font-size: 10px;">工作日常</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2023/12/">December 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/05.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/">05分支结构</a>
-          </li>
-        
-          <li>
-            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/06.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/">06循环结构</a>
-          </li>
-        
-          <li>
-            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/07.%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E5%AE%9E%E6%88%98/">07分支和循环结构练习</a>
-          </li>
-        
-          <li>
-            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/08.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%88%97%E8%A1%A8-1/">08常用数据结构--列表（一）</a>
-          </li>
-        
-          <li>
-            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/09.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%88%97%E8%A1%A8-2/">09常用数据结构--列表（二）</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-      &copy; 2025 水瓶<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
-    <nav id="mobile-nav">
+  </div>
+</div>
+
+
+
+
+
   
-    <a href="/waterbottle/" class="mobile-nav-link">Home</a>
+
+
+
   
-    <a href="/waterbottle/archives" class="mobile-nav-link">Archives</a>
+
+
+
   
-</nav>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<script src="/waterbottle/js/jquery-3.6.4.min.js"></script>
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/waterbottle/js/events.js" ></script>
+<script  src="/waterbottle/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
 
 
 
   
-<script src="/waterbottle/fancybox/jquery.fancybox.min.js"></script>
+    <script  src="/waterbottle/js/img-lazyload.js" ></script>
+  
 
 
 
 
-<script src="/waterbottle/js/script.js"></script>
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/waterbottle/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 
-  </div>
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/waterbottle/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>

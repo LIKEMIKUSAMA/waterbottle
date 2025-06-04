@@ -1,18 +1,31 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/waterbottle/img/fluid.png">
+  <link rel="icon" href="/waterbottle/img/fluid.png">
   
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>02第一个Python程序 | 一个水瓶的灌装之路</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="初识Python程序">
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="XUANWEN DING">
+  <meta name="keywords" content="成长，记录，技术，分享">
+  
+    <meta name="description" content="初识Python程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="02第一个Python程序">
 <meta property="og:url" content="https://likemikusama.github.io/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/">
 <meta property="og:site_name" content="一个水瓶的灌装之路">
 <meta property="og:description" content="初识Python程序">
-<meta property="og:locale">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://likemikusama.github.io/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/visual_studio_code.png">
 <meta property="og:image" content="https://likemikusama.github.io/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/pycharm_download_page.png">
 <meta property="og:image" content="https://likemikusama.github.io/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_1.png">
@@ -27,152 +40,339 @@
 <meta property="article:modified_time" content="2025-06-02T14:36:11.104Z">
 <meta property="article:author" content="水瓶">
 <meta property="article:tag" content="成长，记录，技术，分享">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://likemikusama.github.io/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/visual_studio_code.png">
   
-    <link rel="alternate" href="/waterbottle/atom.xml" title="一个水瓶的灌装之路" type="application/atom+xml">
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-    <link rel="shortcut icon" href="/waterbottle/favicon.png">
+  <title>02第一个Python程序 - 一个水瓶的灌装之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/waterbottle/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/waterbottle/css/highlight.css" />
   
+    <link id="highlight-css-dark" rel="stylesheet" href="/waterbottle/css/highlight-dark.css" />
   
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"likemikusama.github.io","root":"/waterbottle/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/waterbottle/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/waterbottle/js/utils.js" ></script>
+  <script  src="/waterbottle/js/color-schema.js" ></script>
   
-<link rel="stylesheet" href="/waterbottle/css/style.css">
+
 
   
-    
-<link rel="stylesheet" href="/waterbottle/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
-
 <meta name="generator" content="Hexo 7.3.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/waterbottle/" id="logo">一个水瓶的灌装之路</a>
-      </h1>
-      
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/waterbottle/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/waterbottle/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="02第一个Python程序"></span>
+          
+        </div>
+
         
-          <a class="main-nav-link" href="/waterbottle/">Home</a>
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        XUANWEN DING
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-01 19:00" pubdate>
+          2025年6月1日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
         
-          <a class="main-nav-link" href="/waterbottle/archives">Archives</a>
+          2.8k 字
         
-      </nav>
-      <nav id="sub-nav">
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
         
         
-          <a class="nav-icon" href="/waterbottle/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://LIKEMIKUSAMA.github.io/waterbottle"></form>
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
   </div>
-</header>
+</div>
 
-      <div class="outer">
-        <section id="main"><article id="post-Python/python练习/Day01-20/02.第一个Python程序" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/" class="article-date">
-  <time class="dt-published" datetime="2025-06-01T11:00:00.000Z" itemprop="datePublished">2025-06-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/waterbottle/categories/Python/">Python</a>►<a class="article-category-link" href="/waterbottle/categories/Python/Python%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%83%E4%B9%A0/">Python部署与练习</a>
-  </div>
+</div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      02第一个Python程序
-    </h1>
-  
+  </header>
 
-      </header>
+  <main>
     
-    <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>初识Python程序</p>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">02第一个Python程序</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年6月2日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>初识Python程序</p>
 <span id="more"></span>
 <h2 id="第一个Python程序"><a href="#第一个Python程序" class="headerlink" title="第一个Python程序"></a>第一个Python程序</h2><p>在上一课中，我们对 Python 语言的过去现在有了一些了解，我们准备好了运行 Python 程序所需要的解释器环境。相信大家已经迫不及待的想开始自己的 Python 编程之旅了，但是新问题来了，我们应该在什么地方书写 Python 程序，然后又怎么运行它呢？</p>
 <h3 id="编写代码的工具"><a href="#编写代码的工具" class="headerlink" title="编写代码的工具"></a>编写代码的工具</h3><p>下面我们为大家讲解几种可以编写和运行 Python 代码的工具，大家可以根据自己的需求来选择合适的工具。当然，对于初学者，我个人比较推荐使用 PyCharm，因为它不需要太多的配置也非常的强大，对新手还是很友好的。如果你也听说过或者喜欢 PyCharm，可以直接跳过下面对其他工具的介绍，直接快进到讲解 PyCharm 的地方。</p>
 <h4 id="默认的交互式环境"><a href="#默认的交互式环境" class="headerlink" title="默认的交互式环境"></a>默认的交互式环境</h4><p>我们打开 Windows 的“命令提示符”或“PowerShell”工具，输入<code>python</code>然后按下<code>Enter</code>键，这个命令会把我们带到一个交互式环境中。所谓交互式环境，就是我们输入一行代码并按下<code>Enter</code>键，代码马上会被执行，如果代码有产出结果，那么结果会被显示在窗口中，如下所示。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Python 3.10.10</span><br><span class="line">Type <span class="string">&quot;help&quot;</span>, <span class="string">&quot;copyright&quot;</span>, <span class="string">&quot;credits&quot;</span> or <span class="string">&quot;license&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt; 2 * 3</span><br><span class="line">6</span><br><span class="line">&gt;&gt;&gt; 2 + 3</span><br><span class="line">5</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Bash">Python 3.10.10<br>Type <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> or <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.<br>&gt;&gt;&gt; 2 * 3<br>6<br>&gt;&gt;&gt; 2 + 3<br>5<br>&gt;&gt;&gt;<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>说明</strong>：使用 macOS 系统的用户需要打开“终端”工具，输入<code>python3</code>进入交互式环境。</p>
 </blockquote>
 <p>如果希望退出交互式环境，可以在交互式环境中输入<code>quit()</code>，如下所示。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; quit()</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">&gt;&gt;&gt; quit()<br></code></pre></td></tr></table></figure>
 
 <h4 id="更好的交互式环境-IPython"><a href="#更好的交互式环境-IPython" class="headerlink" title="更好的交互式环境 - IPython"></a>更好的交互式环境 - IPython</h4><p>上面说的交互式环境用户体验并不怎么好，大家使用一下就能感受到。我们可以用 IPython 来替换掉它，因为 IPython 提供了更为强大的编辑和交互功能。我们可以在命令提示符或终端中使用 Python 的包管理工具<code>pip</code>来安装 IPython，如下所示。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ipython</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install ipython<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>提示</strong>：在使用上面的命令安装 IPython 之前，可以先通过<code>pip config set global.index-url https://pypi.doubanio.com/simple</code>命令或<code>pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple/</code>将下载源修改为国内的豆瓣镜像或清华镜像，否则下载安装的过程可能会非常的缓慢。</p>
 </blockquote>
 <p>接下来可以使用下面的命令启动 IPython，进入交互式环境。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipython</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ipython<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>说明</strong>：还有一个网页版的 IPython 名叫 Jupyter，我们在用得着它的地方再为大家介绍。</p>
 </blockquote>
 <h4 id="文本编辑神器-Visual-Studio-Code"><a href="#文本编辑神器-Visual-Studio-Code" class="headerlink" title="文本编辑神器 - Visual Studio Code"></a>文本编辑神器 - Visual Studio Code</h4><p>Visual Studio Code 是由微软开发能够在 Windows、 Linux 和 macOS 等操作系统上运行的代码编辑神器。它支持语法高亮、自动补全、多点编辑、运行调试等一系列便捷功能，而且能够支持多种编程语言。如果大家要选择一款高级文本编辑工具，强烈推荐 Visual Studio Code，关于它的<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">下载</a>、安装和使用，有兴趣的读者可以自行研究。</p>
-<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/visual_studio_code.png"></p>
+<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/visual_studio_code.png" srcset="/waterbottle/img/loading.gif" lazyload></p>
 <h4 id="集成开发环境-PyCharm"><a href="#集成开发环境-PyCharm" class="headerlink" title="集成开发环境 - PyCharm"></a>集成开发环境 - PyCharm</h4><p>如果用 Python 语言开发商业项目，我们推荐大家使用更为专业的工具 PyCharm。PyCharm 是由捷克一家名为 <a target="_blank" rel="noopener" href="https://www.jetbrains.com/">JetBrains</a> 的公司针对 Python 语言提供的集成开发环境（IDE)。所谓集成开发环境，通常是指提供了编写代码、运行代码、调试代码、分析代码、版本控制等一系列强大功能和便捷操作的开发工具，因此特别适合用于商业项目的开发。我们可以在 JetBrains 公司的官方网站上找到 PyCharm 的<a target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/download">下载链接</a>，如下图所示。</p>
-<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/pycharm_download_page.png"></p>
+<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/pycharm_download_page.png" srcset="/waterbottle/img/loading.gif" lazyload></p>
 <p>官方提供了两个 PyCharm 的版本，一个是免费的社区版（Community Edition），功能相对弱小，但对于初学者来说是完全够用的；另一个是付费的专业版（Professional Edition），功能非常强大，但需要按年或按月支付费用，新用户可以免费试用30天时间。PyCharm 的安装没有任何难度，运行下载的安装程序，几乎全部使用默认设置进行安装就可以了。对于使用 Windows 系统的小伙伴，其中有一个步骤可以按照下图所示勾选“创建桌面快捷方式”和“在右键菜单中添加”Open Folder as Project””就可以了。</p>
-<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_1.png"></p>
+<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_1.png" srcset="/waterbottle/img/loading.gif" lazyload></p>
 <p>第一次运行 PyCharm 时，在提示你导入 PyCharm 设置的界面上直接选择“Do not import settings”，然后我们就可以看到如下图所示的欢迎界面。此处，我们可以先点击“Customize”选项对 PyCharm 做一些个性化的设置。</p>
-<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_2.png"></p>
+<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_2.png" srcset="/waterbottle/img/loading.gif" lazyload></p>
 <p>接下来，我们可以在“Projects”选项中点击“New Project”来创建一个新的项目，此处还可以“打开已有项目”或“从版本控制服务器（VCS）获取项目”，如下图所示。</p>
-<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_3.png"></p>
+<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_3.png" srcset="/waterbottle/img/loading.gif" lazyload></p>
 <p>创建项目的时候需要指定项目的路径并创建”虚拟环境“，我们建议每个 Python 都在自己专属的虚拟环境中运行。如果你的系统上还没 Python 环境，那么 PyCharm 会提供官网的下载链接，当你点击“Create”按钮创建项目时，它会联网下载 Python 解释器，如下图所示。</p>
-<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_4.png"></p>
+<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_4.png" srcset="/waterbottle/img/loading.gif" lazyload></p>
 <p>当然，我们并不推荐这么做，因为我们在上一课已经安装过 Python 环境了。在系统有 Python 环境的情况下，PyCharm 通常会自动发现 Python 解释器的位置并以此为基础创建虚拟环境，所以大家看到的画面应该如下图所示。</p>
-<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_5.png"></p>
+<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_5.png" srcset="/waterbottle/img/loading.gif" lazyload></p>
 <blockquote>
 <p><strong>说明</strong>：上面的截图来自于 Windows 系统，如果使用 macOS 系统，你看到的项目路径和 Python 解释器路径会跟上面有所不同。</p>
 </blockquote>
 <p>创建好项目后会出现如下图所示的画面，我们可以通过在项目文件夹上点击鼠标右键，选择“New”菜单下的“Python File”来创建一个 Python 文件，在给文件命名时建议使用英文字母和下划线的组合，创建好的 Python 文件会自动打开，进入可编辑的状态。</p>
-<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_6.png"></p>
+<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_6.png" srcset="/waterbottle/img/loading.gif" lazyload></p>
 <p>接下来，我们可以在代码窗口编写我们的 Python 代码。写好代码后，可以在窗口中点击鼠标右键，选择“Run”菜单项来运行代码，下面的“Run”窗口会显示代码的执行结果，如下图所示。</p>
-<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_7.png"></p>
+<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_7.png" srcset="/waterbottle/img/loading.gif" lazyload></p>
 <p>到这里，我们的第一个 Python 程序已经运转起来了，很酷吧！对了，PyCharm 有一个叫“每日小贴士”的弹窗，会教给你一些使用 PyCharm 的小技巧，如下图所示。如果不需要，直接关闭就可以了；如果不希望它再次出现，在关闭前可以勾选“Don’t show tips on startup”。</p>
-<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_8.png"></p>
+<p><img src="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/using_pycharm_8.png" srcset="/waterbottle/img/loading.gif" lazyload></p>
 <h3 id="你好世界"><a href="#你好世界" class="headerlink" title="你好世界"></a>你好世界</h3><p>按照行业惯例，我们学习任何一门编程语言写的第一个程序都是输出<code>hello, world</code>，因为这段代码是伟大的丹尼斯·里奇（C 语言之父，和肯·汤普森一起开发了 Unix 操作系统）和布莱恩·柯尼汉（awk 语言的发明者）在他们的不朽著作《<em>The C Programming Language</em>》中写的第一段代码，下面是对应的 Python 语言的版本。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello, world&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;hello, world&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>注意</strong>：上面代码中的圆括号、单引号都是在英文输入法状态下输入的，如果不小心写成了中文的圆括号或单引号，运行代码时会出现<code>SyntaxError: invalid character &#39;（&#39; (U+FF08)</code>或<code>SyntaxError: invalid character &#39;‘&#39; (U+2018)</code>这样的错误提示。</p>
 </blockquote>
 <p>上面的代码只有一个语句，在这个语句中，我们用到了一个名为<code>print</code>的函数，它可以帮助我们输出指定的内容；<code>print</code>函数圆括号中的<code>&#39;hello, world&#39;</code>是一个字符串，它代表了一段文本内容；在 Python 语言中，我们可以用单引号或双引号来表示一个字符串。不同于 C、C++ 或 Java 这样的编程语言，Python 代码中的语句不需要用分号来表示结束，也就是说，如果我们想再写一条语句，只需要回车换行即可，代码如下所示。此外，Python 代码也不需要通过编写名为<code>main</code>的入口函数来使其运行，提供入口函数是编写可执行的 C、C++ 或 Java 代码必须要做的事情，这一点很多程序员都不陌生，但是在 Python 语言中它并不是必要的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello, world&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;goodbye, world&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;hello, world&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;goodbye, world&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>如果不使用 PyCharm 这样的集成开发环境，我们也可以直接调用 Python 解释器来运行 Python 程序。我们可以将上面的代码保存成一个名为<code>example01.py</code>的文件，对于Windows 系统，我们假设该文件在<code>C:\code</code>目录下，我们打开“命令提示符”或“PowerShell”并输入下面的命令就可以运行它。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python C:\code\example01.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">python C:\code\example01.py<br></code></pre></td></tr></table></figure>
 
 <p>对于 macOS 系统，假设我们的文件在<code>/Users/Hao</code>目录下，那么可以在终端中输入下面的命令来运行程序。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 /Users/Hao/example01.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">python3 /Users/Hao/example01.py<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>提示</strong>：如果路径比较长，不愿意手动输入，我们可以通过拖拽的方式将文件直接拖到“命令提示符”或“终端”中，这样会自动输入完整的文件路径。</p>
@@ -184,159 +384,408 @@
 <li>单行注释：以<code>#</code>和空格开头，可以注释掉从<code>#</code>开始后面一整行的内容。</li>
 <li>多行注释：三个引号（通常用双引号）开头，三个引号结尾，通常用于添加多行说明性内容。</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">第一个Python程序 - hello, world</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Version: 1.0</span></span><br><span class="line"><span class="string">Author: 骆昊</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># print(&#x27;hello, world&#x27;)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;你好，世界！&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">第一个Python程序 - hello, world</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 骆昊</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-comment"># print(&#x27;hello, world&#x27;)</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你好，世界！&quot;</span>)<br></code></pre></td></tr></table></figure>
 
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>到此，我们已经把第一个 Python 程序运行起来了，是不是很有成就感？！只要你坚持学习下去，再过一段时间，我们就可以用 Python 语言做更多更酷的事情。今时今日，编程就跟英语一样，对很多人来说都是一项必须要掌握的技能。</p>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://likemikusama.github.io/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/02.%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F/" data-id="cmbhpvu32000slghtfndu9876" data-title="02第一个Python程序" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
+
+<span class="category-chains">
+  
   
     
-<nav id="article-nav">
+      <span class="category-chain">
+        
+  <a href="/waterbottle/categories/Python/" class="category-chain-item">Python</a>
   
-    <a href="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/01.%E5%88%9D%E8%AF%86Python/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          01初识Python
-        
+  
+    <span>></span>
+    
+  <a href="/waterbottle/categories/Python/Python%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%83%E4%B9%A0/" class="category-chain-item">Python部署与练习</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>02第一个Python程序</div>
+      <div>https://likemikusama.github.io/waterbottle/2025/06/01/Python/python练习/Day01-20/02.第一个Python程序/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>XUANWEN DING</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月1日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年6月2日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/waterbottle/2025/06/01/Python/python%E7%BB%83%E4%B9%A0/Day01-20/01.%E5%88%9D%E8%AF%86Python/" title="01初识Python">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">01初识Python</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/waterbottle/2024/08/13/%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/%E5%BF%AB%E9%80%9F%E6%96%87%E6%A1%A3/" title="快速文档">
+                        <span class="hidden-mobile">快速文档</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
-    </a>
-  
-  
-    <a href="/waterbottle/2024/08/13/%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/%E5%BF%AB%E9%80%9F%E6%96%87%E6%A1%A3/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">快速文档</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Gitee%E6%8C%87%E5%8D%97/">Gitee指南</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/HarmonyOS/">HarmonyOS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/HarmonyOS/ArkTS/">ArkTS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Hexo%E5%B8%AE%E5%8A%A9/">Hexo帮助</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Hexo%E5%B8%AE%E5%8A%A9%E6%89%8B%E5%86%8C/">Hexo帮助手册</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/Linux%E7%BB%83%E4%B9%A0%E9%A2%98/">Linux练习题</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE/">命令配置</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Linux/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85/">常用工具和软件包</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/MongoDB/">MongoDB</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/MongoDB/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">常用命令</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/Python%E5%B0%8F%E6%8A%80%E5%B7%A7/">Python小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/Python/Python%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%BB%83%E4%B9%A0/">Python部署与练习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/windows%E7%B3%BB%E7%BB%9F/">windows系统</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">从零搭建博客</a></li><li class="category-list-item"><a class="category-list-link" href="/waterbottle/categories/%E5%B7%A5%E4%BD%9C%E5%B8%B8%E7%94%A8/">工作常用</a></li></ul>
     </div>
-  </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/waterbottle/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/" rel="tag">工作日常</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/waterbottle/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/" style="font-size: 10px;">工作日常</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/waterbottle/archives/2023/12/">December 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/05.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/">05分支结构</a>
-          </li>
-        
-          <li>
-            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/06.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/">06循环结构</a>
-          </li>
-        
-          <li>
-            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/07.%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E5%AE%9E%E6%88%98/">07分支和循环结构练习</a>
-          </li>
-        
-          <li>
-            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/08.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%88%97%E8%A1%A8-1/">08常用数据结构--列表（一）</a>
-          </li>
-        
-          <li>
-            <a href="/waterbottle/2025/06/03/Python/python%E7%BB%83%E4%B9%A0/Day01-20/09.%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%88%97%E8%A1%A8-2/">09常用数据结构--列表（二）</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-      &copy; 2025 水瓶<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
-    <nav id="mobile-nav">
+  </div>
+</div>
+
+
+
+
+
   
-    <a href="/waterbottle/" class="mobile-nav-link">Home</a>
+
+
+
   
-    <a href="/waterbottle/archives" class="mobile-nav-link">Archives</a>
+
+
+
   
-</nav>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<script src="/waterbottle/js/jquery-3.6.4.min.js"></script>
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/waterbottle/js/events.js" ></script>
+<script  src="/waterbottle/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
 
 
 
   
-<script src="/waterbottle/fancybox/jquery.fancybox.min.js"></script>
+    <script  src="/waterbottle/js/img-lazyload.js" ></script>
+  
 
 
 
 
-<script src="/waterbottle/js/script.js"></script>
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/waterbottle/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 
-  </div>
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/waterbottle/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
