@@ -8,7 +8,7 @@ subtitle: ''
 description: '记录生活，记录自己'
 keywords: '成长，记录，技术，分享'
 author: 水瓶
-language: zh
+language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL
@@ -101,7 +101,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -109,3 +109,39 @@ deploy:
   - type: "git"
     repo: "git@github.com:LIKEMIKUSAMA/waterbottle.git"
     branch: "main"
+
+all_minifier: true
+
+js_concator:
+  enable: false
+  bundle_path: '/js/bundle.js'
+  front: false
+  silent: false
+
+html_minifier:
+  enable: true
+  ignore_error: false
+  silent: false
+  exclude:
+
+css_minifier:
+  enable: true
+  silent: false
+  exclude:
+    - '*.min.css'
+
+js_minifier:
+  enable: true
+  mangle: true
+  silent: false
+  exclude:
+    - '*.min.js'
+
+image_minifier:
+  enable: true
+  interlaced: false
+  multipass: false
+  optimizationLevel: 2
+  pngquant: false
+  progressive: true
+  silent: false
