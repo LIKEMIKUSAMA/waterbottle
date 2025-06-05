@@ -2,7 +2,8 @@
 title: Gitee仓库操作指南
 author: XUANWEN DING
 categories:
-  - [Gitee指南]
+  - - Gitee指南
+abbrlink: 703d05d2
 date: 2024-04-16 17:50:46
 ---
 Gitee仓库操作指南合集，如果需要详细指南可以参考[Gitee帮助中心](https://gitee.com/help)

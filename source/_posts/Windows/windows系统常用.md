@@ -2,7 +2,8 @@
 title: windows系统常用命令
 author: XUANWEN DING
 categories:
-  - [windows系统]
+  - - windows系统
+abbrlink: 89db17f7
 date: 2023-12-29 10:34:03
 updated: 2023-12-29 10:34:03
 ---

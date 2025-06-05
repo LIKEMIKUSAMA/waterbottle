@@ -2,7 +2,8 @@
 title: Nginx技巧
 author: XUANWEN DING
 categories:
-  - [Nginx]
+  - - Nginx
+abbrlink: aca97dde
 date: 2024-03-18 11:18:23
 ---
 文章引言

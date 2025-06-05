@@ -2,7 +2,9 @@
 title: MongoDB常用命令
 author: XUANWEN DING
 categories:
-  - [MongoDB,常用命令]
+  - - MongoDB
+    - 常用命令
+abbrlink: c08448a5
 date: 2024-04-03 16:54:50
 ---
 MongoDB常用命令和操作方案

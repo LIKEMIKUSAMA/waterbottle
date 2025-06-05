@@ -2,7 +2,9 @@
 title: ArkTS语言介绍
 author: XUANWEN DING
 categories:
-  - [HarmonyOS,ArkTS]
+  - - HarmonyOS
+    - ArkTS
+abbrlink: b501a5f5
 date: 2024-01-21 00:49:23
 ---
 ArkTS语言基础语法和介绍

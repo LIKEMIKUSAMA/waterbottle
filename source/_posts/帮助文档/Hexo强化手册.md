@@ -2,7 +2,8 @@
 title: Hexo强化手册
 author: XUANWEN DING
 categories:
-  - [Hexo帮助]
+  - - Hexo帮助
+abbrlink: b4c91620
 date: 2024-07-12 11:30:23
 ---
 Hexo使用帮助文件，汇集总结使用中常见的各类配置和常见调整

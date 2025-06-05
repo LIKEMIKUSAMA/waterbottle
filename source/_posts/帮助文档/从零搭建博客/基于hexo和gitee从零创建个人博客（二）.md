@@ -2,9 +2,10 @@
 title: 基于hexo和gitee从零创建个人博客（二）
 author: XUANWEN DING
 categories:
-  - [从零搭建博客]
+  - - 从零搭建博客
+abbrlink: bf17ccb5
 date: 2023-12-27 16:12:04
-updated: 
+updated:
 ---
 这一部分主要介绍如何将博客托管到Gitee
 本文主要介绍基于 Hexo 和 Gitee Pages 功能来实现个人页面的创建和托管

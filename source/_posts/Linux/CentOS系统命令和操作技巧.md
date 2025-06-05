@@ -2,7 +2,9 @@
 title: CentOS系统命令和操作技巧
 author: XUANWEN DING
 categories:
-  - [Linux, 命令配置]
+  - - Linux
+    - 命令配置
+abbrlink: 7d6c437
 date: 2024-04-11 10:55:49
 ---
 CentOS系统命令和操作技巧，整和大部分常用命令和操作方式等。

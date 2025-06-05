@@ -2,7 +2,9 @@
 title: Linux小练习
 author: XUANWEN DING
 categories:
-  - [Linux,Linux练习题]
+  - - Linux
+    - Linux练习题
+abbrlink: 9e9006f1
 date: 2023-12-29 10:42:27
 ---
 问题难度不分先后，实现答案**不唯一**。一个题不会可以先跳去另一个。有思路可以不急着看答案，先百度找找资料尝试一下。如果思路也没有，百度也不会，那建议对着答案和注释找AI一点点分析为毛这么做。

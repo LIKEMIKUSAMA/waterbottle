@@ -2,7 +2,9 @@
 title: CentOS 7 常用工具和软件包
 author: XUANWEN DING
 categories:
-  - [Linux,常用工具和软件包]
+  - - Linux
+    - 常用工具和软件包
+abbrlink: 2199b204
 date: 2024-01-03 15:19:04
 ---
 CentOS 系统常用于作为服务器，因此多数情况下都需要使用 SSH 方式连接，本文主要介绍常用的 SSH 连接服务器的工具和服务器内一些好用的软件包。

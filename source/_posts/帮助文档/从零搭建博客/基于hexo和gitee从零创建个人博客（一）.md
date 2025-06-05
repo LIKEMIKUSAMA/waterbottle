@@ -1,10 +1,11 @@
 ---
 title: 基于hexo和gitee从零创建个人博客（一）
 author: XUANWEN DING
+categories:
+  - - 从零搭建博客
+abbrlink: 8f01206d
 date: 2023-12-27 16:12:04
 updated: 2023-12-27 16:12:04
-categories:
-- [从零搭建博客]
 ---
 
 这一部分主要介绍如何先在本地搭建Hexo。

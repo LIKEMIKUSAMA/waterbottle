@@ -2,7 +2,9 @@
 title: Python小技巧
 author: XUANWEN DING
 categories:
-  - [Python,Python小技巧]
+  - - Python
+    - Python小技巧
+abbrlink: 76683f9
 date: 2023-12-31 11:54:11
 ---
 
