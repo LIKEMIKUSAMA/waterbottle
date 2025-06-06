@@ -11,25 +11,30 @@ author: 水瓶
 language: zh-CN
 timezone: 'Asia/Shanghai'
 
-# abbrlink config
+# URL
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+url: https://LIKEMIKUSAMA.github.io/waterbottle
+root: /
+
+#永久链接URL配置
+permalink: posts/:abbrlink/
+#普通URL配置
+#permalink: :year/:month/:day/:title/
+
+permalink_defaults:
+  lang: zh-CN
+pretty_urls:
+  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
+
+
+# 永久链接配置
 abbrlink:
   alg: crc16      # Algorithm used to calc abbrlink. Support crc16(default) and crc32
   rep: hex        # Representation of abbrlink in URLs. Support dec(default) and hex
   drafts: false   # Whether to generate abbrlink for drafts. (false in default)
   force: false    # Enable force mode. In this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had an abbrlink. (false in default)
   writeback: true # Whether to write changes to front-matters back to the actual markdown files. (true in default)
-
-
-# URL
-## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://LIKEMIKUSAMA.github.io/waterbottle
-# permalink: :year/:month/:day/:title/
-permalink: posts/:abbrlink/
-permalink_defaults:
-  lang: zh-CN
-pretty_urls:
-  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 
 
 # Directory
@@ -52,10 +57,13 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
+
+#资源文件夹
 post_asset_folder: true
 marked:
   prependRoot: true
   postAsset: true
+
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -121,6 +129,8 @@ deploy:
     repo: "git@github.com:LIKEMIKUSAMA/waterbottle.git"
     branch: "main"
 
+
+#压缩算法，all-minifier插件使用
 all_minifier: true
 
 js_concator:
@@ -145,9 +155,10 @@ js_minifier:
   enable: true
   mangle: true
   silent: false
+  #output:
+  #compress:
   exclude:
     - '*.min.js'
-
 image_minifier:
   enable: true
   interlaced: false
@@ -156,3 +167,15 @@ image_minifier:
   pngquant: false
   progressive: true
   silent: false
+
+#markdown_it_plus配置项
+markdown_it_plus:
+  highlight: true
+  html: true
+  xhtmlOut: true
+  breaks: true
+  langPrefix:
+  linkify: true
+  typographer:
+  quotes: “”‘’
+  pre_class: highlight

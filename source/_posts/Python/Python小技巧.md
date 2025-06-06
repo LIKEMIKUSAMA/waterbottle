@@ -18,4 +18,3 @@ date: 2023-12-31 11:54:11
 # 命令换源，最后的 URL 直接替换为上面的链接就行
 pip config set global.index-url https://pypi.mirrors.ustc.edu.cn/simple
 ```
-
