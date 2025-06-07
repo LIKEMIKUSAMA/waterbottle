@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/waterbottle/img/fluid.png">
+  <link rel="icon" href="/waterbottle/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -26,13 +26,13 @@
 <meta property="og:site_name" content="一个水瓶的灌装之路">
 <meta property="og:description" content="了解集合的特性和应用场景">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://likemikusama.github.io/posts/b61c/set_operations.png">
+<meta property="og:image" content="https://likemikusama.github.io/waterbottle/posts/b61c/set_operations.png">
 <meta property="article:published_time" content="2025-06-03T06:50:00.000Z">
 <meta property="article:modified_time" content="2025-06-06T15:03:11.315Z">
 <meta property="article:author" content="水瓶">
 <meta property="article:tag" content="成长，记录，技术，分享">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://likemikusama.github.io/posts/b61c/set_operations.png">
+<meta name="twitter:image" content="https://likemikusama.github.io/waterbottle/posts/b61c/set_operations.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -62,12 +62,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/waterbottle/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/waterbottle/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/waterbottle/css/highlight-dark.css" />
   
 
 
@@ -76,15 +76,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"likemikusama.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"likemikusama.github.io","root":"/waterbottle/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/waterbottle/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/waterbottle/js/utils.js" ></script>
+  <script  src="/waterbottle/js/color-schema.js" ></script>
   
 
 
@@ -101,7 +101,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/waterbottle/">
       <strong>Fluid</strong>
     </a>
 
@@ -120,7 +120,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/waterbottle/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -132,7 +132,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/waterbottle/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -144,7 +144,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/waterbottle/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -156,7 +156,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/waterbottle/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -168,7 +168,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/waterbottle/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -198,7 +198,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/waterbottle/img/home_banner.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -344,7 +344,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">set1 = &#123;<span class="hljs-number">11</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>&#125;<br><span class="hljs-built_in">print</span>(<span class="hljs-number">10</span> <span class="hljs-keyword">in</span> set1)      <span class="hljs-comment"># False </span><br><span class="hljs-built_in">print</span>(<span class="hljs-number">15</span> <span class="hljs-keyword">in</span> set1)      <span class="hljs-comment"># True</span><br>set2 = &#123;<span class="hljs-string">&#x27;Python&#x27;</span>, <span class="hljs-string">&#x27;Java&#x27;</span>, <span class="hljs-string">&#x27;C++&#x27;</span>, <span class="hljs-string">&#x27;Swift&#x27;</span>&#125;<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Ruby&#x27;</span> <span class="hljs-keyword">in</span> set2)  <span class="hljs-comment"># False</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Java&#x27;</span> <span class="hljs-keyword">in</span> set2)  <span class="hljs-comment"># True</span><br></code></pre></td></tr></table></figure>
 <h4 id="二元运算"><a class="markdownIt-Anchor" href="#二元运算"></a> 二元运算</h4>
 <p>集合的二元运算主要指集合的交集、并集、差集、对称差等运算，这些运算可以通过运算符来实现，也可以通过集合类型的方法来实现，代码如下所示。</p>
-<style>.xhdmsemayhdt{zoom:50%;}</style><img src="/posts/b61c/set_operations.png" srcset="/img/loading.gif" lazyload class="xhdmsemayhdt">
+<style>.vbzumtuasjhk{zoom:50%;}</style><img src="/waterbottle/posts/b61c/set_operations.png" srcset="/waterbottle/img/loading.gif" lazyload class="vbzumtuasjhk">
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python">set1 = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>&#125;<br>set2 = &#123;<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>&#125;<br><br><span class="hljs-comment"># 交集</span><br><span class="hljs-built_in">print</span>(set1 &amp; set2)                      <span class="hljs-comment"># &#123;2, 4, 6&#125;</span><br><span class="hljs-built_in">print</span>(set1.intersection(set2))          <span class="hljs-comment"># &#123;2, 4, 6&#125;</span><br><br><span class="hljs-comment"># 并集</span><br><span class="hljs-built_in">print</span>(set1 | set2)                      <span class="hljs-comment"># &#123;1, 2, 3, 4, 5, 6, 7, 8, 10&#125;</span><br><span class="hljs-built_in">print</span>(set1.union(set2))                 <span class="hljs-comment"># &#123;1, 2, 3, 4, 5, 6, 7, 8, 10&#125;</span><br><br><span class="hljs-comment"># 差集</span><br><span class="hljs-built_in">print</span>(set1 - set2)                      <span class="hljs-comment"># &#123;1, 3, 5, 7&#125;</span><br><span class="hljs-built_in">print</span>(set1.difference(set2))            <span class="hljs-comment"># &#123;1, 3, 5, 7&#125;</span><br><br><span class="hljs-comment"># 对称差</span><br><span class="hljs-built_in">print</span>(set1 ^ set2)                      <span class="hljs-comment"># &#123;1, 3, 5, 7, 8, 10&#125;</span><br><span class="hljs-built_in">print</span>(set1.symmetric_difference(set2))  <span class="hljs-comment"># &#123;1, 3, 5, 7, 8, 10&#125;</span><br></code></pre></td></tr></table></figure>
 <p>通过上面的代码可以看出，对两个集合求交集，<code>&amp;</code>运算符和<code>intersection</code>方法的作用是完全相同的，使用运算符的方式显然更直观且代码也更简短。<br />
 需要说明的是，集合的二元运算还可以跟赋值运算一起构成复合赋值运算。<br />
@@ -390,12 +390,12 @@ Python 为集合类型提供了判断子集和超集的运算符，其实就是�
     
       <span class="category-chain">
         
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  <a href="/waterbottle/categories/Python/" class="category-chain-item">Python</a>
   
   
     <span>></span>
     
-  <a href="/categories/Python/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/" class="category-chain-item">快速入门手册</a>
+  <a href="/waterbottle/categories/Python/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/" class="category-chain-item">快速入门手册</a>
   
   
 
@@ -467,7 +467,7 @@ Python 为集合类型提供了判断子集和超集的运算符，其实就是�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/c71f/" title="13.常用数据结构之字典">
+                      <a href="/waterbottle/posts/c71f/" title="13.常用数据结构之字典">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">13.常用数据结构之字典</span>
                         <span class="visible-mobile">上一篇</span>
@@ -477,7 +477,7 @@ Python 为集合类型提供了判断子集和超集的运算符，其实就是�
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/828b/" title="10.常用数据结构之元组">
+                      <a href="/waterbottle/posts/828b/" title="10.常用数据结构之元组">
                         <span class="hidden-mobile">10.常用数据结构之元组</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -632,8 +632,8 @@ Python 为集合类型提供了判断子集和超集的运算符，其实就是�
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/waterbottle/js/events.js" ></script>
+<script  src="/waterbottle/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -655,7 +655,7 @@ Python 为集合类型提供了判断子集和超集的运算符，其实就是�
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/waterbottle/js/img-lazyload.js" ></script>
   
 
 
@@ -754,7 +754,7 @@ Python 为集合类型提供了判断子集和超集的运算符，其实就是�
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/waterbottle/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -764,7 +764,7 @@ Python 为集合类型提供了判断子集和超集的运算符，其实就是�
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/waterbottle/js/boot.js" ></script>
 
 
   
