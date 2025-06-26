@@ -4,7 +4,7 @@ author: 瓶子
 categories:
   - - Java
     - Java快速入门学习手册
-abbrlink: 
+abbrlink: 58ce
 date: 2025-06-26 14:58:37
 tags:
 index_img:
@@ -134,7 +134,4 @@ class Student {
     // ...
 }    
 ```
-
-## 四、Lambda表达式的简化规则
-
 
