@@ -19,15 +19,15 @@
   <meta name="author" content="瓶子">
   <meta name="keywords" content="成长，记录，技术，分享">
   
-    <meta name="description" content="本章主要介绍Java中Lambda表达式并介绍表达式的作用和使用场景。">
+    <meta name="description" content="本章介绍Java的GUI编程，通过创建图形元素界面与用户交互的一种编程方式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="认识Lambda表达式">
-<meta property="og:url" content="https://likemikusama.github.io/waterbottle/posts/58ce/">
+<meta property="og:title" content="33.Java的GUI编程简介">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/posts/b868/">
 <meta property="og:site_name" content="一个水瓶的灌装之路">
-<meta property="og:description" content="本章主要介绍Java中Lambda表达式并介绍表达式的作用和使用场景。">
+<meta property="og:description" content="本章介绍Java的GUI编程，通过创建图形元素界面与用户交互的一种编程方式">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-26T06:58:37.000Z">
-<meta property="article:modified_time" content="2025-06-26T15:34:56.364Z">
+<meta property="article:published_time" content="2025-06-27T08:03:38.000Z">
+<meta property="article:modified_time" content="2025-06-27T08:37:53.556Z">
 <meta property="article:author" content="水瓶">
 <meta property="article:tag" content="成长，记录，技术，分享">
 <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>认识Lambda表达式 - 一个水瓶的灌装之路</title>
+  <title>33.Java的GUI编程简介 - 一个水瓶的灌装之路</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="认识Lambda表达式"></span>
+            <span id="subtitle" data-typed-text="33.Java的GUI编程简介"></span>
           
         </div>
 
@@ -220,8 +220,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-06-26 14:58" pubdate>
-          2025年6月26日 下午
+        <time datetime="2025-06-27 16:03" pubdate>
+          2025年6月27日 下午
         </time>
       </span>
     
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          739 字
+          604 字
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          8 分钟
+          7 分钟
         
       </span>
     
@@ -289,12 +289,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">认识Lambda表达式</h1>
+            <h1 id="seo-header">33.Java的GUI编程简介</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年6月26日 晚上
+                    本文最后更新于 2025年6月27日 下午
                   
                 
               </p>
@@ -302,35 +302,138 @@
             
               <div class="markdown-body">
                 
-                <p>本章主要介绍Java中Lambda表达式并介绍表达式的作用和使用场景。</p>
+                <p>本章介绍Java的GUI编程，通过创建图形元素界面与用户交互的一种编程方式</p>
 <span id="more"></span>
-<h2 id="一-lambda表达式"><a class="markdownIt-Anchor" href="#一-lambda表达式"></a> 一、Lambda表达式</h2>
+<h2 id="什么是gui编程"><a class="markdownIt-Anchor" href="#什么是gui编程"></a> 什么是GUI编程</h2>
 <blockquote>
-<p>Lambda表达式是Java 8新增的语法，<strong>只适用于</strong>简化使用了函数式接口的匿名内部类。</p>
+<p>GUI（Graphical User Interface）是图形用户界面，是一种用户界面，用户界面是计算机与用户进行交互的方式。<br />
+GUI编程就是基于图形界面进行编程</p>
 </blockquote>
-<p>函数式接口:</p>
+<h3 id="gui编程的优缺点"><a class="markdownIt-Anchor" href="#gui编程的优缺点"></a> GUI编程的优缺点</h3>
 <ul>
-<li>函数式接口是<strong>有且仅只有一个抽象方法</strong>的接口。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 函数式接口</span><br><span class="hljs-meta">@FunctionalInterface</span>  <span class="hljs-comment">// 声明函数式接口的注解，加上后，接口的抽象方法只能有一个</span><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Animal</span>&#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">eat</span><span class="hljs-params">()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="二-表达式如何替换匿名函数"><a class="markdownIt-Anchor" href="#二-表达式如何替换匿名函数"></a> 二、表达式如何替换匿名函数</h2>
-<p>替换格式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs textmate">(被重写方法的形参列表) -&gt; &#123;<br>    被重写方法的方法体代码。<br>&#125;<br></code></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LambdaDemo</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">( String[] args )</span> &#123;<br>        <span class="hljs-comment">// 使用匿名函数</span><br>        <span class="hljs-type">Animal</span> <span class="hljs-variable">cat</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Animal</span>() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">eat</span><span class="hljs-params">()</span> &#123;<br>                System.out.println(<span class="hljs-string">&quot;猫吃鱼&quot;</span>);<br>            &#125;<br>        &#125;; <br>        cat.eat();<br>        <br>        <span class="hljs-comment">// 使用Lambda表达式简化匿名函数</span><br>        <span class="hljs-type">Animal</span> <span class="hljs-variable">lambdacat</span> <span class="hljs-operator">=</span> () -&gt; &#123;<br>            System.out.println(<span class="hljs-string">&quot;使用Lambda表达式简化匿名函数&quot;</span>);<br>        &#125;;<br>        lambdacat.eat();<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 函数式接口</span><br><span class="hljs-meta">@FunctionalInterface</span><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Animal</span> &#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">eat</span><span class="hljs-params">()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="三-lambda表达式的优点"><a class="markdownIt-Anchor" href="#三-lambda表达式的优点"></a> 三、Lambda表达式的优点</h2>
+<li>优点</li>
+<li>
 <ul>
-<li>语法简洁，代码量少，可读性高。<br />
-这是Lambda函数最重要的优点。</li>
+<li>界面友好，用户体验好</li>
 </ul>
-<h2 id="四-lambda表达式使用场景和简化规则"><a class="markdownIt-Anchor" href="#四-lambda表达式使用场景和简化规则"></a> 四、Lambda表达式使用场景和简化规则</h2>
-<p><strong>Lambda表达式简化有以下规则</strong></p>
+</li>
+<li>
 <ul>
-<li>参数类型全部可以省略不写。</li>
-<li>如果只有一个参数，参数类型省略的同时“()”也可以省略，但多个参数不能省略“()”</li>
-<li>如果Lambda表达式中只有一行代码，大括号可以不写，同时要省略分号“:” 如果这行代码是return语句，也必须去掉return。</li>
+<li>与命令行界面相比，GUI界面更易操作，更易使用</li>
 </ul>
-<p>代码演示，我们使用之前介绍内部类的代码来示范使用场景和简化规则</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 匿名内部类实现接口。采用Arrays.sort方法实现排序作为例子。（使用Lambda表达式简化后）</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * Version: 1.1</span><br><span class="hljs-comment"> * Author: 瓶子</span><br><span class="hljs-comment"> */</span><br><span class="hljs-comment">// 父类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">( String[] args )</span> &#123;<br>        Student[] students = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>[<span class="hljs-number">3</span>];<br>        students[<span class="hljs-number">0</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;张三&quot;</span>, <span class="hljs-number">19</span>, <span class="hljs-number">170.0</span>, <span class="hljs-string">&#x27;男&#x27;</span>);<br>        students[<span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;李四&quot;</span>, <span class="hljs-number">21</span>, <span class="hljs-number">160.0</span>, <span class="hljs-string">&#x27;女&#x27;</span>);<br>        students[<span class="hljs-number">2</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;王五&quot;</span>, <span class="hljs-number">18</span>, <span class="hljs-number">180.0</span>, <span class="hljs-string">&#x27;男&#x27;</span>);<br><br>        <span class="hljs-comment">//  public static void sort(T[] a, Comparator&lt;T&gt; c)</span><br>        <span class="hljs-comment">//  参数一：需要排序的数组。</span><br>        <span class="hljs-comment">//  参数二：给sort方法传递比较器对象Comparator，Comparator中制定排序规则。</span><br><br>        <span class="hljs-comment">// 对student数组进行排序</span><br>        <span class="hljs-comment">// 使用匿名内部类来满足Array.sort方法所需的参数。</span><br><span class="hljs-comment">//        Arrays.sort(students, new Comparator&lt; Student &gt;() &#123;  // 创建匿名内部类对象</span><br><span class="hljs-comment">//            @Override</span><br><span class="hljs-comment">//            public int compare( Student o1, Student o2 ) &#123;  // 比较规则</span><br><span class="hljs-comment">//                // 年龄升序</span><br><span class="hljs-comment">//                return o1.getAge() - o2.getAge();</span><br><span class="hljs-comment">//            &#125;</span><br><span class="hljs-comment">//        &#125;);</span><br><br><span class="hljs-comment">//        // 上述方法使用Lambda表达式简化</span><br><span class="hljs-comment">//        Arrays.sort(students, (Student o1, Student o2) -&gt; &#123;</span><br><span class="hljs-comment">//            return o1.getAge() - o2.getAge();</span><br><span class="hljs-comment">//        &#125;);</span><br><br><span class="hljs-comment">//        // 按规则二次简化，去除o1和o2前面的参数类型名称</span><br><span class="hljs-comment">//        Arrays.sort(students, ( o1,  o2) -&gt; &#123;</span><br><span class="hljs-comment">//            return o1.getAge() - o2.getAge();</span><br><span class="hljs-comment">//        &#125;);</span><br>        <br>        <span class="hljs-comment">// 按规则最终简化，去除return关键字，去除大括号。</span><br>        Arrays.sort( students, ( o1,  o2) -&gt;  o1.getAge() - o2.getAge() );<br>        <br>        <span class="hljs-comment">// 输出排序后的数组</span><br>        <span class="hljs-keyword">for</span> ( <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; students.length; i++ ) &#123;<br>            <span class="hljs-type">Student</span> <span class="hljs-variable">student</span> <span class="hljs-operator">=</span> students[i];<br>            System.out.println(student);<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> &#123;<br>    <span class="hljs-comment">// 姓名，年龄，身高，性别。</span><br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> age;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> height;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">char</span> sex;<br><br>    <span class="hljs-comment">// 篇幅有限，省略构造器和getter和setter方法。</span><br>    <span class="hljs-comment">// ...</span><br>&#125;    <br></code></pre></td></tr></table></figure>
+</li>
+<li>缺点</li>
+<li>
+<ul>
+<li>Java制作GUI界面较繁琐</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>目前企业界更多使用浏览器或其他语言编写的前端页面，Java主要用来编写后台程序。</li>
+</ul>
+</li>
+</ul>
+<h3 id="java的gui编程包"><a class="markdownIt-Anchor" href="#java的gui编程包"></a> Java的GUI编程包</h3>
+<p>Java提供了两种GUI编程包</p>
+<h4 id="swing建议使用"><a class="markdownIt-Anchor" href="#swing建议使用"></a> Swing（建议使用）</h4>
+<blockquote>
+<p>基于AWT衍生，提供了更加丰富的GUI组件，不依赖本地窗口系统，可跨平台使用。</p>
+</blockquote>
+<p>常用组件</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">组件名称</th>
+<th style="text-align:left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">JFrame</td>
+<td style="text-align:left">窗口</td>
+</tr>
+<tr>
+<td style="text-align:left">JPanel</td>
+<td style="text-align:left">面板(也叫容器，可用于组织其他组件)</td>
+</tr>
+<tr>
+<td style="text-align:left">JButton</td>
+<td style="text-align:left">按钮</td>
+</tr>
+<tr>
+<td style="text-align:left">JLabel</td>
+<td style="text-align:left">标签</td>
+</tr>
+<tr>
+<td style="text-align:left">JTable</td>
+<td style="text-align:left">表格</td>
+</tr>
+<tr>
+<td style="text-align:left">JTextField</td>
+<td style="text-align:left">文本框</td>
+</tr>
+<tr>
+<td style="text-align:left">JTextArea</td>
+<td style="text-align:left">多行文本框</td>
+</tr>
+<tr>
+<td style="text-align:left">JCheckBox</td>
+<td style="text-align:left">复选框</td>
+</tr>
+<tr>
+<td style="text-align:left">JRadioButton</td>
+<td style="text-align:left">单选框</td>
+</tr>
+<tr>
+<td style="text-align:left">JComboBox</td>
+<td style="text-align:left">下拉框</td>
+</tr>
+<tr>
+<td style="text-align:left">JList</td>
+<td style="text-align:left">列表框</td>
+</tr>
+<tr>
+<td style="text-align:left">JScrollPane</td>
+<td style="text-align:left">滚动面板</td>
+</tr>
+<tr>
+<td style="text-align:left">JOptionPane</td>
+<td style="text-align:left">对话框</td>
+</tr>
+</tbody>
+</table>
+<h4 id="awt已被抛弃"><a class="markdownIt-Anchor" href="#awt已被抛弃"></a> AWT（已被抛弃）</h4>
+<blockquote>
+<p>提供原生的GUI组件，但是依赖于操作系统的本地窗口绘制，无法实现跨平台，跨系统使用。</p>
+</blockquote>
+<h3 id="swing编程样例"><a class="markdownIt-Anchor" href="#swing编程样例"></a> Swing编程样例</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> javax.swing.*;<br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * GUI编程样例</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * Version: 1.0</span><br><span class="hljs-comment"> * Author: 瓶子</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GUIDemo</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">( String[] args )</span> &#123;<br>        <span class="hljs-comment">// 快速入门 GUI Swing的编程</span><br>        <span class="hljs-comment">// 1、创建窗口，含用户名、密码输入框，登录按钮</span><br>        <span class="hljs-type">JFrame</span> <span class="hljs-variable">frame</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JFrame</span>(<span class="hljs-string">&quot;登录界面&quot;</span>);<br>        frame.setSize( <span class="hljs-number">400</span>, <span class="hljs-number">300</span> );      <span class="hljs-comment">// 窗口大小</span><br>        frame.setLocation( <span class="hljs-number">200</span>, <span class="hljs-number">200</span> );      <span class="hljs-comment">// 窗口位置</span><br>        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );     <span class="hljs-comment">// 窗口关闭时退出程序</span><br>        frame.setVisible( <span class="hljs-literal">true</span> );   <span class="hljs-comment">// 显示窗口</span><br><br>        <span class="hljs-type">JPanel</span> <span class="hljs-variable">panel</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JPanel</span>();    <span class="hljs-comment">// 创建面板（容器）</span><br>        frame.add( panel);  <span class="hljs-comment">// 添加面板到窗口</span><br><br>        <span class="hljs-type">JButton</span> <span class="hljs-variable">button</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JButton</span>( <span class="hljs-string">&quot;登录&quot;</span>);    <span class="hljs-comment">// 创建按钮</span><br>        button.setBounds( <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">80</span>, <span class="hljs-number">20</span> );   <span class="hljs-comment">// 按钮位置和宽高</span><br>        panel.add( button );    <span class="hljs-comment">// 添加按钮</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="swing还提供了几种布局管理器"><a class="markdownIt-Anchor" href="#swing还提供了几种布局管理器"></a> Swing还提供了几种布局管理器</h3>
+<ul>
+<li>FlowLayout 流式布局</li>
+</ul>
+<blockquote>
+<p>它可以自动将组件放置在窗口上方横向排列，默认情况下，组件会自动换行。</p>
+</blockquote>
+<ul>
+<li>BorderLayout 边界布局</li>
+</ul>
+<blockquote>
+<p>它可以将组件放置在窗口的北、南、东、西、中间位置，并且可以设置组件的填充方式。</p>
+</blockquote>
+<ul>
+<li>GridLayout 网格布局</li>
+</ul>
+<blockquote>
+<p>它可以将组件放置在窗口的网格中，并设置网格的行数和列数。</p>
+</blockquote>
+<ul>
+<li>CardLayout 卡片布局</li>
+</ul>
+<blockquote>
+<p>它可以将组件放置在窗口的卡片中，并设置当前显示的卡片。</p>
+</blockquote>
 
                 
               </div>
@@ -376,8 +479,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>认识Lambda表达式</div>
-      <div>https://likemikusama.github.io/waterbottle/posts/58ce/</div>
+      <div>33.Java的GUI编程简介</div>
+      <div>https://likemikusama.github.io/waterbottle/posts/b868/</div>
     </div>
     <div class="license-meta">
       
@@ -389,13 +492,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年6月26日</div>
+          <div>2025年6月27日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年6月26日</div>
+          <div>2025年6月27日</div>
         </div>
       
       
@@ -426,9 +529,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/waterbottle/posts/f5c2/" title="31.方法引用">
+                      <a href="/waterbottle/posts/2120/" title="34.GUI编程的事件处理">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">31.方法引用</span>
+                        <span class="hidden-mobile">34.GUI编程的事件处理</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -436,8 +539,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/waterbottle/posts/475c/" title="简单了解内部类">
-                        <span class="hidden-mobile">简单了解内部类</span>
+                      <a href="/waterbottle/posts/2d8c/" title="32.常用的两种API">
+                        <span class="hidden-mobile">32.常用的两种API</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
