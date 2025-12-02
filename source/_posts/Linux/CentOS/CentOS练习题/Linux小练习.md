@@ -2,8 +2,7 @@
 title: Linux小练习
 author: XUANWEN DING
 categories:
-  - - Linux
-    - Linux练习题
+  - [Linux,CentOS,CentOS练习题] 
 abbrlink: 9e9006f1
 date: 2023-12-29 10:42:27
 ---

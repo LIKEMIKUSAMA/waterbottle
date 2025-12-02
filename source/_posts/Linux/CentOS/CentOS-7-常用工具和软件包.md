@@ -2,8 +2,7 @@
 title: CentOS 7 常用工具和软件包
 author: XUANWEN DING
 categories:
-  - - Linux
-    - 常用工具和软件包
+  - [Linux,CentOS]
 abbrlink: 2199b204
 date: 2024-01-03 15:19:04
 ---
