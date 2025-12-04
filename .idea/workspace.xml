@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8660938-41b9-4f40-8a64-d01edac40d9f" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/source/img/home_banner.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="c8660938-41b9-4f40-8a64-d01edac40d9f" name="更改" comment="feat(posts): 添加多个Linux系统操作命令与技巧文档- 新增Docker容器操作命令与技巧文档&#10;- 新增Ubuntu系统操作命令与技巧文档&#10;- 新增红帽（RedHat）系统操作命令与技巧文档&#10;- 新增麒麟系统操作命令与技巧文档&#10;- 更新CentOS相关文档分类结构&#10;-优化文章模板添加固定链接字段&#10;- 调整.gitignore排除规则移除node_modules&#10;- 升级依赖包配置添加peer标识">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scaffolds/post.md" beforeDir="false" afterPath="$PROJECT_DIR$/scaffolds/post.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Linux/CentOS/CentOS-7-常用工具和软件包.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Linux/CentOS/CentOS-7-常用工具和软件包.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Linux/CentOS/CentOS系统命令和操作技巧.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Linux/CentOS/CentOS系统命令和操作技巧.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Linux/CentOS/Linux练习题/Linux小练习.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Linux/CentOS/CentOS练习题/Linux小练习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Linux/CentOS/Linux练习题/SystemCheck.sh" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Linux/CentOS/CentOS系统命令和操作技巧/SystemCheck.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Linux/CentOS/Linux练习题/Systemstat.sh" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Linux/CentOS/CentOS系统命令和操作技巧/Systemstat.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Python/Python学习/06.函数.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Python/Python学习/06.函数.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Docker/Docker容器操作命令与技巧.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Docker/Docker容器操作命令与技巧.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,17 +25,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/gitee仓库",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/gitee仓库&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Gitee\MyWeb\source\_posts\Linux\CentOS\CentOS系统命令和操作技巧" />
@@ -67,6 +58,15 @@
       <option name="presentableId" value="Default" />
       <updated>1762737836056</updated>
     </task>
+    <task id="LOCAL-00001" summary="feat(posts): 添加多个Linux系统操作命令与技巧文档- 新增Docker容器操作命令与技巧文档&#10;- 新增Ubuntu系统操作命令与技巧文档&#10;- 新增红帽（RedHat）系统操作命令与技巧文档&#10;- 新增麒麟系统操作命令与技巧文档&#10;- 更新CentOS相关文档分类结构&#10;-优化文章模板添加固定链接字段&#10;- 调整.gitignore排除规则移除node_modules&#10;- 升级依赖包配置添加peer标识">
+      <option name="closed" value="true" />
+      <created>1764646955969</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764646955970</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -79,5 +79,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat(posts): 添加多个Linux系统操作命令与技巧文档- 新增Docker容器操作命令与技巧文档&#10;- 新增Ubuntu系统操作命令与技巧文档&#10;- 新增红帽（RedHat）系统操作命令与技巧文档&#10;- 新增麒麟系统操作命令与技巧文档&#10;- 更新CentOS相关文档分类结构&#10;-优化文章模板添加固定链接字段&#10;- 调整.gitignore排除规则移除node_modules&#10;- 升级依赖包配置添加peer标识" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(posts): 添加多个Linux系统操作命令与技巧文档- 新增Docker容器操作命令与技巧文档&#10;- 新增Ubuntu系统操作命令与技巧文档&#10;- 新增红帽（RedHat）系统操作命令与技巧文档&#10;- 新增麒麟系统操作命令与技巧文档&#10;- 更新CentOS相关文档分类结构&#10;-优化文章模板添加固定链接字段&#10;- 调整.gitignore排除规则移除node_modules&#10;- 升级依赖包配置添加peer标识" />
   </component>
 </project>
