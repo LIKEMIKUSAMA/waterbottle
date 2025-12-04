@@ -1,0 +1,770 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/waterbottle/img/fluid.png">
+  <link rel="icon" href="/waterbottle/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="瓶子">
+  <meta name="keywords" content="成长，记录，技术，分享">
+  
+    <meta name="description" content="循环结构和分支结构练习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="07.分支和循环结构练习">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/posts/2497/">
+<meta property="og:site_name" content="一个水瓶的灌装之路">
+<meta property="og:description" content="循环结构和分支结构练习">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-03T06:30:00.000Z">
+<meta property="article:modified_time" content="2025-11-10T01:29:11.599Z">
+<meta property="article:author" content="水瓶">
+<meta property="article:tag" content="成长，记录，技术，分享">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>07.分支和循环结构练习 - 一个水瓶的灌装之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/waterbottle/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/waterbottle/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/waterbottle/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"likemikusama.github.io","root":"/waterbottle/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/waterbottle/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/waterbottle/js/utils.js" ></script>
+  <script  src="/waterbottle/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/waterbottle/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/waterbottle/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="07.分支和循环结构练习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        瓶子
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-03 14:30" pubdate>
+          2025年6月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">07.分支和循环结构练习</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年11月10日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>循环结构和分支结构练习</p>
+<span id="more"></span>
+<h2 id="分支和循环结构实战"><a class="markdownIt-Anchor" href="#分支和循环结构实战"></a> 分支和循环结构实战</h2>
+<p>通过前面两节课的学习，大家对 Python 中的分支结构和循环结构已经有了初步的认知。<br />
+<strong>分支结构和循环结构是构造程序逻辑的基础</strong>，它们的重要性不言而喻，但是对于初学者来说这也是比较困难的部分。<br />
+很多人对分支结构和循环结构的语法是能够理解的，但是遇到实际问题的时候又无法下手；<strong>看懂别人的代码很容易，但是要自己写出类似的代码却又很难</strong>。<br />
+如果你也有同样的问题和困惑，千万不要沮丧，这只是因为你的编程之旅才刚刚开始，<strong>你的练习量还没有达到让你可以随心所欲写出代码的程度</strong>，只要加强编程练习，通过量的积累来产生质的变化，这个问题迟早都会解决的。</p>
+<h3 id="例子1100以内的素数"><a class="markdownIt-Anchor" href="#例子1100以内的素数"></a> 例子1：100以内的素数</h3>
+<blockquote>
+<p><strong>说明</strong>：素数指的是只能被 1 和自身整除的正整数（不包括 1），之前我们写过判断素数的代码，这里相当于是一个升级版本。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">输出100以内的素数</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>number_list=[]<br><span class="hljs-keyword">for</span> number <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,<span class="hljs-number">100</span>):<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,<span class="hljs-built_in">int</span>(number**<span class="hljs-number">0.5</span>+<span class="hljs-number">1</span>)):<br>        <span class="hljs-keyword">if</span> number%i==<span class="hljs-number">0</span>:<br>            <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">else</span>:<br>        number_list.append(number)<br><br><span class="hljs-built_in">print</span>(number_list)<br></code></pre></td></tr></table></figure>
+<h3 id="例子2斐波那契数列"><a class="markdownIt-Anchor" href="#例子2斐波那契数列"></a> 例子2：斐波那契数列</h3>
+<p>要求：输出斐波那契数列中的前 20 个数。</p>
+<blockquote>
+<p><strong>说明</strong>：斐波那契数列（Fibonacci sequence），通常也被称作黄金分割数列。<br />
+斐波那契数列的特点是数列的前两个数都是 1，从第三个数开始，每个数都是它前面两个数的和。<br />
+按照这个规律，斐波那契数列的前 10 个数是：<code>1, 1, 2, 3, 5, 8, 13, 21, 34, 55</code>。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">输出斐波那契数列中的前20个数</span><br><span class="hljs-string"></span><br><span class="hljs-string">分析：我们需要两个变量a,b用来存储当前的两个数字，然后计算两个变量的和记为c。</span><br><span class="hljs-string">计算完成后，我们需要保存的是b和c中的值，原先a的值不需要保存了。</span><br><span class="hljs-string">也就是每次计算完后，都需要更新a和b的值，而每次c的值都是来自a+b</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>a=<span class="hljs-number">0</span><br>b=<span class="hljs-number">1</span><br>number_list=[]<br><span class="hljs-keyword">for</span> count <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">20</span>):<br>    c=a+b<br>    a=b<br>    b=c<br>    number_list.append(a)<br><span class="hljs-built_in">print</span>(number_list)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>说明</strong>：上面循环中的<code>c=a+b,a=b，b=c</code>表示将变量<code>a+b</code>的值赋给<code>c</code>，把<code>a + b</code>的值赋给<code>c</code>。通过这个递推公式，我们可以依次获得斐波那契数列中的数。</p>
+</blockquote>
+<h3 id="例子3寻找水仙花数"><a class="markdownIt-Anchor" href="#例子3寻找水仙花数"></a> 例子3：寻找水仙花数</h3>
+<p>要求：找出 100 到 999 范围内的所有水仙花数。</p>
+<blockquote>
+<p><strong>提示</strong>：水仙花数（Narcissistic number）是指一个三位数，其各位数字的立方和等于该数本身。<br />
+它是一个3位非负整数，其各位数字的3次方和刚好等于该数本身。<br />
+例如：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>153</mn><mo>=</mo><msup><mn>1</mn><mn>3</mn></msup><mo>+</mo><msup><mn>5</mn><mn>3</mn></msup><mo>+</mo><msup><mn>3</mn><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">153=1^3 + 5^3 + 3^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">5</span><span class="mord">3</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">5</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">3</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span>，所以 153 是一个水仙花数；<br />
+对于三位数，解题的关键是将它拆分为个位、十位、百位，再判断是否满足水仙花数的要求，这一点利用 Python 中的<code>//</code>和<code>%</code>运算符其实很容易做到。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">找出100到999范围内的水仙花数</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>number_list = []<br><span class="hljs-keyword">for</span> number <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">100</span>,<span class="hljs-number">999</span>):<br>    single_digit=number%<span class="hljs-number">10</span><br>    ten_digit=number//<span class="hljs-number">10</span>%<span class="hljs-number">10</span><br>    hundred_digit=number//<span class="hljs-number">100</span><br>    <span class="hljs-keyword">if</span> number == single_digit**<span class="hljs-number">3</span>+ten_digit**<span class="hljs-number">3</span>+hundred_digit**<span class="hljs-number">3</span>:<br>        number_list.append(number)<br><span class="hljs-built_in">print</span>(number_list)<br></code></pre></td></tr></table></figure>
+<p>上面利用<code>//</code>和<code>%</code>拆分一个数的小技巧在写代码的时候还是很常用的。我们要将一个不知道有多少位的正整数进行反转，例如将 123456789 变成 987654321，也可以利用这两个运算来实现，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">正整数的反转</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>number = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入一个随机数字：&quot;</span>)<br>number_length=<span class="hljs-built_in">len</span>(number) <span class="hljs-comment">#获取数字长度</span><br>int_number=<span class="hljs-built_in">int</span>(number)    <span class="hljs-comment">#转换为int类型</span><br>new_number = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(number_length):<br>    new_number = new_number*<span class="hljs-number">10</span>+int_number%<span class="hljs-number">10</span><br>    int_number=int_number//<span class="hljs-number">10</span><br><span class="hljs-built_in">print</span>(new_number)<br></code></pre></td></tr></table></figure>
+<h3 id="例子4百钱百鸡问题"><a class="markdownIt-Anchor" href="#例子4百钱百鸡问题"></a> 例子4：百钱百鸡问题</h3>
+<blockquote>
+<p><strong>说明</strong>：百钱百鸡是我国古代数学家张丘建在《算经》一书中提出的数学问题：鸡翁一值钱五，鸡母一值钱三，鸡雏三值钱一。百钱买百鸡，问鸡翁、鸡母、鸡雏各几何？<br />
+翻译成现代文是：公鸡 5 元一只，母鸡 3 元一只，小鸡 1 元三只，用 100 块钱买一百只鸡，问公鸡、母鸡、小鸡各有多少只？</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">百钱百鸡问题</span><br><span class="hljs-string"></span><br><span class="hljs-string">思路，100块钱分别可以最多买20只公鸡，33.3只母鸡，300只小鸡。</span><br><span class="hljs-string">但是题目最多买100只鸡，所以小鸡最多只有100只。同时小鸡每次一买就是3只，其他鸡每次一买是一只</span><br><span class="hljs-string">分别用a,b,c代表三种鸡，那我们可以得出。</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>answers = []<br><span class="hljs-keyword">for</span> a <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">21</span>):<br>    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">34</span>):<br>        <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">3</span>):<br>            <span class="hljs-keyword">if</span> a + b + c == <span class="hljs-number">100</span> <span class="hljs-keyword">and</span> <span class="hljs-number">5</span> * a + <span class="hljs-number">3</span> * b + c // <span class="hljs-number">3</span> == <span class="hljs-number">100</span>:<br>                answer = <span class="hljs-string">f&quot;可以买公鸡<span class="hljs-subst">&#123;a&#125;</span>只，母鸡<span class="hljs-subst">&#123;b&#125;</span>只，小鸡<span class="hljs-subst">&#123;c&#125;</span>只&quot;</span><br>                answers.append(answer)<br><span class="hljs-built_in">print</span>(answers)<br></code></pre></td></tr></table></figure>
+<p>上面使用的方法叫做<strong>穷举法</strong>，也称为<strong>暴力搜索法</strong>，这种方法通过一项一项的列举备选解决方案中所有可能的候选项，并检查每个候选项是否符合问题的描述，最终得到问题的解。<br />
+上面的代码中，我们使用了嵌套的循环结构，假设公鸡有<code>a</code>只，显然<code>a</code>的取值范围是 0 到 20，假设母鸡有<code>b</code>只，它的取值范围是 0 到 33，假设小鸡有<code>c</code>只，它的取值范围是 0 到 99 且取值是 3 的倍数。<br />
+这样，我们设置好 100 只鸡的条件<code>a + b + c == 100</code>，设置好 100 块钱的条件<code>5 * a + 3 * b + c // 3 == 100</code>，当两个条件同时满足时，就是问题的正确答案，我们把他加到列表里用<code>print</code>函数输出它，也可以直接的打印出来<br />
+这种方法看起来比较笨拙，但对于运算能力非常强大的计算机来说，通常都是一个可行的甚至是不错的选择，只要问题的解存在就能够找到它。</p>
+<p>事实上，上面的代码还有更好的写法，既然我们已经假设公鸡有<code>a</code>只，母鸡有<code>b</code>只，那么小鸡的数量就应该是<code>100 - a - b</code>，这样减少一个条件，我们就可以把上面三层嵌套的<code>for-in</code>循环改写为两层嵌套的<code>for-in</code>循环。<br />
+循环次数减少了，代码的执行效率就有了显著的提升，如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">百钱百鸡问题</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.1</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-keyword">for</span> a <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">21</span>):<br>    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">34</span>):<br>        c = <span class="hljs-number">100</span> - a - b<br>        <span class="hljs-comment"># 需要注意，小鸡的数量是3的倍数，这里需要增加一个条件</span><br>        <span class="hljs-keyword">if</span> c % <span class="hljs-number">3</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> <span class="hljs-number">5</span> * a + <span class="hljs-number">3</span> * b + c // <span class="hljs-number">3</span> == <span class="hljs-number">100</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;可以买公鸡<span class="hljs-subst">&#123;a&#125;</span>只，母鸡<span class="hljs-subst">&#123;b&#125;</span>只，小鸡<span class="hljs-subst">&#123;c&#125;</span>只&quot;</span>)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>说明</strong>：上面代码中的<code>z % 3 == 0</code>是为了确保小鸡的数量是 3 的倍数。</p>
+</blockquote>
+<h3 id="例子5craps赌博游戏"><a class="markdownIt-Anchor" href="#例子5craps赌博游戏"></a> 例子5：CRAPS赌博游戏</h3>
+<blockquote>
+<p><strong>说明</strong>：CRAPS又称花旗骰，是美国拉斯维加斯非常受欢迎的一种的桌上赌博游戏。该游戏使用两粒骰子，玩家通过摇两粒骰子获得点数进行游戏。<br />
+简化后的规则是：玩家第一次摇骰子如果摇出了 7 点或 11 点，玩家胜；玩家第一次如果摇出 2 点、3 点或 12 点，庄家胜； 玩家如果摇出其他点数则游戏继续。<br />
+玩家重新摇骰子，如果玩家摇出了 7 点，庄家胜；如果玩家摇出了第一次摇的点数，玩家胜；其他点数玩家继续摇骰子，直到分出胜负。<br />
+为了增加代码的趣味性，我们设定游戏开始时玩家有 1000 元的赌注，每局游戏开始之前，玩家先下注，如果玩家获胜就可以获得对应下注金额的奖励，如果庄家获胜，玩家就会输掉自己下注的金额。<br />
+游戏结束的条件是玩家破产（输光所有的赌注）。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">Craps赌博游戏</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-keyword">import</span> random<br><br>money = <span class="hljs-number">1000</span><br><span class="hljs-keyword">while</span> money &gt; <span class="hljs-number">0</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;你的总资产为: <span class="hljs-subst">&#123;money&#125;</span>元&#x27;</span>)<br>    <span class="hljs-comment"># 下注金额必须大于0且小于等于玩家的总资产</span><br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        debt = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;请下注: &#x27;</span>))<br>        <span class="hljs-keyword">if</span> <span class="hljs-number">0</span> &lt; debt &lt;= money:<br>            <span class="hljs-keyword">break</span><br>    <span class="hljs-comment"># 用两个1到6均匀分布的随机数相加模拟摇两颗色子得到的点数</span><br>    first_point = random.randrange(<span class="hljs-number">1</span>, <span class="hljs-number">7</span>) + random.randrange(<span class="hljs-number">1</span>, <span class="hljs-number">7</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;\n玩家摇出了<span class="hljs-subst">&#123;first_point&#125;</span>点&#x27;</span>)<br>    <span class="hljs-keyword">if</span> first_point == <span class="hljs-number">7</span> <span class="hljs-keyword">or</span> first_point == <span class="hljs-number">11</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;玩家胜!\n&#x27;</span>)<br>        money += debt<br>    <span class="hljs-keyword">elif</span> first_point == <span class="hljs-number">2</span> <span class="hljs-keyword">or</span> first_point == <span class="hljs-number">3</span> <span class="hljs-keyword">or</span> first_point == <span class="hljs-number">12</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;庄家胜!\n&#x27;</span>)<br>        money -= debt<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-comment"># 如果第一次摇色子没有分出胜负，玩家需要重新摇色子</span><br>        <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>            current_point = random.randrange(<span class="hljs-number">1</span>, <span class="hljs-number">7</span>) + random.randrange(<span class="hljs-number">1</span>, <span class="hljs-number">7</span>)<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;玩家摇出了<span class="hljs-subst">&#123;current_point&#125;</span>点&#x27;</span>)<br>            <span class="hljs-keyword">if</span> current_point == <span class="hljs-number">7</span>:<br>                <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;庄家胜!\n&#x27;</span>)<br>                money -= debt<br>                <span class="hljs-keyword">break</span><br>            <span class="hljs-keyword">elif</span> current_point == first_point:<br>                <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;玩家胜!\n&#x27;</span>)<br>                money += debt<br>                <span class="hljs-keyword">break</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;你破产了, 游戏结束!&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/waterbottle/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+    <span>></span>
+    
+  <a href="/waterbottle/categories/Python/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/" class="category-chain-item">快速入门手册</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>07.分支和循环结构练习</div>
+      <div>https://likemikusama.github.io/waterbottle/posts/2497/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>瓶子</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月3日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月10日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/79f7/" title="08.常用数据结构之列表-1">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">08.常用数据结构之列表-1</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/d8cb/" title="06.循环结构">
+                        <span class="hidden-mobile">06.循环结构</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/waterbottle/js/events.js" ></script>
+<script  src="/waterbottle/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/waterbottle/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/waterbottle/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/waterbottle/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

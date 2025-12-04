@@ -1,0 +1,791 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/waterbottle/img/fluid.png">
+  <link rel="icon" href="/waterbottle/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="瓶子">
+  <meta name="keywords" content="成长，记录，技术，分享">
+  
+    <meta name="description" content="了解python中的分支控制结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="05.分支结构">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/posts/e564/">
+<meta property="og:site_name" content="一个水瓶的灌装之路">
+<meta property="og:description" content="了解python中的分支控制结构">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-03T06:15:00.000Z">
+<meta property="article:modified_time" content="2025-11-10T01:29:11.596Z">
+<meta property="article:author" content="水瓶">
+<meta property="article:tag" content="成长，记录，技术，分享">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>05.分支结构 - 一个水瓶的灌装之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/waterbottle/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/waterbottle/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/waterbottle/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"likemikusama.github.io","root":"/waterbottle/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/waterbottle/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/waterbottle/js/utils.js" ></script>
+  <script  src="/waterbottle/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/waterbottle/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/waterbottle/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="05.分支结构"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        瓶子
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-03 14:15" pubdate>
+          2025年6月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          32 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">05.分支结构</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年11月10日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>了解python中的分支控制结构</p>
+<span id="more"></span>
+<h2 id="分支结构"><a class="markdownIt-Anchor" href="#分支结构"></a> 分支结构</h2>
+<p>迄今为止，我们写的 Python 程序都是一条一条语句按顺序向下执行的，这种代码结构叫做顺序结构。然而仅有顺序结构并不能解决所有的问题.<br />
+比如我们设计一个游戏，游戏第一关的过关条件是玩家获得1000 分，那么在第一关完成后，我们要根据玩家得到的分数来决定是进入第二关，还是告诉玩家“GameOver”（游戏结束）。<br />
+在这种场景下，我们的代码就会产生两个分支，而且只有一个会被执行。类似的场景还有很多，我们将这种结构称之为“分支结构”或“选择结构”。<br />
+给大家一分钟的时间，你应该可以想到至少5 个以上类似的例子，赶紧试一试吧！</p>
+<h3 id="使用if和else构造分支结构"><a class="markdownIt-Anchor" href="#使用if和else构造分支结构"></a> 使用if和else构造分支结构</h3>
+<p>在 Python 中，构造分支结构最常用的是<code>if</code>、<code>elif</code>和<code>else</code>三个关键字。所谓<strong>关键字</strong>就是编程语言中有特殊含义的单词，很显然你不能够使用它作为变量名。<br />
+当然，我们并不是每次构造分支结构都会把三个关键字全部用上，我们通过例子加以说明。<br />
+例如我们要写一个身体质量指数（BMI）的计算器。身体质量质数也叫体质指数，是国际上常用的衡量人体胖瘦程度以及是否健康的一个指标，计算公式如下所示。通常认为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mn>18.5</mn><mo>≤</mo><mi>B</mi><mi>M</mi><mi>I</mi><mo>&lt;</mo><mn>24</mn></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{18.5 \le BMI &lt; 24}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7373700000000001em;vertical-align:-0.12237300000000001em;"></span><span class="mord sizing reset-size6 size5"><span class="mord">1</span><span class="mord">8</span><span class="mord">.</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">2</span><span class="mord">4</span></span></span></span></span>是正常范围<br />
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mi>B</mi><mi>M</mi><mi>I</mi><mo>&lt;</mo><mn>18.5</mn></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{BMI &lt; 18.5}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6501870000000001em;vertical-align:-0.035190000000000006em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mord">8</span><span class="mord">.</span><span class="mord">5</span></span></span></span></span> 说明体重过轻， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mi>B</mi><mi>M</mi><mi>I</mi><mo>≥</mo><mn>24</mn></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{BMI \ge 24}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7373700000000001em;vertical-align:-0.12237300000000001em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">2</span><span class="mord">4</span></span></span></span></span> 说明体重过重， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mi>B</mi><mi>M</mi><mi>I</mi><mo>≥</mo><mn>27</mn></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{BMI \ge 27}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7373700000000001em;vertical-align:-0.12237300000000001em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">2</span><span class="mord">7</span></span></span></span></span> 就属于肥胖的范畴了。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>B</mi><mi>M</mi><mi>I</mi><mo>=</mo><mfrac><mtext>体重</mtext><mrow><mtext>身</mtext><msup><mtext>高</mtext><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">BMI = \frac{体重}{身高^{2}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">身</span><span class="mord"><span class="mord cjk_fallback">高</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">体</span><span class="mord cjk_fallback">重</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<blockquote>
+<p><strong>说明</strong>：上面公式中的体重以千克（kg）为单位，身高以米（m）为单位。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">BMI计算器</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>height = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;身高(m)：&#x27;</span>))<br>weight = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;体重(kg)：&#x27;</span>))<br>bmi = weight / (height * height)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;bmi = :<span class="hljs-number">0.1</span>f&#125;</span>&quot;</span>)<br><span class="hljs-keyword">if</span> <span class="hljs-number">18.5</span> &lt;= bmi &lt; <span class="hljs-number">24</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的身材很标准了，再接再厉&quot;</span>)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>提示</strong>：<code>if</code>语句的最后面有一个<code>:</code>，它是用英文输入法输入的冒号；程序中输入的<code>'</code>、<code>&quot;</code>、<code>=</code>、<code>(</code>、<code>)</code>&gt; 等特殊字符，都是在英文输入法状态下输入的，这一点之前已经提醒过大家了。<br />
+很多初学者经常会忽略这一点，等到执行代码时，就会看到一大堆错误提示。当然，认真读一下错误提示还是很容易发现哪里出了问题<br />
+但是<strong>强烈建议</strong>大家在写代码的时候<strong>切换到英文输入法</strong>，这样可以避免很多不必要的麻烦。</p>
+</blockquote>
+<p>上面的代码中，我们在计算和输出 BMI 之后，加上了一段分支结构，如果满足 <code>18.5 &lt;= BMI &lt; 24</code>，程序会输出“你的身材很标准了，再接再厉”，但是如果不满足条件，这段输出就没有了。这就是刚才提到的，代码可以有不同的执行路径，有些代码不一定会执行到。<br />
+我们在<code>if</code>关键字的后面给出了一个表达式<code>18.5 &lt;= bmi &lt; 24</code>，之前我们说过，关系运算会产生布尔值，如果<code>if</code>后面的布尔值为<code>True</code>，那么<code>if</code>语句下方，有四个空格缩进的<code>print(&quot;你的身材很标准了，再接再厉&quot;)</code>就会被执行。</p>
+<p>需要说明的是，Python 中<strong>使用缩进的方式来表示代码的层次结构</strong>，如果<code>if</code>条件成立的情况下需要执行多条语句，只要保持多条语句具有相同的缩进就可以了。<br />
+换句话说，若干行连续的语句如果保持了相同的缩进，那么它们就属于同一个<strong>代码块</strong>，相当于是一个执行的整体。<br />
+缩进可以使用任意数量的空格，但<strong>通常使用4个空格</strong>，强烈建议大家<strong>不要使用制表键（Tab键）来缩进代码</strong>，如果你已经习惯了这么做，可以设置你的代码编辑器自动将 1 个制表键变成 4 个空格，很多代码编辑器都支持这项功能<br />
+PyCharm中默认也是这样设定的。还有一点，在 C、C++、Java 等编程语言中，<code>18.5 &lt;= bmi &lt; 24</code>要写成两个条件<code>bmi &gt;= 18.5</code>和<code>bmi &lt; 24</code>，然后把两个条件用与运算符连接起来<br />
+Python 中也可以这么做，例如刚才的<code>if</code>语句也可以写成<code>if bmi &gt;= 18.5 and bmi &lt; 24:</code>，但是没有必要，而且pycharm会自动识别冗余语句做出提示，建议你使用简写。</p>
+<p>下面用 Java 代码做了同样的事情，看不懂 Java 代码没关系，感受一下它和 Python 语法的区别就可以了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">( String[] args )</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-type">double</span> weight, height, BMI;<br>        System.out.println(<span class="hljs-string">&quot;请输入体重，单位KG：&quot;</span>);<br>        weight = scanner.nextDouble();<br>        System.out.println(<span class="hljs-string">&quot;请输入身高，单位米：&quot;</span>);<br>        height = scanner.nextDouble();<br><br>        <span class="hljs-comment">//计算BMI</span><br>        BMI = weight / (height * height);<br>        <span class="hljs-keyword">if</span> (BMI &gt;= <span class="hljs-number">18.5</span> &amp;&amp; BMI &lt; <span class="hljs-number">25.0</span>) &#123;<br>            System.out.println(<span class="hljs-string">&quot;您的BMI值为&quot;</span> + BMI + <span class="hljs-string">&quot;BMI值正常，请保持&quot;</span>);<br>        &#125; <br><br>        scanner.close();<br>    &#125;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>说明</strong>：上面就是 BMI 计算器 对应的 Java 代码，很多人喜欢 Python 语言不是没有道理的，通常它都能用更少的代码解决同样的问题。</p>
+</blockquote>
+<p>接下来，我们对上面的代码稍作修改，在 BMI 不满足 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mn>18.5</mn><mo>≤</mo><mi>B</mi><mi>M</mi><mi>I</mi><mo>&lt;</mo><mn>24</mn></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{18.5 \le BMI &lt; 24}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7373700000000001em;vertical-align:-0.12237300000000001em;"></span><span class="mord sizing reset-size6 size5"><span class="mord">1</span><span class="mord">8</span><span class="mord">.</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">2</span><span class="mord">4</span></span></span></span></span> 的情况下，也给出相信的提示信息。<br />
+我们可以在<code>if</code>代码块的后面增加一个<code>else</code>代码块，它会在<code>if</code>语句给出的条件没有达成时执行，如下所示。<br />
+很显然，<code>if</code>下面的<code>print(&quot;你的身材很标准了，再接再厉&quot;)</code>和<code>else</code>下面的<code>print('你的身材不够标准哟！')</code>只有一个会被执行到。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">BMI计算器</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.1</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>height = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;身高(m)：&#x27;</span>))<br>weight = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;体重(kg)：&#x27;</span>))<br>bmi = weight / (height * height)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;bmi = :<span class="hljs-number">.1</span>f&#125;</span>&#x27;</span>)<br><span class="hljs-keyword">if</span> <span class="hljs-number">18.5</span> &lt;= bmi &lt; <span class="hljs-number">24</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的身材很标准了，再接再厉&quot;</span>)<br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;你的身材不够标准哟！&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>如果要给出更为准确的提示信息，我们可以再次修改上面的代码，通过<code>elif</code>关键字为上面的分支结构增加更多的分支，如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">BMI计算器</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.2</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>height = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;身高(cm)：&#x27;</span>))<br>weight = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;体重(kg)：&#x27;</span>))<br>bmi = weight / (height / <span class="hljs-number">100</span>) ** <span class="hljs-number">2</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;bmi = :<span class="hljs-number">.1</span>f&#125;</span>&#x27;</span>)<br><span class="hljs-keyword">if</span> bmi &lt; <span class="hljs-number">18.5</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;你的体重过轻！&#x27;</span>)<br><span class="hljs-keyword">elif</span> bmi &lt; <span class="hljs-number">24</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;你的身材很棒！&#x27;</span>)<br><span class="hljs-keyword">elif</span> bmi &lt; <span class="hljs-number">27</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;你的体重过重！&#x27;</span>)<br><span class="hljs-keyword">elif</span> bmi &lt; <span class="hljs-number">30</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;你已轻度肥胖！&#x27;</span>)<br><span class="hljs-keyword">elif</span> bmi &lt; <span class="hljs-number">35</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;你已中度肥胖！&#x27;</span>)<br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;你已重度肥胖！&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>大家可以自行试试运行上面的代码，输入不同的数值看看会得出什么样的结果</p>
+<h3 id="使用match和case构造分支结构"><a class="markdownIt-Anchor" href="#使用match和case构造分支结构"></a> 使用match和case构造分支结构</h3>
+<p>Python 3.10 中增加了一种新的构造分支结构的方式，通过使用<code>match</code>和<code>case</code> 关键字，我们可以轻松的构造出多分支结构。<br />
+Python的官方文档在介绍这个新语法时，举了一个 HTTP 响应状态码识别的例子（根据 HTTP 响应状态输出对应的描述），非常有意思。如果不知道什么是<br />
+HTTP 响应状态吗，可以看看 MDN 上面的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status">文档</a>。<br />
+下面我们对官方文档上的示例稍作修改，为大家讲解这个语法，先看看下面用<code>if-else</code>结构实现的代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">分数分类</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br>score = <span class="hljs-number">85</span><br><br><span class="hljs-keyword">if</span> score &gt;= <span class="hljs-number">90</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是A&quot;</span>)<br><span class="hljs-keyword">elif</span> score &gt;= <span class="hljs-number">80</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是B&quot;</span>)<br><span class="hljs-keyword">elif</span> score &gt;= <span class="hljs-number">70</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是C&quot;</span>)<br><span class="hljs-keyword">elif</span> score &gt;= <span class="hljs-number">60</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是D&quot;</span>)<br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是F&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">你的成绩是<span class="hljs-selector-tag">B</span><br></code></pre></td></tr></table></figure>
+<p>下面是使用<code>match-case</code>语法实现的代码，虽然作用完全相同，但是代码显得更加简单优雅。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">分数分类</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.1</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br>score = <span class="hljs-number">85</span><br><br><span class="hljs-keyword">match</span> score:<br>    <span class="hljs-keyword">case</span> _ <span class="hljs-keyword">if</span> score &gt;= <span class="hljs-number">90</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是A&quot;</span>)<br>    <span class="hljs-keyword">case</span> _ <span class="hljs-keyword">if</span> score &gt;= <span class="hljs-number">80</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是B&quot;</span>)<br>    <span class="hljs-keyword">case</span> _ <span class="hljs-keyword">if</span> score &gt;= <span class="hljs-number">70</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是C&quot;</span>)<br>    <span class="hljs-keyword">case</span> _ <span class="hljs-keyword">if</span> score &gt;= <span class="hljs-number">60</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是D&quot;</span>)<br>    <span class="hljs-keyword">case</span> _:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是F&quot;</span>)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>说明</strong>：带有<code>_</code>的<code>case</code>语句在代码中起到通配符的作用，如果前面的分支都没有匹配上，代码就会来到<code>case _</code>。<code>case _</code><br />
+的是可选的，并非每种分支结构都要给出通配符选项。如果分支中出现了<code>case _</code>，它只能放在分支结构的最后面，如果它的后面还有其他的分支，那么这些分支将是不可达的。</p>
+</blockquote>
+<p>当然，<code>match-case</code>语法还有很多高级玩法，其中有一个合并模式可以先教给大家。例如，我们要将分数<code>大于90</code>和<code>大于等于80小于90</code>归入一个分支<br />
+<code>大于等于70小于80</code>和<code>大于等于60小于70</code>归入到一个分支，其他保持不变，代码还可以这么写。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">分数分类</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.2</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br>score = <span class="hljs-number">85</span><br><br><span class="hljs-keyword">match</span> score:<br>    <span class="hljs-keyword">case</span> _ <span class="hljs-keyword">if</span> score &gt;= <span class="hljs-number">90</span> | (<span class="hljs-number">80</span> &lt;= score &lt; <span class="hljs-number">90</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是B及以上&quot;</span>)<br>    <span class="hljs-keyword">case</span> _ <span class="hljs-keyword">if</span> <span class="hljs-number">70</span> &lt;= score &lt; <span class="hljs-number">80</span> <span class="hljs-keyword">or</span> <span class="hljs-number">60</span> &lt;= score &lt; <span class="hljs-number">70</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是D及以上&quot;</span>)<br>    <span class="hljs-keyword">case</span> _:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;你的成绩是F&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">你的成绩是<span class="hljs-selector-tag">B</span>及以上<br></code></pre></td></tr></table></figure>
+<h3 id="分支结构的应用"><a class="markdownIt-Anchor" href="#分支结构的应用"></a> 分支结构的应用</h3>
+<h4 id="例子1分段函数求值"><a class="markdownIt-Anchor" href="#例子1分段函数求值"></a> 例子1：分段函数求值</h4>
+<p>有如下所示的分段函数，要求输入<code>x</code>，计算出<code>y</code>。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>y</mi><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.3599999999999999em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>3</mn><mi>x</mi><mo>−</mo><mn>5</mn><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>&gt;</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>x</mi><mo>+</mo><mn>2</mn><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>5</mn><mi>x</mi><mo>+</mo><mn>3</mn><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>&lt;</mo><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">y = \begin{cases} 3x - 5, &amp; (x \gt 1) \\\\ x + 2, &amp; (-1 \le x \le 1) \\\\ 5x + 3, &amp; (x \lt -1) \end{cases}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:7.2000399999999996em;vertical-align:-3.3500199999999998em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.85002em;"><span style="top:-0.6999900000000001em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:-0.6949900000000002em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-0.9899900000000001em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.2849900000000003em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.5799900000000004em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.8749900000000006em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-2.1699900000000008em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-2.2049900000000004em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-3.1500100000000004em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-4.29501em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-4.59001em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-4.885010000000001em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-5.180010000000001em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-5.475010000000001em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-5.770010000000001em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-5.80501em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-6.10002em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:3.3500199999999998em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.8500000000000005em;"><span style="top:-5.850000000000001em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">3</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mpunct">,</span></span></span><span style="top:-4.410000000000001em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"></span></span><span style="top:-2.9700000000000006em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">2</span><span class="mpunct">,</span></span></span><span style="top:-1.5300000000000002em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"></span></span><span style="top:-0.08999999999999997em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">5</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">3</span><span class="mpunct">,</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:3.35em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.8500000000000005em;"><span style="top:-5.850000000000001em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span><span style="top:-2.97em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span><span style="top:-0.08999999999999997em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">−</span><span class="mord">1</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:3.35em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">分段函数求值</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>x = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;x = &#x27;</span>))<br><span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">1</span>:<br>    y = <span class="hljs-number">3</span> * x - <span class="hljs-number">5</span><br><span class="hljs-keyword">elif</span> x &gt;= -<span class="hljs-number">1</span>:<br>    y = x + <span class="hljs-number">2</span><br><span class="hljs-keyword">else</span>:<br>    y = <span class="hljs-number">5</span> * x + <span class="hljs-number">3</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;y = &#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>根据实际开发的需要，分支结构是可以嵌套的，也就是说在分支结构的<code>if</code>、<code>elif</code>或<code>else</code>代码块中还可以再次引入分支结构。<br />
+例如<code>if</code>条件成立表示玩家过关，但过关以后还要根据你获得宝物或者道具的数量对你的表现给出评价（比如点亮一颗、两颗或三颗星星），那么我们就需要在<code>if</code>的内部再构造一个新的分支结构。<br />
+同理，我们在<code>elif</code>和<code>else</code>中也可以构造新的分支，我们称之为嵌套的分支结构。按照这样的思路，上面的分段函数求值也可以用下面的代码来实现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">分段函数求值</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.1</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>x = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;x = &#x27;</span>))<br><span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">1</span>:<br>    y = <span class="hljs-number">3</span> * x - <span class="hljs-number">5</span><br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-keyword">if</span> x &gt;= -<span class="hljs-number">1</span>:<br>        y = x + <span class="hljs-number">2</span><br>    <span class="hljs-keyword">else</span>:<br>        y = <span class="hljs-number">5</span> * x + <span class="hljs-number">3</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;y = &#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>说明</strong>：大家可以自己感受和评判一下上面两种写法哪一种更好。在“<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111843067"><strong>Python 之禅</strong></a>&gt; ”中有这么一句话 “<strong>Flat is better than nested</strong>”。<br />
+之所以认为“扁平化”的代码更好，是因为代码嵌套的层次如果很多，会严重的影响代码的可读性。所以，我个人更推荐大家使用第一种写法。</p>
+</blockquote>
+<h4 id="例子2百分制成绩转换成等级"><a class="markdownIt-Anchor" href="#例子2百分制成绩转换成等级"></a> 例子2：百分制成绩转换成等级</h4>
+<p>要求：如果输入的成绩在90分以上（含90分），则输出<code>A</code>；输入的成绩在80分到90分之间（不含90分），则输出<code>B</code>；<br />
+输入的成绩在70分到80分之间（不含80分），则输出<code>C</code>；输入的成绩在60分到70分之间（不含70分），则输出<code>D</code>；输入的成绩在60分以下，则输出<br />
+<code>E</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">百分制成绩转换为等级制成绩</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>score = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;请输入成绩: &#x27;</span>))<br><span class="hljs-keyword">if</span> score &gt;= <span class="hljs-number">90</span>:<br>    grade = <span class="hljs-string">&#x27;A&#x27;</span><br><span class="hljs-keyword">elif</span> score &gt;= <span class="hljs-number">80</span>:<br>    grade = <span class="hljs-string">&#x27;B&#x27;</span><br><span class="hljs-keyword">elif</span> score &gt;= <span class="hljs-number">70</span>:<br>    grade = <span class="hljs-string">&#x27;C&#x27;</span><br><span class="hljs-keyword">elif</span> score &gt;= <span class="hljs-number">60</span>:<br>    grade = <span class="hljs-string">&#x27;D&#x27;</span><br><span class="hljs-keyword">else</span>:<br>    grade = <span class="hljs-string">&#x27;E&#x27;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;grade = &#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/waterbottle/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+    <span>></span>
+    
+  <a href="/waterbottle/categories/Python/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/" class="category-chain-item">快速入门手册</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>05.分支结构</div>
+      <div>https://likemikusama.github.io/waterbottle/posts/e564/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>瓶子</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月3日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月10日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/d8cb/" title="06.循环结构">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">06.循环结构</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/2f71/" title="04.Python语言中的运算符">
+                        <span class="hidden-mobile">04.Python语言中的运算符</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/waterbottle/js/events.js" ></script>
+<script  src="/waterbottle/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/waterbottle/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/waterbottle/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/waterbottle/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

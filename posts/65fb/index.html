@@ -1,0 +1,780 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/waterbottle/img/fluid.png">
+  <link rel="icon" href="/waterbottle/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="瓶子">
+  <meta name="keywords" content="成长，记录，技术，分享">
+  
+    <meta name="description" content="面向对象编程简介">
+<meta property="og:type" content="article">
+<meta property="og:title" content="18.面向对象编程入门">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/posts/65fb/">
+<meta property="og:site_name" content="一个水瓶的灌装之路">
+<meta property="og:description" content="面向对象编程简介">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-03T07:15:00.000Z">
+<meta property="article:modified_time" content="2025-11-10T01:29:11.615Z">
+<meta property="article:author" content="水瓶">
+<meta property="article:tag" content="成长，记录，技术，分享">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>18.面向对象编程入门 - 一个水瓶的灌装之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/waterbottle/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/waterbottle/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/waterbottle/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"likemikusama.github.io","root":"/waterbottle/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/waterbottle/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/waterbottle/js/utils.js" ></script>
+  <script  src="/waterbottle/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/waterbottle/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/waterbottle/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="18.面向对象编程入门"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        瓶子
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-03 15:15" pubdate>
+          2025年6月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          39 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">18.面向对象编程入门</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年11月10日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>面向对象编程简介</p>
+<span id="more"></span>
+<h2 id="面向对象编程入门"><a class="markdownIt-Anchor" href="#面向对象编程入门"></a> 面向对象编程入门</h2>
+<p>计算机专业的小伙伴应该在《软件工程》或者《java语言程序设计》类似的课程中学习过<strong>面向对象编程</strong>和<strong>面向过程编程</strong>的具体含义和设计规则，所以这部分基础含义讲解可以跳过，直接去到类的定义和创建的内容。</p>
+<p>面向对象编程是一种非常流行的<strong>编程范式</strong>（programming paradigm），所谓编程范式就是<strong>程序设计的方法论</strong>，简单的说就是程序员对程序的认知和理解以及他们编写代码的方式。</p>
+<p>在前面的课程中，我们说过“<strong>程序是指令的集合</strong>”，运行程序时，程序中的语句会变成一条或多条指令，然后由CPU（中央处理器）去执行。为了简化程序的设计，我们又讲到了函数，<strong>把相对独立且经常重复使用的代码放置到函数中</strong>，在需要使用这些代码的时候调用函数即可。如果一个函数的功能过于复杂和臃肿，我们又可以进一步<strong>将函数进一步拆分为多个子函数</strong>来降低系统的复杂性。</p>
+<p>不知大家是否发现，编程其实是写程序的人按照计算机的工作方式通过代码控制机器完成任务。但是，计算机的工作方式与人类正常的思维模式是不同的，如果编程就必须抛弃人类正常的思维方式去迎合计算机，编程的乐趣就少了很多。这里，我想说的并不是我们不能按照计算机的工作方式去编写代码，但是当我们需要开发一个复杂的系统时，这种方式会让代码过于复杂，从而导致开发和维护工作都变得举步维艰。</p>
+<p>随着软件复杂性的增加，编写正确可靠的代码会变成了一项极为艰巨的任务，这也是很多人都坚信“软件开发是人类改造世界所有活动中最为复杂的活动”的原因。如何用程序描述复杂系统和解决复杂问题，就成为了所有程序员必须要思考和直面的问题。诞生于上世纪70年代的 Smalltalk 语言让软件开发者看到了希望，因为它引入了一种新的编程范式叫面向对象编程。在面向对象编程的世界里，程序中的<strong>数据和操作数据的函数是一个逻辑上的整体</strong>，我们称之为<strong>对象</strong>，<strong>对象可以接收消息</strong>，解决问题的方法就是<strong>创建对象并向对象发出各种各样的消息</strong>；通过消息传递，程序中的多个对象可以协同工作，这样就能构造出复杂的系统并解决现实中的问题。当然，面向对象编程的雏形还可以向前追溯到更早期的Simula语言，但这不是我们要讨论的重点。</p>
+<blockquote>
+<p><strong>说明：</strong> 今天我们使用的很多高级程序设计语言都支持面向对象编程，但是面向对象编程也不是解决软件开发中所有问题的“银弹”，或者说在软件开发这个行业目前还没有所谓的“银弹”。关于这个问题，大家可以参考 IBM360 系统之父弗雷德里克·布鲁克斯所发表的论文《没有银弹：软件工程的本质性与附属性工作》或软件工程的经典著作《人月神话》一书。</p>
+</blockquote>
+<h3 id="类和对象"><a class="markdownIt-Anchor" href="#类和对象"></a> 类和对象</h3>
+<p>如果要用一句话来概括面向对象编程，我认为下面的说法是相当精辟和准确的。</p>
+<blockquote>
+<p><strong>面向对象编程</strong>：把一组数据和处理数据的方法组成<strong>对象</strong>，把行为相同的对象归纳为<strong>类</strong>，通过<strong>封装</strong>隐藏对象的内部细节，通过<strong>继承</strong>实现类的特化和泛化，通过<strong>多态</strong>实现基于对象类型的动态分派。</p>
+</blockquote>
+<p>这句话对初学者来说可能不那么容易理解，但是我可以先为大家圈出几个关键词：<strong>对象</strong>（object）、<strong>类</strong>（class）、<strong>封装</strong>（encapsulation）、<strong>继承</strong>（inheritance）、<strong>多态</strong>（polymorphism）。</p>
+<p>我们先说说类和对象这两个词。在面向对象编程中，<strong>类是一个抽象的概念，对象是一个具体的概念</strong>。我们把同一类对象的共同特征抽取出来就是一个类，比如我们经常说的人类，这是一个抽象概念，而我们每个人就是人类的这个抽象概念下的实实在在的存在，也就是一个对象。简而言之，<strong>类是对象的蓝图和模板，对象是类的实例，是可以接受消息的实体</strong>。</p>
+<p>在面向对象编程的世界中，<strong>一切皆为对象</strong>，<strong>对象都有属性和行为</strong>，<strong>每个对象都是独一无二的</strong>，而且<strong>对象一定属于某个类</strong>。对象的属性是对象的静态特征，对象的行为是对象的动态特征。按照上面的说法，如果我们把拥有共同特征的对象的属性和行为都抽取出来，就可以定义出一个类。</p>
+<h3 id="定义类"><a class="markdownIt-Anchor" href="#定义类"></a> 定义类</h3>
+<p>在 Python 语言中，我们可以使用<code>class</code>关键字加上类名来定义类，通过缩进我们可以确定类的代码块，就如同定义函数那样。<br />
+在类的代码块中，我们需要写一些函数，我们说过类是一个抽象概念，那么这些函数就是我们对一类对象共同的动态特征的提取。<br />
+写在类里面的函数我们通常称之为<strong>方法</strong>，方法就是对象的行为，也就是对象可以接收的消息。方法的第一个参数通常都是<code>self</code>，它代表了接收这个消息的对象本身。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">study</span>(<span class="hljs-params">self, course_name</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;学生正在学习<span class="hljs-subst">&#123;course_name&#125;</span>.&#x27;</span>)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">play</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;学生正在玩游戏.&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="创建和使用对象"><a class="markdownIt-Anchor" href="#创建和使用对象"></a> 创建和使用对象</h3>
+<p>在我们定义好一个类之后，可以使用构造器语法来创建对象，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">stu1 = Student()<br>stu2 = Student()<br><span class="hljs-built_in">print</span>(stu1)    <span class="hljs-comment"># &lt;__main__.Student object at 0x10ad5ac50&gt;</span><br><span class="hljs-built_in">print</span>(stu2)    <span class="hljs-comment"># &lt;__main__.Student object at 0x10ad5acd0&gt; </span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">hex</span>(<span class="hljs-built_in">id</span>(stu1)), <span class="hljs-built_in">hex</span>(<span class="hljs-built_in">id</span>(stu2)))    <span class="hljs-comment"># 0x10ad5ac50 0x10ad5acd0</span><br></code></pre></td></tr></table></figure>
+<p>在类的名字后跟上圆括号就是所谓的构造器语法，上面的代码创建了两个学生对象，一个赋值给变量<code>stu1</code>，一个赋值给变量<code>stu2</code>。当我们用<code>print</code>函数打印<code>stu1</code>和<code>stu2</code>两个变量时，我们会看到输出了对象在内存中的地址（十六进制形式），跟我们用<code>id</code>函数查看对象标识获得的值是相同的。<br />
+现在我们可以告诉大家，我们定义的变量其实保存的是一个对象在内存中的逻辑地址（位置），通过这个逻辑地址，我们就可以在内存中找到这个对象。所以<code>stu3 = stu2</code>这样的赋值语句并没有创建新的对象，只是用一个新的变量保存了已有对象的地址。</p>
+<p>接下来，我们尝试给对象发消息，即调用对象的方法。刚才的<code>Student</code>类中我们定义了<code>study</code>和<code>play</code>两个方法，两个方法的第一个参数<code>self</code>代表了接收消息的学生对象，<code>study</code>方法的第二个参数是学习的课程名称。<br />
+Python中，给对象发消息有两种方式，请看下面的代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 通过“类.方法”调用方法</span><br><span class="hljs-comment"># 第一个参数是接收消息的对象</span><br><span class="hljs-comment"># 第二个参数是学习的课程名称</span><br>Student.study(stu1, <span class="hljs-string">&#x27;Python程序设计&#x27;</span>)    <span class="hljs-comment"># 学生正在学习Python程序设计.</span><br><span class="hljs-comment"># 通过“对象.方法”调用方法</span><br><span class="hljs-comment"># 点前面的对象就是接收消息的对象</span><br><span class="hljs-comment"># 只需要传入第二个参数课程名称</span><br>stu1.study(<span class="hljs-string">&#x27;Python程序设计&#x27;</span>)             <span class="hljs-comment"># 学生正在学习Python程序设计.</span><br><br>Student.play(stu2)                      <span class="hljs-comment"># 学生正在玩游戏.</span><br>stu2.play()                             <span class="hljs-comment"># 学生正在玩游戏. </span><br></code></pre></td></tr></table></figure>
+<h3 id="初始化方法"><a class="markdownIt-Anchor" href="#初始化方法"></a> 初始化方法</h3>
+<p>大家可能已经注意到了，刚才我们创建的学生对象只有行为没有属性，如果要给学生对象定义属性，我们可以修改<code>Student</code>类，为其添加一个名为<code>__init__</code>的方法。<br />
+在我们调用<code>Student</code>类的构造器创建对象时，首先会在内存中获得保存学生对象所需的内存空间，然后通过自动执行<code>__init__</code>方法，完成对内存的初始化操作，也就是把数据放到内存空间中。<br />
+所以我们可以通过给<code>Student</code>类添加<code>__init__</code>方法的方式为学生对象指定属性，同时完成对属性赋初始值的操作。<br />
+正因如此，<code>__init__</code>方法通常也被称为初始化方法。</p>
+<p>我们对上面的<code>Student</code>类稍作修改，给学生对象添加<code>name</code>（姓名）和<code>age</code>（年龄）两个属性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;学生&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化方法&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">study</span>(<span class="hljs-params">self, course_name</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;学习&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在学习<span class="hljs-subst">&#123;course_name&#125;</span>.&#x27;</span>)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">play</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;玩耍&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在玩游戏.&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>修改刚才创建对象和给对象发消息的代码，重新执行一次，看看程序的执行结果有什么变化。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 调用Student类的构造器创建对象并传入初始化参数</span><br>stu1 = Student(<span class="hljs-string">&#x27;瓶子&#x27;</span>, <span class="hljs-number">20</span>)<br>stu2 = Student(<span class="hljs-string">&#x27;王大锤&#x27;</span>, <span class="hljs-number">25</span>)<br>stu1.study(<span class="hljs-string">&#x27;Python程序设计&#x27;</span>)    <span class="hljs-comment"># 瓶子正在学习Python程序设计.</span><br>stu2.play()                    <span class="hljs-comment"># 王大锤正在玩游戏.</span><br></code></pre></td></tr></table></figure>
+<h3 id="面向对象的支柱"><a class="markdownIt-Anchor" href="#面向对象的支柱"></a> 面向对象的支柱</h3>
+<p>面向对象编程有三大支柱，就是我们之前给大家划重点的时候圈出的三个词：<strong>封装</strong>、<strong>继承</strong>和<strong>多态</strong>。后面两个概念在下一节课中会详细说明，这里我们先说一下什么是封装。<br />
+封装就是<strong>将数据（属性）和操作数据的方法封装在一个类中，对外隐藏实现细节，只暴露必要的接口</strong><br />
+打个比方就像汽车的发动机，里面有活塞，火花塞，连杆，曲轴等很多很多东西，但是只对外界暴露出几个接口，比如点火，踩油门加速。我们只需要知道如何使用加速点火的功能，其他的发动机自己解决，自己处理。<br />
+我们在类中定义的对象方法其实就是一种封装，这种封装可以让我们在创建对象之后，只需要给对象发送一个消息就可以执行方法中的代码，也就是说我们在只知道方法的名字和参数，不知道方法内部实现细节的情况下就完成了对方法的使用。</p>
+<p>再举一个例子，假如要控制一个机器人帮我倒杯水，如果不使用面向对象编程，不做任何的封装，那么就需要向这个机器人发出一系列的指令，如站起来、向左转、向前走5步、拿起面前的水杯、向后转、向前走10步、弯腰、放下水杯、按下出水按钮、等待10秒、松开出水按钮、拿起水杯、向右转、向前走5步、放下水杯等，才能完成这个简单的操作，想想都觉得麻烦。<br />
+按照面向对象编程的思想，我们可以将倒水的操作封装到机器人的一个方法中，当需要机器人帮我们倒水的时候，只需要向机器人对象发出倒水的消息就可以了，这样做不是更好吗？</p>
+<p>在很多场景下，面向对象编程其实就是一个三步走的问题。第一步定义类，第二步创建对象，第三步给对象发消息。当然，有的时候我们是不需要第一步的，因为我们想用的类可能已经存在了。<br />
+之前我们说过，Python内置的<code>list</code>、<code>set</code>、<code>dict</code>其实都是类，如果要创建列表、集合、字典对象，我们就不用自定义类了。<br />
+当然，有的类并不是 Python 标准库中直接提供的，它可能来自于第三方的代码，如何安装和使用三方代码在后续课程中会进行讨论。<br />
+在某些特殊的场景中，我们会用到名为“内置对象”的对象，所谓“内置对象”就是说上面三步走的第一步和第二步都不需要了，因为类已经存在而且对象已然创建过了，直接向对象发消息就可以了，这也就是我们常说的“开箱即用”。</p>
+<h3 id="面向对象案例"><a class="markdownIt-Anchor" href="#面向对象案例"></a> 面向对象案例</h3>
+<h4 id="例子1时钟"><a class="markdownIt-Anchor" href="#例子1时钟"></a> 例子1：时钟</h4>
+<blockquote>
+<p><strong>要求</strong>：定义一个类描述数字时钟，提供走字和显示时间的功能。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><br><br><span class="hljs-comment"># 定义时钟类</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Clock</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;数字时钟&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, hour=<span class="hljs-number">0</span>, minute=<span class="hljs-number">0</span>, second=<span class="hljs-number">0</span></span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化方法</span><br><span class="hljs-string">        :param hour: 时</span><br><span class="hljs-string">        :param minute: 分</span><br><span class="hljs-string">        :param second: 秒</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.hour = hour<br>        <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> = minute<br>        <span class="hljs-variable language_">self</span>.sec = second<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;走字&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.sec += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.sec == <span class="hljs-number">60</span>:<br>            <span class="hljs-variable language_">self</span>.sec = <span class="hljs-number">0</span><br>            <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> == <span class="hljs-number">60</span>:<br>                <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> = <span class="hljs-number">0</span><br>                <span class="hljs-variable language_">self</span>.hour += <span class="hljs-number">1</span><br>                <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.hour == <span class="hljs-number">24</span>:<br>                    <span class="hljs-variable language_">self</span>.hour = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">show</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;显示时间&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.hour:<span class="hljs-number">0</span>&gt;2d&#125;</span>:<span class="hljs-subst">&#123;self.<span class="hljs-built_in">min</span>:<span class="hljs-number">0</span>&gt;2d&#125;</span>:<span class="hljs-subst">&#123;self.sec:<span class="hljs-number">0</span>&gt;2d&#125;</span>&#x27;</span><br><br><br><span class="hljs-comment"># 创建时钟对象</span><br>clock = Clock(<span class="hljs-number">23</span>, <span class="hljs-number">59</span>, <span class="hljs-number">58</span>)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment"># 给时钟对象发消息读取时间</span><br>    <span class="hljs-built_in">print</span>(clock.show())<br>    <span class="hljs-comment"># 休眠1秒钟</span><br>    time.sleep(<span class="hljs-number">1</span>)<br>    <span class="hljs-comment"># 给时钟对象发消息使其走字</span><br>    clock.run()<br></code></pre></td></tr></table></figure>
+<h4 id="例子2平面上的点"><a class="markdownIt-Anchor" href="#例子2平面上的点"></a> 例子2：平面上的点</h4>
+<blockquote>
+<p><strong>要求</strong>：定义一个类描述平面上的点，提供计算到另一个点距离的方法。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Point</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;平面上的点&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, x=<span class="hljs-number">0</span>, y=<span class="hljs-number">0</span></span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化方法</span><br><span class="hljs-string">        :param x: 横坐标</span><br><span class="hljs-string">        :param y: 纵坐标</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.x, <span class="hljs-variable language_">self</span>.y = x, y<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">distance_to</span>(<span class="hljs-params">self, other</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;计算与另一个点的距离</span><br><span class="hljs-string">        :param other: 另一个点</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        dx = <span class="hljs-variable language_">self</span>.x - other.x<br>        dy = <span class="hljs-variable language_">self</span>.y - other.y<br>        <span class="hljs-keyword">return</span> (dx * dx + dy * dy) ** <span class="hljs-number">0.5</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__str__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;(<span class="hljs-subst">&#123;self.x&#125;</span>, <span class="hljs-subst">&#123;self.y&#125;</span>)&#x27;</span><br><br><br>p1 = Point(<span class="hljs-number">3</span>, <span class="hljs-number">5</span>)<br>p2 = Point(<span class="hljs-number">6</span>, <span class="hljs-number">9</span>)<br><span class="hljs-built_in">print</span>(p1)  <span class="hljs-comment"># 调用对象的__str__方法</span><br><span class="hljs-built_in">print</span>(p2)<br><span class="hljs-built_in">print</span>(p1.distance_to(p2))<br></code></pre></td></tr></table></figure>
+<h3 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h3>
+<p>面向对象编程是一种非常流行的编程范式，除此之外还有<strong>指令式编程</strong>、<strong>函数式编程</strong>等编程范式。<br />
+由于现实世界是由对象构成的，而对象是可以接收消息的实体，所以<strong>面向对象编程更符合人类正常的思维习惯</strong>。<br />
+类是抽象的，对象是具体的，有了类就能创建对象，有了对象就可以接收消息，这就是面向对象编程的基础。<br />
+定义类的过程是一个抽象的过程，找到对象公共的属性属于数据抽象，找到对象公共的方法属于行为抽象。<br />
+抽象的过程是一个仁者见仁智者见智的过程，对同一类对象进行抽象可能会得到不同的结果。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/waterbottle/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+    <span>></span>
+    
+  <a href="/waterbottle/categories/Python/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/" class="category-chain-item">快速入门手册</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>18.面向对象编程入门</div>
+      <div>https://likemikusama.github.io/waterbottle/posts/65fb/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>瓶子</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月3日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月10日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/938c/" title="17.函数高级应用">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">17.函数高级应用</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/3ff0/" title="16.函数使用进阶">
+                        <span class="hidden-mobile">16.函数使用进阶</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/waterbottle/js/events.js" ></script>
+<script  src="/waterbottle/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/waterbottle/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/waterbottle/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/waterbottle/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

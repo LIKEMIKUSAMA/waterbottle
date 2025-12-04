@@ -1,0 +1,797 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/waterbottle/img/fluid.png">
+  <link rel="icon" href="/waterbottle/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="瓶子">
+  <meta name="keywords" content="成长，记录，技术，分享">
+  
+    <meta name="description" content="了解python中的变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03.Python语言中的变量">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/posts/b1d8/">
+<meta property="og:site_name" content="一个水瓶的灌装之路">
+<meta property="og:description" content="了解python中的变量">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-03T06:05:00.000Z">
+<meta property="article:modified_time" content="2025-11-10T01:29:11.595Z">
+<meta property="article:author" content="水瓶">
+<meta property="article:tag" content="成长，记录，技术，分享">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>03.Python语言中的变量 - 一个水瓶的灌装之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/waterbottle/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/waterbottle/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/waterbottle/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"likemikusama.github.io","root":"/waterbottle/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/waterbottle/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/waterbottle/js/utils.js" ></script>
+  <script  src="/waterbottle/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/waterbottle/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/waterbottle/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="03.Python语言中的变量"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        瓶子
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-03 14:05" pubdate>
+          2025年6月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          30 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">03.Python语言中的变量</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年11月10日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>了解python中的变量</p>
+<span id="more"></span>
+<h2 id="python语言中的变量"><a class="markdownIt-Anchor" href="#python语言中的变量"></a> Python语言中的变量</h2>
+<p>对于想学习编程的新手来说，有两个问题可能是他们很想知道的，其一是“什么是（计算机）程序”，其二是“写（计算机）程序能做什么”。先说说我对这两个问题的理解：<br />
+<strong>程序是数据和指令的有序集合</strong>，<strong>写程序就是用数据和指令控制计算机做我们想让它做的事情</strong>。<br />
+今时今日，为什么有那么多人选择用Python 语言来写程序，因为 Python 语言足够简单和强大。相较于 C、C++、Java 这样的编程语言，Python 对初学者和非专业人士更加友好，<br />
+很多问题在Python 语言中都能找到简单优雅的解决方案。接下来，我们就从最基础的语言元素开始，带大家认识和使用 Python 语言。</p>
+<h3 id="一些常识"><a class="markdownIt-Anchor" href="#一些常识"></a> 一些常识</h3>
+<p>在开始系统的学习 Python 编程之前，我们先来科普一些计算机的基础知识。计算机的硬件系统通常由五大部件构成，包括：<strong>运算器</strong>、<strong>控制器</strong>、<strong>存储器</strong>、<strong>输入设备</strong>和<strong>输出设备</strong>。<br />
+其中，运算器和控制器放在一起就是我们常说的<strong>中央处理器</strong>（CPU），它的功能是执行各种运算和控制指令。刚才我们提到过，程序是指令的集合，写程序就是将一系列的指令按照某种方式组织到一起，然后通过这些指令去控制计算机做我们想让它做的事情。<br />
+存储器可以分为<strong>内部存储器</strong>和<strong>外部存储器</strong>，前者就是我们常说的内存，它是中央处理器可以直接寻址的存储空间，程序在执行的过程中，对应的数据和指令需要加载到内存中。<br />
+输入设备和输出设备经常被统称为I/O 设备，键盘、鼠标、麦克风、摄像头是典型的输入设备，而显示器、打印机、扬声器等则是典型的输出设备。<br />
+目前，我们使用的计算机基本大多是遵循“冯·诺依曼体系结构”的计算机，这种计算机有两个关键点：一是<strong>将存储器与中央处理器分开</strong>；二是<strong>将数据以二进制方式编码</strong>。</p>
+<p>二进制是一种“逢二进一”的计数法，跟人类使用的“逢十进一”的计数法本质是一样的。人类因为有十根手指，所以使用了十进制计数法，在计数时十根手指用完之后，就只能用进位的方式来表示更大的数值。<br />
+当然凡事都有例外，玛雅人可能是因为长年光着脚的原因，把脚趾头也都用上了，于是他们使用了二十进制的计数法。基于这样的计数方式，玛雅人使用的历法跟我们平常使用的历法就产生了差异。<br />
+按照玛雅人的历法，2012年是上一个所谓的“太阳纪”的最后一年，而 2013 年则是新的“太阳纪”的开始。后来这件事情还被以讹传讹的方式误传为“2012年是玛雅人预言的世界末日”的荒诞说法。今天有很多人猜测，玛雅文明之所以发展缓慢跟使用了二十进制是有关系的。<br />
+对于计算机来说，二进制在物理器件上最容易实现的，因为可以用高电压表示1，用低电压表示0。不是所有写程序的人都需要熟悉二进制，熟悉十进制与二进制、八进制、十六进制的转换，大多数时候我们即便不了解这些知识也能写程序。<br />
+但是，我们必须知道，计算机是使用二进制计数的，不管什么样的数据，到了计算机内存中都是以二进制形态存在的。</p>
+<blockquote>
+<p><strong>说明</strong><br />
+：关于二进制计数法以及它与其他进制如何相互转换，大家可以翻翻名为《计算机导论》或《计算机文化》的书，计算机专业的同学如果连进制转换都忘记怎么计算的话，建议重修一下《数字逻辑》。此处就不再进行赘述了，不清楚的读者可以自行研究。</p>
+</blockquote>
+<h3 id="变量和类型"><a class="markdownIt-Anchor" href="#变量和类型"></a> 变量和类型</h3>
+<p>要想在计算机的内存中保存数据，首先得说一说变量这个概念。在编程语言中，<strong>变量是数据的载体</strong>，简单的说就是一块用来保存数据的内存空间。<br />
+<strong>变量的值可以被读取和修改</strong>，这是所有运算和控制的基础。计算机能处理的数据有很多种类型，最常见的就是数值，除了数值之外还有文本、图像、音频、视频等各种各样的数据类型。<br />
+虽然数据在计算机中都是以二进制形态存在的，但是我们可以用不同类型的变量来表示数据类型的差异。Python语言中预设了多种数据类型，也允许我们自定义新的数据类型，这一点在后面会讲到。<br />
+我们首先来了解几种 Python 中最为常用的数据类型。</p>
+<ol>
+<li>
+<p>整型（<code>int</code>）：Python 中可以处理任意大小的整数，而且支持二进制（如<code>0b100</code>，换算成十进制是4）、八进制（如<code>0o100</code>，换算成十进制是64）、十进制（<code>100</code>）和十六进制（<code>0x100</code>，换算成十进制是256）的表示法。运行下面的代码，看看会输出什么。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-number">0b100</span>)  <span class="hljs-comment"># 二进制整数</span><br><span class="hljs-built_in">print</span>(<span class="hljs-number">0o100</span>)  <span class="hljs-comment"># 八进制整数</span><br><span class="hljs-built_in">print</span>(<span class="hljs-number">100</span>)    <span class="hljs-comment"># 十进制整数</span><br><span class="hljs-built_in">print</span>(<span class="hljs-number">0x100</span>)  <span class="hljs-comment"># 十六进制整数</span><br></code></pre></td></tr></table></figure>
+</li>
+<li>
+<p>浮点型（<code>float</code>）：浮点数也就是小数，之所以称为浮点数，是因为按照科学记数法表示时，一个浮点数的小数点位置是可变的，浮点数除了数学写法（如<code>123.456</code>）之外还支持科学计数法（如<code>1.23456e2</code>，表示<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mn>1.23456</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>2</mn></msup></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{1.23456 \times 10^{2}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.788361em;vertical-align:-0.07499700000000001em;"></span><span class="mord sizing reset-size6 size5"><span class="mord">1</span><span class="mord">.</span><span class="mord">2</span><span class="mord">3</span><span class="mord">4</span><span class="mord">5</span><span class="mord">6</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7926266666666666em;"><span style="top:-2.963em;margin-right:0.05555555555555556em;"><span class="pstrut" style="height:2.6em;"></span><span class="sizing reset-size5 size2 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></span>）。运行下面的代码，看看会输出什么。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-number">123.456</span>)    <span class="hljs-comment"># 数学写法</span><br><span class="hljs-built_in">print</span>(<span class="hljs-number">1.23456e2</span>)  <span class="hljs-comment"># 科学计数法</span><br></code></pre></td></tr></table></figure>
+</li>
+<li>
+<p>字符串型（<code>str</code>）：字符串是以单引号或双引号包裹起来的任意文本，比如<code>'hello'</code>和<code>&quot;hello&quot;</code>。</p>
+</li>
+<li>
+<p>布尔型（<code>bool</code>）：布尔型只有<code>True</code>、<code>False</code>两种值，要么是<code>True</code>，要么是<code>False</code>，可以用来表示现实世界中的“是”和“否”，命题的“真”和“假”，状况的“好”与“坏”，水平的“高”与“低”等等。如果一个变量的值只有两种状态，我们就可以使用布尔型。</p>
+</li>
+</ol>
+<h3 id="变量命名"><a class="markdownIt-Anchor" href="#变量命名"></a> 变量命名</h3>
+<p>对于每个变量，我们都需要给它取一个名字，就如同我们每个人都有自己的名字一样。在 Python 中，变量命名需要遵循以下的规则和惯例。</p>
+<ul>
+<li>规则部分：
+<ul>
+<li>规则1：变量名由<strong>字母</strong>、<strong>数字</strong>和<strong>下划线</strong>构成，数字不能开头。需要说明的是，这里说的字母指的是 Unicode 字符，Unicode称为万国码，囊括了世界上大部分的文字系统，这也就意味着中文、日文、希腊字母等都可以作为变量名中的字符。但是一些特殊字符（如：<code>！</code>、<code>@</code>、<code>#</code>等）是不能出现在变量名中的。我们强烈建议大家把这里说的字母理解为<strong>尽可能只使用英文字母</strong>。</li>
+<li>规则2：Python 是<strong>大小写敏感</strong>的编程语言，简单的说就是大写的<code>A</code>和小写的<code>a</code>是两个不同的变量，这一条其实并不算规则，而是需要大家注意的地方。</li>
+<li>规则3：变量名<strong>不要跟 Python 的关键字重名</strong>，<strong>尽可能避开 Python 的保留字</strong>。这里的关键字是指在 Python 程序中有特殊含义的单词（如：<code>is</code>、<code>if</code>、<code>else</code>、<code>for</code>、<code>while</code>、<code>True</code>、<code>False</code>等），保留字主要指 Python 语言内置函数、内置模块等的名字（如：<code>int</code>、<code>print</code>、<code>input</code>、<code>str</code>、<code>math</code>、<code>os</code>等）。</li>
+</ul>
+</li>
+<li>惯例部分：
+<ul>
+<li>惯例1：变量名通常使用<strong>小写英文字母</strong>，<strong>多个单词用下划线进行连接</strong>。</li>
+<li>惯例2：受保护的变量用单个下划线开头。</li>
+<li>惯例3：私有的变量用两个下划线开头。</li>
+</ul>
+</li>
+</ul>
+<p>惯例2和惯例3大家暂时不用管，讲到后面自然会明白的。当然，作为一个专业的程序员，给变量命名时做到<strong>见名知意</strong>也是非常重要，这彰显了一个程序员的专业气质，很多开发岗位的面试也非常看重这一点。</p>
+<h3 id="变量的使用"><a class="markdownIt-Anchor" href="#变量的使用"></a> 变量的使用</h3>
+<p>下面通过例子来说明变量的类型和变量的使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">使用变量保存数据并进行加减乘除运算</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>a = <span class="hljs-number">20</span>        <span class="hljs-comment"># 定义变量a，赋值20</span><br>b = <span class="hljs-number">5</span>        <span class="hljs-comment"># 定义变量b，赋值5</span><br><span class="hljs-built_in">print</span>(a, b)   <span class="hljs-comment"># 20  15</span><br><span class="hljs-built_in">print</span>(a + b)  <span class="hljs-comment"># 25</span><br><span class="hljs-built_in">print</span>(a - b)  <span class="hljs-comment"># 26</span><br><span class="hljs-built_in">print</span>(a * b)  <span class="hljs-comment"># 100</span><br><span class="hljs-built_in">print</span>(a / b)  <span class="hljs-comment"># 4</span><br></code></pre></td></tr></table></figure>
+<p>在 Python 中可以使用<code>type</code>函数对变量的类型进行检查。程序设计中函数的概念跟数学上函数的概念非常类似，数学上的函数相信大家并不陌生，它包括了函数名、自变量和因变量。<br />
+如果暂时不理解函数这个概念也不要紧，我们会在后续的内容中专门讲解函数的定义和使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">使用type函数检查变量的类型</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>a = <span class="hljs-number">10</span><br>b = <span class="hljs-number">3.14159</span><br>c = <span class="hljs-string">&#x27;hello, world&#x27;</span><br>d = <span class="hljs-literal">True</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(a))  <span class="hljs-comment"># &lt;class &#x27;int&#x27;&gt;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(b))  <span class="hljs-comment"># &lt;class &#x27;float&#x27;&gt;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(c))  <span class="hljs-comment"># &lt;class &#x27;str&#x27;&gt;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(d))  <span class="hljs-comment"># &lt;class &#x27;bool&#x27;&gt;</span><br></code></pre></td></tr></table></figure>
+<p>可以通过 Python 内置的函数来改变变量的类型，下面是一些常用的和变量类型相关的函数。</p>
+<ul>
+<li><code>int()</code>：将一个数值或字符串转换成整数，可以指定进制。</li>
+<li><code>float()</code>：将一个字符串（在可能的情况下）转换成浮点数。</li>
+<li><code>str()</code>：将指定的对象转换成字符串形式，可以指定编码方式。</li>
+<li><code>chr()</code>：将整数（字符编码）转换成对应的（一个字符的）字符串。</li>
+<li><code>ord()</code>：将（一个字符的）字符串转换成对应的整数（字符编码）。</li>
+</ul>
+<p>下面的例子为大家演示了 Python 中类型转换的操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">变量的类型转换操作</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>a = <span class="hljs-number">10</span><br>b = <span class="hljs-number">3.14159</span><br>c = <span class="hljs-string">&#x27;123&#x27;</span><br>d = <span class="hljs-string">&#x27;100&#x27;</span><br>e = <span class="hljs-string">&#x27;3.14159&#x27;</span><br>f = <span class="hljs-string">&#x27;hello, world&#x27;</span><br>g = <span class="hljs-literal">True</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">float</span>(a))         <span class="hljs-comment"># int类型的100转成float，输出10.0</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(b))           <span class="hljs-comment"># float类型的3.14159转成int，输出3</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(c))           <span class="hljs-comment"># str类型的&#x27;123&#x27;转成int，输出123</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(c, base=<span class="hljs-number">16</span>))  <span class="hljs-comment"># str类型的&#x27;123&#x27;按十六进制转成int，输出291</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(d, base=<span class="hljs-number">2</span>))   <span class="hljs-comment"># str类型的&#x27;100&#x27;按二进制转成int，输出4</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">float</span>(e))         <span class="hljs-comment"># str类型的&#x27;3.14159&#x27;转成float，输出3.14159</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">bool</span>(f))          <span class="hljs-comment"># str类型的&#x27;hello, world&#x27;转成bool，输出True</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(g))           <span class="hljs-comment"># bool类型的True转成int，输出1</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>说明</strong>：<code>str</code>类型转<code>int</code>类型时可以通过<code>base</code>参数来指定进制，可以将字符串视为对应进制的整数进行转换。<br />
+<code>str</code>类型转成<code>bool</code>&gt; 类型时，只要字符串有内容，不是<code>''</code>或<code>&quot;&quot;</code>，对应的布尔值都是<code>True</code>。&gt; <code>bool</code>类型转<code>int</code>类型时，<code>True</code>会变成<code>1</code>，<code>False</code>会变成<br />
+<code>0</code>。</p>
+</blockquote>
+<h3 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h3>
+<p>在 Python 程序中，我们可以<strong>使用变量来保存数据</strong>，<strong>变量有不同的类型</strong>，常用的类型有<code>int</code>、<code>float</code>、<code>str</code>和<code>bool</code>。<br />
+在有需要的情况下，可以通过 Python 内置的函数对变量进行类型转换。变量是可以做运算的，这是解决很多问题的先决条件，我们会在下一课中为大家详细介绍变量的运算。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/waterbottle/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+    <span>></span>
+    
+  <a href="/waterbottle/categories/Python/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/" class="category-chain-item">快速入门手册</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>03.Python语言中的变量</div>
+      <div>https://likemikusama.github.io/waterbottle/posts/b1d8/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>瓶子</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月3日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月10日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/2f71/" title="04.Python语言中的运算符">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">04.Python语言中的运算符</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/2c30/" title="02.第一个Python程序">
+                        <span class="hidden-mobile">02.第一个Python程序</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/waterbottle/js/events.js" ></script>
+<script  src="/waterbottle/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/waterbottle/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/waterbottle/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/waterbottle/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

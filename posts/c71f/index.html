@@ -1,0 +1,770 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/waterbottle/img/fluid.png">
+  <link rel="icon" href="/waterbottle/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="瓶子">
+  <meta name="keywords" content="成长，记录，技术，分享">
+  
+    <meta name="description" content="了解字典的特性和应用场景">
+<meta property="og:type" content="article">
+<meta property="og:title" content="13.常用数据结构之字典">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/posts/c71f/">
+<meta property="og:site_name" content="一个水瓶的灌装之路">
+<meta property="og:description" content="了解字典的特性和应用场景">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-03T06:55:00.000Z">
+<meta property="article:modified_time" content="2025-11-10T01:29:11.611Z">
+<meta property="article:author" content="水瓶">
+<meta property="article:tag" content="成长，记录，技术，分享">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>13.常用数据结构之字典 - 一个水瓶的灌装之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/waterbottle/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/waterbottle/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/waterbottle/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"likemikusama.github.io","root":"/waterbottle/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/waterbottle/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/waterbottle/js/utils.js" ></script>
+  <script  src="/waterbottle/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/waterbottle/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/waterbottle/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="13.常用数据结构之字典"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        瓶子
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-03 14:55" pubdate>
+          2025年6月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          33 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">13.常用数据结构之字典</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年11月10日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>了解字典的特性和应用场景</p>
+<span id="more"></span>
+<h2 id="常用数据结构之字典"><a class="markdownIt-Anchor" href="#常用数据结构之字典"></a> 常用数据结构之字典</h2>
+<p>迄今为止，我们已经为大家介绍了 Python 中的三种容器型数据类型（列表、元组、集合），但是这些数据类型仍然不足以帮助我们解决所有的问题。<br />
+例如，我们需要一个变量来保存一个人的多项信息，包括：姓名、年龄、身高、体重、家庭住址、本人手机号、紧急联系人手机号，此时你会发现，我们之前学过的列表、元组和集合类型都不够好使。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">person1 = [<span class="hljs-string">&#x27;王大锤&#x27;</span>, <span class="hljs-number">55</span>, <span class="hljs-number">168</span>, <span class="hljs-number">60</span>, <span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>, <span class="hljs-string">&#x27;13122334455&#x27;</span>, <span class="hljs-string">&#x27;13800998877&#x27;</span>]<br>person2 = (<span class="hljs-string">&#x27;王大锤&#x27;</span>, <span class="hljs-number">55</span>, <span class="hljs-number">168</span>, <span class="hljs-number">60</span>, <span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>, <span class="hljs-string">&#x27;13122334455&#x27;</span>, <span class="hljs-string">&#x27;13800998877&#x27;</span>)<br>person3 = &#123;<span class="hljs-string">&#x27;王大锤&#x27;</span>, <span class="hljs-number">55</span>, <span class="hljs-number">168</span>, <span class="hljs-number">60</span>, <span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>, <span class="hljs-string">&#x27;13122334455&#x27;</span>, <span class="hljs-string">&#x27;13800998877&#x27;</span>&#125;<br></code></pre></td></tr></table></figure>
+<p>集合肯定是最不合适的，因为集合中不能有重复元素，如果一个人的年龄和体重刚好相同，那么集合中就会少一项信息；<br />
+同理，如果这个人的手机号和紧急联系人手机号是相同的，那么集合中又会少一项信息。<br />
+另一方面，虽然列表和元组可以把一个人的所有信息都保存下来，但是当你想要获取这个人的手机号或家庭住址时，你得先知道他的手机号是列表或元组中的第几个元素。<br />
+总之，在遇到上述的场景时，列表、元组、集合都不是最合适的选择，此时我们需要字典（dictionary）类型，这种数据类型最适合把相关联的信息组装到一起，可以帮助我们解决 Python 程序中为真实事物建模的问题。</p>
+<p>说到字典这个词，大家一定不陌生，读小学的时候，每个人手头基本上都有一本《新华字典》</p>
+<p>Python 程序中的字典跟现实生活中的字典很像，它以键值对（键和值的组合）的方式把数据组织到一起，我们可以通过键找到与之对应的值并进行操作。<br />
+就像《新华字典》中，每个字（键）都有与它对应的解释（值）一样，每个字和它的解释合在一起就是字典中的一个条目，而字典中通常包含了很多个这样的条目。</p>
+<h3 id="创建和使用字典"><a class="markdownIt-Anchor" href="#创建和使用字典"></a> 创建和使用字典</h3>
+<p>Python 中创建字典可以使用<code>&#123;&#125;</code>字面量语法，这一点跟上一节课讲的集合是一样的。但是字典的<code>&#123;&#125;</code>中的元素是以键值对的形式存在的，每个元素由<code>:</code>分隔的两个值构成，<code>:</code>前面是键，<code>:</code>后面是值，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python">xinhua = &#123;<br>    <span class="hljs-string">&#x27;麓&#x27;</span>: <span class="hljs-string">&#x27;山脚下&#x27;</span>,<br>    <span class="hljs-string">&#x27;路&#x27;</span>: <span class="hljs-string">&#x27;道，往来通行的地方；方面，地区：南～货，外～货；种类：他俩是一～人&#x27;</span>,<br>    <span class="hljs-string">&#x27;蕗&#x27;</span>: <span class="hljs-string">&#x27;甘草的别名&#x27;</span>,<br>    <span class="hljs-string">&#x27;潞&#x27;</span>: <span class="hljs-string">&#x27;潞水，水名，即今山西省的浊漳河；潞江，水名，即云南省的怒江&#x27;</span><br>&#125;<br><span class="hljs-built_in">print</span>(xinhua)<br>person = &#123;<br>    <span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;王大锤&#x27;</span>,<br>    <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">55</span>,<br>    <span class="hljs-string">&#x27;height&#x27;</span>: <span class="hljs-number">168</span>,<br>    <span class="hljs-string">&#x27;weight&#x27;</span>: <span class="hljs-number">60</span>,<br>    <span class="hljs-string">&#x27;addr&#x27;</span>: <span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>, <br>    <span class="hljs-string">&#x27;tel&#x27;</span>: <span class="hljs-string">&#x27;13122334455&#x27;</span>,<br>    <span class="hljs-string">&#x27;emergence contact&#x27;</span>: <span class="hljs-string">&#x27;13800998877&#x27;</span><br>&#125;<br><span class="hljs-built_in">print</span>(person)<br></code></pre></td></tr></table></figure>
+<p>通过上面的代码，相信大家已经看出来了，用字典来保存一个人的信息远远优于使用列表或元组，因为我们可以用<code>:</code>前面的键来表示条目的含义，而<code>:</code>后面就是这个条目所对应的值。</p>
+<p>当然，如果愿意，我们也可以使用内置函数<code>dict</code>或者是字典的生成式语法来创建字典，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># dict函数(构造器)中的每一组参数就是字典中的一组键值对</span><br>person = <span class="hljs-built_in">dict</span>(name=<span class="hljs-string">&#x27;王大锤&#x27;</span>, age=<span class="hljs-number">55</span>, height=<span class="hljs-number">168</span>, weight=<span class="hljs-number">60</span>, addr=<span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>)<br><span class="hljs-built_in">print</span>(person)  <span class="hljs-comment"># &#123;&#x27;name&#x27;: &#x27;王大锤&#x27;, &#x27;age&#x27;: 55, &#x27;height&#x27;: 168, &#x27;weight&#x27;: 60, &#x27;addr&#x27;: &#x27;成都市武侯区科华北路62号1栋101&#x27;&#125;</span><br><br><span class="hljs-comment"># 可以通过Python内置函数zip压缩两个序列并创建字典</span><br>items1 = <span class="hljs-built_in">dict</span>(<span class="hljs-built_in">zip</span>(<span class="hljs-string">&#x27;ABCDE&#x27;</span>, <span class="hljs-string">&#x27;12345&#x27;</span>))<br><span class="hljs-built_in">print</span>(items1)  <span class="hljs-comment"># &#123;&#x27;A&#x27;: &#x27;1&#x27;, &#x27;B&#x27;: &#x27;2&#x27;, &#x27;C&#x27;: &#x27;3&#x27;, &#x27;D&#x27;: &#x27;4&#x27;, &#x27;E&#x27;: &#x27;5&#x27;&#125;</span><br>items2 = <span class="hljs-built_in">dict</span>(<span class="hljs-built_in">zip</span>(<span class="hljs-string">&#x27;ABCDE&#x27;</span>, <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>)))<br><span class="hljs-built_in">print</span>(items2)  <span class="hljs-comment"># &#123;&#x27;A&#x27;: 1, &#x27;B&#x27;: 2, &#x27;C&#x27;: 3, &#x27;D&#x27;: 4, &#x27;E&#x27;: 5&#125;</span><br><br><span class="hljs-comment"># 用字典生成式语法创建字典</span><br>items3 = &#123;x: x ** <span class="hljs-number">3</span> <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">6</span>)&#125;<br><span class="hljs-built_in">print</span>(items3)  <span class="hljs-comment"># &#123;1: 1, 2: 8, 3: 27, 4: 64, 5: 125&#125;</span><br></code></pre></td></tr></table></figure>
+<p>想知道字典中一共有多少组键值对，仍然是使用<code>len</code>函数；如果想对字典进行遍历，可以用<code>for</code>循环，但是需要注意，<code>for</code>循环只是对字典的键进行了遍历，不过没关系，在学习了字典的索引运算后，我们可以通过字典的键访问它对应的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">person = &#123;<br>    <span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;王大锤&#x27;</span>,<br>    <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">55</span>,<br>    <span class="hljs-string">&#x27;height&#x27;</span>: <span class="hljs-number">168</span>,<br>    <span class="hljs-string">&#x27;weight&#x27;</span>: <span class="hljs-number">60</span>,<br>    <span class="hljs-string">&#x27;addr&#x27;</span>: <span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span><br>&#125;<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(person))  <span class="hljs-comment"># 5</span><br><span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> person:<br>    <span class="hljs-built_in">print</span>(key)<br></code></pre></td></tr></table></figure>
+<h3 id="字典的运算"><a class="markdownIt-Anchor" href="#字典的运算"></a> 字典的运算</h3>
+<p>对于字典类型来说，成员运算和索引运算肯定是很重要的，前者可以判定指定的键在不在字典中，后者可以通过键访问对应的值或者向字典中添加新的键值对。<br />
+值得注意的是，字典的索引不同于列表的索引，列表中的元素因为有属于自己有序号，所以列表的索引是一个整数；字典中因为保存的是键值对，所以字典需要用键去索引对应的值。<br />
+需要<strong>特别提醒</strong>大家注意的是，<strong>字典中的键必须是不可变类型</strong>，例如整数（<code>int</code>）、浮点数（<code>float</code>）、字符串（<code>str</code>）、元组（<code>tuple</code>）等类型，这一点跟集合类型对元素的要求是一样的；<br />
+很显然，之前我们讲的列表（<code>list</code>）和集合（<code>set</code>）不能作为字典中的键，字典类型本身也不能再作为字典中的键，因为字典也是可变类型，但是列表、集合、字典都可以作为字典中的值，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python">person = &#123;<br>    <span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;王大锤&#x27;</span>,<br>    <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">55</span>,<br>    <span class="hljs-string">&#x27;height&#x27;</span>: <span class="hljs-number">168</span>,<br>    <span class="hljs-string">&#x27;weight&#x27;</span>: <span class="hljs-number">60</span>,<br>    <span class="hljs-string">&#x27;addr&#x27;</span>: [<span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>, <span class="hljs-string">&#x27;北京市西城区百万庄大街1号&#x27;</span>],<br>    <span class="hljs-string">&#x27;car&#x27;</span>: &#123;<br>        <span class="hljs-string">&#x27;brand&#x27;</span>: <span class="hljs-string">&#x27;BMW X7&#x27;</span>,<br>        <span class="hljs-string">&#x27;maxSpeed&#x27;</span>: <span class="hljs-string">&#x27;250&#x27;</span>,<br>        <span class="hljs-string">&#x27;length&#x27;</span>: <span class="hljs-number">5170</span>,<br>        <span class="hljs-string">&#x27;width&#x27;</span>: <span class="hljs-number">2000</span>,<br>        <span class="hljs-string">&#x27;height&#x27;</span>: <span class="hljs-number">1835</span>,<br>        <span class="hljs-string">&#x27;displacement&#x27;</span>: <span class="hljs-number">3.0</span><br>    &#125;<br>&#125;<br><span class="hljs-built_in">print</span>(person)<br></code></pre></td></tr></table></figure>
+<p>大家可以看看下面的代码，了解一下字典的成员运算和索引运算。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python">person = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;王大锤&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">55</span>, <span class="hljs-string">&#x27;height&#x27;</span>: <span class="hljs-number">168</span>, <span class="hljs-string">&#x27;weight&#x27;</span>: <span class="hljs-number">60</span>, <span class="hljs-string">&#x27;addr&#x27;</span>: <span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>&#125;<br><br><span class="hljs-comment"># 成员运算</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;name&#x27;</span> <span class="hljs-keyword">in</span> person)  <span class="hljs-comment"># True</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;tel&#x27;</span> <span class="hljs-keyword">in</span> person)   <span class="hljs-comment"># False</span><br><br><span class="hljs-comment"># 索引运算</span><br><span class="hljs-built_in">print</span>(person[<span class="hljs-string">&#x27;name&#x27;</span>])   <span class="hljs-comment">#王大锤</span><br><span class="hljs-built_in">print</span>(person[<span class="hljs-string">&#x27;addr&#x27;</span>])   <span class="hljs-comment">#成都市武侯区科华北路62号1栋101</span><br>person[<span class="hljs-string">&#x27;age&#x27;</span>] = <span class="hljs-number">25</span><br>person[<span class="hljs-string">&#x27;height&#x27;</span>] = <span class="hljs-number">178</span><br>person[<span class="hljs-string">&#x27;tel&#x27;</span>] = <span class="hljs-string">&#x27;13122334455&#x27;</span><br>person[<span class="hljs-string">&#x27;signature&#x27;</span>] = <span class="hljs-string">&#x27;你的男朋友是一个盖世垃圾，他会踏着五彩祥云去迎娶你的闺蜜&#x27;</span><br><span class="hljs-built_in">print</span>(person)<br><br><span class="hljs-comment"># 循环遍历</span><br><span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> person:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;key&#125;</span>:\t<span class="hljs-subst">&#123;person[key]&#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>需要注意，在通过索引运算获取字典中的值时，如指定的键没有在字典中，将会引发<code>KeyError</code>异常。</p>
+<h3 id="字典的方法"><a class="markdownIt-Anchor" href="#字典的方法"></a> 字典的方法</h3>
+<p>字典类型的方法基本上都跟字典的键值对操作相关，其中<code>get</code>方法可以通过键来获取对应的值。跟索引运算不同的是，<code>get</code>方法在字典中没有指定的键时不会产生异常，而是返回<code>None</code>或指定的默认值，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">person = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;王大锤&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">25</span>, <span class="hljs-string">&#x27;height&#x27;</span>: <span class="hljs-number">178</span>, <span class="hljs-string">&#x27;addr&#x27;</span>: <span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>&#125;<br><span class="hljs-built_in">print</span>(person.get(<span class="hljs-string">&#x27;name&#x27;</span>))       <span class="hljs-comment"># 王大锤</span><br><span class="hljs-built_in">print</span>(person.get(<span class="hljs-string">&#x27;sex&#x27;</span>))        <span class="hljs-comment"># None</span><br><span class="hljs-built_in">print</span>(person.get(<span class="hljs-string">&#x27;sex&#x27;</span>, <span class="hljs-literal">True</span>))  <span class="hljs-comment"># True</span><br></code></pre></td></tr></table></figure>
+<p>如果需要获取字典中所有的键，可以使用<code>keys</code>方法；如果需要获取字典中所有的值，可以使用<code>values</code>方法。字典还有一个名为<code>items</code>的方法，它会将键和值组装成二元组，通过该方法来遍历字典中的元素也是非常方便的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">person = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;王大锤&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">25</span>, <span class="hljs-string">&#x27;height&#x27;</span>: <span class="hljs-number">178</span>&#125;<br><span class="hljs-built_in">print</span>(person.keys())    <span class="hljs-comment"># dict_keys([&#x27;name&#x27;, &#x27;age&#x27;, &#x27;height&#x27;])</span><br><span class="hljs-built_in">print</span>(person.values())  <span class="hljs-comment"># dict_values([&#x27;王大锤&#x27;, 25, 178])</span><br><span class="hljs-built_in">print</span>(person.items())   <span class="hljs-comment"># dict_items([(&#x27;name&#x27;, &#x27;王大锤&#x27;), (&#x27;age&#x27;, 25), (&#x27;height&#x27;, 178)])</span><br><span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> person.items():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;key&#125;</span>:\t<span class="hljs-subst">&#123;value&#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>字典的<code>update</code>方法实现两个字典的合并操作。例如，有两个字典<code>x</code>和<code>y</code>，当执行<code>x.update(y)</code>操作时，<code>x</code>跟<code>y</code>相同的键对应的值会被<code>y</code>中的值更新，而<code>y</code>中有但<code>x</code>中没有的键值对会直接添加到<code>x</code>中，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">person1 = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;王大锤&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">55</span>, <span class="hljs-string">&#x27;height&#x27;</span>: <span class="hljs-number">178</span>&#125;<br>person2 = &#123;<span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">25</span>, <span class="hljs-string">&#x27;addr&#x27;</span>: <span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>&#125;<br>person1.update(person2)<br><span class="hljs-built_in">print</span>(person1)  <span class="hljs-comment"># &#123;&#x27;name&#x27;: &#x27;王大锤&#x27;, &#x27;age&#x27;: 25, &#x27;height&#x27;: 178, &#x27;addr&#x27;: &#x27;成都市武侯区科华北路62号1栋101&#x27;&#125;</span><br></code></pre></td></tr></table></figure>
+<p>如果使用 Python 3.9 及以上的版本，也可以使用<code>|</code>运算符来完成同样的操作，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">person1 = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;王大锤&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">55</span>, <span class="hljs-string">&#x27;height&#x27;</span>: <span class="hljs-number">178</span>&#125;<br>person2 = &#123;<span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">25</span>, <span class="hljs-string">&#x27;addr&#x27;</span>: <span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>&#125;<br>person1 |= person2<br><span class="hljs-built_in">print</span>(person1)  <span class="hljs-comment"># &#123;&#x27;name&#x27;: &#x27;王大锤&#x27;, &#x27;age&#x27;: 25, &#x27;height&#x27;: 178, &#x27;addr&#x27;: &#x27;成都市武侯区科华北路62号1栋101&#x27;&#125;</span><br></code></pre></td></tr></table></figure>
+<p>可以通过<code>pop</code>或<code>popitem</code>方法从字典中删除元素，前者会返回（获得）键对应的值，但是如果字典中不存在指定的键，会引发<code>KeyError</code>错误；后者在删除元素时，会返回（获得）键和值组成的二元组。<br />
+字典的<code>clear</code>方法会清空字典中所有的键值对，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">person = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;王大锤&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">25</span>, <span class="hljs-string">&#x27;height&#x27;</span>: <span class="hljs-number">178</span>, <span class="hljs-string">&#x27;addr&#x27;</span>: <span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>&#125;<br><span class="hljs-built_in">print</span>(person.pop(<span class="hljs-string">&#x27;age&#x27;</span>))  <span class="hljs-comment"># 25</span><br><span class="hljs-built_in">print</span>(person)             <span class="hljs-comment"># &#123;&#x27;name&#x27;: &#x27;王大锤&#x27;, &#x27;height&#x27;: 178, &#x27;addr&#x27;: &#x27;成都市武侯区科华北路62号1栋101&#x27;&#125;</span><br><span class="hljs-built_in">print</span>(person.popitem())   <span class="hljs-comment"># (&#x27;addr&#x27;, &#x27;成都市武侯区科华北路62号1栋101&#x27;)</span><br><span class="hljs-built_in">print</span>(person)             <span class="hljs-comment"># &#123;&#x27;name&#x27;: &#x27;王大锤&#x27;, &#x27;height&#x27;: 178&#125;</span><br>person.clear()<br><span class="hljs-built_in">print</span>(person)             <span class="hljs-comment"># &#123;&#125;</span><br></code></pre></td></tr></table></figure>
+<p>跟列表一样，从字典中删除元素也可以使用<code>del</code>关键字，在删除元素的时候如果指定的键索引不到对应的值，一样会引发<code>KeyError</code>错误，具体的做法如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">person = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;王大锤&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">25</span>, <span class="hljs-string">&#x27;height&#x27;</span>: <span class="hljs-number">178</span>, <span class="hljs-string">&#x27;addr&#x27;</span>: <span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>&#125;<br><span class="hljs-keyword">del</span> person[<span class="hljs-string">&#x27;age&#x27;</span>]<br><span class="hljs-keyword">del</span> person[<span class="hljs-string">&#x27;addr&#x27;</span>]<br><span class="hljs-built_in">print</span>(person)  <span class="hljs-comment"># &#123;&#x27;name&#x27;: &#x27;王大锤&#x27;, &#x27;height&#x27;: 178&#125;</span><br></code></pre></td></tr></table></figure>
+<h3 id="字典的应用"><a class="markdownIt-Anchor" href="#字典的应用"></a> 字典的应用</h3>
+<p>我们通过几个简单的例子来看看如何使用字典类型解决一些实际的问题。</p>
+<p><strong>例子1</strong>：输入一段话，统计每个英文字母出现的次数，按出现次数从高到低输出。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">sentence = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;请输入一段话: &#x27;</span>)<br>counter = &#123;&#125;<br><span class="hljs-keyword">for</span> ch <span class="hljs-keyword">in</span> sentence:<br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;A&#x27;</span> &lt;= ch &lt;= <span class="hljs-string">&#x27;Z&#x27;</span> <span class="hljs-keyword">or</span> <span class="hljs-string">&#x27;a&#x27;</span> &lt;= ch &lt;= <span class="hljs-string">&#x27;z&#x27;</span>:<br>        counter[ch] = counter.get(ch, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span><br>sorted_keys = <span class="hljs-built_in">sorted</span>(counter, key=counter.get, reverse=<span class="hljs-literal">True</span>)<br><span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> sorted_keys:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;key&#125;</span> 出现了 <span class="hljs-subst">&#123;counter[key]&#125;</span> 次.&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>输入：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">Man is distinguished, <span class="hljs-keyword">not</span> only <span class="hljs-keyword">by</span> his reason, but <span class="hljs-keyword">by</span> this singular passion <span class="hljs-built_in">from</span> other animals, which is <span class="hljs-keyword">a</span> lust <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> mind, that <span class="hljs-keyword">by</span> <span class="hljs-keyword">a</span> perseverance <span class="hljs-keyword">of</span> delight <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> continued <span class="hljs-keyword">and</span> indefatigable generation <span class="hljs-keyword">of</span> knowledge, exceeds <span class="hljs-keyword">the</span> <span class="hljs-keyword">short</span> vehemence <span class="hljs-keyword">of</span> <span class="hljs-keyword">any</span> carnal pleasure.<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">e</span> 出现了 <span class="hljs-number">27</span> 次.<br><span class="hljs-attribute">n</span> 出现了 <span class="hljs-number">21</span> 次.<br><span class="hljs-attribute">a</span> 出现了 <span class="hljs-number">18</span> 次.<br><span class="hljs-attribute">i</span> 出现了 <span class="hljs-number">18</span> 次.<br><span class="hljs-attribute">s</span> 出现了 <span class="hljs-number">16</span> 次.<br><span class="hljs-attribute">t</span> 出现了 <span class="hljs-number">16</span> 次.<br><span class="hljs-attribute">o</span> 出现了 <span class="hljs-number">14</span> 次.<br><span class="hljs-attribute">h</span> 出现了 <span class="hljs-number">13</span> 次.<br><span class="hljs-attribute">r</span> 出现了 <span class="hljs-number">10</span> 次.<br><span class="hljs-attribute">d</span> 出现了 <span class="hljs-number">9</span> 次.<br><span class="hljs-attribute">l</span> 出现了 <span class="hljs-number">9</span> 次.<br><span class="hljs-attribute">g</span> 出现了 <span class="hljs-number">6</span> 次.<br><span class="hljs-attribute">u</span> 出现了 <span class="hljs-number">6</span> 次.<br><span class="hljs-attribute">f</span> 出现了 <span class="hljs-number">6</span> 次.<br><span class="hljs-attribute">c</span> 出现了 <span class="hljs-number">6</span> 次.<br><span class="hljs-attribute">y</span> 出现了 <span class="hljs-number">5</span> 次.<br><span class="hljs-attribute">b</span> 出现了 <span class="hljs-number">5</span> 次.<br><span class="hljs-attribute">m</span> 出现了 <span class="hljs-number">4</span> 次.<br><span class="hljs-attribute">p</span> 出现了 <span class="hljs-number">3</span> 次.<br><span class="hljs-attribute">w</span> 出现了 <span class="hljs-number">2</span> 次.<br><span class="hljs-attribute">v</span> 出现了 <span class="hljs-number">2</span> 次.<br><span class="hljs-attribute">M</span> 出现了 <span class="hljs-number">1</span> 次.<br><span class="hljs-attribute">k</span> 出现了 <span class="hljs-number">1</span> 次.<br><span class="hljs-attribute">x</span> 出现了 <span class="hljs-number">1</span> 次.<br></code></pre></td></tr></table></figure>
+<p><strong>例子2</strong>：在一个字典中保存了股票的代码和价格，找出股价大于100元的股票并创建一个新的字典。</p>
+<blockquote>
+<p><strong>说明</strong>：可以用字典的生成式语法来创建这个新字典。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">stocks = &#123;<br>    <span class="hljs-string">&#x27;AAPL&#x27;</span>: <span class="hljs-number">191.88</span>,<br>    <span class="hljs-string">&#x27;GOOG&#x27;</span>: <span class="hljs-number">1186.96</span>,<br>    <span class="hljs-string">&#x27;IBM&#x27;</span>: <span class="hljs-number">149.24</span>,<br>    <span class="hljs-string">&#x27;ORCL&#x27;</span>: <span class="hljs-number">48.44</span>,<br>    <span class="hljs-string">&#x27;ACN&#x27;</span>: <span class="hljs-number">166.89</span>,<br>    <span class="hljs-string">&#x27;FB&#x27;</span>: <span class="hljs-number">208.09</span>,<br>    <span class="hljs-string">&#x27;SYMC&#x27;</span>: <span class="hljs-number">21.29</span><br>&#125;<br>stocks2 = &#123;key: value <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> stocks.items() <span class="hljs-keyword">if</span> value &gt; <span class="hljs-number">100</span>&#125;<br><span class="hljs-built_in">print</span>(stocks2)<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml">&#123;<span class="hljs-attr">&#x27;AAPL&#x27;:</span> <span class="hljs-number">191.88</span>, <span class="hljs-attr">&#x27;GOOG&#x27;:</span> <span class="hljs-number">1186.96</span>, <span class="hljs-attr">&#x27;IBM&#x27;:</span> <span class="hljs-number">149.24</span>, <span class="hljs-attr">&#x27;ACN&#x27;:</span> <span class="hljs-number">166.89</span>, <span class="hljs-attr">&#x27;FB&#x27;:</span> <span class="hljs-number">208.09</span>&#125;<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/waterbottle/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+    <span>></span>
+    
+  <a href="/waterbottle/categories/Python/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/" class="category-chain-item">快速入门手册</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>13.常用数据结构之字典</div>
+      <div>https://likemikusama.github.io/waterbottle/posts/c71f/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>瓶子</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月3日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月10日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/1ca4/" title="14.函数和模块">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">14.函数和模块</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/b61c/" title="12.常用数据结构之集合">
+                        <span class="hidden-mobile">12.常用数据结构之集合</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/waterbottle/js/events.js" ></script>
+<script  src="/waterbottle/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/waterbottle/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/waterbottle/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/waterbottle/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,778 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/waterbottle/img/fluid.png">
+  <link rel="icon" href="/waterbottle/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="瓶子">
+  <meta name="keywords" content="成长，记录，技术，分享">
+  
+    <meta name="description" content="函数的高级使用方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="17.函数高级应用">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/posts/938c/">
+<meta property="og:site_name" content="一个水瓶的灌装之路">
+<meta property="og:description" content="函数的高级使用方法">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-03T07:15:00.000Z">
+<meta property="article:modified_time" content="2025-11-10T01:29:11.614Z">
+<meta property="article:author" content="水瓶">
+<meta property="article:tag" content="成长，记录，技术，分享">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>17.函数高级应用 - 一个水瓶的灌装之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/waterbottle/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/waterbottle/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/waterbottle/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"likemikusama.github.io","root":"/waterbottle/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/waterbottle/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/waterbottle/js/utils.js" ></script>
+  <script  src="/waterbottle/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/waterbottle/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/waterbottle/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="17.函数高级应用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        瓶子
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-03 15:15" pubdate>
+          2025年6月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          37 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">17.函数高级应用</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年11月10日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>函数的高级使用方法</p>
+<span id="more"></span>
+<h2 id="函数高级应用"><a class="markdownIt-Anchor" href="#函数高级应用"></a> 函数高级应用</h2>
+<p>在上一个章节中，我们探索了 Python 中的高阶函数，相信大家对函数的定义和应用有了更深刻的认知。本章我们继续为大家讲解函数相关的知识，一个是 Python 中的特色语法装饰器，一个是函数的递归调用。</p>
+<h3 id="装饰器"><a class="markdownIt-Anchor" href="#装饰器"></a> 装饰器</h3>
+<p>Python 语言中，装饰器是“<strong>用一个函数装饰另外一个函数并为其提供额外的能力</strong>”的语法现象。<br />
+装饰器本身是一个函数，它的参数是被装饰的函数，它的返回值是一个带有装饰功能的函数。通过前面的描述，相信大家已经听出来了，装饰器是一个高阶函数，它的参数和返回值都是函数。<br />
+但是，装饰器的概念对编程语言的初学者来说，还是让人头疼的，下面我们先通过一个简单的例子来说明装饰器的作用。假设有名为<code>downlaod</code>和<code>upload</code>的两个函数，分别用于文件的上传和下载，如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> time<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">download</span>(<span class="hljs-params">filename</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;下载文件&quot;&quot;&quot;</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;开始下载<span class="hljs-subst">&#123;filename&#125;</span>.&#x27;</span>)<br>    time.sleep(random.random() * <span class="hljs-number">6</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;filename&#125;</span>下载完成.&#x27;</span>)<br><br>    <br><span class="hljs-keyword">def</span> <span class="hljs-title function_">upload</span>(<span class="hljs-params">filename</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;上传文件&quot;&quot;&quot;</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;开始上传<span class="hljs-subst">&#123;filename&#125;</span>.&#x27;</span>)<br>    time.sleep(random.random() * <span class="hljs-number">8</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;filename&#125;</span>上传完成.&#x27;</span>)<br><br>    <br>download(<span class="hljs-string">&#x27;MySQL从删库到跑路.avi&#x27;</span>)<br>upload(<span class="hljs-string">&#x27;Python从入门到住院.pdf&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>说明</strong>：上面的代码用休眠一段随机时间的方式模拟了下载和上传文件需要花费一定的时间，并没有真正的联网上传下载文件。</p>
+</blockquote>
+<p>现在有一个新的需求，我们希望知道调用<code>download</code>和<code>upload</code>函数上传下载文件到底用了多少时间，这应该如何实现呢？<br />
+相信很多小伙伴已经想到了，我们可以在函数开始执行的时候记录一个时间，在函数调用结束后记录一个时间，两个时间相减就可以计算出下载或上传的时间，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">start = time.time()<br>download(<span class="hljs-string">&#x27;MySQL从删库到跑路.avi&#x27;</span>)<br>end = time.time()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;花费时间: <span class="hljs-subst">&#123;end - start:<span class="hljs-number">.2</span>f&#125;</span>秒&#x27;</span>)<br>start = time.time()<br>upload(<span class="hljs-string">&#x27;Python从入门到住院.pdf&#x27;</span>)<br>end = time.time()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;花费时间: <span class="hljs-subst">&#123;end - start:<span class="hljs-number">.2</span>f&#125;</span>秒&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>通过上面的代码，我们可以在下载和上传文件时记录下耗费的时间，但不知道大家是否注意到，上面记录时间、计算和显示执行时间的代码都是重复代码。<br />
+有编程经验的人都知道，<strong>重复的代码是万恶之源</strong>，那么有没有办法在不写重复代码的前提下，用一种简单优雅的方式记录下函数的执行时间呢？<br />
+在 Python 语言中，装饰器就是解决这类问题的最佳选择。通过装饰器语法，我们可以把跟原来的业务（上传和下载）没有关系计时功能的代码封装到一个函数中。<br />
+如果<code>upload</code>和<code>download</code>函数需要记录时间，我们直接把装饰器作用到这两个函数上即可。既然上面提到了，装饰器是一个高阶函数，它的参数和返回值都是函数，我们将记录时间的装饰器姑且命名为<code>record_time</code>，那么它的整体结构应该如下面的代码所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">record_time</span>(<span class="hljs-params">func</span>):<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>        <br>        result = func(*args, **kwargs)<br>        <br>        <span class="hljs-keyword">return</span> result<br>    <br>    <span class="hljs-keyword">return</span> wrapper<br></code></pre></td></tr></table></figure>
+<p>相信大家注意到了，<code>record_time</code>函数的参数<code>func</code>代表了一个被装饰的函数，函数里面定义的<code>wrapper</code>函数是带有装饰功能的函数，它会执行被装饰的函数<code>func</code>，它还需要返回在最后产生函数执行的返回值。<br />
+上面的代码我在第4行和第6行留下了两个空行，这意味着我们可以这些地方添加代码来实现额外的功能。<br />
+<code>record_time</code>函数最终会返回这个带有装饰功能的函数<code>wrapper</code>并通过它替代原函数<code>func</code>，当原函数<code>func</code>被<code>record_time</code>函数装饰后，我们调用它时其实调用的是<code>wrapper</code>函数，所以才获得了额外的能力。<br />
+<code>wrapper</code>函数的参数比较特殊，由于我们要用<code>wrapper</code>替代原函数<code>func</code>，但是我们又不清楚原函数<code>func</code>会接受哪些参数，所以我们就通过可变参数和关键字参数照单全收，然后在调用<code>func</code>的时候，原封不动的全部给它。<br />
+这里还要强调一下，Python 语言支持函数的嵌套定义，就像上面，我们可以在<code>record_time</code>函数中定义<code>wrapper</code>函数，这个操作在很多编程语言中并不被支持。</p>
+<p>看懂这个结构后，我们就可以把记录时间的功能写到这个装饰器中，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">record_time</span>(<span class="hljs-params">func</span>):<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>        <span class="hljs-comment"># 在执行被装饰的函数之前记录开始时间</span><br>        start = time.time()<br>        <span class="hljs-comment"># 执行被装饰的函数并获取返回值</span><br>        result = func(*args, **kwargs)<br>        <span class="hljs-comment"># 在执行被装饰的函数之后记录结束时间</span><br>        end = time.time()<br>        <span class="hljs-comment"># 计算和显示被装饰函数的执行时间</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;func.__name__&#125;</span>执行时间: <span class="hljs-subst">&#123;end - start:<span class="hljs-number">.2</span>f&#125;</span>秒&#x27;</span>)<br>        <span class="hljs-comment"># 返回被装饰函数的返回值</span><br>        <span class="hljs-keyword">return</span> result<br>    <br>    <span class="hljs-keyword">return</span> wrapper<br></code></pre></td></tr></table></figure>
+<p>写装饰器虽然颇费周折，但是这是个一劳永逸的骚操作，将来再有记录函数执行时间的需求时，我们只需要添加上面的装饰器即可。<br />
+使用上面的装饰器函数有两种方式，第一种方式就是直接调用装饰器函数，传入被装饰的函数并获得返回值，我们可以用这个返回值直接替代原来的函数，那么在调用时就已经获得了装饰器提供的额外的能力（记录执行时间），大家试试下面的代码就明白了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">download = record_time(download)<br>upload = record_time(upload)<br>download(<span class="hljs-string">&#x27;MySQL从删库到跑路.avi&#x27;</span>)<br>upload(<span class="hljs-string">&#x27;Python从入门到住院.pdf&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>在 Python 中，使用装饰器很有更为便捷的<strong>语法糖</strong>（编程语言中添加的某种语法，这种语法对语言的功能没有影响，但是使用更加方便，代码的可读性也更强，我们将其称之为“语法糖”或“糖衣语法”）。<br />
+可以用<code>@装饰器函数</code>将装饰器函数直接放在被装饰的函数上，效果跟上面的代码相同。<br />
+我们把完整的代码为大家罗列出来，大家可以再看看我们是如何定义和使用装饰器的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> time<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">record_time</span>(<span class="hljs-params">func</span>):<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>        start = time.time()<br>        result = func(*args, **kwargs)<br>        end = time.time()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;func.__name__&#125;</span>执行时间: <span class="hljs-subst">&#123;end - start:<span class="hljs-number">.2</span>f&#125;</span>秒&#x27;</span>)<br>        <span class="hljs-keyword">return</span> result<br><br>    <span class="hljs-keyword">return</span> wrapper<br><br><br><span class="hljs-meta">@record_time</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">download</span>(<span class="hljs-params">filename</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;开始下载<span class="hljs-subst">&#123;filename&#125;</span>.&#x27;</span>)<br>    time.sleep(random.random() * <span class="hljs-number">6</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;filename&#125;</span>下载完成.&#x27;</span>)<br><br><br><span class="hljs-meta">@record_time</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">upload</span>(<span class="hljs-params">filename</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;开始上传<span class="hljs-subst">&#123;filename&#125;</span>.&#x27;</span>)<br>    time.sleep(random.random() * <span class="hljs-number">8</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;filename&#125;</span>上传完成.&#x27;</span>)<br><br><br>download(<span class="hljs-string">&#x27;MySQL从删库到跑路.avi&#x27;</span>)<br>upload(<span class="hljs-string">&#x27;Python从入门到住院.pdf&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>上面的代码，我们通过装饰器语法糖为<code>download</code>和<code>upload</code>函数添加了装饰器，被装饰后的<code>download</code>和<code>upload</code>函数其实就是我们在装饰器中返回的<code>wrapper</code>函数，调用它们其实就是在调用<code>wrapper</code>函数，所以才有了记录函数执行时间的功能。<br />
+如果在代码的某些地方，我们想去掉装饰器的作用执行原函数，那么在定义装饰器函数的时候，需要做一点点额外的工作。<br />
+Python 标准库<code>functools</code>模块的<code>wraps</code>函数也是一个装饰器，我们将它放在<code>wrapper</code>函数上，这个装饰器可以帮我们保留被装饰之前的函数，这样在需要取消装饰器时，可以通过被装饰函数的<code>__wrapped__</code>属性获得被装饰之前的函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> time<br><br><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">record_time</span>(<span class="hljs-params">func</span>):<br><br><span class="hljs-meta">    @wraps(<span class="hljs-params">func</span>)</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>        start = time.time()<br>        result = func(*args, **kwargs)<br>        end = time.time()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;func.__name__&#125;</span>执行时间: <span class="hljs-subst">&#123;end - start:<span class="hljs-number">.2</span>f&#125;</span>秒&#x27;</span>)<br>        <span class="hljs-keyword">return</span> result<br><br>    <span class="hljs-keyword">return</span> wrapper<br><br><br><span class="hljs-meta">@record_time</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">download</span>(<span class="hljs-params">filename</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;开始下载<span class="hljs-subst">&#123;filename&#125;</span>.&#x27;</span>)<br>    time.sleep(random.random() * <span class="hljs-number">6</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;filename&#125;</span>下载完成.&#x27;</span>)<br><br><br><span class="hljs-meta">@record_time</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">upload</span>(<span class="hljs-params">filename</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;开始上传<span class="hljs-subst">&#123;filename&#125;</span>.&#x27;</span>)<br>    time.sleep(random.random() * <span class="hljs-number">8</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;filename&#125;</span>上传完成.&#x27;</span>)<br><br><br><span class="hljs-comment"># 调用装饰后的函数会记录执行时间</span><br>download(<span class="hljs-string">&#x27;MySQL从删库到跑路.avi&#x27;</span>)<br>upload(<span class="hljs-string">&#x27;Python从入门到住院.pdf&#x27;</span>)<br><span class="hljs-comment"># 取消装饰器的作用不记录执行时间</span><br>download.__wrapped__(<span class="hljs-string">&#x27;MySQL必知必会.pdf&#x27;</span>)<br>upload.__wrapped__(<span class="hljs-string">&#x27;Python从新手到大师.pdf&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p><strong>装饰器函数本身也可以参数化</strong>，简单的说就是装饰器也是可以通过调用者传入的参数来进行定制的，这个知识点我们在后面用到的时候再为大家讲解。</p>
+<h3 id="递归调用"><a class="markdownIt-Anchor" href="#递归调用"></a> 递归调用</h3>
+<p>Python 中允许函数嵌套定义，也允许函数之间相互调用，而且一个函数还可以直接或间接的调用自身。函数自己调用自己称为递归调用，那么递归调用有什么用处呢？<br />
+现实中，有很多问题的定义本身就是一个递归定义，例如我们之前讲到的阶乘，非负整数<code>N</code>的阶乘是<code>N</code>乘以<code>N-1</code>的阶乘，即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mi>N</mi><mo stretchy="false">!</mo><mo>=</mo><mi>N</mi><mo>×</mo><mo stretchy="false">(</mo><mi>N</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">!</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{N! = N \times (N-1)!}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9em;vertical-align:-0.225em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mclose">!</span></span></span></span></span> ，定义的左边和右边都出现了阶乘的概念，所以这是一个递归定义。<br />
+既然如此，我们可以使用递归调用的方式来写一个求阶乘的函数，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">fac</span>(<span class="hljs-params">num</span>):<br>    <span class="hljs-keyword">if</span> num <span class="hljs-keyword">in</span> (<span class="hljs-number">0</span>, <span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> num * fac(num - <span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<p>上面的代码中，<code>fac</code>函数中又调用了<code>fac</code>函数，这就是所谓的递归调用。代码第2行的<code>if</code>条件叫做递归的收敛条件，简单的说就是什么时候要结束函数的递归调用，在计算阶乘时，如果计算到<code>0</code>或<code>1</code>的阶乘，就停止递归调用，直接返回<code>1</code>；代码第4行的<code>num * fac(num - 1)</code>是递归公式，也就是阶乘的递归定义。</p>
+<p>下面，我们简单的分析下，如果用<code>fac(5)</code>计算<code>5</code>的阶乘，整个过程会是怎样的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 递归调用函数入栈</span><br><span class="hljs-comment"># 5 * fac(4)</span><br><span class="hljs-comment"># 5 * (4 * fac(3))</span><br><span class="hljs-comment"># 5 * (4 * (3 * fac(2)))</span><br><span class="hljs-comment"># 5 * (4 * (3 * (2 * fac(1))))</span><br><span class="hljs-comment"># 停止递归函数出栈</span><br><span class="hljs-comment"># 5 * (4 * (3 * (2 * 1)))</span><br><span class="hljs-comment"># 5 * (4 * (3 * 2))</span><br><span class="hljs-comment"># 5 * (4 * 6)</span><br><span class="hljs-comment"># 5 * 24</span><br><span class="hljs-comment"># 120</span><br><span class="hljs-built_in">print</span>(fac(<span class="hljs-number">5</span>))    <span class="hljs-comment"># 120</span><br></code></pre></td></tr></table></figure>
+<p>注意，函数调用会通过内存中称为“栈”（stack）的数据结构来保存当前代码的执行现场，函数调用结束后会通过这个栈结构恢复之前的执行现场。<br />
+栈是一种先进后出的数据结构，这也就意味着最早入栈的函数最后才会返回，而最后入栈的函数会最先返回。<br />
+例如调用一个名为<code>a</code>的函数，函数<code>a</code>的执行体中又调用了函数<code>b</code>，函数<code>b</code>的执行体中又调用了函数<code>c</code>，那么最先入栈的函数是<code>a</code>，最先出栈的函数是<code>c</code>。每进入一个函数调用，栈就会增加一层栈帧（stack frame），栈帧就是我们刚才提到的保存当前代码执行现场的结构；每当函数调用结束后，栈就会减少一层栈帧。<br />
+通常，内存中的栈空间很小，因此递归调用的次数如果太多，会导致栈溢出（stack overflow），所以<strong>递归调用一定要确保能够快速收敛</strong>。我们可以尝试执行<code>fac(5000)</code>，看看是不是会提示<code>RecursionError</code>错误，错误消息为：<code>maximum recursion depth exceeded in comparison</code>（超出最大递归深度），其实就是发生了栈溢出。</p>
+<p>如果我们使用官方的 Python 解释器（CPython），默认将函数调用的栈结构最大深度设置为<code>1000</code>层。<br />
+如果超出这个深度，就会发生上面说的<code>RecursionError</code>。当然，我们可以使用<code>sys</code>模块的<code>setrecursionlimit</code>函数来改变递归调用的最大深度。<br />
+但是我们不建议这样做，因为让递归快速收敛才是我们应该做的事情，否则就应该考虑使用循环递推而不是递归。</p>
+<p>再举一个之前讲过的生成斐波那契数列的例子，因为斐波那契数列前两个数都是<code>1</code>，从第三个数开始，每个数是前两个数相加的和，可以记为<code>f(n) = f(n - 1) + f(n - 2)</code>，很显然这又是一个递归的定义，所以我们可以用下面的递归调用函数来计算第<code>n</code>个斐波那契数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">fib1</span>(<span class="hljs-params">n</span>):<br>    <span class="hljs-keyword">if</span> n <span class="hljs-keyword">in</span> (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> fib1(n - <span class="hljs-number">1</span>) + fib1(n - <span class="hljs-number">2</span>)<br><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">21</span>):<br>    <span class="hljs-built_in">print</span>(fib1(i))<br></code></pre></td></tr></table></figure>
+<p>需要提醒大家，上面计算斐波那契数的代码虽然看起来非常简单明了，但执行性能是比较糟糕的。大家可以试一试，把上面代码<code>for</code>循环中<code>range</code>函数的第二个参数修改为<code>51</code>，即输出前50个斐波那契数，看看需要多长时间。<br />
+至于为什么这么慢，大家可以自己思考一下原因。很显然，直接使用循环递推的方式获得斐波那契数列是更好的选择，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">fib2</span>(<span class="hljs-params">n</span>):<br>    a, b = <span class="hljs-number">0</span>, <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>        a, b = b, a + b<br>    <span class="hljs-keyword">return</span> a<br></code></pre></td></tr></table></figure>
+<p>除此以外，我们还可以使用 Python 标准库中<code>functools</code>模块的<code>lru_cache</code>函数来优化上面的递归代码。<br />
+<code>lru_cache</code>函数是一个装饰器函数，我们将其置于上面的函数<code>fib1</code>之上，它可以缓存该函数的执行结果从而避免在递归调用的过程中产生大量的重复运算，这样代码的执行性能就有“飞一般”的提升。<br />
+大家可以尝试输出前50个斐波那契数，看看加上装饰器以后代码需要执行多长时间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> lru_cache<br><br><br><span class="hljs-meta">@lru_cache()</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">fib1</span>(<span class="hljs-params">n</span>):<br>    <span class="hljs-keyword">if</span> n <span class="hljs-keyword">in</span> (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> fib1(n - <span class="hljs-number">1</span>) + fib1(n - <span class="hljs-number">2</span>)<br><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">51</span>):<br>    <span class="hljs-built_in">print</span>(i, fib1(i))<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>提示</strong>：<code>lru_cache</code>函数是一个带参数的装饰器，所以上面第4行代码使用装饰器语法糖时，<code>lru_cache</code>后面要跟上圆括号。<br />
+<code>lru_cache</code>函数有一个非常重要的参数叫<code>maxsize</code>，它可以用来定义缓存空间的大小，默认值是128。</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/waterbottle/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+    <span>></span>
+    
+  <a href="/waterbottle/categories/Python/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/" class="category-chain-item">快速入门手册</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>17.函数高级应用</div>
+      <div>https://likemikusama.github.io/waterbottle/posts/938c/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>瓶子</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月3日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月10日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/9252/" title="19.面向对象编程进阶">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">19.面向对象编程进阶</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/65fb/" title="18.面向对象编程入门">
+                        <span class="hidden-mobile">18.面向对象编程入门</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/waterbottle/js/events.js" ></script>
+<script  src="/waterbottle/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/waterbottle/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/waterbottle/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/waterbottle/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

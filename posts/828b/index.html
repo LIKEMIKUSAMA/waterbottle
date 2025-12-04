@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/waterbottle/img/fluid.png">
+  <link rel="icon" href="/waterbottle/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="瓶子">
+  <meta name="keywords" content="成长，记录，技术，分享">
+  
+    <meta name="description" content="认识元组和其特性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10.常用数据结构之元组">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/posts/828b/">
+<meta property="og:site_name" content="一个水瓶的灌装之路">
+<meta property="og:description" content="认识元组和其特性">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-03T06:45:00.000Z">
+<meta property="article:modified_time" content="2025-11-10T01:29:11.606Z">
+<meta property="article:author" content="水瓶">
+<meta property="article:tag" content="成长，记录，技术，分享">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>10.常用数据结构之元组 - 一个水瓶的灌装之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/waterbottle/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/waterbottle/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/waterbottle/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"likemikusama.github.io","root":"/waterbottle/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/waterbottle/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/waterbottle/js/utils.js" ></script>
+  <script  src="/waterbottle/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/waterbottle/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/waterbottle/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="10.常用数据结构之元组"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        瓶子
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-03 14:45" pubdate>
+          2025年6月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">10.常用数据结构之元组</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年11月10日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>认识元组和其特性</p>
+<span id="more"></span>
+<h2 id="常用数据结构之元组"><a class="markdownIt-Anchor" href="#常用数据结构之元组"></a> 常用数据结构之元组</h2>
+<p>前面的两节课，我们为大家讲解了 Python 中的列表，它是一种容器型的数据类型，通过列表类型的变量，我们可以保存多个数据并通过循环实现对数据的批量操作。<br />
+当然，Python 中还有其他容器型的数据类型，接下来我们就为大家讲解另一种容器型的数据类型，它的名字叫元组（tuple）。</p>
+<h3 id="元组的定义和运算"><a class="markdownIt-Anchor" href="#元组的定义和运算"></a> 元组的定义和运算</h3>
+<p>在 Python 语言中，元组也是多个元素按照一定顺序构成的序列。<br />
+元组和列表的不同之处在于，<strong>元组是不可变类型</strong>，这就意味着元组类型的变量一旦定义，其中的元素不能再添加或删除，而且元素的值也不能修改。<br />
+如果试图修改元组中的元素，将引发<code>TypeError</code>错误，导致程序崩溃。定义元组通常使用形如<code>(x, y, z)</code>的字面量语法，元组类型支持的运算符跟列表是一样的，我们可以看看下面的代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 定义一个三元组</span><br>t1 = (<span class="hljs-number">35</span>, <span class="hljs-number">12</span>, <span class="hljs-number">98</span>)<br><span class="hljs-comment"># 定义一个四元组</span><br>t2 = (<span class="hljs-string">&#x27;瓶子&#x27;</span>, <span class="hljs-number">20</span>, <span class="hljs-literal">True</span>, <span class="hljs-string">&#x27;江苏南京&#x27;</span>)<br><br><span class="hljs-comment"># 查看变量的类型</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(t1))  <span class="hljs-comment"># &lt;class &#x27;tuple&#x27;&gt;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(t2))  <span class="hljs-comment"># &lt;class &#x27;tuple&#x27;&gt;</span><br><br><span class="hljs-comment"># 查看元组中元素的数量</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(t1))  <span class="hljs-comment"># 3</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(t2))  <span class="hljs-comment"># 4</span><br><br><span class="hljs-comment"># 索引运算</span><br><span class="hljs-built_in">print</span>(t1[<span class="hljs-number">0</span>])    <span class="hljs-comment"># 35</span><br><span class="hljs-built_in">print</span>(t1[<span class="hljs-number">2</span>])    <span class="hljs-comment"># 98</span><br><span class="hljs-built_in">print</span>(t2[-<span class="hljs-number">1</span>])   <span class="hljs-comment"># 江苏南京</span><br><br><span class="hljs-comment"># 切片运算</span><br><span class="hljs-built_in">print</span>(t2[:<span class="hljs-number">2</span>])   <span class="hljs-comment"># (&#x27;瓶子&#x27;, 20)</span><br><span class="hljs-built_in">print</span>(t2[::<span class="hljs-number">3</span>])  <span class="hljs-comment"># (&#x27;瓶子&#x27;, &#x27;江苏南京&#x27;)</span><br><br><span class="hljs-comment"># 循环遍历元组中的元素</span><br><span class="hljs-keyword">for</span> elem <span class="hljs-keyword">in</span> t1:<br>    <span class="hljs-built_in">print</span>(elem)<br><br><span class="hljs-comment"># 成员运算</span><br><span class="hljs-built_in">print</span>(<span class="hljs-number">12</span> <span class="hljs-keyword">in</span> t1)         <span class="hljs-comment"># True</span><br><span class="hljs-built_in">print</span>(<span class="hljs-number">99</span> <span class="hljs-keyword">in</span> t1)         <span class="hljs-comment"># False</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Hao&#x27;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> t2)  <span class="hljs-comment"># True</span><br><br><span class="hljs-comment"># 拼接运算</span><br>t3 = t1 + t2<br><span class="hljs-built_in">print</span>(t3)  <span class="hljs-comment"># (35, 12, 98, &#x27;瓶子&#x27;, 43, True, &#x27;江苏南京&#x27;)</span><br><br><span class="hljs-comment"># 比较运算</span><br><span class="hljs-built_in">print</span>(t1 == t3)            <span class="hljs-comment"># False</span><br><span class="hljs-built_in">print</span>(t1 &gt;= t3)            <span class="hljs-comment"># False</span><br><span class="hljs-built_in">print</span>(t1 &lt;= (<span class="hljs-number">35</span>, <span class="hljs-number">11</span>, <span class="hljs-number">99</span>))  <span class="hljs-comment"># False</span><br></code></pre></td></tr></table></figure>
+<p>一个元组中如果有两个元素，我们就称之为二元组；一个元组中如果五个元素，我们就称之为五元组。<br />
+需要提醒大家注意的是，<code>()</code>表示空元组，但是如果元组中只有一个元素，需要加上一个逗号，否则<code>()</code>就不是代表元组的字面量语法，而是改变运算优先级的圆括号，所以<code>('hello', )</code>和<code>(100, )</code>才是一元组。<br />
+而<code>('hello')</code>和<code>(100)</code>只是字符串和整数。我们可以通过下面的代码来加以验证。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">a = ()<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(a))  <span class="hljs-comment"># &lt;class &#x27;tuple&#x27;&gt;</span><br>b = (<span class="hljs-string">&#x27;hello&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(b))  <span class="hljs-comment"># &lt;class &#x27;str&#x27;&gt;</span><br>c = (<span class="hljs-number">100</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(c))  <span class="hljs-comment"># &lt;class &#x27;int&#x27;&gt;</span><br>d = (<span class="hljs-string">&#x27;hello&#x27;</span>, )<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(d))  <span class="hljs-comment"># &lt;class &#x27;tuple&#x27;&gt;</span><br>e = (<span class="hljs-number">100</span>, )<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(e))  <span class="hljs-comment"># &lt;class &#x27;tuple&#x27;&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="打包和解包操作"><a class="markdownIt-Anchor" href="#打包和解包操作"></a> 打包和解包操作</h3>
+<p>当我们把多个用逗号分隔的值赋给一个变量时，多个值会打包成一个元组类型；当我们把一个元组赋值给多个变量时，元组会解包成多个值然后分别赋给对应的变量，如下面的代码所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 打包操作</span><br>a = <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(a))  <span class="hljs-comment"># &lt;class &#x27;tuple&#x27;&gt;</span><br><span class="hljs-built_in">print</span>(a)        <span class="hljs-comment"># (1, 10, 100)</span><br><span class="hljs-comment"># 解包操作</span><br>i, j, k = a<br><span class="hljs-built_in">print</span>(i, j, k)  <span class="hljs-comment"># 1 10 100</span><br></code></pre></td></tr></table></figure>
+<p>在解包时，如果解包出来的元素个数和变量个数不对应，会引发<code>ValueError</code>异常，错误信息为：<code>too many values to unpack</code>（解包的值太多）或<code>not enough values to unpack</code>（解包的值不足）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">a = <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>, <span class="hljs-number">1000</span><br><span class="hljs-comment"># i, j, k = a             # ValueError: too many values to unpack (expected 3)</span><br><span class="hljs-comment"># i, j, k, l, m, n = a    # ValueError: not enough values to unpack (expected 6, got 4)</span><br></code></pre></td></tr></table></figure>
+<p>有一种解决变量个数少于元素的个数方法，就是使用星号表达式。通过星号表达式，我们可以让一个变量接收多个值，代码如下所示。<br />
+需要注意两点：首先，用星号表达式修饰的变量会变成一个列表，列表中有0个或多个元素；其次，在解包语法中，星号表达式只能出现一次。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">a = <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>, <span class="hljs-number">1000</span><br>i, j, *k = a<br><span class="hljs-built_in">print</span>(i, j, k)        <span class="hljs-comment"># 1 10 [100, 1000]</span><br>i, *j, k = a<br><span class="hljs-built_in">print</span>(i, j, k)        <span class="hljs-comment"># 1 [10, 100] 1000</span><br>*i, j, k = a<br><span class="hljs-built_in">print</span>(i, j, k)        <span class="hljs-comment"># [1, 10] 100 1000</span><br>*i, j = a<br><span class="hljs-built_in">print</span>(i, j)           <span class="hljs-comment"># [1, 10, 100] 1000</span><br>i, *j = a<br><span class="hljs-built_in">print</span>(i, j)           <span class="hljs-comment"># 1 [10, 100, 1000]</span><br>i, j, k, *l = a<br><span class="hljs-built_in">print</span>(i, j, k, l)     <span class="hljs-comment"># 1 10 100 [1000]</span><br>i, j, k, l, *m = a<br><span class="hljs-built_in">print</span>(i, j, k, l, m)  <span class="hljs-comment"># 1 10 100 1000 []</span><br></code></pre></td></tr></table></figure>
+<p>需要说明一点，解包语法对所有的序列都成立，这就意味着我们之前讲的列表、<code>range</code>函数构造的范围序列甚至字符串都可以使用解包语法。大家可以尝试运行下面的代码，看看会出现怎样的结果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">a, b, *c = <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>)<br><span class="hljs-built_in">print</span>(a, b, c)<br>a, b, c = [<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>]<br><span class="hljs-built_in">print</span>(a, b, c)<br>a, *b, c = <span class="hljs-string">&#x27;hello&#x27;</span><br><span class="hljs-built_in">print</span>(a, b, c)<br></code></pre></td></tr></table></figure>
+<h3 id="交换变量的值"><a class="markdownIt-Anchor" href="#交换变量的值"></a> 交换变量的值</h3>
+<p>交换变量的值是写代码时经常用到的一个操作，但是在很多编程语言中，交换两个变量的值都需要借助一个中间变量才能做到，如果不用中间变量就需要使用比较晦涩的位运算来实现。<br />
+在 Python 中，交换两个变量<code>a</code>和<code>b</code>的值只需要使用如下所示的代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">a, b = b, a<br></code></pre></td></tr></table></figure>
+<p>同理，如果要将三个变量<code>a</code>、<code>b</code>、<code>c</code>的值互换，即<code>b</code>的值赋给<code>a</code>，<code>c</code>的值赋给<code>b</code>，<code>a</code>的值赋给<code>c</code>，也可以如法炮制。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">a, b, c = b, c, a<br></code></pre></td></tr></table></figure>
+<p>需要说明的是，上面的操作并没有用到打包和解包语法，Python 的字节码指令中有<code>ROT_TWO</code>和<code>ROT_THREE</code>这样的指令可以直接实现这个操作，效率是非常高的。<br />
+但是如果有多于三个变量的值要依次互换，这个时候是没有直接可用的字节码指令的，需要通过打包解包的方式来完成变量之间值的交换。</p>
+<h3 id="元组和列表的比较"><a class="markdownIt-Anchor" href="#元组和列表的比较"></a> 元组和列表的比较</h3>
+<p>这里还有一个非常值得探讨的问题，Python 中已经有了列表类型，为什么还需要元组这样的类型呢？这个问题对于初学者来说似乎有点困难，不过没有关系，我们先抛出观点，大家可以一边学习一边慢慢体会。</p>
+<ol>
+<li>
+<p>元组是不可变类型，<strong>不可变类型更适合多线程环境</strong>，因为它降低了并发访问变量的同步化开销。关于这一点，我们会在后面讲解并发编程的时候跟大家一起探讨。</p>
+</li>
+<li>
+<p>元组是不可变类型，通常<strong>不可变类型在创建时间上优于对应的可变类型</strong>。我们可以使用<code>timeit</code>模块的<code>timeit</code>函数来看看创建保存相同元素的元组和列表各自花费的时间，<code>timeit</code>函数的<code>number</code>参数表示代码执行的次数。下面的代码中，我们分别创建了保存<code>1</code>到<code>9</code>的整数的列表和元组，每个操作执行<code>10000000</code>次，统计运行时间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> timeit<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;%.3f 秒&#x27;</span> % timeit.timeit(<span class="hljs-string">&#x27;[1, 2, 3, 4, 5, 6, 7, 8, 9]&#x27;</span>, number=<span class="hljs-number">10000000</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;%.3f 秒&#x27;</span> % timeit.timeit(<span class="hljs-string">&#x27;(1, 2, 3, 4, 5, 6, 7, 8, 9)&#x27;</span>, number=<span class="hljs-number">10000000</span>))<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">0</span>.<span class="hljs-number">310</span> 秒<br><span class="hljs-attribute">0</span>.<span class="hljs-number">063</span> 秒<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>说明</strong>：上面代码的执行结果因软硬件系统而异。</p>
+</blockquote>
+</li>
+</ol>
+<p>当然，Python 中的元组和列表类型是可以相互转换的，我们可以通过下面的代码来完成该操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">infos = (<span class="hljs-string">&#x27;瓶子&#x27;</span>, <span class="hljs-number">43</span>, <span class="hljs-literal">True</span>, <span class="hljs-string">&#x27;江苏南京&#x27;</span>)<br><span class="hljs-comment"># 将元组转换成列表</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(infos))  <span class="hljs-comment"># [&#x27;瓶子&#x27;, 43, True, &#x27;江苏南京&#x27;]</span><br><br>frts = [<span class="hljs-string">&#x27;apple&#x27;</span>, <span class="hljs-string">&#x27;banana&#x27;</span>, <span class="hljs-string">&#x27;orange&#x27;</span>]<br><span class="hljs-comment"># 将列表转换成元组</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">tuple</span>(frts))  <span class="hljs-comment"># (&#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;orange&#x27;)</span><br></code></pre></td></tr></table></figure>
+<h3 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h3>
+<p><strong>列表和元组都是容器型的数据类型</strong>，即一个变量可以保存多个数据，而且它们都是按一定顺序组织元素的有序容器。<strong>列表是可变数据类型</strong>，<strong>元组是不可变数据类型</strong>，所以列表可以添加元素、删除元素、清空元素、排序反转，但这些操作对元组来说是不成立的。列表和元组都可以支持<strong>拼接运算</strong>、<strong>成员运算</strong>、<strong>索引运算</strong>、<strong>切片运算</strong>等操作，后面我们要讲到的字符串类型也支持这些运算，因为字符串就是字符按一定顺序构成的序列，在这一点上三者并没有什么区别。我们<strong>推荐大家使用列表的生成式语法来创建列表</strong>，它不仅好用而且效率很高，是 Python 语言中非常有特色的语法。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/waterbottle/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+    <span>></span>
+    
+  <a href="/waterbottle/categories/Python/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/" class="category-chain-item">快速入门手册</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>10.常用数据结构之元组</div>
+      <div>https://likemikusama.github.io/waterbottle/posts/828b/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>瓶子</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月3日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月10日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/b61c/" title="12.常用数据结构之集合">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">12.常用数据结构之集合</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/a08a/" title="11.常用数据结构之字符串">
+                        <span class="hidden-mobile">11.常用数据结构之字符串</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/waterbottle/js/events.js" ></script>
+<script  src="/waterbottle/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/waterbottle/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/waterbottle/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/waterbottle/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

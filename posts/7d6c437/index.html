@@ -1,0 +1,788 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/waterbottle/img/fluid.png">
+  <link rel="icon" href="/waterbottle/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="XUANWEN DING">
+  <meta name="keywords" content="成长，记录，技术，分享">
+  
+    <meta name="description" content="CentOS系统命令和操作技巧，整和大部分常用命令和操作方式等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS系统命令和操作技巧">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/posts/7d6c437/">
+<meta property="og:site_name" content="一个水瓶的灌装之路">
+<meta property="og:description" content="CentOS系统命令和操作技巧，整和大部分常用命令和操作方式等。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-11T02:55:49.000Z">
+<meta property="article:modified_time" content="2025-12-02T02:56:28.451Z">
+<meta property="article:author" content="水瓶">
+<meta property="article:tag" content="成长，记录，技术，分享">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>CentOS系统命令和操作技巧 - 一个水瓶的灌装之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/waterbottle/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/waterbottle/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/waterbottle/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"likemikusama.github.io","root":"/waterbottle/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/waterbottle/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/waterbottle/js/utils.js" ></script>
+  <script  src="/waterbottle/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/waterbottle/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/waterbottle/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CentOS系统命令和操作技巧"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        XUANWEN DING
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-11 10:55" pubdate>
+          2024年4月11日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">CentOS系统命令和操作技巧</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年12月2日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>CentOS系统命令和操作技巧，整和大部分常用命令和操作方式等。</p>
+<span id="more"></span>
+<hr />
+<h2 id="一-系统配置类"><a class="markdownIt-Anchor" href="#一-系统配置类"></a> 一、系统配置类</h2>
+<h3 id="11-防火墙操作命令"><a class="markdownIt-Anchor" href="#11-防火墙操作命令"></a> 1.1、防火墙操作命令</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看防火墙状态</span><br>firewall-cmd --state<br><br><span class="hljs-comment"># 启/停用防火墙</span><br>systemctl start/stop firewalld<br><br><span class="hljs-comment"># 禁止/开启firewall开机启动：</span><br>systemctl <span class="hljs-built_in">disable</span>/enable  firewalld<br><br><span class="hljs-comment"># 开放端口</span><br>firewall-cmd --zone=public --add-port=80/tcp --permanent<br><br><span class="hljs-comment"># 关闭端口</span><br>firewall-cmd --zone=public --remove-port=80/tcp --permanent<br>命令含义： --zone <span class="hljs-comment">#作用域 --add-port=80/tcp #添加端口，格式为：端口/通讯协议 --permanent #永久生效，没有此参数重启后失效</span><br><br><span class="hljs-comment">#做完重启防火墙；</span><br>[参考连接](https://www.cnblogs.com/Sungeek/p/8257681.html)<br><br><span class="hljs-comment"># 开启http</span><br>firewall-cmd --add-service=http --permanent<br><br><span class="hljs-comment"># 查看http是否开启</span><br>firewall-cmd --query-service http<br><br><span class="hljs-comment"># 重启防火墙命令：</span><br>firewall-cmd --reload<br><br><span class="hljs-comment"># 查询开放的端口：</span><br>firewall-cmd --list-port<br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="12-修改系统ip地址等网络配置"><a class="markdownIt-Anchor" href="#12-修改系统ip地址等网络配置"></a> 1.2、修改系统ip地址等网络配置</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 路径：/etc/sysconfig/network-scripts/</span><br><br><span class="hljs-comment"># 安装ifconfig包：</span><br>yum -y install net-tools<br><span class="hljs-comment">#此目录下放置着系统的网络配置文件，修改时需要先确认目前本机使用的是哪个配置再进行修改</span><br><br><span class="hljs-comment"># 修改配置固定IP：</span><br>BOOTPROTO=static<br>IPADDR=xxx.xxx.xxx.xxx <span class="hljs-comment"># 这里填ip</span><br>NETMASK=xxx.xxx.xxx.xxx <span class="hljs-comment"># 这里填网络掩码，如255.255.255.0</span><br>GATEWAY=xxx.xxx.xx.xxx <span class="hljs-comment"># 这里填网关ip</span><br><br><span class="hljs-comment"># 添加DNS识别</span><br><span class="hljs-comment"># 修改/etc/resolv.conf文件，添加DNS识别地址</span><br><span class="hljs-comment"># 阿里解析</span><br>nameserver 223.5.5.5<br><span class="hljs-comment"># 谷歌解析</span><br>nameserver 8.8.8.8<br><br><span class="hljs-comment"># 查看网关配置：</span><br>netstat -rn<br><br><span class="hljs-comment"># 重启网卡，选其一执行即可</span><br>service network restart;<br>systemctl restart network<br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="13-更改默认启动模式"><a class="markdownIt-Anchor" href="#13-更改默认启动模式"></a> 1.3、更改默认启动模式</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 获取当前默认模式</span><br><span class="hljs-comment"># multi-user.target 相当于之前的更改运行级别为3，意思就是命令行。</span><br><span class="hljs-comment"># graphical.target 相当于之前的更改运行级别为5，意思就是图形界面</span><br>systemctl get-default<br><br><span class="hljs-comment"># 修改启动模式为图形界面，</span><br>systemctl set-default graphical.target <br><br><span class="hljs-comment"># 修改为命令行</span><br>systemctl set-default multi-user.target <br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="14-禁用swap"><a class="markdownIt-Anchor" href="#14-禁用swap"></a> 1.4、禁用swap</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 执行如下命令，关闭所有swap分区：</span><br>swapoff -a<br><br><span class="hljs-comment"># 检查sysctl.conf文件，添加swap权重限制</span><br><span class="hljs-built_in">cat</span> /etc/sysctl.conf |grep swappiness<br><br><span class="hljs-comment"># 如无输出，root用户执行</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;vm.swappiness=0&quot;</span> &gt;&gt; /etc/sysctl.conf<br><br><span class="hljs-comment"># 如无输出，普通用户执行</span><br><span class="hljs-built_in">sudo</span> sh -c <span class="hljs-string">&quot;echo &quot;</span>vm.swappiness=0<span class="hljs-string">&quot; &gt;&gt; /etc/sysctl.conf&quot;</span><br><br><span class="hljs-comment"># 刷新stsctl文件</span><br>sysctl -p<br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="15-定时任务"><a class="markdownIt-Anchor" href="#15-定时任务"></a> 1.5、定时任务</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看定时任务是否启动 </span><br>service crond status<br><br><span class="hljs-comment"># 强杀干扰crond任务启动的所有进程</span><br>pkill cron<br><br><span class="hljs-comment"># 再执行命令：</span><br>service crond start<br></code></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/han20180705/p/9638992.html">https://www.cnblogs.com/han20180705/p/9638992.html</a></p>
+<h3 id="16-时间校准"><a class="markdownIt-Anchor" href="#16-时间校准"></a> 1.6、时间校准</h3>
+<p>1)、服务器可以通外网</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装NTP同步工具</span><br>yum -y install ntpdate<br><span class="hljs-comment"># 手动同步一次时间</span><br><span class="hljs-comment"># 中国科学院国家授时中心NTP授时服务器地址： ntp.ntsc.ac.cn</span><br>ntpdate ntp.ntsc.ac.cn &amp;&amp; clock -w<br><br><span class="hljs-comment"># 录入定时任务，实现自动同步</span><br>crontab -e<br><span class="hljs-comment"># 定时每天2点同步时间</span><br>0 2 * * * ntpdate ntp.ntsc.ac.cn &amp;&amp; clock -w<br></code></pre></td></tr></table></figure>
+<p>2)、服务器不通外网</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 手动设置时间并写入时钟</span><br><span class="hljs-built_in">date</span> -s <span class="hljs-string">&quot;2021-08-05 10:52:40&quot;</span> &amp;&amp; clock -w<br></code></pre></td></tr></table></figure>
+<h3 id="17-修改允许打开的最大文件数"><a class="markdownIt-Anchor" href="#17-修改允许打开的最大文件数"></a> 1.7、修改允许打开的最大文件数</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">vi /etc/security/limits.conf <br><span class="hljs-comment"># 所有用户允许打开的文件数量最大为65535</span><br>* soft nofile 65536<br>* hard nofile 65536<br><span class="hljs-comment"># 也可以把 * 换成指定的用户</span><br></code></pre></td></tr></table></figure>
+<hr />
+<h2 id="二-使用和操作技巧"><a class="markdownIt-Anchor" href="#二-使用和操作技巧"></a> 二、使用和操作技巧</h2>
+<h3 id="21-解压和压缩"><a class="markdownIt-Anchor" href="#21-解压和压缩"></a> 2.1、解压和压缩</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 将目录里所有jpg文件打包并且将其用gzip压缩，生成命名为jpg.tar.gz的压缩包</span><br>tar –zcvf jpg.tar.gz *.jpg <br><br><span class="hljs-comment"># 解压tar.gz</span><br>tar -zxvf file.tar.gz <br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="22-查看目录下文件数量"><a class="markdownIt-Anchor" href="#22-查看目录下文件数量"></a> 2.2、查看目录下文件数量</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 统计当前文件夹下文件的个数，不包含子文件夹</span><br><span class="hljs-built_in">ls</span> -l |grep <span class="hljs-string">&quot;^-&quot;</span>|<span class="hljs-built_in">wc</span> -l<br><br><span class="hljs-comment"># 在默认的情况下，wc将计算指定文件的行数、字数，以及字节数。</span><br><span class="hljs-built_in">wc</span> testfile <br>3 92 598 testfile <span class="hljs-comment"># testfile文件的行数为3、单词数92、字节数598</span><br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="23-nginx日志切割"><a class="markdownIt-Anchor" href="#23-nginx日志切割"></a> 2.3、nginx日志切割</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-comment">#日志路径</span><br>log_path=/data/nginx/log<br>log_bak=/data/nginx/logbak<br><span class="hljs-comment">#PID路径</span><br>pid_path=/run/nginx.pid<br><span class="hljs-comment">#昨天日期</span><br>YesterDay=$(<span class="hljs-built_in">date</span> `+%Y-%m-%d`)<br><span class="hljs-comment">#今天日期</span><br>today=$(<span class="hljs-built_in">date</span> `+%Y-%m-%d`)<br><span class="hljs-comment">#生成昨天的日志文件</span><br><span class="hljs-built_in">mv</span> <span class="hljs-variable">$&#123;log_path&#125;</span>/wxds1.towngasvcc.com.access.log <span class="hljs-variable">$&#123;log_bak&#125;</span>/wxds1.towngasvcc.com.access.log_<span class="hljs-variable">$&#123;YesterDay&#125;</span>.<span class="hljs-built_in">log</span><br><span class="hljs-comment"># 向 Nginx 主进程发送 USR1 信号。USR1 信号是重新打开日志文件</span><br><span class="hljs-built_in">kill</span> -USR1 `<span class="hljs-built_in">cat</span> <span class="hljs-variable">$&#123;pid_path&#125;</span>`<br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="24-find命令技巧"><a class="markdownIt-Anchor" href="#24-find命令技巧"></a> 2.4、Find命令技巧</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 列出当前目录下符合条件的文件名</span><br>find -name <span class="hljs-string">&#x27;tcis3.201912*&#x27;</span> -<span class="hljs-built_in">exec</span> <span class="hljs-built_in">basename</span> &#123;&#125; \;<br><br><span class="hljs-comment"># 找到当前目录下指定开头的文件，并全部使用gzip解压</span><br>find -maxdepth 1 -name <span class="hljs-string">&quot;trans*&quot;</span> | xargs -i gzip -d &#123;&#125;<br><br><span class="hljs-comment"># 找到目录下日志大于当前30天的文件并删除</span><br><span class="hljs-comment"># 替换 username</span><br>find /home/&#123;username&#125;/wwyt/db_backfiles -mtime +30 -name <span class="hljs-string">&quot;*.sql&quot;</span> -<span class="hljs-built_in">exec</span> <span class="hljs-built_in">rm</span> -f &#123;&#125; ;<br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="25-dos文件转unix"><a class="markdownIt-Anchor" href="#25-dos文件转unix"></a> 2.5、dos文件转unix</h3>
+<p>vi进入文件后，使用 <code>set ff?</code>查看当前文件格式。用<code>set ff=unix</code> 来修改为linux可读取格式</p>
+<hr />
+<h3 id="26-查询硬件信息"><a class="markdownIt-Anchor" href="#26-查询硬件信息"></a> 2.6、查询硬件信息</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查询线程：</span><br>grep <span class="hljs-string">&#x27;processor&#x27;</span> /proc/cpuinfo | <span class="hljs-built_in">sort</span> -u | <span class="hljs-built_in">wc</span> -l<br><span class="hljs-built_in">cat</span> /proc/cpuinfo | grep <span class="hljs-string">&quot;processor&quot;</span> |<span class="hljs-built_in">wc</span> -l<br><br><span class="hljs-comment"># 查询核数</span><br><span class="hljs-built_in">cat</span> /proc/cpuinfo | grep <span class="hljs-string">&quot;cores&quot;</span>|<span class="hljs-built_in">uniq</span><br><br><span class="hljs-comment"># cpu详细信息</span><br>lscpu<br><br><span class="hljs-comment"># 硬盘信息</span><br>lsscsi<br><span class="hljs-comment"># 如不存在该命令，需安装</span><br>yum -y install lsscsi<br><br><span class="hljs-comment"># 磁盘层级信息</span><br>lsblk<br><br><span class="hljs-comment"># 打印硬盘信息</span><br><span class="hljs-built_in">sudo</span> fdisk -l<br><br><span class="hljs-comment"># 打印硬盘详细信息</span><br><span class="hljs-built_in">sudo</span> lshw -class disk<br><span class="hljs-comment"># 如不存在该命令，需安装</span><br>yum -y install lshw<br><br><span class="hljs-comment"># 固态机械盘判定  （返回值0即为SSD；返回1即为HDD）</span><br><span class="hljs-built_in">cat</span> /sys/block/ 盘名 /queue/rotational<br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="27-磁盘读写性能测试"><a class="markdownIt-Anchor" href="#27-磁盘读写性能测试"></a> 2.7、磁盘读写性能测试</h3>
+<details>
+<p><strong><summary> 脚本内容 </summary></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sys, os, time, random<br><br><span class="hljs-comment">#--------------------------------------------------------------------------------------------------</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">BytesString</span>(<span class="hljs-params">n</span>):<br>    suffixes = [<span class="hljs-string">&#x27;B&#x27;</span>,<span class="hljs-string">&#x27;KB&#x27;</span>,<span class="hljs-string">&#x27;MB&#x27;</span>,<span class="hljs-string">&#x27;GB&#x27;</span>,<span class="hljs-string">&#x27;TB&#x27;</span>,<span class="hljs-string">&#x27;PB&#x27;</span>,<span class="hljs-string">&#x27;EB&#x27;</span>,<span class="hljs-string">&#x27;ZB&#x27;</span>,<span class="hljs-string">&#x27;YB&#x27;</span>]<br>    suffix = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">while</span> n % <span class="hljs-number">1024</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> suffix+<span class="hljs-number">1</span> &lt; <span class="hljs-built_in">len</span>(suffixes):<br>        suffix += <span class="hljs-number">1</span><br>        n /= <span class="hljs-number">1024</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#123;0&#125;&#123;1&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(n, suffixes[suffix])<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">BytesInt</span>(<span class="hljs-params">s</span>):<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">all</span>(c <span class="hljs-keyword">in</span> <span class="hljs-string">&#x27;0123456789&#x27;</span> <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> s):<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">int</span>(s)<br>    suffixes = [<span class="hljs-string">&#x27;B&#x27;</span>,<span class="hljs-string">&#x27;KB&#x27;</span>,<span class="hljs-string">&#x27;MB&#x27;</span>,<span class="hljs-string">&#x27;GB&#x27;</span>,<span class="hljs-string">&#x27;TB&#x27;</span>,<span class="hljs-string">&#x27;PB&#x27;</span>,<span class="hljs-string">&#x27;EB&#x27;</span>,<span class="hljs-string">&#x27;ZB&#x27;</span>,<span class="hljs-string">&#x27;YB&#x27;</span>]<br>    <span class="hljs-keyword">for</span> power,suffix <span class="hljs-keyword">in</span> <span class="hljs-built_in">reversed</span>(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">enumerate</span>(suffixes))):<br>        <span class="hljs-keyword">if</span> s.endswith(suffix):<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">int</span>(s.rstrip(suffix))*<span class="hljs-number">1024</span>**power<br>    <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&#x27;BytesInt requires proper suffix (&#x27;</span>+<span class="hljs-string">&#x27; &#x27;</span>.join(suffixes)+<span class="hljs-string">&#x27;).&#x27;</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">BytesStringFloat</span>(<span class="hljs-params">n</span>):<br>    x = <span class="hljs-built_in">float</span>(n)<br>    suffixes = [<span class="hljs-string">&#x27;B&#x27;</span>,<span class="hljs-string">&#x27;KB&#x27;</span>,<span class="hljs-string">&#x27;MB&#x27;</span>,<span class="hljs-string">&#x27;GB&#x27;</span>,<span class="hljs-string">&#x27;TB&#x27;</span>,<span class="hljs-string">&#x27;PB&#x27;</span>,<span class="hljs-string">&#x27;EB&#x27;</span>,<span class="hljs-string">&#x27;ZB&#x27;</span>,<span class="hljs-string">&#x27;YB&#x27;</span>]<br>    suffix = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">while</span> x &gt; <span class="hljs-number">1024.0</span> <span class="hljs-keyword">and</span> suffix+<span class="hljs-number">1</span> &lt; <span class="hljs-built_in">len</span>(suffixes):<br>        suffix += <span class="hljs-number">1</span><br>        x /= <span class="hljs-number">1024.0</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#123;0:0.2f&#125;&#123;1&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(x, suffixes[suffix])<br><br><br><span class="hljs-comment">#--------------------------------------------------------------------------------------------------</span><br><br>disk = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;/dev/dm-2&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>)<br>disk.seek(<span class="hljs-number">0</span>,<span class="hljs-number">2</span>)<br>disksize = disk.tell()<br>os.system(<span class="hljs-string">&#x27;echo noop | sudo tee /sys/block/sdb/queue/scheduler &gt; /dev/null&#x27;</span>)<br><br><span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;Syntax: progam [-s -sr -t -tr] [-v]:  to run specific modes; for verbose mode.&#x27;</span><br><span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;Disk name: &#123;0&#125;  Disk size: &#123;1&#125;  Scheduler disabled.&#x27;</span>.<span class="hljs-built_in">format</span>(<br>    disk.name, BytesStringFloat(disksize))<br><br>displaytimes = <span class="hljs-string">&#x27;-v&#x27;</span> <span class="hljs-keyword">in</span> sys.argv<br><br><br><span class="hljs-comment">#--------------------------------------------------------------------------------------------------</span><br><br>bufsize = <span class="hljs-number">512</span><br>bufcount = <span class="hljs-number">100</span><br>displaysamplecount = <span class="hljs-number">24</span><br><br><span class="hljs-keyword">for</span> randomareas <span class="hljs-keyword">in</span> [<span class="hljs-literal">False</span>,<span class="hljs-literal">True</span>]:<br>    <span class="hljs-built_in">print</span><br>    <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;Measuring: Random seek time &#123;0&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(<br>        <span class="hljs-string">&#x27;using random areas of disk.&#x27;</span> <span class="hljs-keyword">if</span> randomareas <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;using beginning of disk.&#x27;</span>)<br>    <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;Samples: &#123;0&#125;&#123;1&#125;   Sample size: &#123;2&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(<br>        bufcount, <span class="hljs-string">&#x27; (displayed &#123;0&#125;)&#x27;</span>.<span class="hljs-built_in">format</span>(displaysamplecount) <span class="hljs-keyword">if</span> displaytimes <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;&#x27;</span>, bufsize)<br><br>    <span class="hljs-keyword">for</span> area <span class="hljs-keyword">in</span> [BytesInt(<span class="hljs-string">&#x27;1MB&#x27;</span>)*<span class="hljs-number">2</span>**i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-number">64</span>)]+[disksize]:<br>        <span class="hljs-keyword">if</span> area &gt; disksize:<br>            <span class="hljs-keyword">continue</span><br><br>        os.system(<span class="hljs-string">&#x27;echo 3 | sudo tee /proc/sys/vm/drop_caches &gt; /dev/null&#x27;</span>)<br><br>        times = []<br>        disk.seek(<span class="hljs-number">0</span>)<br>        disk.read(bufsize)<br>        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(bufcount):<br>            left = random.randint(<span class="hljs-number">0</span>, disksize-area) <span class="hljs-keyword">if</span> randomareas <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br>            right = left + random.randint(<span class="hljs-number">0</span>, area)<br>            disk.seek(left)<br>            disk.read(bufsize)<br>            start = time.time()<br>            disk.seek(right)<br>            disk.read(bufsize)<br>            finish = time.time()<br>            times.append(finish-start)<br><br>        times = <span class="hljs-built_in">sorted</span>(times)[:bufcount*<span class="hljs-number">95</span>/<span class="hljs-number">100</span>]<br>        <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;Area tested: &#123;0:6&#125;   Average: &#123;1:5.2f&#125; ms   Max: &#123;2:5.2f&#125; ms   Total: &#123;3:0.2f&#125; sec&#x27;</span>.<span class="hljs-built_in">format</span>(<br>            BytesString(area) <span class="hljs-keyword">if</span> area &lt; disksize <span class="hljs-keyword">else</span> BytesStringFloat(area),<br>            <span class="hljs-built_in">sum</span>(times)/<span class="hljs-built_in">len</span>(times)*<span class="hljs-number">1000</span>, <span class="hljs-built_in">max</span>(times)*<span class="hljs-number">1000</span>, <span class="hljs-built_in">sum</span>(times))<br>        <span class="hljs-keyword">if</span> displaytimes:<br>            <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;Read times: &#123;0&#125; ... &#123;1&#125; ms&#x27;</span>.<span class="hljs-built_in">format</span>(<br>                <span class="hljs-string">&#x27; &#x27;</span>.join([<span class="hljs-string">&#x27;&#123;0:0.2f&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(x*<span class="hljs-number">1000</span>) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> times[:displaysamplecount/<span class="hljs-number">2</span>]]),<br>                <span class="hljs-string">&#x27; &#x27;</span>.join([<span class="hljs-string">&#x27;&#123;0:0.2f&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(x*<span class="hljs-number">1000</span>) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> times[-displaysamplecount/<span class="hljs-number">2</span>:]]))<br></code></pre></td></tr></table></figure>
+</details>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> python iotestlinux.py<br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="28-查看监听的端口"><a class="markdownIt-Anchor" href="#28-查看监听的端口"></a> 2.8、查看监听的端口</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">netstat -lnpt<br>iptables -L -n<br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="29-查看服务器网卡流量"><a class="markdownIt-Anchor" href="#29-查看服务器网卡流量"></a> 2.9、查看服务器网卡流量</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装</span><br>yum install -y sysstat<br><br><span class="hljs-comment"># 1秒提取一次网络数据 共提取两次数据。</span><br>sar -n DEV 1 2<br><br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="210-查看连接进程流量"><a class="markdownIt-Anchor" href="#210-查看连接进程流量"></a> 2.10、查看连接/进程流量</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># ss 和 netstat 是查看活动链接/监听端口的常用命令。ss 是 netstat 的上位替代，性能更好</span><br>ss/netstat<br><br><span class="hljs-comment"># ss安装</span><br>yum install -y iproute<br><br><span class="hljs-comment"># netstat安装：</span><br>yum install -y net-tools<br><br><span class="hljs-comment"># iftop是一款实时流量监控工具，可以查看每个连接的实时速率。</span><br><span class="hljs-comment"># 安装命令</span><br>yum install -y epel-release &amp;&amp; yum install -y iftop <br><span class="hljs-comment"># 实时查看eth0网卡的各个连接和网速：</span><br>iftop -nN -i eth0<br><br><span class="hljs-comment"># nethogs是为了查看单个进程流量而设计的工具，按照进程进行带宽分组。</span><br><span class="hljs-comment"># 安装命令</span><br>yum install -y epel-release &amp;&amp; yum install -y nethogs<br><span class="hljs-comment"># 每2秒刷新流经eth0网卡的进程流量信息：</span><br>nethogs -d 2 eth0 <br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="211-清理缓存"><a class="markdownIt-Anchor" href="#211-清理缓存"></a> 2.11、清理缓存</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 非root用户执行</span><br><span class="hljs-built_in">sync</span><br><span class="hljs-built_in">sudo</span> sh -c <span class="hljs-string">&quot;echo 3 &gt; /proc/sys/vm/drop_caches&quot;</span> <br><br><span class="hljs-comment"># 也可以写成下面的脚本放到服务器里</span><br><span class="hljs-comment">#!/bin/bash</span><br><span class="hljs-built_in">sync</span><br><span class="hljs-built_in">echo</span> 3 &gt; /proc/sys/vm/drop_caches<br><br><span class="hljs-comment"># 添加定时任务</span><br>*/10 * * * * clean_free.sh<br><br><span class="hljs-comment"># 保存定时任务并重启</span><br>service crond restart <br></code></pre></td></tr></table></figure>
+<hr />
+<h3 id="212-磁盘挂载"><a class="markdownIt-Anchor" href="#212-磁盘挂载"></a> 2.12、磁盘挂载</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检查磁盘</span><br>fdisk -l<br><br><span class="hljs-comment"># 找到需要处理的磁盘，例如 /dev/sda 格式化</span><br>mkfs.ext4 /dev/sda<br><br><span class="hljs-comment"># 创建挂载点</span><br><span class="hljs-built_in">mkdir</span> /data<br><br><span class="hljs-comment"># 挂载磁盘到挂载点</span><br>mount /dev/sda /data/<br><br><span class="hljs-comment"># 修改fstab任务，让系统启动时就自动挂载，防止重启后磁盘未挂载</span><br>vi /etc/fstab<br>/dev/sda /data ext4 defaults 0 0 <span class="hljs-comment"># 系统启动时自动挂载</span><br><br><span class="hljs-comment"># 赋予用户账户使用权限，任选一个就行</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">chown</span> -R user:user /data <span class="hljs-comment"># 把挂载点改为指定用户的权限</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">chmod</span> -R 775 /data <span class="hljs-comment"># 挂载点服务器全部用户都可以使用的权限。</span><br><br><span class="hljs-comment"># 设置开机时自动赋予权限</span><br>vi /etc/rc.local<br><br><span class="hljs-built_in">chown</span> -R user:user /data<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">chmod</span> -R 775 /data<br><br><span class="hljs-comment"># 设置软连接（如需要）</span><br><span class="hljs-comment"># 进入到你需要设置软连接的目录下</span><br><span class="hljs-built_in">ln</span> -s /data/xxx 放软连接的目录<br></code></pre></td></tr></table></figure>
+<h3 id="213-系统性能监控工具"><a class="markdownIt-Anchor" href="#213-系统性能监控工具"></a> 2.13、系统性能监控工具</h3>
+<p><a href="nmon-16g-3.el7.x86_64.rpm">点击此处下载文件</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 下载文件，然后上传到服务器目录，执行</span><br><span class="hljs-built_in">sudo</span> rpm -ivh nmon-16g-3.el7.x86_64.rpm<br><br><span class="hljs-comment"># 进入交互页面，按提示按下快捷键，进入具体的硬件性能监控</span><br>nmon<br></code></pre></td></tr></table></figure>
+<h3 id="214-网络测速"><a class="markdownIt-Anchor" href="#214-网络测速"></a> 2.14、网络测速</h3>
+<p><a href="speedtest.py">点击此处下载文件</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 下载文件，然后上传到服务器目录，授予权限</span><br><span class="hljs-built_in">chmod</span> 775 speedtest.py<br><span class="hljs-comment"># 执行,等待结果</span><br>./speedtest.py<br><br></code></pre></td></tr></table></figure>
+<h3 id="215-sed命令替换指定内容"><a class="markdownIt-Anchor" href="#215-sed命令替换指定内容"></a> 2.15、sed命令替换指定内容</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#将新字符串替换旧字符串</span><br>sed -i <span class="hljs-string">&#x27;s/ 旧字符串 / 新字符串 /g&#x27;</span> file1 file2 file3 <br><br></code></pre></td></tr></table></figure>
+<h3 id="216-scp文件传输"><a class="markdownIt-Anchor" href="#216-scp文件传输"></a> 2.16、SCP文件传输</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">scp [options] [<span class="hljs-built_in">source</span>] [user@]destination<br><span class="hljs-comment"># [options]：是可选参数，比如-r用于递归复制目录，-p用于保留文件属性。</span><br><span class="hljs-comment"># [source]：指定要复制的源文件或目录的路径。</span><br><span class="hljs-comment"># [user@]destination：远程系统的用户名和IP地址（或者主机名），以及目的文件或目录的路径。</span><br><span class="hljs-comment"># 例如 ：</span><br>scp file.txt remote_user@10.0.109.19:/home/remote_user/<br><span class="hljs-comment"># 如果需要指定目标文件的名称，可以在远程路径后面加上文件名</span><br>scp file.txt remote_user@10.0.109.19:/home/remote_user/file.txt<br><br><span class="hljs-comment"># 如果想要保留文件的基本属性（如修改时间、访问时间等），可以使用-p选项；</span><br><span class="hljs-comment"># 如果需要递归复制整个目录及其子目录和文件，则应使用-r选项</span><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/waterbottle/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+    <span>></span>
+    
+  <a href="/waterbottle/categories/Linux/CentOS/" class="category-chain-item">CentOS</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CentOS系统命令和操作技巧</div>
+      <div>https://likemikusama.github.io/waterbottle/posts/7d6c437/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>XUANWEN DING</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月11日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年12月2日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/703d05d2/" title="Gitee仓库操作指南">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Gitee仓库操作指南</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/c08448a5/" title="MongoDB常用命令">
+                        <span class="hidden-mobile">MongoDB常用命令</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/waterbottle/js/events.js" ></script>
+<script  src="/waterbottle/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/waterbottle/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/waterbottle/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/waterbottle/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

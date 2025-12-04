@@ -1,0 +1,886 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/waterbottle/img/fluid.png">
+  <link rel="icon" href="/waterbottle/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="瓶子">
+  <meta name="keywords" content="成长，记录，技术，分享">
+  
+    <meta name="description" content="了解函数和模块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="14.函数和模块">
+<meta property="og:url" content="https://likemikusama.github.io/waterbottle/posts/1ca4/">
+<meta property="og:site_name" content="一个水瓶的灌装之路">
+<meta property="og:description" content="了解函数和模块">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://likemikusama.github.io/waterbottle/posts/1ca4/function_definition.png">
+<meta property="article:published_time" content="2025-06-03T07:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-10T01:29:11.612Z">
+<meta property="article:author" content="水瓶">
+<meta property="article:tag" content="成长，记录，技术，分享">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://likemikusama.github.io/waterbottle/posts/1ca4/function_definition.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>14.函数和模块 - 一个水瓶的灌装之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/waterbottle/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/waterbottle/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/waterbottle/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"likemikusama.github.io","root":"/waterbottle/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/waterbottle/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/waterbottle/js/utils.js" ></script>
+  <script  src="/waterbottle/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/waterbottle/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/waterbottle/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/waterbottle/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="14.函数和模块"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        瓶子
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-03 15:00" pubdate>
+          2025年6月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          45 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">14.函数和模块</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年11月10日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>了解函数和模块</p>
+<span id="more"></span>
+<h2 id="函数和模块"><a class="markdownIt-Anchor" href="#函数和模块"></a> 函数和模块</h2>
+<p>在讲解本节课的内容之前，我们先来研究一道数学题，请说出下面的方程有多少组正整数解。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><msub><mi>x</mi><mn>3</mn></msub><mo>+</mo><msub><mi>x</mi><mn>4</mn></msub><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">x_{1} + x_{2} + x_{3} + x_{4} = 8
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></span></p>
+<p>你可能已经想到了，这个问题其实等同于将 8 个苹果分成四组且每组至少一个苹果有多少种方案，也等价于在分隔 8 个苹果的 7 个间隙之间放入三个隔断将苹果分成四组有多少种方案，所以答案是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><msubsup><mi>C</mi><mn>7</mn><mn>3</mn></msubsup><mo>=</mo><mn>35</mn></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{C_{7}^{3} = 35}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.935664em;vertical-align:-0.2223em;"></span><span class="mord sizing reset-size6 size5"><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7926266666666666em;"><span style="top:-2.353em;margin-left:-0.07153em;margin-right:0.05555555555555556em;"><span class="pstrut" style="height:2.6em;"></span><span class="sizing reset-size5 size2 mtight"><span class="mord mtight"><span class="mord mtight">7</span></span></span></span><span style="top:-2.963em;margin-right:0.05555555555555556em;"><span class="pstrut" style="height:2.6em;"></span><span class="sizing reset-size5 size2 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">3</span><span class="mord">5</span></span></span></span></span> ，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><msubsup><mi>C</mi><mn>7</mn><mn>3</mn></msubsup></mstyle></mrow><annotation encoding="application/x-tex">\small{C_{7}^{3}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.935664em;vertical-align:-0.2223em;"></span><span class="mord sizing reset-size6 size5"><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7926266666666666em;"><span style="top:-2.353em;margin-left:-0.07153em;margin-right:0.05555555555555556em;"><span class="pstrut" style="height:2.6em;"></span><span class="sizing reset-size5 size2 mtight"><span class="mord mtight"><span class="mord mtight">7</span></span></span></span><span style="top:-2.963em;margin-right:0.05555555555555556em;"><span class="pstrut" style="height:2.6em;"></span><span class="sizing reset-size5 size2 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span></span> 代表 7 选 3 的组合数，其计算公式如下所示。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mi>C</mi><mi>m</mi><mi>n</mi></msubsup><mo>=</mo><mfrac><mrow><mi>m</mi><mo stretchy="false">!</mo></mrow><mrow><mi>n</mi><mo stretchy="false">!</mo><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">!</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">C_m^n = \frac {m!} {n!(m-n)!}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9613919999999999em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.30744em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="mclose">!</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mclose">!</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="mclose">!</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>根据之前学习的知识，我们可以用循环做累乘的方式分别计算出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mi>m</mi><mo stretchy="false">!</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{m!}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.624996em;vertical-align:0em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal">m</span><span class="mclose">!</span></span></span></span></span> 、 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mi>n</mi><mo stretchy="false">!</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{n!}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.624996em;vertical-align:0em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal">n</span><span class="mclose">!</span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">!</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{(m-n)!}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9em;vertical-align:-0.225em;"></span><span class="mord sizing reset-size6 size5"><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mclose">!</span></span></span></span></span> ，然后再通过除法运算得到组合数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><msubsup><mi>C</mi><mi>m</mi><mi>n</mi></msubsup></mstyle></mrow><annotation encoding="application/x-tex">\small{C_{m}^{n}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.837297em;vertical-align:-0.2223em;"></span><span class="mord sizing reset-size6 size5"><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.65004em;"><span style="top:-2.353em;margin-left:-0.07153em;margin-right:0.05555555555555556em;"><span class="pstrut" style="height:2.6em;"></span><span class="sizing reset-size5 size2 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span style="top:-2.963em;margin-right:0.05555555555555556em;"><span class="pstrut" style="height:2.6em;"></span><span class="sizing reset-size5 size2 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span></span> ，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">输入m和n，计算组合数C(m,n)的值</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br>m = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;m = &#x27;</span>))<br>n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;n = &#x27;</span>))<br><span class="hljs-comment"># 计算m的阶乘</span><br>fm = <span class="hljs-number">1</span><br><span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, m + <span class="hljs-number">1</span>):<br>    fm *= num<br><span class="hljs-comment"># 计算n的阶乘</span><br>fn = <span class="hljs-number">1</span><br><span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n + <span class="hljs-number">1</span>):<br>    fn *= num<br><span class="hljs-comment"># 计算m-n的阶乘</span><br>fk = <span class="hljs-number">1</span><br><span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, m - n + <span class="hljs-number">1</span>):<br>    fk *= num<br><span class="hljs-comment"># 计算C(M,N)的值</span><br><span class="hljs-built_in">print</span>(fm // fn // fk)<br></code></pre></td></tr></table></figure>
+<p>输入：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">m</span> <span class="hljs-operator">=</span> <span class="hljs-number">7</span><br><span class="hljs-attribute">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">35<br></code></pre></td></tr></table></figure>
+<p>不知大家是否注意到，上面的代码中我们做了三次求阶乘的操作，虽然 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mi>m</mi></mstyle></mrow><annotation encoding="application/x-tex">\small{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.387504em;vertical-align:0em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal">m</span></span></span></span></span> 、 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mi>n</mi></mstyle></mrow><annotation encoding="application/x-tex">\small{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.387504em;vertical-align:0em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal">n</span></span></span></span></span> 、 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mi>m</mi><mo>−</mo><mi>n</mi></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{m - n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.599994em;vertical-align:-0.07499700000000001em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">n</span></span></span></span></span> 的值各不相同，但是三段代码并没有实质性的区别，属于重复代码。<br />
+世界级的编程大师<em>Martin Fowler</em>曾经说过：“<strong>代码有很多种坏味道，重复是最坏的一种！</strong>”。要写出高质量的代码，首先就要解决重复代码的问题。<br />
+对于上面的代码来说，我们可以将求阶乘的功能封装到一个称为“函数”的代码块中，在需要计算阶乘的地方，我们只需“调用函数”即可实现对求阶乘功能的复用。</p>
+<h3 id="定义函数"><a class="markdownIt-Anchor" href="#定义函数"></a> 定义函数</h3>
+<p>数学上的函数通常形如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mi>y</mi><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{y = f(x)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9em;vertical-align:-0.225em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span> 或者 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mi>z</mi><mo>=</mo><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{z = g(x, y)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9em;vertical-align:-0.225em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span></span> 这样的形式，在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mi>y</mi><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{y = f(x)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9em;vertical-align:-0.225em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span> 中， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mi>f</mi></mstyle></mrow><annotation encoding="application/x-tex">\small{f}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.799992em;vertical-align:-0.174996em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span></span> 是函数的名字， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mi>x</mi></mstyle></mrow><annotation encoding="application/x-tex">\small{x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.387504em;vertical-align:0em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal">x</span></span></span></span></span> 是函数的自变量， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mi>y</mi></mstyle></mrow><annotation encoding="application/x-tex">\small{y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5625em;vertical-align:-0.174996em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></span> 是函数的因变量；而在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mrow><mi>z</mi><mo>=</mo><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">\small{z = g(x, y)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9em;vertical-align:-0.225em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span></span> 中， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mi>g</mi></mstyle></mrow><annotation encoding="application/x-tex">\small{g}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5625em;vertical-align:-0.174996em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span></span> 是函数名， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mi>x</mi></mstyle></mrow><annotation encoding="application/x-tex">\small{x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.387504em;vertical-align:0em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal">x</span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mi>y</mi></mstyle></mrow><annotation encoding="application/x-tex">\small{y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5625em;vertical-align:-0.174996em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></span> 是函数的自变量， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.9em"><mi>z</mi></mstyle></mrow><annotation encoding="application/x-tex">\small{z}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.387504em;vertical-align:0em;"></span><span class="mord sizing reset-size6 size5"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span></span> 是函数的因变量。<br />
+Python 中的函数跟这个结构是一致的，每个函数都有自己的名字、自变量和因变量。我们通常把 Python 函数的自变量称为函数的参数，而因变量称为函数的返回值。</p>
+<p>Python 中可以使用<code>def</code>关键字来定义函数，和变量一样每个函数也应该有一个漂亮的名字，命名规则跟变量的命名规则是一样的。<br />
+在函数名后面的圆括号中可以设置函数的参数，也就是我们刚才说的函数的自变量，而函数执行完成后，我们会通过<code>return</code>关键字来返回函数的执行结果，这就是我们刚才说的函数的因变量。<br />
+如果函数中没有<code>return</code>语句，那么函数会返回代表空值的<code>None</code>。另外，函数也可以没有自变量（参数），但是函数名后面的圆括号是必须有的。<br />
+一个函数要做的事情（要执行的代码），是通过代码缩进的方式放到函数定义行之后，跟之前分支和循环结构的代码块类似，如下图所示。</p>
+<style>.ljpuyxrdjcew{zoom:45%;}</style><img src="/waterbottle/posts/1ca4/function_definition.png" srcset="/waterbottle/img/loading.gif" lazyload class="ljpuyxrdjcew">
+<p>下面，我们将之前代码中求阶乘的操作放到一个函数中，通过这种方式来重构上面的代码。<strong>所谓重构，是在不影响代码执行结果的前提下对代码的结构进行调整</strong>，重构之后的代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">输入m和n，计算组合数C(m,n)的值</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.1</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br><br><span class="hljs-comment"># 通过关键字def定义求阶乘的函数</span><br><span class="hljs-comment"># 自变量（参数）num是一个非负整数</span><br><span class="hljs-comment"># 因变量（返回值）是num的阶乘</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">fac</span>(<span class="hljs-params">num</span>):<br>    result = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>, num + <span class="hljs-number">1</span>):<br>        result *= n<br>    <span class="hljs-keyword">return</span> result<br><br><br>m = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;m = &#x27;</span>))<br>n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;n = &#x27;</span>))<br><span class="hljs-comment"># 计算阶乘的时候不需要写重复的代码而是直接调用函数</span><br><span class="hljs-comment"># 调用函数的语法是在函数名后面跟上圆括号并传入参数</span><br><span class="hljs-built_in">print</span>(fac(m) // fac(n) // fac(m - n))<br></code></pre></td></tr></table></figure>
+<p>大家可以感受下，上面的代码是不是比之前的版本更加简单优雅。更为重要的是，我们定义的求阶乘函数<code>fac</code>还可以在其他需要求阶乘的代码中重复使用。<br />
+所以，<strong>使用函数可以帮助我们将功能上相对独立且会被重复使用的代码封装起来</strong>，当我们需要这些的代码，不是把重复的代码再编写一遍，而是<strong>通过调用函数实现对既有代码的复用</strong>。<br />
+事实上，Python 标准库的<code>math</code>模块中，已经有一个名为<code>factorial</code>的函数实现了求阶乘的功能，我们可以直接用<code>import math</code>导入<code>math</code>模块，然后使用<code>math.factorial</code>来调用求阶乘的函数；<br />
+我们也可以通过<code>from math import factorial</code>直接导入<code>factorial</code>函数来使用它，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">输入m和n，计算组合数C(m,n)的值</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.2</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> factorial<br><br>m = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;m = &#x27;</span>))<br>n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;n = &#x27;</span>))<br><span class="hljs-built_in">print</span>(factorial(m) // factorial(n) // factorial(m - n))<br></code></pre></td></tr></table></figure>
+<p>将来我们使用的函数，要么是自定义的函数，要么是 Python 标准库或者三方库中提供的函数，如果已经有现成的可用的函数，我们就没有必要自己去定义，“<strong>重复发明轮子</strong>”是一件非常糟糕的事情。<br />
+对于上面的代码，如果你觉得<code>factorial</code>这个名字太长，书写代码的时候不是特别方便，我们在导入函数的时候还可以通过<code>as</code>关键字为其别名。在调用函数的时候，我们可以用函数的别名，而不再使用它之前的名字，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">输入m和n，计算组合数C(m,n)的值</span><br><span class="hljs-string"></span><br><span class="hljs-string">Version: 1.3</span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> factorial <span class="hljs-keyword">as</span> f<br><br>m = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;m = &#x27;</span>))<br>n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;n = &#x27;</span>))<br><span class="hljs-built_in">print</span>(f(m) // f(n) // f(m - n))<br></code></pre></td></tr></table></figure>
+<h3 id="函数的参数"><a class="markdownIt-Anchor" href="#函数的参数"></a> 函数的参数</h3>
+<h4 id="位置参数和关键字参数"><a class="markdownIt-Anchor" href="#位置参数和关键字参数"></a> 位置参数和关键字参数</h4>
+<p>我们再来写一个函数，根据给出的三条边的长度判断是否可以构成三角形，如果可以构成三角形则返回<code>True</code>，否则返回<code>False</code>，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">make_judgement</span>(<span class="hljs-params">a, b, c</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;判断三条边的长度能否构成三角形&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">return</span> a + b &gt; c <span class="hljs-keyword">and</span> b + c &gt; a <span class="hljs-keyword">and</span> a + c &gt; b<br></code></pre></td></tr></table></figure>
+<p>上面<code>make_judgement</code>函数有三个参数，这种参数叫做位置参数，在调用函数时通常按照从左到右的顺序依次传入，而且传入参数的数量必须和定义函数时参数的数量相同，如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(make_judgement(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))  <span class="hljs-comment"># False</span><br><span class="hljs-built_in">print</span>(make_judgement(<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>))  <span class="hljs-comment"># True</span><br></code></pre></td></tr></table></figure>
+<p>如果不想按照从左到右的顺序依次给出<code>a</code>、<code>b</code>、<code>c</code> 三个参数的值，也可以使用关键字参数，通过“参数名=参数值”的形式为函数传入参数，如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(make_judgement(b=<span class="hljs-number">2</span>, c=<span class="hljs-number">3</span>, a=<span class="hljs-number">1</span>))  <span class="hljs-comment"># False</span><br><span class="hljs-built_in">print</span>(make_judgement(c=<span class="hljs-number">6</span>, b=<span class="hljs-number">4</span>, a=<span class="hljs-number">5</span>))  <span class="hljs-comment"># True</span><br></code></pre></td></tr></table></figure>
+<p>在定义函数时，我们可以在参数列表中用<code>/</code>设置<strong>强制位置参数</strong>（<em>positional-only arguments</em>），用<code>*</code>设置<strong>命名关键字参数</strong>。<br />
+所谓强制位置参数，就是调用函数时只能按照参数位置来接收参数值的参数；<br />
+而命名关键字参数只能通过“参数名=参数值”的方式来传递和接收参数，大家可以看看下面的例子。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># /前面的参数是强制位置参数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">make_judgement</span>(<span class="hljs-params">a, b, c, /</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;判断三条边的长度能否构成三角形&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">return</span> a + b &gt; c <span class="hljs-keyword">and</span> b + c &gt; a <span class="hljs-keyword">and</span> a + c &gt; b<br><br><br><span class="hljs-comment"># 下面的代码会产生TypeError错误，错误信息提示“强制位置参数是不允许给出参数名的”</span><br><span class="hljs-comment"># TypeError: make_judgement() got some positional-only arguments passed as keyword arguments</span><br><span class="hljs-comment"># print(make_judgement(b=2, c=3, a=1))</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>说明</strong>：强制位置参数是 Python 3.8 引入的新特性，在使用低版本的 Python 解释器时需要注意。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># *后面的参数是命名关键字参数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">make_judgement</span>(<span class="hljs-params">*, a, b, c</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;判断三条边的长度能否构成三角形&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">return</span> a + b &gt; c <span class="hljs-keyword">and</span> b + c &gt; a <span class="hljs-keyword">and</span> a + c &gt; b<br><br><br><span class="hljs-comment"># 下面的代码会产生TypeError错误，错误信息提示“函数没有位置参数但却给了3个位置参数”</span><br><span class="hljs-comment"># TypeError: make_judgement() takes 0 positional arguments but 3 were given</span><br><span class="hljs-comment"># print(make_judgement(1, 2, 3))</span><br></code></pre></td></tr></table></figure>
+<h4 id="参数的默认值"><a class="markdownIt-Anchor" href="#参数的默认值"></a> 参数的默认值</h4>
+<p>Python 中允许函数的参数拥有默认值，我们可以把之前讲过的一个例子“CRAPS赌博游戏”(<a href="07.%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0.md">07.分支和循环结构练习.md</a>)中摇色子获得点数的功能封装到函数中，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randrange<br><br><br><span class="hljs-comment"># 定义摇色子的函数</span><br><span class="hljs-comment"># 函数的自变量（参数）n表示色子的个数，默认值为2</span><br><span class="hljs-comment"># 函数的因变量（返回值）表示摇n颗色子得到的点数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">roll_dice</span>(<span class="hljs-params">n=<span class="hljs-number">2</span></span>):<br>    total = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>        total += randrange(<span class="hljs-number">1</span>, <span class="hljs-number">7</span>)<br>    <span class="hljs-keyword">return</span> total<br><br><br><span class="hljs-comment"># 如果没有指定参数，那么n使用默认值2，表示摇两颗色子</span><br><span class="hljs-built_in">print</span>(roll_dice())<br><span class="hljs-comment"># 传入参数3，变量n被赋值为3，表示摇三颗色子获得点数</span><br><span class="hljs-built_in">print</span>(roll_dice(<span class="hljs-number">3</span>))<br></code></pre></td></tr></table></figure>
+<p>我们再来看一个更为简单的例子。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">a=<span class="hljs-number">0</span>, b=<span class="hljs-number">0</span>, c=<span class="hljs-number">0</span></span>):<br>    <span class="hljs-string">&quot;&quot;&quot;三个数相加求和&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">return</span> a + b + c<br><br><br><span class="hljs-comment"># 调用add函数，没有传入参数，那么a、b、c都使用默认值0</span><br><span class="hljs-built_in">print</span>(add())         <span class="hljs-comment"># 0</span><br><span class="hljs-comment"># 调用add函数，传入一个参数，该参数赋值给变量a, 变量b和c使用默认值0</span><br><span class="hljs-built_in">print</span>(add(<span class="hljs-number">1</span>))        <span class="hljs-comment"># 1</span><br><span class="hljs-comment"># 调用add函数，传入两个参数，分别赋值给变量a和b，变量c使用默认值0</span><br><span class="hljs-built_in">print</span>(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>))     <span class="hljs-comment"># 3</span><br><span class="hljs-comment"># 调用add函数，传入三个参数，分别赋值给a、b、c三个变量</span><br><span class="hljs-built_in">print</span>(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))  <span class="hljs-comment"># 6</span><br></code></pre></td></tr></table></figure>
+<p>需要注意的是，<strong>带默认值的参数必须放在不带默认值的参数之后</strong>，否则将产生<code>SyntaxError</code>错误，错误消息是：<code>non-default argument follows default argument</code>，翻译成中文的意思是“没有默认值的参数放在了带默认值的参数后面”。</p>
+<h4 id="可变参数"><a class="markdownIt-Anchor" href="#可变参数"></a> 可变参数</h4>
+<p>Python 语言中可以通过星号表达式语法让函数支持可变参数。所谓可变参数指的是在调用函数时，可以向函数传入<code>0</code>个或任意多个参数。<br />
+将来我们以团队协作的方式开发商业项目时，很有可能要设计函数给其他人使用，但有的时候我们并不知道函数的调用者会向该函数传入多少个参数，这个时候可变参数就能派上用场。</p>
+<p>下面的代码演示了如何使用可变位置参数实现对任意多个数求和的<code>add</code>函数，调用函数时传入的参数会保存到一个元组，通过对该元组的遍历，可以获取传入函数的参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 用星号表达式来表示args可以接收0个或任意多个参数</span><br><span class="hljs-comment"># 调用函数时传入的n个参数会组装成一个n元组赋给args</span><br><span class="hljs-comment"># 如果一个参数都没有传入，那么args会是一个空元组</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">*args</span>):<br>    total = <span class="hljs-number">0</span><br>    <span class="hljs-comment"># 对保存可变参数的元组进行循环遍历</span><br>    <span class="hljs-keyword">for</span> val <span class="hljs-keyword">in</span> args:<br>        <span class="hljs-comment"># 对参数进行了类型检查（数值型的才能求和）</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(val) <span class="hljs-keyword">in</span> (<span class="hljs-built_in">int</span>, <span class="hljs-built_in">float</span>):<br>            total += val<br>    <span class="hljs-keyword">return</span> total<br><br><br><span class="hljs-comment"># 在调用add函数时可以传入0个或任意多个参数</span><br><span class="hljs-built_in">print</span>(add())         <span class="hljs-comment"># 0</span><br><span class="hljs-built_in">print</span>(add(<span class="hljs-number">1</span>))        <span class="hljs-comment"># 1</span><br><span class="hljs-built_in">print</span>(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))  <span class="hljs-comment"># 6</span><br><span class="hljs-built_in">print</span>(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;hello&#x27;</span>, <span class="hljs-number">3.45</span>, <span class="hljs-number">6</span>))  <span class="hljs-comment"># 12.45</span><br></code></pre></td></tr></table></figure>
+<p>如果我们希望通过“参数名=参数值”的形式传入若干个参数，具体有多少个参数也是不确定的，我们还可以给函数添加可变关键字参数，把传入的关键字参数组装到一个字典中，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 参数列表中的**kwargs可以接收0个或任意多个关键字参数</span><br><span class="hljs-comment"># 调用函数时传入的关键字参数会组装成一个字典（参数名是字典中的键，参数值是字典中的值）</span><br><span class="hljs-comment"># 如果一个关键字参数都没有传入，那么kwargs会是一个空字典</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">*args, **kwargs</span>):<br>    <span class="hljs-built_in">print</span>(args)<br>    <span class="hljs-built_in">print</span>(kwargs)<br><br><br>foo(<span class="hljs-number">3</span>, <span class="hljs-number">2.1</span>, <span class="hljs-literal">True</span>, name=<span class="hljs-string">&#x27;瓶子&#x27;</span>, age=<span class="hljs-number">43</span>, gpa=<span class="hljs-number">4.95</span>)<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arcade">(<span class="hljs-number">3</span>, <span class="hljs-number">2.1</span>, <span class="hljs-literal">True</span>)<br>&#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;瓶子&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">43</span>, <span class="hljs-string">&#x27;gpa&#x27;</span>: <span class="hljs-number">4.95</span>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="用模块管理函数"><a class="markdownIt-Anchor" href="#用模块管理函数"></a> 用模块管理函数</h3>
+<p>不管用什么样的编程语言来写代码，给变量、函数起名字都是一个让人头疼的问题，因为我们会遇到<strong>命名冲突</strong>这种尴尬的情况。最简单的场景就是在同一个<code>.py</code>文件中定义了两个同名的函数，如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;hello, world!&#x27;</span>)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;goodbye, world!&#x27;</span>)<br><br>    <br>foo()  <span class="hljs-comment"># 大家猜猜调用foo函数会输出什么</span><br></code></pre></td></tr></table></figure>
+<p>当然上面的这种情况我们很容易就能避免，但是如果项目是团队协作多人开发的时候，团队中可能有多个程序员都定义了名为<code>foo</code>的函数，这种情况下怎么解决命名冲突呢？<br />
+答案其实很简单，Python 中每个文件就代表了一个模块（module），我们在不同的模块中可以有同名的函数，在使用函数的时候，我们通过<code>import</code>关键字导入指定的模块再使用<strong>完全限定名</strong>（<code>模块名.函数名</code>）的调用方式，就可以区分到底要使用的是哪个模块中的<code>foo</code>函数，代码如下所示。</p>
+<p><code>module1.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;hello, world!&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p><code>module2.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;goodbye, world!&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p><code>test.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> module1<br><span class="hljs-keyword">import</span> module2<br><br><span class="hljs-comment"># 用“模块名.函数名”的方式（完全限定名）调用函数，</span><br>module1.foo()  <span class="hljs-comment"># hello, world!</span><br>module2.foo()  <span class="hljs-comment"># goodbye, world!</span><br></code></pre></td></tr></table></figure>
+<p>在导入模块时，还可以使用<code>as</code>关键字对模块进行别名，这样我们可以使用更为简短的完全限定名。</p>
+<p><code>test.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> module1 <span class="hljs-keyword">as</span> m1<br><span class="hljs-keyword">import</span> module2 <span class="hljs-keyword">as</span> m2<br><br>m1.foo()  <span class="hljs-comment"># hello, world!</span><br>m2.foo()  <span class="hljs-comment"># goodbye, world!</span><br></code></pre></td></tr></table></figure>
+<p>上面两段代码，我们导入的是定义函数的模块，我们也可以使用<code>from...import...</code>语法从模块中直接导入需要使用的函数，代码如下所示。</p>
+<p><code>test.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> module1 <span class="hljs-keyword">import</span> foo<br><br>foo()  <span class="hljs-comment"># hello, world!</span><br><br><span class="hljs-keyword">from</span> module2 <span class="hljs-keyword">import</span> foo<br><br>foo()  <span class="hljs-comment"># goodbye, world!</span><br></code></pre></td></tr></table></figure>
+<p>但是，如果我们如果从两个不同的模块中导入了同名的函数，后面导入的函数会替换掉之前的导入，就像下面的代码，调用<code>foo</code>会输出<code>goodbye, world!</code>，因为我们先导入了<code>module1</code>的<code>foo</code>，后导入了<code>module2</code>的<code>foo</code> 。<br />
+如果两个<code>from...import...</code>反过来写，那就是另外一番光景了。</p>
+<p><code>test.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> module1 <span class="hljs-keyword">import</span> foo<br><span class="hljs-keyword">from</span> module2 <span class="hljs-keyword">import</span> foo<br><br>foo()  <span class="hljs-comment"># goodbye, world!</span><br></code></pre></td></tr></table></figure>
+<p>如果想在上面的代码中同时使用来自两个模块的<code>foo</code>函数还是有办法的，大家可能已经猜到了，还是用<code>as</code>关键字对导入的函数进行别名，代码如下所示。</p>
+<p><code>test.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> module1 <span class="hljs-keyword">import</span> foo <span class="hljs-keyword">as</span> f1<br><span class="hljs-keyword">from</span> module2 <span class="hljs-keyword">import</span> foo <span class="hljs-keyword">as</span> f2<br><br>f1()  <span class="hljs-comment"># hello, world!</span><br>f2()  <span class="hljs-comment"># goodbye, world!</span><br></code></pre></td></tr></table></figure>
+<h3 id="标准库中的模块和函数"><a class="markdownIt-Anchor" href="#标准库中的模块和函数"></a> 标准库中的模块和函数</h3>
+<p>Python 标准库中提供了大量的模块和函数来简化我们的开发工作，我们之前用过的<code>random</code>模块就为我们提供了生成随机数和进行随机抽样的函数；而<code>time</code>模块则提供了和时间操作相关的函数；<br />
+我们之前用到过的<code>math</code>模块中还包括了计算正弦、余弦、指数、对数等一系列的数学函数。随着我们深入学习 Python 语言，我们还会用到更多的模块和函数。</p>
+<p>Python 标准库中还有一类函数是不需要<code>import</code>就能够直接使用的，我们将其称之为<strong>内置函数</strong>，这些内置函数不仅有用而且还很常用，下面的表格列出了一部分的内置函数。</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>abs</code></td>
+<td>返回一个数的绝对值，例如：<code>abs(-1.3)</code>会返回<code>1.3</code>。</td>
+</tr>
+<tr>
+<td><code>bin</code></td>
+<td>把一个整数转换成以<code>'0b'</code>开头的二进制字符串，例如：<code>bin(123)</code>会返回<code>'0b1111011'</code>。</td>
+</tr>
+<tr>
+<td><code>chr</code></td>
+<td>将Unicode编码转换成对应的字符，例如：<code>chr(8364)</code>会返回<code>'€'</code>。</td>
+</tr>
+<tr>
+<td><code>hex</code></td>
+<td>将一个整数转换成以<code>'0x'</code>开头的十六进制字符串，例如：<code>hex(123)</code>会返回<code>'0x7b'</code>。</td>
+</tr>
+<tr>
+<td><code>input</code></td>
+<td>从输入中读取一行，返回读到的字符串。</td>
+</tr>
+<tr>
+<td><code>len</code></td>
+<td>获取字符串、列表等的长度。</td>
+</tr>
+<tr>
+<td><code>max</code></td>
+<td>返回多个参数或一个可迭代对象中的最大值，例如：<code>max(12, 95, 37)</code>会返回<code>95</code>。</td>
+</tr>
+<tr>
+<td><code>min</code></td>
+<td>返回多个参数或一个可迭代对象中的最小值，例如：<code>min(12, 95, 37)</code>会返回<code>12</code>。</td>
+</tr>
+<tr>
+<td><code>oct</code></td>
+<td>把一个整数转换成以<code>'0o'</code>开头的八进制字符串，例如：<code>oct(123)</code>会返回<code>'0o173'</code>。</td>
+</tr>
+<tr>
+<td><code>open</code></td>
+<td>打开一个文件并返回文件对象。</td>
+</tr>
+<tr>
+<td><code>ord</code></td>
+<td>将字符转换成对应的Unicode编码，例如：<code>ord('€')</code>会返回<code>8364</code>。</td>
+</tr>
+<tr>
+<td><code>pow</code></td>
+<td>求幂运算，例如：<code>pow(2, 3)</code>会返回<code>8</code>；<code>pow(2, 0.5)</code>会返回<code>1.4142135623730951</code>。</td>
+</tr>
+<tr>
+<td><code>print</code></td>
+<td>打印输出。</td>
+</tr>
+<tr>
+<td><code>range</code></td>
+<td>构造一个范围序列，例如：<code>range(100)</code>会产生<code>0</code>到<code>99</code>的整数序列。</td>
+</tr>
+<tr>
+<td><code>round</code></td>
+<td>按照指定的精度对数值进行四舍五入，例如：<code>round(1.23456, 4)</code>会返回<code>1.2346</code>。</td>
+</tr>
+<tr>
+<td><code>sum</code></td>
+<td>对一个序列中的项从左到右进行求和运算，例如：<code>sum(range(1, 101))</code>会返回<code>5050</code>。</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>返回对象的类型，例如：<code>type(10)</code>会返回<code>int</code>；而<code> type('hello')</code>会返回<code>str</code>。</td>
+</tr>
+</tbody>
+</table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/waterbottle/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+    <span>></span>
+    
+  <a href="/waterbottle/categories/Python/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%89%8B%E5%86%8C/" class="category-chain-item">快速入门手册</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>14.函数和模块</div>
+      <div>https://likemikusama.github.io/waterbottle/posts/1ca4/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>瓶子</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月3日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月10日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/f6dc/" title="15.函数应用练习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">15.函数应用练习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/waterbottle/posts/c71f/" title="13.常用数据结构之字典">
+                        <span class="hidden-mobile">13.常用数据结构之字典</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/waterbottle/js/events.js" ></script>
+<script  src="/waterbottle/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/waterbottle/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/waterbottle/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/waterbottle/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
