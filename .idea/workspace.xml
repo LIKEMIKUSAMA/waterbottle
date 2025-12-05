@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8660938-41b9-4f40-8a64-d01edac40d9f" name="更改" comment="feat(posts): 添加多个Linux系统操作命令与技巧文档- 新增Docker容器操作命令与技巧文档&#10;- 新增Ubuntu系统操作命令与技巧文档&#10;- 新增红帽（RedHat）系统操作命令与技巧文档&#10;- 新增麒麟系统操作命令与技巧文档&#10;- 更新CentOS相关文档分类结构&#10;-优化文章模板添加固定链接字段&#10;- 调整.gitignore排除规则移除node_modules&#10;- 升级依赖包配置添加peer标识">
+    <list default="true" id="c8660938-41b9-4f40-8a64-d01edac40d9f" name="更改" comment="feat(posts): 添加Docker容器操作命令与技巧文档- 新增Docker仓库镜像配置方法&#10;- 添加docker.service文件详细解析&#10;- 整理容器与镜像操作常用命令&#10;- 提供高危操作警示与使用建议&#10;- 优化文章结构与内容展示格式">
+      <change afterPath="$PROJECT_DIR$/source/img/newloading.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.fluid.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.fluid.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/_posts/Docker/Docker容器操作命令与技巧.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Docker/Docker容器操作命令与技巧.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,8 +41,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Gitee\MyWeb\source\_posts\Linux\CentOS\CentOS系统命令和操作技巧" />
       <recent name="D:\Gitee\MyWeb\source\img" />
+      <recent name="D:\Gitee\MyWeb\source\_posts\Linux\CentOS\CentOS系统命令和操作技巧" />
       <recent name="D:\Gitee\MyWeb\source\_posts\Linux\CentOS" />
     </key>
   </component>
@@ -66,7 +69,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764646955970</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat(posts): 添加Docker容器操作命令与技巧文档- 新增Docker仓库镜像配置方法&#10;- 添加docker.service文件详细解析&#10;- 整理容器与镜像操作常用命令&#10;- 提供高危操作警示与使用建议&#10;- 优化文章结构与内容展示格式">
+      <option name="closed" value="true" />
+      <created>1764831926055</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1764831926055</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -82,6 +93,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat(posts): 添加多个Linux系统操作命令与技巧文档- 新增Docker容器操作命令与技巧文档&#10;- 新增Ubuntu系统操作命令与技巧文档&#10;- 新增红帽（RedHat）系统操作命令与技巧文档&#10;- 新增麒麟系统操作命令与技巧文档&#10;- 更新CentOS相关文档分类结构&#10;-优化文章模板添加固定链接字段&#10;- 调整.gitignore排除规则移除node_modules&#10;- 升级依赖包配置添加peer标识" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(posts): 添加多个Linux系统操作命令与技巧文档- 新增Docker容器操作命令与技巧文档&#10;- 新增Ubuntu系统操作命令与技巧文档&#10;- 新增红帽（RedHat）系统操作命令与技巧文档&#10;- 新增麒麟系统操作命令与技巧文档&#10;- 更新CentOS相关文档分类结构&#10;-优化文章模板添加固定链接字段&#10;- 调整.gitignore排除规则移除node_modules&#10;- 升级依赖包配置添加peer标识" />
+    <MESSAGE value="feat(posts): 添加Docker容器操作命令与技巧文档- 新增Docker仓库镜像配置方法&#10;- 添加docker.service文件详细解析&#10;- 整理容器与镜像操作常用命令&#10;- 提供高危操作警示与使用建议&#10;- 优化文章结构与内容展示格式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(posts): 添加Docker容器操作命令与技巧文档- 新增Docker仓库镜像配置方法&#10;- 添加docker.service文件详细解析&#10;- 整理容器与镜像操作常用命令&#10;- 提供高危操作警示与使用建议&#10;- 优化文章结构与内容展示格式" />
   </component>
 </project>

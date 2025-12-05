@@ -14,16 +14,20 @@ Docker的操作命令和配置技巧
 <!-- more -->
 
 ## 修改docker仓库目录
-1、中科大地址
-2、网易镜像地址
-3、腾讯镜像地址
-放于：/etc/docker/daemon.json
+1、毫秒镜像：https://docker.1ms.run
+2、
+放于：`/etc/docker/daemon.json`
+修改该文件后，需要操作重载配置并重启docker
+```shell
+systemctl daemon-reload
+systemctl restart docker
+# 部分服务器可能没有systemctl，需要使用service
+service docker restart
+```
 ```json
 {
   "registry-mirrors": [
-    "https://mirror.ustc.edu.cn",
-    "https://hub-mirror.c.163.com",
-    "https://mirror.ccs.tencentyun.com"
+    "https://docker.1ms.run"
   ],
 
   "dns": ["223.5.5.5", "114.114.114.114"],
@@ -85,10 +89,10 @@ WantedBy=multi-user.target
 ```shell
 # 列出所有容器，不带a只列出运行中的容器
 docker ps -a
-
+# 删除一个容器
+docker rm <容器名称>
 # 删除所有未使用的镜像和容器
 docker system prune
-
 # 删除所有未使用的容器
 docker container prune
 
@@ -98,18 +102,20 @@ docker container prune
 docker stop $(docker ps -a -q)
 # 删除所有容器
 docker rm $(docker ps -a -q)
-
 ```
 
 ## 镜像操作
 ```shell
+# 列出所有镜像
+docker images
+# 下载镜像到本地
+# docker pull mysql:5.7
+docker pull <镜像名称>:<版本号>
 # 加载镜像文件到docker
 docker load -i <镜像文件>
-# 列出所有镜像
-docker images -a
-# 列出镜像
-docker image ls
-
+# 从本地镜像导出docker可识别的tar包
+# docker save -o mysql-5.7.tar mysql:5.7
+docker save -o <文件名>.tar <镜像名称>:<指定版本>
 
 # 下面是高危操作，谨慎使用
 # 删除镜像
@@ -117,3 +123,5 @@ docker rmi <镜像ID>
 # 删除所有未使用的镜像
 docker image prune
 ```
+
+## 运行容器
