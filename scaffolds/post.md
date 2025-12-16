@@ -1,7 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags: 
+tags: []
 index_img: 
 banner_img:
 # 固定链接

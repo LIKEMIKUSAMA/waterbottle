@@ -1,7 +1,23 @@
+db.json
+_multiconfig.yml
+
+# Node.js dependencies
+node_modules/
+
+# Hexo 构建缓存目录
+public/
+.deploy*/
+
+# 临时文件
+*.log
 .DS_Store
 Thumbs.db
-db.json
-*.log
-.deploy*/
-_multiconfig.yml
-public
+
+# 编辑器类型和配置文件
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

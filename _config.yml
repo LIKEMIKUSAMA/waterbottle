@@ -14,7 +14,7 @@ timezone: 'Asia/Shanghai'
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://LIKEMIKUSAMA.github.io/waterbottle
-root: /waterbottle
+root: /waterbottle/
 
 #永久链接URL配置
 permalink: posts/:abbrlink/
@@ -59,12 +59,16 @@ filename_case: 0
 render_drafts: false
 
 #资源文件夹
-post_asset_folder: true
+post_asset_folder: false
+
 marked:
   prependRoot: true
-  postAsset: true
+  relative_link: false
+  postAsset: false
 
-relative_link: false
+#  prependRoot: false
+#  relative_link: false
+
 future: true
 syntax_highlighter: highlight.js
 highlight:

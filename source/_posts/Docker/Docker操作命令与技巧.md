@@ -1,5 +1,5 @@
 ---
-title: Docker容器操作命令与技巧
+title: Docker操作命令与技巧
 categories:
   - Docker
 author: 瓶子
@@ -14,8 +14,8 @@ Docker的操作命令和配置技巧
 <!-- more -->
 
 ## 修改docker仓库目录
-1、毫秒镜像：https://docker.1ms.run
-2、
+1、毫秒镜像：https://docker.1ms.run               # 仅有部分常见镜像
+2、daocloud：https://docker.m.daocloud.io        # 较慢
 放于：`/etc/docker/daemon.json`
 修改该文件后，需要操作重载配置并重启docker
 ```shell
@@ -109,7 +109,7 @@ docker rm $(docker ps -a -q)
 # 列出所有镜像
 docker images
 # 下载镜像到本地
-# docker pull mysql:5.7
+# docker pull mysql:5.7 添加--verbose 参数可以看到拉取的详细过程
 docker pull <镜像名称>:<版本号>
 # 加载镜像文件到docker
 docker load -i <镜像文件>
