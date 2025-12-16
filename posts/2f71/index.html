@@ -89,7 +89,7 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
@@ -417,7 +417,7 @@
 <blockquote>
 <p><strong>说明</strong>：上面代码中的<code>input</code>函数用于从键盘接收用户输入，由于输入的都是字符串，如果想处理成浮点小数来做后续的运算，可以用我们上一课讲解的类型转换的方法，用<code>float</code>函数将<code>str</code>类型处理成<code>float</code>类型。</p>
 </blockquote>
-<p>上面的代码中，我们对<code>print</code>函数输出的内容进行了格式化处理，<code>print</code>中我们使用了<code>f字符串</code>的形式输出内容，即在双引号前加入小写f(该写法为3.8之后添加的特性，注意版本号)，然后在要输出的内容中使用中括号<code>&#123;&#125;</code>把上面的变量带入。变量后使用<code>:0.1f</code>的形式告诉python，这两个数字只需要保留一位小数输出。</p>
+<p>上面的代码中，我们对<code>print</code>函数输出的内容进行了格式化处理，<code>print</code>中我们使用了<code>f字符串</code>的形式输出内容，即在双引号前加入小写f(该写法为3.8之后添加的特性，注意版本号)，然后在要输出的内容中使用中括号<code>{}</code>把上面的变量带入。变量后使用<code>:0.1f</code>的形式告诉python，这两个数字只需要保留一位小数输出。</p>
 <p>如果是低版本python，可以使用下面的输出方式，可以看到<code>print</code>输出的字符串中有两个<code>%.1f</code>占位符。<br />
 这两个占位符会被<code>%</code>之后的<code>(f, c)</code>中的两个<code>float</code>类型的变量值给替换掉，浮点数小数点后保留1位有效数字。<br />
 如果字符串中有<code>%d</code>占位符，那么我们会用<code>int</code>类型的值替换掉它，如果字符串中有<code>%s</code>占位符，那么它会被<code>str</code>类型的值替换掉。</p>
@@ -433,10 +433,10 @@
 <p>上面代码中的<code>import math</code>表示导入<code>math</code>模块，导入该模块以后，才能用<code>math.pi</code>得到圆周率的值。</p>
 </blockquote>
 <blockquote>
-<p>上面的代码中，我们使用了<code>f-字符串</code>的两种格式化写法，<code>f'&#123;xxx =&#123;a:0.2f&#125; &#125;'</code>和<code>f'&#123;a = :0.2f&#125;'</code>，第一种已经在上面使用过一次，所以我们现在来讲解一下第二种用法。</p>
+<p>上面的代码中，我们使用了<code>f-字符串</code>的两种格式化写法，<code>f'{xxx ={a:0.2f} }'</code>和<code>f'{a = :0.2f}'</code>，第一种已经在上面使用过一次，所以我们现在来讲解一下第二种用法。</p>
 </blockquote>
 <blockquote>
-<p>假如变量<code>a</code>的值是<code>9.87</code>，那么字符串<code>f'&#123;a = 0.2f&#125;'</code>的值是<code>a = 9.87</code>；而字符串<code>f'&#123;a = :.1f&#125;'</code>的值是<code>a = 9.9</code>。这种格式化输出的方式会同时输出变量名和变量值。</p>
+<p>假如变量<code>a</code>的值是<code>9.87</code>，那么字符串<code>f'{a = 0.2f}'</code>的值是<code>a = 9.87</code>；而字符串<code>f'{a = :.1f}'</code>的值是<code>a = 9.9</code>。这种格式化输出的方式会同时输出变量名和变量值。</p>
 </blockquote>
 <h4 id="例子3判断闰年"><a class="markdownIt-Anchor" href="#例子3判断闰年"></a> 例子3：判断闰年</h4>
 <p>要求：输入一个 1582 年以后的年份，判断该年份是不是闰年。</p>

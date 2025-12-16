@@ -89,7 +89,7 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
@@ -391,7 +391,7 @@ ENIAC 诞生之后被应用于导弹弹道的计算，而数值计算也是现�
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">a = <span class="hljs-number">321</span><br>b = <span class="hljs-number">123</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;%d * %d = %d&#x27;</span> % (a, b, a * b))<br></code></pre></td></tr></table></figure>
 <p>当然，我们也可以用字符串的<code>format</code>方法来完成字符串的格式，代码如下所示。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">a = <span class="hljs-number">321</span><br>b = <span class="hljs-number">123</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;&#123;0&#125; * &#123;1&#125; = &#123;2&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(a, b, a * b))<br></code></pre></td></tr></table></figure>
-<p>从 Python 3.6 开始，格式化字符串还有更为简洁的书写方式，就是在字符串前加上<code>f</code>来格式化字符串，在这种以<code>f</code>打头的字符串中，<code>&#123;变量名&#125;</code>是一个占位符，会被变量对应的值将其替换掉，代码如下所示。</p>
+<p>从 Python 3.6 开始，格式化字符串还有更为简洁的书写方式，就是在字符串前加上<code>f</code>来格式化字符串，在这种以<code>f</code>打头的字符串中，<code>{变量名}</code>是一个占位符，会被变量对应的值将其替换掉，代码如下所示。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">a = <span class="hljs-number">321</span><br>b = <span class="hljs-number">123</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;a&#125;</span> * <span class="hljs-subst">&#123;b&#125;</span> = <span class="hljs-subst">&#123;a * b&#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure>
 <p>如果需要进一步控制格式化语法中变量值的形式，可以参照下面的表格来进行字符串格式化操作。</p>
 <table>
@@ -406,67 +406,67 @@ ENIAC 诞生之后被应用于导弹弹道的计算，而数值计算也是现�
 <tbody>
 <tr>
 <td><code>3.1415926</code></td>
-<td><code>&#123;:.2f&#125;</code></td>
+<td><code>{:.2f}</code></td>
 <td><code>'3.14'</code></td>
 <td>保留小数点后两位</td>
 </tr>
 <tr>
 <td><code>3.1415926</code></td>
-<td><code>&#123;:+.2f&#125;</code></td>
+<td><code>{:+.2f}</code></td>
 <td><code>'+3.14'</code></td>
 <td>带符号保留小数点后两位</td>
 </tr>
 <tr>
 <td><code>-1</code></td>
-<td><code>&#123;:+.2f&#125;</code></td>
+<td><code>{:+.2f}</code></td>
 <td><code>'-1.00'</code></td>
 <td>带符号保留小数点后两位</td>
 </tr>
 <tr>
 <td><code>3.1415926</code></td>
-<td><code>&#123;:.0f&#125;</code></td>
+<td><code>{:.0f}</code></td>
 <td><code>'3'</code></td>
 <td>不带小数</td>
 </tr>
 <tr>
 <td><code>123</code></td>
-<td><code>&#123;:0&gt;10d&#125;</code></td>
+<td><code>{:0&gt;10d}</code></td>
 <td><code>'0000000123'</code></td>
 <td>左边补<code>0</code>，补够10位</td>
 </tr>
 <tr>
 <td><code>123</code></td>
-<td><code>&#123;:x&lt;10d&#125;</code></td>
+<td><code>{:x&lt;10d}</code></td>
 <td><code>'123xxxxxxx'</code></td>
 <td>右边补<code>x</code> ，补够10位</td>
 </tr>
 <tr>
 <td><code>123</code></td>
-<td><code>&#123;:&gt;10d&#125;</code></td>
+<td><code>{:&gt;10d}</code></td>
 <td><code>'       123'</code></td>
 <td>左边补空格，补够10位</td>
 </tr>
 <tr>
 <td><code>123</code></td>
-<td><code>&#123;:&lt;10d&#125;</code></td>
+<td><code>{:&lt;10d}</code></td>
 <td><code>'123       '</code></td>
 <td>右边补空格，补够10位</td>
 </tr>
 <tr>
 <td><code>123456789</code></td>
-<td><code>&#123;:,&#125;</code></td>
+<td><code>{:,}</code></td>
 <td><code>'123,456,789'</code></td>
 <td>逗号分隔格式</td>
 </tr>
 <tr>
 <td><code>0.123</code></td>
-<td><code>&#123;:.2%&#125;</code></td>
+<td><code>{:.2%}</code></td>
 <td><code>'12.30%'</code></td>
 <td>百分比格式</td>
 </tr>
 <tr>
 <td><code>123456789</code></td>
-<td><code>&#123;:.2e&#125;</code></td>
+<td><code>{:.2e}</code></td>
 <td><code>'1.23e+08'</code></td>
 <td>科学计数法格式</td>
 </tr>

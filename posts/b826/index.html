@@ -26,14 +26,11 @@
 <meta property="og:site_name" content="一个水瓶的灌装之路">
 <meta property="og:description" content="列表的增删改查">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://likemikusama.github.io/waterbottle/posts/b826/lottery.png">
-<meta property="og:image" content="https://likemikusama.github.io/waterbottle/posts/b826/lottery_run_result.png">
 <meta property="article:published_time" content="2025-06-03T06:40:00.000Z">
 <meta property="article:modified_time" content="2025-11-10T01:29:11.600Z">
 <meta property="article:author" content="水瓶">
 <meta property="article:tag" content="成长，记录，技术，分享">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://likemikusama.github.io/waterbottle/posts/b826/lottery.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -92,7 +89,7 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
@@ -368,7 +365,7 @@
 <p>下面我们通过一个双色球随机选号的例子为大家讲解列表的应用。<br />
 双色球是由中国福利彩票发行管理中心发售的乐透型彩票，每注投注号码由<code>6</code>个红色球和<code>1</code>个蓝色球组成。红色球号码从<code>1</code>到<code>33</code>中选择，蓝色球号码从<code>1</code>到<code>16</code>中选择。<br />
 每注需要选择<code>6</code>个红色球号码和<code>1</code>个蓝色球号码，如下所示。</p>
-<style>.rulurtbturfp{zoom:85%;}</style><img src="/waterbottle/posts/b826/lottery.png" srcset="/waterbottle/img/newloading.gif" lazyload class="rulurtbturfp">
+<style>.nojjikwaexhm{zoom:85%;}</style>
 <p>下面，我们通过 Python 程序来生成一组随机号码。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">双色球随机选号程序</span><br><span class="hljs-string"></span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">Version: 1.0</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-keyword">import</span> random<br><br>red_balls = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">34</span>))<br>selected_balls = []<br><span class="hljs-comment"># 添加6个红色球到选中列表</span><br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">6</span>):<br>    <span class="hljs-comment"># 生成随机整数代表选中的红色球的索引位置</span><br>    index = random.randrange(<span class="hljs-built_in">len</span>(red_balls))<br>    <span class="hljs-comment"># 将选中的球从红色球列表中移除并添加到选中列表</span><br>    selected_balls.append(red_balls.pop(index))<br><span class="hljs-comment"># 对选中的红色球排序</span><br>selected_balls.sort()<br><span class="hljs-comment"># 输出选中的红色球</span><br><span class="hljs-keyword">for</span> ball <span class="hljs-keyword">in</span> selected_balls:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;\033[031m<span class="hljs-subst">&#123;ball:<span class="hljs-number">0</span>&gt;2d&#125;</span>\033[0m&#x27;</span>, end=<span class="hljs-string">&#x27; &#x27;</span>)<br><span class="hljs-comment"># 随机选择1个蓝色球</span><br>blue_ball = random.randrange(<span class="hljs-number">1</span>, <span class="hljs-number">17</span>)<br><span class="hljs-comment"># 输出选中的蓝色球</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;\033[034m<span class="hljs-subst">&#123;blue_ball:<span class="hljs-number">0</span>&gt;2d&#125;</span>\033[0m&#x27;</span>)<br></code></pre></td></tr></table></figure>
 <blockquote>
@@ -382,7 +379,7 @@
 <p>如果要实现随机生成<code>N</code>注号码，我们只需要将上面的代码放到一个<code>N</code>次的循环中，如下所示。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">双色球随机选号程序</span><br><span class="hljs-string"></span><br><span class="hljs-string">Author: 瓶子</span><br><span class="hljs-string">Version: 1.2</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-keyword">import</span> random<br><br>n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;生成几注号码: &#x27;</span>))<br>red_balls = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">34</span>)]<br>blue_balls = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">17</span>)]<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>    <span class="hljs-comment"># 从红色球列表中随机抽出6个红色球（无放回抽样）</span><br>    selected_balls = random.sample(red_balls, <span class="hljs-number">6</span>)<br>    <span class="hljs-comment"># 对选中的红色球排序</span><br>    selected_balls.sort()<br>    <span class="hljs-comment"># 输出选中的红色球</span><br>    <span class="hljs-keyword">for</span> ball <span class="hljs-keyword">in</span> selected_balls:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;\033[031m<span class="hljs-subst">&#123;ball:<span class="hljs-number">0</span>&gt;2d&#125;</span>\033[0m&#x27;</span>, end=<span class="hljs-string">&#x27; &#x27;</span>)<br>    <span class="hljs-comment"># 从蓝色球列表中随机抽出1个蓝色球</span><br>    blue_ball = random.choice(blue_balls)<br>    <span class="hljs-comment"># 输出选中的蓝色球</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;\033[034m<span class="hljs-subst">&#123;blue_ball:<span class="hljs-number">0</span>&gt;2d&#125;</span>\033[0m&#x27;</span>)<br></code></pre></td></tr></table></figure>
 <p>我们在 PyCharm 中运行上面的代码，输入<code>5</code>，运行效果如下图所示。</p>
-<style>.socjmitsnwbg{zoom:35%;}</style><img src="/waterbottle/posts/b826/lottery_run_result.png" srcset="/waterbottle/img/newloading.gif" lazyload class="socjmitsnwbg">
+<style>.wcjfgtqoxvgo{zoom:35%;}</style>
 
                 
               </div>

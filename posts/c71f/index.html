@@ -89,7 +89,7 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
@@ -316,7 +316,7 @@
 <p>Python 程序中的字典跟现实生活中的字典很像，它以键值对（键和值的组合）的方式把数据组织到一起，我们可以通过键找到与之对应的值并进行操作。<br />
 就像《新华字典》中，每个字（键）都有与它对应的解释（值）一样，每个字和它的解释合在一起就是字典中的一个条目，而字典中通常包含了很多个这样的条目。</p>
 <h3 id="创建和使用字典"><a class="markdownIt-Anchor" href="#创建和使用字典"></a> 创建和使用字典</h3>
-<p>Python 中创建字典可以使用<code>&#123;&#125;</code>字面量语法，这一点跟上一节课讲的集合是一样的。但是字典的<code>&#123;&#125;</code>中的元素是以键值对的形式存在的，每个元素由<code>:</code>分隔的两个值构成，<code>:</code>前面是键，<code>:</code>后面是值，代码如下所示。</p>
+<p>Python 中创建字典可以使用<code>{}</code>字面量语法，这一点跟上一节课讲的集合是一样的。但是字典的<code>{}</code>中的元素是以键值对的形式存在的，每个元素由<code>:</code>分隔的两个值构成，<code>:</code>前面是键，<code>:</code>后面是值，代码如下所示。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python">xinhua = &#123;<br>    <span class="hljs-string">&#x27;麓&#x27;</span>: <span class="hljs-string">&#x27;山脚下&#x27;</span>,<br>    <span class="hljs-string">&#x27;路&#x27;</span>: <span class="hljs-string">&#x27;道，往来通行的地方；方面，地区：南～货，外～货；种类：他俩是一～人&#x27;</span>,<br>    <span class="hljs-string">&#x27;蕗&#x27;</span>: <span class="hljs-string">&#x27;甘草的别名&#x27;</span>,<br>    <span class="hljs-string">&#x27;潞&#x27;</span>: <span class="hljs-string">&#x27;潞水，水名，即今山西省的浊漳河；潞江，水名，即云南省的怒江&#x27;</span><br>&#125;<br><span class="hljs-built_in">print</span>(xinhua)<br>person = &#123;<br>    <span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;王大锤&#x27;</span>,<br>    <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">55</span>,<br>    <span class="hljs-string">&#x27;height&#x27;</span>: <span class="hljs-number">168</span>,<br>    <span class="hljs-string">&#x27;weight&#x27;</span>: <span class="hljs-number">60</span>,<br>    <span class="hljs-string">&#x27;addr&#x27;</span>: <span class="hljs-string">&#x27;成都市武侯区科华北路62号1栋101&#x27;</span>, <br>    <span class="hljs-string">&#x27;tel&#x27;</span>: <span class="hljs-string">&#x27;13122334455&#x27;</span>,<br>    <span class="hljs-string">&#x27;emergence contact&#x27;</span>: <span class="hljs-string">&#x27;13800998877&#x27;</span><br>&#125;<br><span class="hljs-built_in">print</span>(person)<br></code></pre></td></tr></table></figure>
 <p>通过上面的代码，相信大家已经看出来了，用字典来保存一个人的信息远远优于使用列表或元组，因为我们可以用<code>:</code>前面的键来表示条目的含义，而<code>:</code>后面就是这个条目所对应的值。</p>
 <p>当然，如果愿意，我们也可以使用内置函数<code>dict</code>或者是字典的生成式语法来创建字典，代码如下所示。</p>

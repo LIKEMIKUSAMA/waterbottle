@@ -21,13 +21,13 @@
   
     <meta name="description" content="Docker的操作命令和配置技巧">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker容器操作命令与技巧">
+<meta property="og:title" content="Docker操作命令与技巧">
 <meta property="og:url" content="https://likemikusama.github.io/waterbottle/posts/6e0f/">
 <meta property="og:site_name" content="一个水瓶的灌装之路">
 <meta property="og:description" content="Docker的操作命令和配置技巧">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-02T03:08:45.000Z">
-<meta property="article:modified_time" content="2025-12-05T10:20:54.712Z">
+<meta property="article:modified_time" content="2025-12-09T08:32:10.227Z">
 <meta property="article:author" content="水瓶">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Docker容器操作命令与技巧 - 一个水瓶的灌装之路</title>
+  <title>Docker操作命令与技巧 - 一个水瓶的灌装之路</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -89,7 +89,7 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
@@ -204,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Docker容器操作命令与技巧"></span>
+            <span id="subtitle" data-typed-text="Docker操作命令与技巧"></span>
           
         </div>
 
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          617 字
+          650 字
         
       </span>
     
@@ -289,12 +289,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Docker容器操作命令与技巧</h1>
+            <h1 id="seo-header">Docker操作命令与技巧</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年12月5日 晚上
+                    本文最后更新于 2025年12月9日 下午
                   
                 
               </p>
@@ -305,9 +305,9 @@
                 <p>Docker的操作命令和配置技巧</p>
 <span id="more"></span>
 <h2 id="修改docker仓库目录"><a class="markdownIt-Anchor" href="#修改docker仓库目录"></a> 修改docker仓库目录</h2>
-<p>1、毫秒镜像：<a target="_blank" rel="noopener" href="https://docker.1ms.run">https://docker.1ms.run</a><br />
-2、<br />
-放于：/etc/docker/daemon.json<br />
+<p>1、毫秒镜像：<a target="_blank" rel="noopener" href="https://docker.1ms.run">https://docker.1ms.run</a>               # 仅有部分常见镜像<br />
+2、daocloud：<a target="_blank" rel="noopener" href="https://docker.m.daocloud.io">https://docker.m.daocloud.io</a>        # 较慢<br />
+放于：<code>/etc/docker/daemon.json</code><br />
 修改该文件后，需要操作重载配置并重启docker</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl daemon-reload<br>systemctl restart docker<br><span class="hljs-meta prompt_"># </span><span class="language-bash">部分服务器可能没有systemctl，需要使用service</span><br>service docker restart<br></code></pre></td></tr></table></figure>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;registry-mirrors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-string">&quot;https://docker.1ms.run&quot;</span><br>  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br><br>  <span class="hljs-attr">&quot;dns&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;223.5.5.5&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;114.114.114.114&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br><br>  <span class="hljs-attr">&quot;dns-search&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;local&quot;</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
@@ -316,7 +316,7 @@
 <h2 id="容器操作"><a class="markdownIt-Anchor" href="#容器操作"></a> 容器操作</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">列出所有容器，不带a只列出运行中的容器</span><br>docker ps -a<br><span class="hljs-meta prompt_"># </span><span class="language-bash">删除一个容器</span><br>docker rm &lt;容器名称&gt;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">删除所有未使用的镜像和容器</span><br>docker system prune<br><span class="hljs-meta prompt_"># </span><span class="language-bash">删除所有未使用的容器</span><br>docker container prune<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">下面是高危操作，谨慎使用</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">停止所有容器</span><br>docker stop $(docker ps -a -q)<br><span class="hljs-meta prompt_"># </span><span class="language-bash">删除所有容器</span><br>docker rm $(docker ps -a -q)<br></code></pre></td></tr></table></figure>
 <h2 id="镜像操作"><a class="markdownIt-Anchor" href="#镜像操作"></a> 镜像操作</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">列出所有镜像</span><br>docker images<br><span class="hljs-meta prompt_"># </span><span class="language-bash">下载镜像到本地</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">docker pull mysql:5.7</span><br>docker pull &lt;镜像名称&gt;:&lt;版本号&gt;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">加载镜像文件到docker</span><br>docker load -i &lt;镜像文件&gt;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">从本地镜像导出docker可识别的tar包</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">docker save -o mysql-5.7.tar mysql:5.7</span><br>docker save -o &lt;文件名&gt;.tar &lt;镜像名称&gt;:&lt;指定版本&gt;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">下面是高危操作，谨慎使用</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">删除镜像</span><br>docker rmi &lt;镜像ID&gt;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">删除所有未使用的镜像</span><br>docker image prune<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">列出所有镜像</span><br>docker images<br><span class="hljs-meta prompt_"># </span><span class="language-bash">下载镜像到本地</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">docker pull mysql:5.7 添加--verbose 参数可以看到拉取的详细过程</span><br>docker pull &lt;镜像名称&gt;:&lt;版本号&gt;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">加载镜像文件到docker</span><br>docker load -i &lt;镜像文件&gt;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">从本地镜像导出docker可识别的tar包</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">docker save -o mysql-5.7.tar mysql:5.7</span><br>docker save -o &lt;文件名&gt;.tar &lt;镜像名称&gt;:&lt;指定版本&gt;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">下面是高危操作，谨慎使用</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">删除镜像</span><br>docker rmi &lt;镜像ID&gt;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">删除所有未使用的镜像</span><br>docker image prune<br></code></pre></td></tr></table></figure>
 <h2 id="运行容器"><a class="markdownIt-Anchor" href="#运行容器"></a> 运行容器</h2>
 
                 
@@ -363,7 +363,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Docker容器操作命令与技巧</div>
+      <div>Docker操作命令与技巧</div>
       <div>https://likemikusama.github.io/waterbottle/posts/6e0f/</div>
     </div>
     <div class="license-meta">
@@ -382,7 +382,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年12月5日</div>
+          <div>2025年12月9日</div>
         </div>
       
       
@@ -412,6 +412,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/waterbottle/posts/4e75/" title="Keepalived使用手册">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Keepalived使用手册</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

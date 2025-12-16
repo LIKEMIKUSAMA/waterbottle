@@ -26,13 +26,11 @@
 <meta property="og:site_name" content="一个水瓶的灌装之路">
 <meta property="og:description" content="了解集合的特性和应用场景">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://likemikusama.github.io/waterbottle/posts/b61c/set_operations.png">
 <meta property="article:published_time" content="2025-06-03T06:50:00.000Z">
 <meta property="article:modified_time" content="2025-11-10T01:29:11.607Z">
 <meta property="article:author" content="水瓶">
 <meta property="article:tag" content="成长，记录，技术，分享">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://likemikusama.github.io/waterbottle/posts/b61c/set_operations.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -91,7 +89,7 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
@@ -346,7 +344,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">set1 = &#123;<span class="hljs-number">11</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>&#125;<br><span class="hljs-built_in">print</span>(<span class="hljs-number">10</span> <span class="hljs-keyword">in</span> set1)      <span class="hljs-comment"># False </span><br><span class="hljs-built_in">print</span>(<span class="hljs-number">15</span> <span class="hljs-keyword">in</span> set1)      <span class="hljs-comment"># True</span><br>set2 = &#123;<span class="hljs-string">&#x27;Python&#x27;</span>, <span class="hljs-string">&#x27;Java&#x27;</span>, <span class="hljs-string">&#x27;C++&#x27;</span>, <span class="hljs-string">&#x27;Swift&#x27;</span>&#125;<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Ruby&#x27;</span> <span class="hljs-keyword">in</span> set2)  <span class="hljs-comment"># False</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Java&#x27;</span> <span class="hljs-keyword">in</span> set2)  <span class="hljs-comment"># True</span><br></code></pre></td></tr></table></figure>
 <h4 id="二元运算"><a class="markdownIt-Anchor" href="#二元运算"></a> 二元运算</h4>
 <p>集合的二元运算主要指集合的交集、并集、差集、对称差等运算，这些运算可以通过运算符来实现，也可以通过集合类型的方法来实现，代码如下所示。</p>
-<style>.ndjthmhktqby{zoom:50%;}</style><img src="/waterbottle/posts/b61c/set_operations.png" srcset="/waterbottle/img/newloading.gif" lazyload class="ndjthmhktqby">
+<style>.nlnphphxyhtg{zoom:50%;}</style>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python">set1 = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>&#125;<br>set2 = &#123;<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>&#125;<br><br><span class="hljs-comment"># 交集</span><br><span class="hljs-built_in">print</span>(set1 &amp; set2)                      <span class="hljs-comment"># &#123;2, 4, 6&#125;</span><br><span class="hljs-built_in">print</span>(set1.intersection(set2))          <span class="hljs-comment"># &#123;2, 4, 6&#125;</span><br><br><span class="hljs-comment"># 并集</span><br><span class="hljs-built_in">print</span>(set1 | set2)                      <span class="hljs-comment"># &#123;1, 2, 3, 4, 5, 6, 7, 8, 10&#125;</span><br><span class="hljs-built_in">print</span>(set1.union(set2))                 <span class="hljs-comment"># &#123;1, 2, 3, 4, 5, 6, 7, 8, 10&#125;</span><br><br><span class="hljs-comment"># 差集</span><br><span class="hljs-built_in">print</span>(set1 - set2)                      <span class="hljs-comment"># &#123;1, 3, 5, 7&#125;</span><br><span class="hljs-built_in">print</span>(set1.difference(set2))            <span class="hljs-comment"># &#123;1, 3, 5, 7&#125;</span><br><br><span class="hljs-comment"># 对称差</span><br><span class="hljs-built_in">print</span>(set1 ^ set2)                      <span class="hljs-comment"># &#123;1, 3, 5, 7, 8, 10&#125;</span><br><span class="hljs-built_in">print</span>(set1.symmetric_difference(set2))  <span class="hljs-comment"># &#123;1, 3, 5, 7, 8, 10&#125;</span><br></code></pre></td></tr></table></figure>
 <p>通过上面的代码可以看出，对两个集合求交集，<code>&amp;</code>运算符和<code>intersection</code>方法的作用是完全相同的，使用运算符的方式显然更直观且代码也更简短。<br />
 需要说明的是，集合的二元运算还可以跟赋值运算一起构成复合赋值运算。<br />
