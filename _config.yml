@@ -183,3 +183,8 @@ markdown_it_plus:
   typographer:
   quotes: “”‘’
   pre_class: highlight
+
+hexo_pro:
+  enable: true
+#  username: admin
+#  password: admin@123

@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8660938-41b9-4f40-8a64-d01edac40d9f" name="更改" comment="feat(blog): 添加Keepalived使用手册和Dockerfile&#10;&#10;- 新增Keepalived配置文件和Dockerfile用于构建镜像- 添加Keepalived使用手册，包含配置解析和Docker构建说明&#10;- 更新.gitignore文件，增加Node.js依赖和编辑器配置忽略规则&#10;- 升级Hexo版本至8.1.1并更新相关依赖&#10;- 修改Docker操作命令文档标题及部分内容&#10;- 添加Linux通用命令操作文档，记录磁盘扩容等常用操作- 调整IDEA项目配置，排除更多不必要的目录&#10;- 更新Hexo强化手册，新增版本升级和图片文件添加说明">
+    <list default="true" id="c8660938-41b9-4f40-8a64-d01edac40d9f" name="更改" comment="feat(config): 更新导航栏菜单配置并启用资源文件夹&#10;&#10;- 将导航栏菜单项的 key 替换为中文显示名称&#10;- 启用文章资产文件夹功能(post_asset_folder: true)&#10;- 配置 marked 渲染器支持相对链接和文章资产&#10;- 添加 hexo-renderer-pug依赖用于 Pug 模板渲染- 更新 package-lock.json 包含新增依赖及其子依赖">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.fluid.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.fluid.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/工作动态/快速文档.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Nginx/Nginx技巧.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Nginx/Nginx技巧.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/Gitee/MyWeb/source/categories",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
@@ -103,7 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765880837566</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat(config): 更新导航栏菜单配置并启用资源文件夹&#10;&#10;- 将导航栏菜单项的 key 替换为中文显示名称&#10;- 启用文章资产文件夹功能(post_asset_folder: true)&#10;- 配置 marked 渲染器支持相对链接和文章资产&#10;- 添加 hexo-renderer-pug依赖用于 Pug 模板渲染- 更新 package-lock.json 包含新增依赖及其子依赖">
+      <option name="closed" value="true" />
+      <created>1765961315248</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1765961315248</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,6 +130,7 @@
     <MESSAGE value="feat(posts): 添加Docker容器操作命令与技巧文档- 新增Docker仓库镜像配置方法&#10;- 添加docker.service文件详细解析&#10;- 整理容器与镜像操作常用命令&#10;- 提供高危操作警示与使用建议&#10;- 优化文章结构与内容展示格式" />
     <MESSAGE value="feat(posts): 更新Docker容器操作命令与技巧文档&#10;&#10;- 替换Docker仓库镜像地址为毫秒镜像- 添加docker.service文件配置说明- 补充容器与镜像操作常用命令&#10;- 提供高危操作警示与使用建议- 优化文章结构与内容展示格式&#10;- 更新loading图片路径配置- 调整.gitignore排除规则" />
     <MESSAGE value="feat(blog): 添加Keepalived使用手册和Dockerfile&#10;&#10;- 新增Keepalived配置文件和Dockerfile用于构建镜像- 添加Keepalived使用手册，包含配置解析和Docker构建说明&#10;- 更新.gitignore文件，增加Node.js依赖和编辑器配置忽略规则&#10;- 升级Hexo版本至8.1.1并更新相关依赖&#10;- 修改Docker操作命令文档标题及部分内容&#10;- 添加Linux通用命令操作文档，记录磁盘扩容等常用操作- 调整IDEA项目配置，排除更多不必要的目录&#10;- 更新Hexo强化手册，新增版本升级和图片文件添加说明" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(blog): 添加Keepalived使用手册和Dockerfile&#10;&#10;- 新增Keepalived配置文件和Dockerfile用于构建镜像- 添加Keepalived使用手册，包含配置解析和Docker构建说明&#10;- 更新.gitignore文件，增加Node.js依赖和编辑器配置忽略规则&#10;- 升级Hexo版本至8.1.1并更新相关依赖&#10;- 修改Docker操作命令文档标题及部分内容&#10;- 添加Linux通用命令操作文档，记录磁盘扩容等常用操作- 调整IDEA项目配置，排除更多不必要的目录&#10;- 更新Hexo强化手册，新增版本升级和图片文件添加说明" />
+    <MESSAGE value="feat(config): 更新导航栏菜单配置并启用资源文件夹&#10;&#10;- 将导航栏菜单项的 key 替换为中文显示名称&#10;- 启用文章资产文件夹功能(post_asset_folder: true)&#10;- 配置 marked 渲染器支持相对链接和文章资产&#10;- 添加 hexo-renderer-pug依赖用于 Pug 模板渲染- 更新 package-lock.json 包含新增依赖及其子依赖" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(config): 更新导航栏菜单配置并启用资源文件夹&#10;&#10;- 将导航栏菜单项的 key 替换为中文显示名称&#10;- 启用文章资产文件夹功能(post_asset_folder: true)&#10;- 配置 marked 渲染器支持相对链接和文章资产&#10;- 添加 hexo-renderer-pug依赖用于 Pug 模板渲染- 更新 package-lock.json 包含新增依赖及其子依赖" />
   </component>
 </project>
