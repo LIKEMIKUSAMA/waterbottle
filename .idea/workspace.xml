@@ -4,29 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8660938-41b9-4f40-8a64-d01edac40d9f" name="更改" comment="feat(posts): 更新Docker容器操作命令与技巧文档&#10;&#10;- 替换Docker仓库镜像地址为毫秒镜像- 添加docker.service文件配置说明- 补充容器与镜像操作常用命令&#10;- 提供高危操作警示与使用建议- 优化文章结构与内容展示格式&#10;- 更新loading图片路径配置- 调整.gitignore排除规则">
-      <change afterPath="$PROJECT_DIR$/source/_posts/Keepalived/Keepalived使用手册.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/Linux/Linux通用命令操作.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/file/Keepalived/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/file/Keepalived/keepalived.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/img/Linux通用命令操作/lsblk和fdisk-l确认磁盘.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/img/Linux通用命令操作/lvdisplay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/img/Linux通用命令操作/lvextend.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/img/Linux通用命令操作/vgdisplay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/img/Linux通用命令操作/vgextend.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/img/Linux通用命令操作/创建新的pv.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/img/Linux通用命令操作/删除和刷新分区.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/img/Linux通用命令操作/格式化.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/img/Linux通用命令操作/验证扩容.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MyWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MyWeb.iml" afterDir="false" />
+    <list default="true" id="c8660938-41b9-4f40-8a64-d01edac40d9f" name="更改" comment="feat(blog): 添加Keepalived使用手册和Dockerfile&#10;&#10;- 新增Keepalived配置文件和Dockerfile用于构建镜像- 添加Keepalived使用手册，包含配置解析和Docker构建说明&#10;- 更新.gitignore文件，增加Node.js依赖和编辑器配置忽略规则&#10;- 升级Hexo版本至8.1.1并更新相关依赖&#10;- 修改Docker操作命令文档标题及部分内容&#10;- 添加Linux通用命令操作文档，记录磁盘扩容等常用操作- 调整IDEA项目配置，排除更多不必要的目录&#10;- 更新Hexo强化手册，新增版本升级和图片文件添加说明">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.fluid.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.fluid.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scaffolds/post.md" beforeDir="false" afterPath="$PROJECT_DIR$/scaffolds/post.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Docker/Docker容器操作命令与技巧.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Docker/Docker操作命令与技巧.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/帮助文档/Hexo强化手册.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/帮助文档/Hexo强化手册.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/工作动态/快速文档.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,24 +36,24 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Gitee/MyWeb/source/file/Keepalived",
+    "last_opened_file_path": "D:/Gitee/MyWeb/source/categories",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Gitee\MyWeb\source\categories" />
+      <recent name="D:\Gitee\MyWeb\themes" />
       <recent name="D:\Gitee\MyWeb\source\file\Keepalived" />
       <recent name="D:\Gitee\MyWeb\source\file" />
       <recent name="D:\Gitee\MyWeb\source\img\Linux通用命令操作" />
-      <recent name="D:\Gitee\MyWeb\source\img" />
-      <recent name="D:\Gitee\MyWeb\source\_posts\Keepalived\Keepalived使用手册" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Gitee\MyWeb" />
       <recent name="D:\Gitee\MyWeb\source\file\Keepalived" />
       <recent name="D:\Gitee\MyWeb\source\img\Linux通用命令操作" />
       <recent name="D:\Gitee\MyWeb\source\img" />
       <recent name="D:\Gitee\MyWeb\source\_posts\Linux" />
-      <recent name="D:\Gitee\MyWeb\source\_posts\Keepalived" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -111,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764931969229</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat(blog): 添加Keepalived使用手册和Dockerfile&#10;&#10;- 新增Keepalived配置文件和Dockerfile用于构建镜像- 添加Keepalived使用手册，包含配置解析和Docker构建说明&#10;- 更新.gitignore文件，增加Node.js依赖和编辑器配置忽略规则&#10;- 升级Hexo版本至8.1.1并更新相关依赖&#10;- 修改Docker操作命令文档标题及部分内容&#10;- 添加Linux通用命令操作文档，记录磁盘扩容等常用操作- 调整IDEA项目配置，排除更多不必要的目录&#10;- 更新Hexo强化手册，新增版本升级和图片文件添加说明">
+      <option name="closed" value="true" />
+      <created>1765880837565</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1765880837566</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,6 +121,7 @@
     <MESSAGE value="feat(posts): 添加多个Linux系统操作命令与技巧文档- 新增Docker容器操作命令与技巧文档&#10;- 新增Ubuntu系统操作命令与技巧文档&#10;- 新增红帽（RedHat）系统操作命令与技巧文档&#10;- 新增麒麟系统操作命令与技巧文档&#10;- 更新CentOS相关文档分类结构&#10;-优化文章模板添加固定链接字段&#10;- 调整.gitignore排除规则移除node_modules&#10;- 升级依赖包配置添加peer标识" />
     <MESSAGE value="feat(posts): 添加Docker容器操作命令与技巧文档- 新增Docker仓库镜像配置方法&#10;- 添加docker.service文件详细解析&#10;- 整理容器与镜像操作常用命令&#10;- 提供高危操作警示与使用建议&#10;- 优化文章结构与内容展示格式" />
     <MESSAGE value="feat(posts): 更新Docker容器操作命令与技巧文档&#10;&#10;- 替换Docker仓库镜像地址为毫秒镜像- 添加docker.service文件配置说明- 补充容器与镜像操作常用命令&#10;- 提供高危操作警示与使用建议- 优化文章结构与内容展示格式&#10;- 更新loading图片路径配置- 调整.gitignore排除规则" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(posts): 更新Docker容器操作命令与技巧文档&#10;&#10;- 替换Docker仓库镜像地址为毫秒镜像- 添加docker.service文件配置说明- 补充容器与镜像操作常用命令&#10;- 提供高危操作警示与使用建议- 优化文章结构与内容展示格式&#10;- 更新loading图片路径配置- 调整.gitignore排除规则" />
+    <MESSAGE value="feat(blog): 添加Keepalived使用手册和Dockerfile&#10;&#10;- 新增Keepalived配置文件和Dockerfile用于构建镜像- 添加Keepalived使用手册，包含配置解析和Docker构建说明&#10;- 更新.gitignore文件，增加Node.js依赖和编辑器配置忽略规则&#10;- 升级Hexo版本至8.1.1并更新相关依赖&#10;- 修改Docker操作命令文档标题及部分内容&#10;- 添加Linux通用命令操作文档，记录磁盘扩容等常用操作- 调整IDEA项目配置，排除更多不必要的目录&#10;- 更新Hexo强化手册，新增版本升级和图片文件添加说明" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(blog): 添加Keepalived使用手册和Dockerfile&#10;&#10;- 新增Keepalived配置文件和Dockerfile用于构建镜像- 添加Keepalived使用手册，包含配置解析和Docker构建说明&#10;- 更新.gitignore文件，增加Node.js依赖和编辑器配置忽略规则&#10;- 升级Hexo版本至8.1.1并更新相关依赖&#10;- 修改Docker操作命令文档标题及部分内容&#10;- 添加Linux通用命令操作文档，记录磁盘扩容等常用操作- 调整IDEA项目配置，排除更多不必要的目录&#10;- 更新Hexo强化手册，新增版本升级和图片文件添加说明" />
   </component>
 </project>
