@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8660938-41b9-4f40-8a64-d01edac40d9f" name="更改" comment="feat(config): 更新导航栏菜单配置并启用资源文件夹&#10;&#10;- 将导航栏菜单项的 key 替换为中文显示名称&#10;- 启用文章资产文件夹功能(post_asset_folder: true)&#10;- 配置 marked 渲染器支持相对链接和文章资产&#10;- 添加 hexo-renderer-pug依赖用于 Pug 模板渲染- 更新 package-lock.json 包含新增依赖及其子依赖">
-      <change afterPath="$PROJECT_DIR$/hexo_run.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/Mysql/Mysql8.0启用组复制（集群）的配置过程.md" afterDir="false" />
+    <list default="true" id="c8660938-41b9-4f40-8a64-d01edac40d9f" name="更改" comment="docs(mysql): 添加MySQL 8.0组复制集群配置文档&#10;&#10;- 详细介绍MySQL 8.0组复制集群的两种配置方式&#10;- 提供完整的my.cnf配置文件模板和环境变量设置&#10;- 包含Docker容器化部署的compose文件配置&#10;- 说明MySQL Shell的操作步骤和集群创建流程&#10;- 记录配置过程中遇到的各种常见问题和解决方案&#10;- 补充MySQL Router的配置和使用方法">
+      <change beforePath="$PROJECT_DIR$/.idea/MyWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MyWeb.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +18,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -34,40 +33,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Gitee/MyWeb/source/categories&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Gitee/MyWeb/source/file/Mysql8.0集群",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Gitee\MyWeb\source\file\Mysql8.0集群" />
       <recent name="D:\Gitee\MyWeb\source\categories" />
       <recent name="D:\Gitee\MyWeb\themes" />
       <recent name="D:\Gitee\MyWeb\source\file\Keepalived" />
       <recent name="D:\Gitee\MyWeb\source\file" />
-      <recent name="D:\Gitee\MyWeb\source\img\Linux通用命令操作" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Gitee\MyWeb\source\_posts\帮助文档" />
+      <recent name="D:\Gitee\MyWeb\source\_posts\系统" />
       <recent name="D:\Gitee\MyWeb" />
       <recent name="D:\Gitee\MyWeb\source\file\Keepalived" />
       <recent name="D:\Gitee\MyWeb\source\img\Linux通用命令操作" />
-      <recent name="D:\Gitee\MyWeb\source\img" />
-      <recent name="D:\Gitee\MyWeb\source\_posts\Linux" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -125,7 +124,47 @@
       <option name="project" value="LOCAL" />
       <updated>1765961315248</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="docs(mysql): 添加 MySQL 8.0 组复制集群配置指南&#10;&#10;- 新增 Mysql8.0 启用组复制的完整配置过程文档&#10;- 提供详细的 my.cnf 配置文件示例和环境变量设置&#10;- 包含 docker 容器化部署的 compose 文件配置&#10;- 整理了集群配置过程中常见的坑点和解决方案&#10;- 添加 hexo_run.js 脚本用于启动 hexo 服务&#10;- 更新项目配置文件以支持文章资产文件夹功能">
+      <option name="closed" value="true" />
+      <created>1775557511874</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1775557511874</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix(mysql): 修复 MySQL 8.0 组复制配置文档中的多余换行&#10;&#10;- 移除了容器配置部分的多余空行&#10;- 保持了坑点合集部分的完整性&#10;- 确保了文档格式的一致性">
+      <option name="closed" value="true" />
+      <created>1775610717935</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1775610717936</updated>
+    </task>
+    <task id="LOCAL-00008" summary="docs(blog): 添加CentOS和Linux相关技术文章及工具脚本&#10;&#10;- 新增CentOS 7常用工具和软件包指南，包含WindTerm等SSH工具介绍&#10;- 添加CentOS系统命令和操作技巧大全，涵盖防火墙、网络配置、定时任务等&#10;- 加入Linux通用命令操作指导，包括磁盘扩容等运维实践&#10;- 补充CentOS练习题及答案详解，强化实战技能训练&#10;- 集成speedtest.py网络测速工具脚本&#10;- 修正MySQL集群文章分类结构">
+      <option name="closed" value="true" />
+      <created>1775613818550</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1775613818550</updated>
+    </task>
+    <task id="LOCAL-00009" summary="docs(firewall): 更新防火墙配置文档的元数据格式&#10;&#10;- 将标签格式从数组改为列表形式&#10;- 添加了缩写链接(abbrlink)字段&#10;- 修正了日期格式为标准时间戳&#10;- 重新排列了YAML front matter的字段顺序&#10;- 保留了原有的防火墙相关内容介绍">
+      <option name="closed" value="true" />
+      <created>1775615458704</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1775615458704</updated>
+    </task>
+    <task id="LOCAL-00010" summary="docs(mysql): 添加MySQL 8.0组复制集群配置文档&#10;&#10;- 详细介绍MySQL 8.0组复制集群的两种配置方式&#10;- 提供完整的my.cnf配置文件模板和环境变量设置&#10;- 包含Docker容器化部署的compose文件配置&#10;- 说明MySQL Shell的操作步骤和集群创建流程&#10;- 记录配置过程中遇到的各种常见问题和解决方案&#10;- 补充MySQL Router的配置和使用方法">
+      <option name="closed" value="true" />
+      <created>1775641084723</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1775641084723</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +187,11 @@
     <MESSAGE value="feat(posts): 更新Docker容器操作命令与技巧文档&#10;&#10;- 替换Docker仓库镜像地址为毫秒镜像- 添加docker.service文件配置说明- 补充容器与镜像操作常用命令&#10;- 提供高危操作警示与使用建议- 优化文章结构与内容展示格式&#10;- 更新loading图片路径配置- 调整.gitignore排除规则" />
     <MESSAGE value="feat(blog): 添加Keepalived使用手册和Dockerfile&#10;&#10;- 新增Keepalived配置文件和Dockerfile用于构建镜像- 添加Keepalived使用手册，包含配置解析和Docker构建说明&#10;- 更新.gitignore文件，增加Node.js依赖和编辑器配置忽略规则&#10;- 升级Hexo版本至8.1.1并更新相关依赖&#10;- 修改Docker操作命令文档标题及部分内容&#10;- 添加Linux通用命令操作文档，记录磁盘扩容等常用操作- 调整IDEA项目配置，排除更多不必要的目录&#10;- 更新Hexo强化手册，新增版本升级和图片文件添加说明" />
     <MESSAGE value="feat(config): 更新导航栏菜单配置并启用资源文件夹&#10;&#10;- 将导航栏菜单项的 key 替换为中文显示名称&#10;- 启用文章资产文件夹功能(post_asset_folder: true)&#10;- 配置 marked 渲染器支持相对链接和文章资产&#10;- 添加 hexo-renderer-pug依赖用于 Pug 模板渲染- 更新 package-lock.json 包含新增依赖及其子依赖" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(config): 更新导航栏菜单配置并启用资源文件夹&#10;&#10;- 将导航栏菜单项的 key 替换为中文显示名称&#10;- 启用文章资产文件夹功能(post_asset_folder: true)&#10;- 配置 marked 渲染器支持相对链接和文章资产&#10;- 添加 hexo-renderer-pug依赖用于 Pug 模板渲染- 更新 package-lock.json 包含新增依赖及其子依赖" />
+    <MESSAGE value="docs(mysql): 添加 MySQL 8.0 组复制集群配置指南&#10;&#10;- 新增 Mysql8.0 启用组复制的完整配置过程文档&#10;- 提供详细的 my.cnf 配置文件示例和环境变量设置&#10;- 包含 docker 容器化部署的 compose 文件配置&#10;- 整理了集群配置过程中常见的坑点和解决方案&#10;- 添加 hexo_run.js 脚本用于启动 hexo 服务&#10;- 更新项目配置文件以支持文章资产文件夹功能" />
+    <MESSAGE value="fix(mysql): 修复 MySQL 8.0 组复制配置文档中的多余换行&#10;&#10;- 移除了容器配置部分的多余空行&#10;- 保持了坑点合集部分的完整性&#10;- 确保了文档格式的一致性" />
+    <MESSAGE value="docs(blog): 添加CentOS和Linux相关技术文章及工具脚本&#10;&#10;- 新增CentOS 7常用工具和软件包指南，包含WindTerm等SSH工具介绍&#10;- 添加CentOS系统命令和操作技巧大全，涵盖防火墙、网络配置、定时任务等&#10;- 加入Linux通用命令操作指导，包括磁盘扩容等运维实践&#10;- 补充CentOS练习题及答案详解，强化实战技能训练&#10;- 集成speedtest.py网络测速工具脚本&#10;- 修正MySQL集群文章分类结构" />
+    <MESSAGE value="docs(firewall): 更新防火墙配置文档的元数据格式&#10;&#10;- 将标签格式从数组改为列表形式&#10;- 添加了缩写链接(abbrlink)字段&#10;- 修正了日期格式为标准时间戳&#10;- 重新排列了YAML front matter的字段顺序&#10;- 保留了原有的防火墙相关内容介绍" />
+    <MESSAGE value="docs(mysql): 添加MySQL 8.0组复制集群配置文档&#10;&#10;- 详细介绍MySQL 8.0组复制集群的两种配置方式&#10;- 提供完整的my.cnf配置文件模板和环境变量设置&#10;- 包含Docker容器化部署的compose文件配置&#10;- 说明MySQL Shell的操作步骤和集群创建流程&#10;- 记录配置过程中遇到的各种常见问题和解决方案&#10;- 补充MySQL Router的配置和使用方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(mysql): 添加MySQL 8.0组复制集群配置文档&#10;&#10;- 详细介绍MySQL 8.0组复制集群的两种配置方式&#10;- 提供完整的my.cnf配置文件模板和环境变量设置&#10;- 包含Docker容器化部署的compose文件配置&#10;- 说明MySQL Shell的操作步骤和集群创建流程&#10;- 记录配置过程中遇到的各种常见问题和解决方案&#10;- 补充MySQL Router的配置和使用方法" />
   </component>
 </project>
