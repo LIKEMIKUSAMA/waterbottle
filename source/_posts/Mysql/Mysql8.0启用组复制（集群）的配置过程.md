@@ -5,7 +5,6 @@ tags:
   - 数据库集群
 categories:
   - - Mysql
-    - 集群
 author: 瓶子
 abbrlink: 34a8
 date: 2026-04-07 15:06:53
