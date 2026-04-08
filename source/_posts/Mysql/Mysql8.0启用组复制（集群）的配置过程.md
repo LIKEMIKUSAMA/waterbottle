@@ -12,12 +12,15 @@ index_img:
 banner_img:
 ---
 Mysql8.0启用组复制（集群）的配置过程和踩过的坑，基于Mysql8.0.45和docker容器化配置模式，参考节点为三节点冗余服务器，mysql-route负责统一管理数据库入口
-
+全过程有两种：
+第一种：数据库初始化完成后，配置参数，随后自行搭建组集群，然后将创建好的集群使用mysqlshell处理元数据后实现集群的激活和入口统一。
+第二种：数据库初始化完成后，配置参数，使用mysqlshell进行集群搭建。
 <!-- more -->
 
 ## 初始化注意事项
 新的数据库要开启集群，需要先初始化默认的mysql数据库，然后在my.cnf文件中添加集群相关的配置参数，参考配置文件如下
 新数据库初始化需要删除集群配置里的内容，等初始化结束后再写入my.cnf，否则数据库会初始化失败！
+**初始化内容里的mysql的配置，无论你选择哪种配置方式处理过程都一样**
 ### my.cnf文件
 ```editorconfig
 [client]
@@ -101,15 +104,26 @@ Mysql还有部分环境变量可供快速初始化，可参考如下
 # 新建一个指定密码允许从其他服务器远程登录的root账号
 MYSQL_ROOT_PASSWORD=
 MYSQL_ROOT_HOST=%
-# 新建一个指定用户和密码的账户，但是没有权限。
+# Mysql router也会使用
 MYSQL_USER=
 MYSQL_PASSWORD=
+
+# -------------------
+# mysql-route配置 
+# -------------------
+# 连接主节点的ip和数据端口（3306）
+MYSQL_HOST=
+MYSQL_PORT=
+# 节点数，按实际修改，route会检查，最小为3
+MYSQL_INNODB_CLUSTER_MEMBERS=3
+# route不创建新成员
+MYSQL_CREATE_ROUTER_USER=0
 ```
 
 
-## docker容器化部署
+## docker容器化部署配置
 
-### compose文件
+### Mysql数据库 compose文件
 ```yaml
 version: '3'
 services:
@@ -133,6 +147,55 @@ services:
     restart: always # 容器随docker启动自启
 ```
 
+### Mysql-router compose文件
+```yaml
+version: '3'
+services:
+  mysql-router:
+    image: mysql-router:8.4 
+    container_name: mysql-router
+
+    env_file:
+      - ../system.env
+
+    network_mode: host
+    ports:
+      # 读写端口
+      - 6446:6446
+      # 只读端口
+      - 6447:6447
+    restart: always
+```
+
+### Mysql shell
+可以访问Mysql官方下载地址：https://dev.mysql.com/downloads/
+#### 自行搭建集群下，MysqlShell的操作
+```bash
+# 解压下载的压缩包
+tar -zxvf xxxxxx
+# 将bin加进系统环境
+`echo 'export PATH="/opt/tools/mysqlshell/mysql-shell/bin:$PATH"' >> ~/.bashrc`
+source ~/.bashrc
+# 3. 验证安装
+mysqlsh --version
+```
+
+```bash
+# 使用mysqlsh登录主节点，进行元数据构建供mysql-router使用
+mysqlsh -u {你的用户} -h {节点ip} -p{密码}
+# 执行之后会出现类似下方截图的内容
+\js var cluster = dba.createCluster('SQLCluster', {adoptFromGR: true});
+# 检查集群状态，所有节点均为online即可
+cluster.status();
+# 退出
+\exit
+```
+![执行注册集群](/waterbottle/img/Mysql8.0集群/vgdisplay.png)
+![Mysqlsh.png](../../img/Mysql8.0%E9%9B%86%E7%BE%A4/Mysqlsh.png)
+
+#### 使用 MysqlShell 初始化集群和搭建
+待补充
+
 ## 坑点合集
 1.所有数据库的配置须保持一致，如出现不一致的配置会导致集群配置冲突然后全体掉线。
 2.不同的硬件架构下的系统，即使使用同一版本的数据库，也无法搭建集群。集群所有节点必须处于同一建构下，如全为`arm`或全为`amd_x86`
@@ -140,3 +203,5 @@ services:
 4.数据库必须先初始化，然后再加载插件并修改添加相关配置。不能在初始化时就加载插件，插件会因为相关表不存在而报错，然后打断整个数据库的初始化过程。
 5.Mysql8.0默认使用的密码插件`caching_sha2_password` 要求集群连接时使用SSL方式或者要求基于RSA密钥进行密码交换(需要客户端指定 `GET_MASTER_PUBLIC_KEY=1`)，最简单的办法就是直接修改密码插件为`mysql_native_password`。
 6.mysql集群需要绑定本机IP，容器化部署会导致容器IP和宿主机IP不一致，随后集群绑定IP失败，解决办法为：将mysql的网络设置为host，直接使用宿主机IP。
+7.自行配置并创立集群后，**必须使用** MysqlShell 来处理集群元数据，否则Mysqlrouter无法通过元数据识别到集群信息。
+8.配置文件中新建的用户账号，需要在创立完成后手动赋予数据库全权限和集群权限，否则也会导致数据不同步然后集群坏掉只能重置数据和集群
